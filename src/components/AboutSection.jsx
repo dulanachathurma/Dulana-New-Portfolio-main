@@ -92,7 +92,7 @@ export const AboutSection = () => {
               Currently diving deep into <strong className="text-purple-500">AI, Machine Learning</strong> and 
               <strong className="text-blue-500"> Full-Stack Development</strong>, I'm constantly pushing boundaries to learn and build impactful systems. 
               With over 2 years of coding experience and 11+ projects completed, my journey started with curiosity and has evolved into a career driven by continuous learning and excellence.
-              <span className="inline-block ml-1">⚡</span>
+              <span className="inline-block ml-1"></span>
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
