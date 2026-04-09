@@ -220,6 +220,7 @@ section .section-subtitle {
 }
 
 /* Card Styles - Clean and Clear */
+/* Card Styles - Clean and Clear */
 .card, 
 .project-card, 
 .skill-card, 
@@ -246,6 +247,25 @@ section .section-subtitle {
 .dark .contact-card {
   background: #1e293b;
   border-color: #334155;
+  color: #000000;  /* ← Me line eka add karanna (black text for dark mode) */
+}
+
+/* Card eke athule thiyena all text walata black color ekak danna nam, meka add karanna */
+.dark .card p,
+.dark .card h3,
+.dark .card li,
+.dark .card span,
+.dark .project-card p,
+.dark .project-card h3,
+.dark .skill-card p,
+.dark .skill-card h3,
+.dark .education-card p,
+.dark .education-card h3,
+.dark .experience-card p,
+.dark .experience-card h3,
+.dark .certificate-card p,
+.dark .article-card p {
+  color: #000000;
 }
 
 /* Card Hover */
