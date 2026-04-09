@@ -210,7 +210,7 @@ section .section-subtitle {
 
 /* Dark Mode */
 .dark section .section-subtitle {
-  color: #94a3b8;
+  color: #000000;
 }
 
 /* Cards Grid - Clean Layout */
@@ -246,7 +246,7 @@ section .section-subtitle {
 .dark .contact-card {
   background: #1e293b;
   border-color: #334155;
-  color: #e2e8f0;  /* Added: Light gray text for better readability */
+  color: #000000;
 }
 
 /* Card Hover */
@@ -269,10 +269,10 @@ section p {
 }
 
 .dark section p {
-  color: #cbd5e1;
+  color: #000000;
 }
 
-/* Dark mode card text styles - for better readability */
+/* Dark mode card text styles - ALL BLACK */
 .dark .card p,
 .dark .card li,
 .dark .card span,
@@ -286,7 +286,7 @@ section p {
 .dark .experience-card li,
 .dark .certificate-card p,
 .dark .article-card p {
-  color: #cbd5e1;
+  color: #000000;
 }
 
 section h3 {
@@ -297,10 +297,10 @@ section h3 {
 }
 
 .dark section h3 {
-  color: #f1f5f9;
+  color: #000000;
 }
 
-/* Dark mode card headings */
+/* Dark mode card headings - BLACK */
 .dark .card h3,
 .dark .project-card h3,
 .dark .skill-card h3,
@@ -308,7 +308,7 @@ section h3 {
 .dark .experience-card h3,
 .dark .certificate-card h3,
 .dark .article-card h3 {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* Lists - Clean Display */
@@ -327,7 +327,7 @@ section li {
 }
 
 .dark section li {
-  color: #cbd5e1;
+  color: #000000;
 }
 
 section li::before {
@@ -356,7 +356,7 @@ section li::before {
 .dark .skill-tag,
 .dark .tool {
   background: #334155;
-  color: #cbd5e1;
+  color: #000000;
 }
 
 /* Stats Cards */
@@ -385,7 +385,7 @@ section li::before {
 }
 
 .dark .stat-label {
-  color: #94a3b8;
+  color: #000000;
 }
 
 /* Responsive */
