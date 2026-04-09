@@ -75,10 +75,10 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold flex items-center gap-2">
-              My Journey<span className="text-primary"></span>
-              <span className="text-2xl"></span>
-            </h3>
+            <h3 className="text-2xl font-semibold flex items-center justify-center gap-2 text-center">
+  My Journey<span className="text-primary"></span>
+  <span className="text-2xl"></span>
+</h3>
 
             <p className="text-muted-foreground leading-relaxed">
               <span className="text-2xl mr-2"></span> 
