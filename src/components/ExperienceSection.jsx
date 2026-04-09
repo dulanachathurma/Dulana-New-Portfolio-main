@@ -56,21 +56,8 @@ const experiences = [
     borderColor: "border-red-200 dark:border-red-800",
     iconBg: "from-red-500 to-orange-500",
     tagColor: "bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300"
-  },
-  {
-    id: 5,
-    title: "Central Environmental Authority, Sri Lanka",
-    location: "Beliatta, Sri Lanka",
-    date: "2020 - 2022",
-    description: "School Environmental Pioneer Service Group member at H/Beliatta National College Environmental Pioneer Team. Achieved 3 ranking logos for outstanding contributions.",
-    image: "/experience-environmental-authority.jpg",
-    link: "https://www.linkedin.com/in/dulana-chathurma/overlay/VolunteerExperience/551584802/image-list/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_volunteering_experience_details%3B92%2FJJghjS1WQuwh0iE7rTw%3D%3D",
-    linkText: "View Photo",
-    bgGradient: "from-green-50 to-lime-50 dark:from-green-950/30 dark:to-lime-950/30",
-    borderColor: "border-green-200 dark:border-green-800",
-    iconBg: "from-green-500 to-lime-500",
-    tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
   }
+
 ];
 
 export const ExperienceSection = () => {
