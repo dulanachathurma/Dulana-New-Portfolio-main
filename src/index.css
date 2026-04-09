@@ -267,8 +267,10 @@ section p {
   color: #475569;
   margin-bottom: 1rem;
 }
-.dark .about p,
-.dark .about .description {
+/* About Me section - white text in dark mode */
+.dark .about-section p,
+.dark .about-card p,
+.dark .about-text {
   color: #ffffff;
 }
 .dark section p {
