@@ -1,133 +1,98 @@
-# Build a Modern Portfolio Website with React & TailwindCSS
+# Dulana Chathurma | AI/ML Software Engineer Portfolio
 
-<div align="center">
-  <br />
-  <a href="https://youtu.be/YOUR_VIDEO_ID" target="_blank">
-    <img src="./banner.png" alt="Portfolio Website Banner">
-  </a>
-  <br />
-  <div>
-    <img src="https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
-    <img src="https://img.shields.io/badge/-TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss" alt="Tailwind CSS" />
-    <img src="https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-    <img src="https://img.shields.io/badge/-Lucide Icons-FD4D4D?style=for-the-badge&logo=lucide" alt="Lucide Icons" />
-    <img src="https://img.shields.io/badge/-Radix UI-9D4EDD?style=for-the-badge&logo=data:image/svg+xml;base64..." alt="Radix UI" />
-  </div>
-  <h3 align="center">Create a Stunning Developer Portfolio with Animations, Dark Mode, and Projects Showcase</h3>
-  <div align="center">
-    Follow the full video tutorial on 
-    <a href="https://youtu.be/YOUR_VIDEO_ID" target="_blank"><b>YouTube</b></a>
-  </div>
-  <br />
-</div>
+A modern, responsive personal portfolio website built with React, Tailwind CSS, and Vite.
 
-## 📋 Table of Contents
+## 👤 About Me
 
-1. [Introduction](#-introduction)
-2. [Tech Stack](#-tech-stack)
-3. [Features](#-features)
-4. [Quick Start](#-quick-start)
-5. [Screenshots](#-screenshots)
-6. [Deployment](#-deployment)
+Hi! I'm **Dulana Chathurma**, a passionate Software Engineering (UG) student at **University of Kelaniya, Sri Lanka**. I love coding, problem-solving, and building impactful projects. Always eager to learn new technologies and improve my skills.
 
----
+- 🎓 **Education:** BSc (Honours) in Software Engineering - University of Kelaniya (2025 - 2029)
+- 📍 **Location:** Kopiwatta, Getamanna, Beliatta, Sri Lanka
+- 📧 **Email:** dulanachathurma99@gmail.com
+- 📱 **Phone:** +94 76 75 74 844
 
-## 🚀 Introduction
+## 🔗 Connect With Me
 
-In this tutorial, you'll learn how to build a modern portfolio website using **React**, **TailwindCSS**, **Vite**, and **Lucide Icons**. From dark mode support to responsive animations and deployable project showcases, this video walks you through every step—perfect for developers looking to level up their frontend skills or apply for jobs.
+- **LinkedIn:** [dulana-chathurma](https://linkedin.com/in/dulana-chathurma)
+- **GitHub:** [dulanachathurma](https://github.com/dulanachathurma)
+- **Medium:** [@dulanachathurma99](https://medium.com/@dulanachathurma99)
+- **WhatsApp:** [Chat with me](https://wa.me/94767574844)
 
-🎥 Watch the full tutorial: [YouTube](https://youtu.be/YOUR_VIDEO_ID)
+## 💻 Technical Skills
 
----
+- **Languages:** Java, Python, C, JavaScript, PHP, HTML, CSS
+- **Frameworks:** Spring Boot, React.js, Tailwind CSS
+- **Databases:** MySQL, PostgreSQL
+- **AI/ML:** Machine Learning, AI Development, Data Analysis
+- **Tools:** Git, GitHub, VS Code, Postman
 
-## ⚙️ Tech Stack
+## 🎓 Education
 
-* **React** – Component-based UI development
-* **Vite** – Lightning-fast build tool
-* **TailwindCSS** – Utility-first CSS for styling
-* **Lucide Icons** – Clean and beautiful icon pack
-* **Radix UI** – Accessible component primitives
-* **TypeScript (optional)** – Type safety and tooling
-* **GitHub & Vercel** – Deployment
+| Degree | Institution | Period |
+|--------|-------------|--------|
+| BSc (Honours) in Software Engineering | University of Kelaniya, Sri Lanka | 2025 - 2029 |
+| G.C.E Advanced Level | H/ Rajapaksa National College, Weeraketiya | 2023 |
 
----
+## 💼 Experience
 
-## ⚡️ Features
+- **Gavel Club - University of Kelaniya** (2023 - Present) - Faculty Coordinator for Social Services
+- **GitHub Dev Day** (2026) - Participant & Beginner Program Graduate
+- **Traveling Experiences YouTube** (2024 - Present) - Content Creator
+- **Central Environmental Authority** (2020 - 2022) - Environmental Pioneer
 
-* 🌑 **Light/Dark Mode Toggle**
-  Save theme preference in local storage with beautiful transitions
+## 📜 Certifications
 
-* 💫 **Animated Backgrounds**
-  Stars, meteors, scroll effects, and glowing UI elements
+- Online Certification Course - Open Learning Platform (Python, Web Design)
+- Diploma in English - Dekma Institute Matara (CERF Level B1)
+- Udemy Courses - Generative AI, Machine Learning, Full Stack Development
+- HackerRank Certifications - Problem Solving
+- Microsoft Certificates - Azure, AI Fundamentals
+- AWS Certificates - Cloud Practitioner
 
-* 📱 **Responsive Navigation**
-  Desktop and mobile menus with glassmorphism
+## 📝 Articles
 
-* 👨‍💻 **Hero & About Sections**
-  Showcase who you are with smooth intro animations and buttons
+- CIA Triad: Safeguarding Our Information
+- The Importance of Diagrams
+- Understanding Banking System Use Case Diagrams
+- Elephant Early Warning System in Railway Transport
 
-* 📊 **Skills Grid**
-  Filterable progress bars and categories with animated width
+## 🚀 Featured Projects
 
-* 🖼️ **Projects Showcase**
-  Display screenshots, tech stacks, and GitHub/demo links
+1. **CarePoint Medical Center** - Healthcare web application for doctor search and appointment booking
+2. **User Management Application** - Full-stack CRUD app with Spring Boot and React.js
+3. **TravelScope** - Travel platform showcasing Sri Lanka
+4. **WeatherSphere Pro** - Real-time weather application
+5. **NexGenAI** - AI-powered career skill analysis platform
+6. **Sriseta Official Website** - Modern astrology website
 
-* 📩 **Contact Section**
-  Social icons + responsive contact form with toast notifications
+## ✨ Portfolio Features
 
-* 🚀 **One-Click Deployment**
-  Easily host your site with Vercel and GitHub
+- ✅ Fully Responsive Design (Mobile + Desktop)
+- ✅ Dark/Light Mode Toggle
+- ✅ Mobile Hamburger Menu (Left side slide-in)
+- ✅ Smooth Scrolling between sections
+- ✅ Contact Form with WhatsApp Integration
+- ✅ Dynamic Projects and Skills rendering
+- ✅ Beautiful Animations and Hover Effects
+- ✅ Snow Effect in Dark Mode
+- ✅ SEO Optimized
 
----
+## 🛠️ Tech Stack
 
-## 👌 Quick Start
+- React 18
+- Tailwind CSS
+- Vite
+- Lucide React Icons
 
-### Prerequisites
+## 📧 Contact Me
 
-* [Node.js](https://nodejs.org/)
-* [Git](https://git-scm.com/)
+Feel free to reach out for collaborations or just a friendly hello!
 
-### Clone and Run
-
-```bash
-git clone https://github.com/yourusername/react-tailwind-portfolio.git
-cd react-tailwind-portfolio
-npm install
-npm run dev
-```
-
-Your app will be available at: [http://localhost:5173](http://localhost:5173)
+- **Email:** dulanachathurma99@gmail.com
+- **Phone:** +94 76 75 74 844
+- **WhatsApp:** [Click to chat](https://wa.me/94767574844)
+- **LinkedIn:** [dulana-chathurma](https://linkedin.com/in/dulana-chathurma)
 
 ---
 
-## 🖼️ Screenshots
-
-> 📸 Add screenshots of your Hero section, Projects grid, and Contact form here to show off your site.
-
----
-
-## ☁️ Deployment
-
-### Deploy on Vercel
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Click **Deploy**
-
-Your live website will be hosted on a custom subdomain (e.g. `https://your-name.vercel.app`)
-
----
-
-## 🔗 Useful Links
-
-* [React Documentation](https://reactjs.org/)
-* [Tailwind CSS Docs](https://tailwindcss.com/)
-* [Lucide Icons](https://lucide.dev/)
-* [Radix UI](https://www.radix-ui.com/)
-* [Vite](https://vitejs.dev/)
-* [Vercel](https://vercel.com/)
-
----
-
-Let me know if you'd like me to generate a version with your actual GitHub repo, YouTube URL, or a banner image suggestion!
+©  2026 Dulana Chathurma. All rights reserved.
