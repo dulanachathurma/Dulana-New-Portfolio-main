@@ -267,11 +267,19 @@ section p {
   color: #475569;
   margin-bottom: 1rem;
 }
-/* About Me section - white text in dark mode */
+/* About Me Section - Force white text in dark mode */
+.dark .about p,
 .dark .about-section p,
-.dark .about-card p,
-.dark .about-text {
-  color: #ffffff;
+.dark .about-me p,
+.dark [class*="about"] p {
+  color: #ffffff !important;
+}
+
+/* About Me headings white karanna nam */
+.dark .about h3,
+.dark .about-section h3,
+.dark .about-me h3 {
+  color: #ffffff !important;
 }
 .dark section p {
   color: #000000;  /* White text for all section paragraphs */
