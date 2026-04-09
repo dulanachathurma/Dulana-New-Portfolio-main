@@ -246,6 +246,7 @@ section .section-subtitle {
 .dark .contact-card {
   background: #1e293b;
   border-color: #334155;
+  color: #e2e8f0;  /* Added: Light gray text for better readability */
 }
 
 /* Card Hover */
@@ -271,6 +272,23 @@ section p {
   color: #cbd5e1;
 }
 
+/* Dark mode card text styles - for better readability */
+.dark .card p,
+.dark .card li,
+.dark .card span,
+.dark .project-card p,
+.dark .project-card li,
+.dark .skill-card p,
+.dark .skill-card li,
+.dark .education-card p,
+.dark .education-card li,
+.dark .experience-card p,
+.dark .experience-card li,
+.dark .certificate-card p,
+.dark .article-card p {
+  color: #cbd5e1;
+}
+
 section h3 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -280,6 +298,17 @@ section h3 {
 
 .dark section h3 {
   color: #f1f5f9;
+}
+
+/* Dark mode card headings */
+.dark .card h3,
+.dark .project-card h3,
+.dark .skill-card h3,
+.dark .education-card h3,
+.dark .experience-card h3,
+.dark .certificate-card h3,
+.dark .article-card h3 {
+  color: #ffffff;
 }
 
 /* Lists - Clean Display */
