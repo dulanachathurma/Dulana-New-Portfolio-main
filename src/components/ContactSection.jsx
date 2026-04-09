@@ -54,7 +54,7 @@ Sent from Dulana Chathurma Portfolio`;
   const contactInfo = [
     { 
       icon: Mail, 
-      text: "dulanachathurma99@gmail.com", 
+       
       href: "mailto:dulanachathurma99@gmail.com", 
       color: "text-blue-500", 
       bgColor: "bg-blue-50 dark:bg-blue-950/30",
