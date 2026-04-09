@@ -268,10 +268,11 @@ section p {
   margin-bottom: 1rem;
 }
 
-
-.dark section p {
-  color: #000000;  /* White text for all section paragraphs */
+.dark .about p,
+.dark .about .description {
+  color: #ffffff;
 }
+
 /* Dark mode card text styles - ALL BLACK */
 .dark .card p,
 .dark .card li,
