@@ -269,9 +269,8 @@ section p {
 }
 
 .dark section p {
-  color: #000000;
+  color: #ffffff;  /* White text for all section paragraphs */
 }
-
 /* Dark mode card text styles - ALL BLACK */
 .dark .card p,
 .dark .card li,
