@@ -81,7 +81,7 @@ const projects = [
 
  
   {
-    id: 10,
+    id: 8,
     title: "AI Career & University Recommendation System",
     description: "Building an AI-Based Career Path Prediction and University Recommendation System that helps students make informed decisions. Analyzes academic profiles, interests, and market trends to suggest optimal career paths and matching universities.",
     image: "/project-ai-career.jpg",
@@ -92,7 +92,7 @@ const projects = [
     tagColor: "bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300"
   },
   {
-    id: 11,
+    id: 9,
     title: "YouTube Frontend UI Clone",
     description: "YouTube-inspired homepage UI, built entirely with HTML5 & CSS3. Replicates the look and feel of YouTube's interface with clean, modern styling.",
     image: "/project-youtube-clone.jpg",
@@ -103,7 +103,7 @@ const projects = [
     tagColor: "bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300"
   },
   {
-    id: 12,
+    id: 10,
     title: "Intelligent Career Skill Analysis Platform (NexGenAI)",
     description: "NexGenAI is LIVE! An AI-powered career platform that analyzes CVs, maps skills intelligently, and provides career recommendations along with ATS scores in seconds. Features dynamic skill dashboards and career match predictions.",
     image: "/project-nexgenai.jpg",
