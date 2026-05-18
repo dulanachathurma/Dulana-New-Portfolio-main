@@ -42,21 +42,8 @@ const experiences = [
     borderColor: "border-emerald-200 dark:border-emerald-800",
     iconBg: "from-emerald-500 to-teal-500",
     tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
-  },
-  {
-    id: 4,
-    title: "Traveling Experiences",
-    location: "Sri Lanka",
-    date: "Aug 2024 - Present · 1 yr 9 mos",
-    description: "Managing a travel and lifestyle YouTube page focused on exploring Sri Lanka 🇱🇰✈️. Developed skills in video editing, AI tools usage, and Canva-based photo editing to create engaging digital content.",
-    image: "/youtube-logo.png",
-    link: "https://www.linkedin.com/in/dulana-chathurma/overlay/Position/2741267109/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B65jxYYkUQ2%2BYVbBokosGhA%3D%3D",
-    linkText: "View Work",
-    bgGradient: "from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30",
-    borderColor: "border-red-200 dark:border-red-800",
-    iconBg: "from-red-500 to-orange-500",
-    tagColor: "bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300"
   }
+ 
 
 ];
 
