@@ -3,6 +3,28 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
+    title: "VisionScope AI",
+    description: "AI-powered real-time human feature detection system with webcam analysis, face & eye tracking, image upload processing, and drowsiness detection alerts for driver safety. Built using Flask, OpenCV, MediaPipe, React, and Machine Learning technologies.",
+    image: "/project-visionscope-ai.jpg",
+    tags: ["Python", "Flask", "OpenCV", "MediaPipe", "React.js", "Machine Learning"],
+    demoUrl: "",
+    githubUrl: "https://github.com/dulanachathurma/VisionScope-AI",
+    date: "2026",
+    tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+},
+  {
+  id: 2,
+  title: "GPA Calculator App",
+  description: "A full-featured academic GPA tracking web application that allows students to calculate Semester GPA, Year GPA, and Cumulative GPA across multiple academic years with a clean and responsive UI.",
+  image: "/project-gpa-calculator.jpg",
+  tags: ["React 19", "Vite", "Tailwind CSS", "JavaScript"],
+  demoUrl: "https://dcgpa.vercel.app/",
+  githubUrl: "https://github.com/dulanachathurma/GPA-Calculator-App",
+  date: "2026",
+  tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
+},
+  {
+    id: 3,
     title: "CarePoint Medical Center",
     description: "Modern healthcare web application designed for easy doctor search, appointment booking, and seamless patient experience. Features doctor search, online appointment booking, secure payment simulation, ambulance contact access, and a fully responsive user interface.",
     image: "/project-medical-center.jpg",
@@ -13,7 +35,7 @@ const projects = [
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
   {
-    id: 2,
+    id: 4,
     title: "Amazon Clone Website",
     description: "A simple e-commerce web application inspired by Amazon, designed to simulate an online shopping experience with a clean and interactive interface. Features product browsing, add-to-cart functionality, responsive layout, and interactive UI elements.",
     image: "/project-amazon-clone.jpg",
@@ -24,7 +46,7 @@ const projects = [
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
   {
-    id: 3,
+    id: 5,
     title: "User Management Application",
     description: "Full-stack CRUD web application developed using Spring Boot, React.js, JavaScript, and MySQL. The system allows efficient user data management with a structured backend and a responsive front-end interface.",
     image: "/project-user-management.jpg",
@@ -35,7 +57,7 @@ const projects = [
     tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
   },
   {
-    id: 4,
+    id: 6,
     title: "Sriseta Official Website",
     description: "Modern astrology website with live horoscopes, service booking, WhatsApp integration, and mobile-friendly design. Features auto-updating predictions, interactive zodiac slider, and contact forms.",
     image: "/project-astrology-website.jpg",
@@ -46,7 +68,7 @@ const projects = [
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
   {
-    id: 5,
+    id: 7,
     title: "TravelScope Website",
     description: "A comprehensive travel platform showcasing Sri Lanka's beauty, built with modern web technologies. This project represents my passion for both technology and promoting Sri Lankan tourism.",
     image: "/project-travelscope.jpg",
@@ -57,7 +79,7 @@ const projects = [
     tagColor: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300"
   },
   {
-    id: 6,
+    id: 8,
     title: "WeatherSphere Pro App",
     description: "WeatherSphere Pro is a responsive weather web application providing real-time weather updates with a clean interface. Built using React.js, HTML, CSS, and JavaScript, providing real-time weather updates.",
     image: "/project-weather-app.jpg",
@@ -68,7 +90,7 @@ const projects = [
     tagColor: "bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300"
   },
   {
-    id: 7,
+    id: 9,
     title: "React Stopwatch",
     description: "This is a simple stopwatch application built with React. It allows users to start, pause, and reset the timer. The interface is clean and responsive, displaying the elapsed time in milliseconds, seconds, and minutes.",
     image: "/stopwatch-app.jpg",
@@ -81,7 +103,7 @@ const projects = [
 
  
   {
-    id: 8,
+    id: 10,
     title: "AI Career & University Recommendation System",
     description: "Building an AI-Based Career Path Prediction and University Recommendation System that helps students make informed decisions. Analyzes academic profiles, interests, and market trends to suggest optimal career paths and matching universities.",
     image: "/project-ai-career.jpg",
@@ -92,7 +114,7 @@ const projects = [
     tagColor: "bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300"
   },
   {
-    id: 9,
+    id: 11,
     title: "YouTube Frontend UI Clone",
     description: "YouTube-inspired homepage UI, built entirely with HTML5 & CSS3. Replicates the look and feel of YouTube's interface with clean, modern styling.",
     image: "/project-youtube-clone.jpg",
@@ -103,7 +125,7 @@ const projects = [
     tagColor: "bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300"
   },
   {
-    id: 10,
+    id: 12,
     title: "Intelligent Career Skill Analysis Platform (NexGenAI)",
     description: "NexGenAI is LIVE! An AI-powered career platform that analyzes CVs, maps skills intelligently, and provides career recommendations along with ATS scores in seconds. Features dynamic skill dashboards and career match predictions.",
     image: "/project-nexgenai.jpg",
