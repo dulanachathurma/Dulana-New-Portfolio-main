@@ -78,28 +78,8 @@ const projects = [
     date: "Apr 2026 – Apr 2026",
     tagColor: "bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300"
   },
-  {
-    id: 8,
-    title: "Todo App",
-    description: "A clean Todo App built using Java and PostgreSQL for task management.",
-    image: "/project-todo-app.jpg",
-    tags: ["Java", "PostgreSQL"],
-    demoUrl: "https://github.com/dulanachathurma/Todo-App",
-    githubUrl: "https://github.com/dulanachathurma/Todo-App",
-    date: "2025",
-    tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
-  },
-  {
-    id: 9,
-    title: "ATM Mini Project",
-    description: "ATM simulation program using C, functions, switch cases, and complete banking logic.",
-    image: "/project-atm-system.jpg",
-    tags: ["C", "Banking Logic"],
-    demoUrl: "https://github.com/dulanachathurma/ATM-Bank-Project-System",
-    githubUrl: "https://github.com/dulanachathurma/ATM-Bank-Project-System",
-    date: "2025",
-    tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
-  },
+
+ 
   {
     id: 10,
     title: "AI Career & University Recommendation System",
