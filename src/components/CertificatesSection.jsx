@@ -92,7 +92,30 @@ const certificates = [
       { text: "View on LinkedIn", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324286717/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BDWEo3HrFRQSHpb6dXY8xNg%3D%3D" }
     ],
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
-  }
+  },
+  {
+  id: 7,
+  title: "Android Basics with Compose (Unit 1 & 2)",
+  organization: "Google for Developers",
+  location: "Online",
+  date: "Feb 2026",
+  description: "Google's official Android course using Kotlin & Jetpack Compose. Covers Kotlin basics, UI building, layouts, state management, and app navigation.",
+  image: "/certificate-android-compose.jpg",
+  skills: [
+    "Kotlin",
+    "Jetpack Compose",
+    "Android UI",
+    "State Management",
+    "App Navigation"
+  ],
+  links: [
+    {
+      text: "View Certificate",
+      url: "https://developer.android.com/courses"
+    }
+  ],
+  tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
+}
 ];
 
 export const CertificatesSection = () => {
