@@ -111,7 +111,7 @@ const certificates = [
   links: [
     {
       text: "View Certificate",
-      url: "https://developer.android.com/courses"
+      url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589904754/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bg40RkAk7R0Ox%2Fgxa3BqPlg%3D%3D"
     }
   ],
   tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
