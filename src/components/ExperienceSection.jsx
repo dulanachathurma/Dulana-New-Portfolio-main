@@ -122,8 +122,7 @@ export const ExperienceSection = () => {
                 </div>
               </div>
               
-              {/* Bottom Gradient Line */}
-              <div className={`h-1 w-full bg-gradient-to-r ${exp.iconBg} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+             
             </div>
           ))}
         </div>
