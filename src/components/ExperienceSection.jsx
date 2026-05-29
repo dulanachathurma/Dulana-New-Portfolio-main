@@ -1,5 +1,4 @@
 import { Calendar, MapPin, ExternalLink } from "lucide-react";
-
 const experiences = [
   {
     id: 1,
@@ -43,8 +42,8 @@ const experiences = [
     iconBg: "from-emerald-500 to-teal-500",
     tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
   }
+ 
 ];
-
 export const ExperienceSection = () => {
   return (
     <section id="experience" className="py-24 px-4 relative">
@@ -62,33 +61,32 @@ export const ExperienceSection = () => {
             My professional journey and volunteer experiences that have shaped my career
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {experiences.map((exp) => (
-            <div
-              key={exp.id}
-              className={`group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br ${exp.bgGradient} border ${exp.borderColor} flex flex-col`}
+            <div 
+              key={exp.id} 
+              className={`group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br ${exp.bgGradient} border ${exp.borderColor}`}
             >
-              <div className="flex p-6 gap-5 flex-1">
+              <div className="flex p-6 gap-5">
                 {/* Image Circle with Gradient Border */}
                 <div className="flex-shrink-0">
                   <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${exp.iconBg} p-1 shadow-md`}>
                     <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-800">
-                      <img
-                        src={exp.image}
+                      <img 
+                        src={exp.image} 
                         alt={exp.title}
                         className="w-full h-full object-cover"
                       />
                     </div>
                   </div>
                 </div>
-
+                
                 {/* Content */}
-                <div className="flex-1 flex flex-col">
+                <div className="flex-1">
                   <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white leading-tight">
                     {exp.title}
                   </h3>
-
+                  
                   {/* Info Row */}
                   <div className="space-y-1.5 mb-3">
                     <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
@@ -100,13 +98,13 @@ export const ExperienceSection = () => {
                       <span>{exp.date}</span>
                     </div>
                   </div>
-
+                  
                   {/* Description */}
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
                     {exp.description}
                   </p>
-
-                  {/* Green Button */}
+                  
+                {/* Green Button */}
                   {exp.link && (
                     <div className="mt-auto pt-3 border-t border-black/5 dark:border-white/10">
                       <a
@@ -121,6 +119,8 @@ export const ExperienceSection = () => {
                   )}
                 </div>
               </div>
+              
+             
             </div>
           ))}
         </div>
@@ -128,3 +128,7 @@ export const ExperienceSection = () => {
     </section>
   );
 };
+
+
+
+green button add karanna
