@@ -104,18 +104,16 @@ export const ExperienceSection = () => {
                     {exp.description}
                   </p>
                   
-                {/* Green Button */}
+                  {/* Link Button */}
                   {exp.link && (
-                    <div className="mt-auto pt-3 border-t border-black/5 dark:border-white/10">
-                      <a
-                        href={exp.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-sm font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-                      >
-                        {exp.linkText} <ExternalLink size={14} />
-                      </a>
-                    </div>
+                    <a 
+                      href={exp.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${exp.tagColor} hover:scale-105`}
+                    >
+                      {exp.linkText} <ExternalLink size={12} />
+                    </a>
                   )}
                 </div>
               </div>
