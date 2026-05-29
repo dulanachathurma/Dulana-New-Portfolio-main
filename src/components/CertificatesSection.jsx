@@ -80,7 +80,7 @@ const certificates = [
     tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
   },
 
-  // ── Udemy ─────────────────────────────────────────────────────────────────
+  //Udemy
   {
     id: 5,
     title: "Build Generative AI Apps with No-Code Tools",
@@ -182,27 +182,7 @@ const certificates = [
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
 },
-
-  //HackerRank
-  {
-    id: 9,
-    title: "SQL (Basic) Certificate",
-    organization: "HackerRank",
-    location: "Online",
-    date: "Nov 2025",
-    description: "Skill assessment certifying foundational SQL proficiency including queries, joins, and database management with MySQL.",
-    image: "/certificate-hackerrank1.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/HackerRank_Icon-1000px.png/200px-HackerRank_Icon-1000px.png",
-    logoText: "HR",
-    logoBg: "bg-green-600",
-    skills: ["SQL", "MySQL", "Database Management"],
-    links: [
-      { text: "Show Credential", url: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1" }
-    ],
-    viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1",
-    tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
-  },
-  {
+ {
     id: 20,
     title: "Java Programming for Beginners",
     organization: "Udemy",
@@ -227,6 +207,26 @@ const certificates = [
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
 },
+  //HackerRank
+  {
+    id: 9,
+    title: "SQL (Basic) Certificate",
+    organization: "HackerRank",
+    location: "Online",
+    date: "Nov 2025",
+    description: "Skill assessment certifying foundational SQL proficiency including queries, joins, and database management with MySQL.",
+    image: "/certificate-hackerrank1.jpg",
+    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/HackerRank_Icon-1000px.png/200px-HackerRank_Icon-1000px.png",
+    logoText: "HR",
+    logoBg: "bg-green-600",
+    skills: ["SQL", "MySQL", "Database Management"],
+    links: [
+      { text: "Show Credential", url: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1" }
+    ],
+    viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1",
+    tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
+  },
+ 
   {
     id: 10,
     title: "CSS (Basic) Certificate",
