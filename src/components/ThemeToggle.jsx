@@ -5,24 +5,29 @@ import { cn } from "@/lib/utils";
 export const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // INIT THEME
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
+
     if (storedTheme === "dark") {
-      setIsDarkMode(true);
       document.documentElement.classList.add("dark");
+      setIsDarkMode(true);
     } else {
-      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove("dark");
       setIsDarkMode(false);
     }
   }, []);
 
+  // TOGGLE
   const toggleTheme = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
+    const root = document.documentElement;
+
+    if (root.classList.contains("dark")) {
+      root.classList.remove("dark");
       localStorage.setItem("theme", "light");
       setIsDarkMode(false);
     } else {
-      document.documentElement.classList.add("dark");
+      root.classList.add("dark");
       localStorage.setItem("theme", "dark");
       setIsDarkMode(true);
     }
@@ -34,14 +39,10 @@ export const ThemeToggle = () => {
       className={cn(
         "fixed z-50 p-2 rounded-full transition-all duration-300",
         "backdrop-blur-sm shadow-md hover:scale-110 active:scale-95",
-        // Mobile: center at top
-        "top-5 left-1/2 -translate-x-1/2",
-        // Desktop: right side
-        "md:left-auto md:right-5 md:translate-x-0",
-        // Light mode background - White
-        "bg-white",
-        // Dark mode background - white
-        "dark:bg-white-800"
+        "top-5 left-1/2 -translate-x-1/2 md:left-auto md:right-5 md:translate-x-0",
+
+        // FIXED COLORS
+        "bg-white dark:bg-slate-900"
       )}
     >
       {isDarkMode ? (
