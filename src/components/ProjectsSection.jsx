@@ -231,7 +231,7 @@ export const ProjectsSection = () => {
                 </div>
               </div>
 
-              
+               </div>
         </div>
 
         {/* View All Button */}
