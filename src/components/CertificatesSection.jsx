@@ -1,7 +1,6 @@
 import { ExternalLink, Calendar, MapPin, Award } from "lucide-react";
 
 const certificates = [
- 
   {
     id: 1,
     title: "Online Certification Course",
@@ -16,7 +15,10 @@ const certificates = [
       { text: "Web Design", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1753715295/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BxAMr3FWFQpWmEla9JIUMBA%3D%3D" },
       { text: "Advanced Python", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1128708382/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BxAMr3FWFQpWmEla9JIUMBA%3D%3D" }
     ],
-    tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
+    viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1285080660/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
+    tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300",
+    logoText: "OL",
+    logoBg: "bg-indigo-500"
   },
   {
     id: 2,
@@ -30,7 +32,10 @@ const certificates = [
     links: [
       { text: "View Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/765265356/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BxAMr3FWFQpWmEla9JIUMBA%3D%3D" }
     ],
-    tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
+    viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/765265356/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
+    tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300",
+    logoText: "DI",
+    logoBg: "bg-emerald-500"
   },
   {
     id: 3,
@@ -42,14 +47,17 @@ const certificates = [
     image: "/certificate-udemy-courses.jpg",
     skills: ["Generative AI", "Machine Learning", "Full Stack", "Java", "HTML/CSS/JS"],
     links: [
-      { text: "Generative AI", url: "https://www.udemy.com/certificate/UC-f0f045c8-41ac-4fe2-96fa-8ba8a961f3ce/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com" },
+      { text: "Generative AI", url: "https://www.udemy.com/certificate/UC-f0f045c8-41ac-4fe2-96fa-8ba8a961f3ce/" },
       { text: "AI Chatbot", url: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/" },
       { text: "HTML/CSS/JS", url: "https://www.udemy.com/certificate/UC-226a83f7-6610-4734-9c04-b6216d8f257a/" },
       { text: "Machine Learning", url: "https://www.udemy.com/certificate/UC-43e7411b-68f6-4c4a-8338-37498974e265/" },
       { text: "Java", url: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/" },
-      { text: "Full Stack", url: "https://www.udemy.com/certificate/UC-ec191fa2-27b7-4249-8769-e8839a904032/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com" }
+      { text: "Full Stack", url: "https://www.udemy.com/certificate/UC-ec191fa2-27b7-4249-8769-e8839a904032/" }
     ],
-    tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
+    viewCertificateUrl: "https://www.udemy.com/certificate/UC-f0f045c8-41ac-4fe2-96fa-8ba8a961f3ce/",
+    tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300",
+    logoText: "U",
+    logoBg: "bg-purple-500"
   },
   {
     id: 4,
@@ -64,7 +72,10 @@ const certificates = [
       { text: "Certificate 1", url: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1" },
       { text: "Certificate 2", url: "https://www.hackerrank.com/certificates/iframe/26a32f7f5087" }
     ],
-    tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
+    viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1",
+    tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300",
+    logoText: "HR",
+    logoBg: "bg-orange-500"
   },
   {
     id: 5,
@@ -76,9 +87,12 @@ const certificates = [
     image: "/certificate-microsoft.jpg",
     skills: ["Azure", "AI Fundamentals", "Developer Tools"],
     links: [
-      { text: "View on LinkedIn", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324568203/image-list/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BDWEo3HrFRQSHpb6dXY8xNg%3D%3D" }
+      { text: "View on LinkedIn", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324568203/image-list/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
     ],
-    tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+    viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324568203/image-list/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
+    tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300",
+    logoText: "MS",
+    logoBg: "bg-blue-500"
   },
   {
     id: 6,
@@ -90,33 +104,30 @@ const certificates = [
     image: "/certificate-aws.jpg",
     skills: ["Cloud Architecture", "AWS Development", "Machine Learning"],
     links: [
-      { text: "View on LinkedIn", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324286717/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BDWEo3HrFRQSHpb6dXY8xNg%3D%3D" }
+      { text: "View on LinkedIn", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324286717/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
     ],
-    tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
+    viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324286717/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
+    tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300",
+    logoText: "AWS",
+    logoBg: "bg-amber-500"
   },
   {
-  id: 7,
-  title: "Android Basics with Compose (Unit 1 & 2)",
-  organization: "Google for Developers",
-  location: "Online",
-  date: "Feb 2026",
-  description: "Google's official Android course using Kotlin & Jetpack Compose. Covers Kotlin basics, UI building, layouts, state management, and app navigation.",
-  image: "/certificate-android-compose.jpg",
-  skills: [
-    "Kotlin",
-    "Jetpack Compose",
-    "Android UI",
-    "State Management",
-    "App Navigation"
-  ],
-  links: [
-    {
-      text: "View Certificate",
-      url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589904754/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bg40RkAk7R0Ox%2Fgxa3BqPlg%3D%3D"
-    }
-  ],
-  tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
-}
+    id: 7,
+    title: "Android Basics with Compose (Unit 1 & 2)",
+    organization: "Google for Developers",
+    location: "Online",
+    date: "Feb 2026",
+    description: "Google's official Android course using Kotlin & Jetpack Compose. Covers Kotlin basics, UI building, layouts, state management, and app navigation.",
+    image: "/certificate-android-compose.jpg",
+    skills: ["Kotlin", "Jetpack Compose", "Android UI", "State Management", "App Navigation"],
+    links: [
+      { text: "View Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589904754/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
+    ],
+    viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589904754/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
+    tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300",
+    logoText: "G",
+    logoBg: "bg-green-500"
+  }
 ];
 
 export const CertificatesSection = () => {
@@ -137,24 +148,16 @@ export const CertificatesSection = () => {
           </p>
         </div>
 
-
-       
-
-
-
-
-        
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert) => (
-            <div 
-              key={cert.id} 
-              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700"
+            <div
+              key={cert.id}
+              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 flex flex-col"
             >
               {/* Image Container */}
               <div className="relative h-44 overflow-hidden bg-gray-100 dark:bg-gray-800">
-                <img 
-                  src={cert.image} 
+                <img
+                  src={cert.image}
                   alt={cert.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -167,15 +170,23 @@ export const CertificatesSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-5">
+              <div className="p-5 flex flex-col flex-1">
+
+                {/* Organization Logo Circle + Name Row */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`w-10 h-10 rounded-full ${cert.logoBg} flex items-center justify-center flex-shrink-0 shadow-md`}>
+                    <span className="text-white text-xs font-bold tracking-wide">
+                      {cert.logoText}
+                    </span>
+                  </div>
+                  <p className="text-sm text-primary font-semibold leading-tight">{cert.organization}</p>
+                </div>
+
                 {/* Title */}
-                <h3 className="text-lg font-bold mb-1 text-gray-800 dark:text-white line-clamp-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white line-clamp-2 group-hover:text-primary transition-colors duration-300">
                   {cert.title}
                 </h3>
-                
-                {/* Organization */}
-                <p className="text-sm text-primary font-medium mb-2">{cert.organization}</p>
-                
+
                 {/* Location & Date */}
                 <div className="flex flex-wrap gap-3 text-xs text-gray-500 dark:text-gray-400 mb-3">
                   <span className="flex items-center gap-1">
@@ -185,12 +196,12 @@ export const CertificatesSection = () => {
                     <Calendar size={12} /> {cert.date}
                   </span>
                 </div>
-                
+
                 {/* Description */}
                 <p className="text-gray-600 dark:text-gray-300 text-xs mb-4 leading-relaxed line-clamp-2">
                   {cert.description}
                 </p>
-                
+
                 {/* Skills Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {cert.skills.slice(0, 3).map((skill, idx) => (
@@ -204,11 +215,11 @@ export const CertificatesSection = () => {
                     </span>
                   )}
                 </div>
-                
-                {/* Links */}
-                <div className="flex flex-wrap gap-2 pt-3 border-t border-gray-100 dark:border-gray-700">
+
+                {/* Extra Links */}
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-gray-100 dark:border-gray-700 mb-4">
                   {cert.links.slice(0, 2).map((link, idx) => (
-                    <a 
+                    <a
                       key={idx}
                       href={link.url}
                       target="_blank"
@@ -219,16 +230,25 @@ export const CertificatesSection = () => {
                     </a>
                   ))}
                   {cert.links.length > 2 && (
-                    <a 
-                      href="#"
-                      className="inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-primary transition-colors duration-300"
-                    >
+                    <span className="inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
                       +{cert.links.length - 2} more
-                    </a>
+                    </span>
                   )}
                 </div>
+
+                {/* View Certificate Green Button */}
+                <div className="mt-auto">
+                  <a
+                    href={cert.viewCertificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-sm font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    View Certificate <ExternalLink size={14} />
+                  </a>
+                </div>
               </div>
-              
+
               {/* Bottom Gradient Line */}
               <div className="h-0.5 w-full bg-gradient-to-r from-primary/0 via-primary to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
@@ -237,7 +257,7 @@ export const CertificatesSection = () => {
 
         {/* View All Button - Blue */}
         <div className="text-center mt-12">
-          <a 
+          <a
             href="https://www.linkedin.com/in/dulana-chathurma/details/certifications/"
             target="_blank"
             rel="noopener noreferrer"
