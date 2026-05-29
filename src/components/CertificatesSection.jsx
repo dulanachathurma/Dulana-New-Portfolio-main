@@ -135,7 +135,7 @@ const certificates = [
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
   {
-    id: 19,
+    id: 29,
     title: "Build Generative AI Apps and Solutions with No-Code Tools",
     organization: "Udemy",
     location: "Online",
