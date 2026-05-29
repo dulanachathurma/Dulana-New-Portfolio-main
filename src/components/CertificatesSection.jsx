@@ -334,7 +334,7 @@ const certificates = [
     location: "Online",
     date: "Feb 2026",
     description: "Core computer architecture and operating systems concepts mapped to AWS cloud infrastructure, covering compute instances, storage layers, and OS-level cloud operations.",
-    image: "/certificate-aws.jpg",
+    image: "/certificate-aws2.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/400px-Amazon_Web_Services_Logo.svg.png",
     logoText: "AWS",
     logoBg: "bg-amber-500",
