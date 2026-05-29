@@ -298,7 +298,7 @@ section h3 {
 }
 
 .dark section h3 {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Dark mode card headings - BLACK */
@@ -328,7 +328,7 @@ section li {
 }
 
 .dark section li {
-  color: #000000;
+  color: #ffffff;
 }
 
 section li::before {
@@ -386,7 +386,7 @@ section li::before {
 }
 
 .dark .stat-label {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Responsive */
