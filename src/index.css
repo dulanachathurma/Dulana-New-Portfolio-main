@@ -309,7 +309,7 @@ section h3 {
 .dark .experience-card h3,
 .dark .certificate-card h3,
 .dark .article-card h3 {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Lists - Clean Display */
@@ -382,7 +382,7 @@ section li::before {
 
 .stat-label {
   font-size: 0.75rem;
-  color: #64748b;
+  color: #ffffff;
 }
 
 .dark .stat-label {
