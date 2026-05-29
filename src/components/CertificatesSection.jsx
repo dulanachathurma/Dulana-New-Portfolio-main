@@ -14,7 +14,6 @@ const certificates = [
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["Python Programming", "Introduction to Programming", "Software Development"],
-    
     viewCertificateUrl: "https://open.uom.lk/lms/mod/customcert/view.php?id=675&downloadown=1",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
@@ -30,7 +29,6 @@ const certificates = [
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["HTML", "Cascading Style Sheets (CSS)", "Web Design", "UI Basics"],
-    
     viewCertificateUrl: "https://open.uom.lk/lms/mod/customcert/view.php?id=697&downloadown=1",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
@@ -46,12 +44,11 @@ const certificates = [
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["Python Programming", "AI", "Machine Learning"],
-    
     viewCertificateUrl: "https://open.uom.lk/lms/mod/customcert/view.php?id=838&downloadown=1",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
 
-  //  Dekma Institute
+  // Dekma Institute
   {
     id: 4,
     title: "Diploma in English (CERF Level B1)",
@@ -64,12 +61,11 @@ const certificates = [
     logoText: "DI",
     logoBg: "bg-emerald-600",
     skills: ["Communication", "Writing English", "Spoken English", "CERF B1"],
-    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/765265356/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
   },
 
-  //Udemy
+  // Udemy
   {
     id: 5,
     title: "Build Generative AI Apps with No-Code Tools",
@@ -82,7 +78,6 @@ const certificates = [
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["Generative AI", "PDF Chatbot", "Receipt Chatbot", "No-Code"],
-    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
@@ -98,7 +93,6 @@ const certificates = [
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["React.js", "MERN Stack", "Full Stack", "Mobile Development"],
-    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-ec191fa2-27b7-4249-8769-e8839a904032/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
@@ -114,7 +108,6 @@ const certificates = [
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["Generative AI", "Machine Learning", "AI Tools"],
-    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-f0f045c8-41ac-4fe2-96fa-8ba8a961f3ce/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
@@ -130,12 +123,11 @@ const certificates = [
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["HTML", "CSS", "JavaScript", "Web Development"],
-    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-226a83f7-6610-4734-9c04-b6216d8f257a/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
   {
-    id: 29,
+    id: 9,
     title: "Build Generative AI Apps and Solutions with No-Code Tools",
     organization: "Udemy",
     location: "Online",
@@ -146,12 +138,11 @@ const certificates = [
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["Generative AI", "PDF Chatbot", "Receipt Chatbot", "No-Code AI Tools"],
-    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
-},
- {
-    id: 20,
+  },
+  {
+    id: 10,
     title: "Java Programming for Beginners",
     organization: "Udemy",
     location: "Online",
@@ -162,13 +153,13 @@ const certificates = [
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["Java", "For Loop", "While Loop", "Arrays", "Structures", "OOP", "Strings"],
-    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
-},
-  //HackerRank
+  },
+
+  // HackerRank
   {
-    id: 9,
+    id: 11,
     title: "SQL (Basic) Certificate",
     organization: "HackerRank",
     location: "Online",
@@ -179,13 +170,11 @@ const certificates = [
     logoText: "HR",
     logoBg: "bg-green-600",
     skills: ["SQL", "MySQL", "Database Management"],
-   
     viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1",
     tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
   },
- 
   {
-    id: 10,
+    id: 12,
     title: "CSS (Basic) Certificate",
     organization: "HackerRank",
     location: "Online",
@@ -196,14 +185,13 @@ const certificates = [
     logoText: "HR",
     logoBg: "bg-green-600",
     skills: ["CSS", "Web Styling", "Layouts"],
-    
     viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/26a32f7f5087",
     tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
   },
 
-  //Microsoft
+  // Microsoft
   {
-    id: 11,
+    id: 13,
     title: "Software Construction",
     organization: "Microsoft",
     location: "Online",
@@ -214,12 +202,11 @@ const certificates = [
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["Git & GitHub", "CI/CD", "DevOps", "Software Testing"],
-    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1914716060/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
   {
-    id: 12,
+    id: 14,
     title: "Requirement Engineering",
     organization: "Microsoft",
     location: "Online",
@@ -230,12 +217,11 @@ const certificates = [
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["Agile", "GitHub Projects", "User Stories", "Backlogs"],
-    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/319800522/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
   {
-    id: 13,
+    id: 15,
     title: "Software Modeling",
     organization: "Microsoft",
     location: "Online",
@@ -246,12 +232,11 @@ const certificates = [
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["Azure", "Cloud Architecture", "System Design", "Modeling"],
-    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324568203/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
   {
-    id: 14,
+    id: 16,
     title: "Introduction to DevOps",
     organization: "Microsoft",
     location: "Online",
@@ -262,12 +247,11 @@ const certificates = [
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["DevOps", "CI/CD", "Continuous Integration", "Testing"],
-   
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589557013/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
   {
-    id: 15,
+    id: 17,
     title: "Embedded Systems Development",
     organization: "Microsoft",
     location: "Online",
@@ -278,14 +262,13 @@ const certificates = [
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["Azure IoT", "Embedded Systems", "IoT Hub", "Edge Computing"],
-    
     viewCertificateUrl: "https://learn.microsoft.com/api/achievements/share/en-gb/TWDulanaChathurma-0789/HZSGG4H8?sharingId=597FD76CF96E1E8B",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
 
-  // AWS 
+  // AWS
   {
-    id: 16,
+    id: 18,
     title: "AWS Well-Architected Foundations",
     organization: "Amazon Web Services (AWS)",
     location: "Online",
@@ -296,12 +279,11 @@ const certificates = [
     logoText: "AWS",
     logoBg: "bg-amber-500",
     skills: ["Cloud Architecture", "AWS", "Well-Architected", "Security"],
-   
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/447340418/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
   {
-    id: 17,
+    id: 19,
     title: "Computer Networks",
     organization: "Amazon Web Services (AWS)",
     location: "Online",
@@ -312,12 +294,11 @@ const certificates = [
     logoText: "AWS",
     logoBg: "bg-amber-500",
     skills: ["VPC", "Networking", "TCP/IP", "AWS Cloud"],
-    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324286717/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
   {
-    id: 18,
+    id: 20,
     title: "Computer Architecture & Operating Systems",
     organization: "Amazon Web Services (AWS)",
     location: "Online",
@@ -328,14 +309,13 @@ const certificates = [
     logoText: "AWS",
     logoBg: "bg-amber-500",
     skills: ["Computer Architecture", "Operating Systems", "AWS", "Cloud Compute"],
-   
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1912525953/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
 
   // Google
   {
-    id: 19,
+    id: 21,
     title: "Android Basics with Compose (Unit 1 & 2)",
     organization: "Google for Developers",
     location: "Online",
@@ -346,7 +326,6 @@ const certificates = [
     logoText: "G",
     logoBg: "bg-red-500",
     skills: ["Kotlin", "Jetpack Compose", "Android UI", "State Management"],
-    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589904754/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
   }
@@ -394,7 +373,7 @@ export const CertificatesSection = () => {
               {/* Content */}
               <div className="p-5 flex flex-col flex-1">
 
-                {/* Organization Logo Circle + Name Row */}
+                {/* Organization Logo + Name Row */}
                 <div className="flex items-center gap-3 mb-3">
                   <div className={`w-10 h-10 rounded-full flex-shrink-0 shadow-md overflow-hidden ${cert.logoImg ? "bg-white border border-gray-200 dark:border-gray-600 p-1" : `${cert.logoBg} flex items-center justify-center`}`}>
                     {cert.logoImg ? (
@@ -455,28 +434,8 @@ export const CertificatesSection = () => {
                   )}
                 </div>
 
-                {/* Extra Links */}
-                <div className="flex flex-wrap gap-2 pt-3 border-t border-gray-100 dark:border-gray-700 mb-4">
-                  {cert.links.slice(0, 2).map((link, idx) => (
-                    <a
-                      key={idx}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary-dark transition-colors duration-300 hover:gap-1.5"
-                    >
-                      {link.text} <ExternalLink size={10} />
-                    </a>
-                  ))}
-                  {cert.links.length > 2 && (
-                    <span className="inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
-                      +{cert.links.length - 2} more
-                    </span>
-                  )}
-                </div>
-
-                {/* View Certificate Green Button */}
-                <div className="mt-auto">
+                {/* View Certificate Button */}
+                <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">
                   <a
                     href={cert.viewCertificateUrl}
                     target="_blank"
@@ -494,7 +453,7 @@ export const CertificatesSection = () => {
           ))}
         </div>
 
-        {/* View All Button - Blue */}
+        {/* View All Button */}
         <div className="text-center mt-12">
           <a
             href="https://www.linkedin.com/in/dulana-chathurma/details/certifications/"
