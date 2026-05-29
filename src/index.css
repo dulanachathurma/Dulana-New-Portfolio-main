@@ -210,7 +210,7 @@ section .section-subtitle {
 
 /* Dark Mode */
 .dark section .section-subtitle {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* Cards Grid - Clean Layout */
