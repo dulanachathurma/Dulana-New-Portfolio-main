@@ -14,10 +14,7 @@ const certificates = [
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["Python Programming", "Introduction to Programming", "Software Development"],
-    links: [
-      { text: "Department of CS & Eng", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1285080660/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" },
-      { text: "Original E-Certificate", url: "https://open.uom.lk/lms/mod/customcert/view.php?id=675&downloadown=1" }
-    ],
+    
     viewCertificateUrl: "https://open.uom.lk/lms/mod/customcert/view.php?id=675&downloadown=1",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
@@ -29,14 +26,11 @@ const certificates = [
     date: "Oct 2025",
     description: "Foundational web design course covering HTML, CSS and modern web development practices through the University of Moratuwa Open Learning platform.",
     image: "/certificate-online-courses1.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/University_of_Moratuwa_logo.png/200px-University_of_Moratuwa_logo.png",
+    logoImg: "University_of_Moratuwa_logo.png",
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["HTML", "Cascading Style Sheets (CSS)", "Web Design", "UI Basics"],
-    links: [
-      { text: "View Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1753715295/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" },
-      { text: "Show Credential", url: "https://open.uom.lk/lms/mod/customcert/view.php?id=697&downloadown=1" }
-    ],
+    
     viewCertificateUrl: "https://open.uom.lk/lms/mod/customcert/view.php?id=697&downloadown=1",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
@@ -48,19 +42,16 @@ const certificates = [
     date: "Apr 2026",
     description: "Advanced-level Python course by the Department of CS & Engineering at UoM, covering AI, Machine Learning, and advanced software engineering with Python.",
     image: "/certificate-online-courses2.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/University_of_Moratuwa_logo.png/200px-University_of_Moratuwa_logo.png",
+    logoImg: "University_of_Moratuwa_logo.png",
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["Python Programming", "AI", "Machine Learning"],
-    links: [
-      { text: "Show Credential", url: "https://open.uom.lk/lms/mod/customcert/view.php?id=838&downloadown=1" },
-      { text: "Python Language", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1128708382/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://open.uom.lk/lms/mod/customcert/view.php?id=838&downloadown=1",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
 
-  // ── Dekma Institute ───────────────────────────────────────────────────────
+  //  Dekma Institute
   {
     id: 4,
     title: "Diploma in English (CERF Level B1)",
@@ -69,13 +60,11 @@ const certificates = [
     date: "Jun 2024 - Dec 2024",
     description: "Comprehensive English language program focusing on communication, writing proficiency, and spoken English at CERF B1 level.",
     image: "/certificate-english-diploma.jpg",
-    logoImg: null,
+    logoImg: "oxford.png",
     logoText: "DI",
     logoBg: "bg-emerald-600",
     skills: ["Communication", "Writing English", "Spoken English", "CERF B1"],
-    links: [
-      { text: "View Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/765265356/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/765265356/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
   },
@@ -89,14 +78,11 @@ const certificates = [
     date: "Oct 2025",
     description: "Hands-on course building Generative AI applications including PDF Chatbot and Receipt Chatbot using no-code and low-code tools.",
     image: "/certificate-udemy-courses1.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
+    logoImg: "Udemy_logo.png",
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["Generative AI", "PDF Chatbot", "Receipt Chatbot", "No-Code"],
-    links: [
-      { text: "Show Credential", url: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/" },
-      { text: "Original Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1325958301/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
@@ -108,14 +94,11 @@ const certificates = [
     date: "Oct 2025",
     description: "Comprehensive MERN Stack course covering React.js, State & Event Forms, and 9+ additional skills for full stack web and mobile application development.",
     image: "/certificate-udemy-courses2.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
+    logoImg: "Udemy_logo.png",
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["React.js", "MERN Stack", "Full Stack", "Mobile Development"],
-    links: [
-      { text: "Show Credential", url: "https://www.udemy.com/certificate/UC-ec191fa2-27b7-4249-8769-e8839a904032/" },
-      { text: "Original Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1329061563/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-ec191fa2-27b7-4249-8769-e8839a904032/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
@@ -127,14 +110,11 @@ const certificates = [
     date: "Oct 2025",
     description: "Introductory course on Generative AI and Machine Learning fundamentals covering modern AI tools and techniques for beginners.",
     image: "/certificate-udemy-courses3.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
+    logoImg: "Udemy_logo.png",
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["Generative AI", "Machine Learning", "AI Tools"],
-    links: [
-      { text: "Show Credential", url: "https://www.udemy.com/certificate/UC-f0f045c8-41ac-4fe2-96fa-8ba8a961f3ce/" },
-      { text: "View on LinkedIn", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1361079516/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-f0f045c8-41ac-4fe2-96fa-8ba8a961f3ce/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
@@ -146,14 +126,11 @@ const certificates = [
     date: "Oct 2025",
     description: "Complete beginner course covering HTML, CSS, and JavaScript for building modern websites and understanding front-end web development.",
     image: "/certificate-udemy-courses4.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
+    logoImg: "Udemy_logo.png",
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["HTML", "CSS", "JavaScript", "Web Development"],
-    links: [
-      { text: "Show Credential", url: "https://www.udemy.com/certificate/UC-226a83f7-6610-4734-9c04-b6216d8f257a/" },
-      { text: "Original Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1455920600/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-226a83f7-6610-4734-9c04-b6216d8f257a/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
@@ -165,20 +142,11 @@ const certificates = [
     date: "Oct 2025",
     description: "Hands-on beginner course focused on building Generative AI applications using no-code tools, including AI-powered PDF and receipt chatbots.",
     image: "/certificate-udemy-ai.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
+    logoImg: "Udemy_logo.png",
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["Generative AI", "PDF Chatbot", "Receipt Chatbot", "No-Code AI Tools"],
-    links: [
-      { 
-        text: "Show Credential", 
-        url: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/" 
-      },
-      { 
-        text: "Original Certificate", 
-        url: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/" 
-      }
-    ],
+    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
 },
@@ -190,20 +158,11 @@ const certificates = [
     date: "Oct 2025",
     description: "Beginner-friendly Java programming course covering programming fundamentals, loops, arrays, strings, structures, and object-oriented programming concepts.",
     image: "/certificate-udemy-java.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
+    logoImg: "Udemy_logo.png",
     logoText: "U",
     logoBg: "bg-purple-600",
     skills: ["Java", "For Loop", "While Loop", "Arrays", "Structures", "OOP", "Strings"],
-    links: [
-      { 
-        text: "Show Credential", 
-        url: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/" 
-      },
-      { 
-        text: "Original Certificate", 
-        url: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/" 
-      }
-    ],
+    
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
 },
@@ -216,13 +175,11 @@ const certificates = [
     date: "Nov 2025",
     description: "Skill assessment certifying foundational SQL proficiency including queries, joins, and database management with MySQL.",
     image: "/certificate-hackerrank1.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/HackerRank_Icon-1000px.png/200px-HackerRank_Icon-1000px.png",
+    logoImg: "HackerRank.png",
     logoText: "HR",
     logoBg: "bg-green-600",
     skills: ["SQL", "MySQL", "Database Management"],
-    links: [
-      { text: "Show Credential", url: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1" }
-    ],
+   
     viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1",
     tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
   },
@@ -235,13 +192,11 @@ const certificates = [
     date: "Nov 2025",
     description: "Skill assessment certifying foundational CSS proficiency covering selectors, layouts, and cascading style sheet techniques.",
     image: "/certificate-hackerrank2.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/HackerRank_Icon-1000px.png/200px-HackerRank_Icon-1000px.png",
+    logoImg: "HackerRank.png",
     logoText: "HR",
     logoBg: "bg-green-600",
     skills: ["CSS", "Web Styling", "Layouts"],
-    links: [
-      { text: "Show Credential", url: "https://www.hackerrank.com/certificates/iframe/26a32f7f5087" }
-    ],
+    
     viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/26a32f7f5087",
     tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
   },
@@ -255,14 +210,11 @@ const certificates = [
     date: "Feb 2026",
     description: "Version control with Git & GitHub, continuous integration, shift-left testing, and shift-left security — core modern software construction workflow.",
     image: "/certificate-microsoft.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/400px-Microsoft_logo.svg.png",
+    logoImg: "Microsoft_logo.png",
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["Git & GitHub", "CI/CD", "DevOps", "Software Testing"],
-    links: [
-      { text: "DevOps Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1914716060/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" },
-      { text: "Develop with DevOps", url: "https://learn.microsoft.com/api/achievements/share/en-gb/TWDulanaChathurma-0789/UABLB573?sharingId=597FD76CF96E1E8B" }
-    ],
+    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1914716060/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
@@ -274,13 +226,11 @@ const certificates = [
     date: "Feb 2026",
     description: "Agile methodology, planning with GitHub Projects, user stories, backlogs, and iterative requirement tracking — practical requirement engineering in industry tools.",
     image: "/certificate-microsoft.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/400px-Microsoft_logo.svg.png",
+    logoImg: "Microsoft_logo.png",
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["Agile", "GitHub Projects", "User Stories", "Backlogs"],
-    links: [
-      { text: "DevOps Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/319800522/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/319800522/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
@@ -292,13 +242,11 @@ const certificates = [
     date: "Feb 2025",
     description: "Cloud solution architecture modeling — compute, networking, storage components and how they compose into system designs on Azure.",
     image: "/certificate-microsoft.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/400px-Microsoft_logo.svg.png",
+    logoImg: "Microsoft_logo.png",
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["Azure", "Cloud Architecture", "System Design", "Modeling"],
-    links: [
-      { text: "Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324568203/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324568203/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
@@ -310,13 +258,11 @@ const certificates = [
     date: "Feb 2026",
     description: "DevOps transformation, continuous integration, validated learning, cycle time optimization, and testing strategies — industry standard for modern software V&V pipelines.",
     image: "/certificate-microsoft.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/400px-Microsoft_logo.svg.png",
+    logoImg: "Microsoft_logo.png",
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["DevOps", "CI/CD", "Continuous Integration", "Testing"],
-    links: [
-      { text: "View Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589557013/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+   
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589557013/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
@@ -328,14 +274,11 @@ const certificates = [
     date: "Mar 2026",
     description: "IoT solution architecture, device connectivity, Azure IoT Hub, IoT Edge for embedded edge processing, real-time telemetry, and device management — embedded systems in the cloud era.",
     image: "/certificate-microsoft.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/400px-Microsoft_logo.svg.png",
+    logoImg: "Microsoft_logo.png",
     logoText: "MS",
     logoBg: "bg-blue-600",
     skills: ["Azure IoT", "Embedded Systems", "IoT Hub", "Edge Computing"],
-    links: [
-      { text: "Show Credential", url: "https://learn.microsoft.com/api/achievements/share/en-gb/TWDulanaChathurma-0789/HZSGG4H8?sharingId=597FD76CF96E1E8B" },
-      { text: "Introduction to Azure IoT", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/750872589/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://learn.microsoft.com/api/achievements/share/en-gb/TWDulanaChathurma-0789/HZSGG4H8?sharingId=597FD76CF96E1E8B",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
@@ -349,13 +292,11 @@ const certificates = [
     date: "Feb 2026",
     description: "Industry-standard framework covering six pillars: operational excellence, security, reliability, performance, cost optimization, and sustainability with directly applicable design patterns.",
     image: "/certificate-aws1.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/400px-Amazon_Web_Services_Logo.svg.png",
+    logoImg: "Amazon_Web_Services_Logo.png",
     logoText: "AWS",
     logoBg: "bg-amber-500",
     skills: ["Cloud Architecture", "AWS", "Well-Architected", "Security"],
-    links: [
-      { text: "AWS Completion Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/447340418/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+   
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/447340418/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
@@ -367,13 +308,11 @@ const certificates = [
     date: "Feb 2026",
     description: "VPC, subnets, route tables, security groups, NACLs, internet gateways — cloud networking that maps directly to TCP/IP and OSI model concepts.",
     image: "/certificate-aws3.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/400px-Amazon_Web_Services_Logo.svg.png",
+    logoImg: "Amazon_Web_Services_Logo.png",
     logoText: "AWS",
     logoBg: "bg-amber-500",
     skills: ["VPC", "Networking", "TCP/IP", "AWS Cloud"],
-    links: [
-      { text: "AWS Training & Certification", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324286717/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324286717/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
@@ -385,13 +324,11 @@ const certificates = [
     date: "Feb 2026",
     description: "Core computer architecture and operating systems concepts mapped to AWS cloud infrastructure, covering compute instances, storage layers, and OS-level cloud operations.",
     image: "/certificate-aws2.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/400px-Amazon_Web_Services_Logo.svg.png",
+    logoImg: "Amazon_Web_Services_Logo.png",
     logoText: "AWS",
     logoBg: "bg-amber-500",
     skills: ["Computer Architecture", "Operating Systems", "AWS", "Cloud Compute"],
-    links: [
-      { text: "AWS Completion Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1912525953/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+   
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1912525953/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
@@ -405,13 +342,11 @@ const certificates = [
     date: "Feb 2026",
     description: "Google's official Android course using Kotlin & Jetpack Compose. Covers Kotlin basics, UI building, layouts, state management, and app navigation.",
     image: "/certificate-android-compose.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/400px-Google_2015_logo.svg.png",
+    logoImg: "Google_2015_logo.png",
     logoText: "G",
     logoBg: "bg-red-500",
     skills: ["Kotlin", "Jetpack Compose", "Android UI", "State Management"],
-    links: [
-      { text: "View Certificate", url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589904754/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE" }
-    ],
+    
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589904754/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
   }
