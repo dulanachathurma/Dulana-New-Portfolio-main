@@ -1,6 +1,48 @@
 import { ExternalLink, Calendar, MapPin, Award } from "lucide-react";
 
 const certificates = [
+  {
+  id: 1,
+  title: "Online Certification Course",
+  organization: "Open Learning Platform",
+  location: "Moratuwa, Sri Lanka",
+  date: "Oct 2025 - Jan 2027",
+  description:
+    "Specialized programming courses through Open Learning platform focusing on Python development and software engineering principles.",
+
+  // Main section image
+  image: "/certificate-online-courses.jpg",
+
+  skills: [
+    "Python",
+    "Python Calculator projects",
+    "Software Development Process"
+  ],
+
+  // Certificates with images + links
+  certificates: [
+    {
+      title: "Python Certificate",
+      image: "/certificates/python-certificate.jpg",
+      url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1285080660/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BxAMr3FWFQpWmEla9JIUMBA%3D%3D"
+    },
+
+    {
+      title: "Web Design",
+      image: "/certificates/web-design.jpg",
+      url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1753715295/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BxAMr3FWFQpWmEla9JIUMBA%3D%3D"
+    },
+
+    {
+      title: "Advanced Python",
+      image: "/certificates/advanced-python.jpg",
+      url: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1128708382/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BxAMr3FWFQpWmEla9JIUMBA%3D%3D"
+    }
+  ],
+
+  tagColor:
+    "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
+},
 
   {
     id: 1,
@@ -136,6 +178,40 @@ export const CertificatesSection = () => {
             Professional certifications and courses I've completed to enhance my skills
           </p>
         </div>
+
+
+        <div className="grid md:grid-cols-3 gap-6 mt-6">
+  {item.certificates.map((cert, index) => (
+    <div
+      key={index}
+      className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700"
+    >
+      {/* Certificate Image */}
+      <img
+        src={cert.image}
+        alt={cert.title}
+        className="w-full h-48 object-cover"
+      />
+
+      {/* Content */}
+      <div className="p-4">
+        <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">
+          {cert.title}
+        </h3>
+
+        {/* Green Button */}
+        <a
+          href={cert.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl transition duration-300"
+        >
+          View Certificate
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
 
 
 
