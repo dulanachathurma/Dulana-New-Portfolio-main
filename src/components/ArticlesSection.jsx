@@ -67,26 +67,26 @@ export const ArticlesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {articles.map((article) => (
-            <div 
-              key={article.id} 
-              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700"
+            <div
+              key={article.id}
+              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 flex flex-col"
             >
               {/* Image Container */}
               <div className="relative h-52 overflow-hidden bg-gray-100 dark:bg-gray-800">
-                <img 
-                  src={article.image} 
+                <img
+                  src={article.image}
                   alt={article.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+
                 {/* Tag Badge */}
                 <div className="absolute top-3 left-3">
                   <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${article.tagColor} shadow-sm backdrop-blur-sm`}>
                     {article.tag}
                   </span>
                 </div>
-                
+
                 {/* Read Time Badge */}
                 <div className="absolute bottom-3 right-3">
                   <span className="px-2 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-xs font-medium flex items-center gap-1">
@@ -94,44 +94,46 @@ export const ArticlesSection = () => {
                   </span>
                 </div>
               </div>
-              
+
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 {/* Date */}
                 <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3">
                   <Calendar size={14} className="text-primary" />
                   <span>{article.date}</span>
                 </div>
-                
+
                 {/* Title */}
                 <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white group-hover:text-primary transition-colors duration-300 line-clamp-2">
                   {article.title}
                 </h3>
-                
+
                 {/* Description */}
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-5 leading-relaxed line-clamp-3">
                   {article.description}
                 </p>
-                
-                {/* Read Button */}
-                <a 
-                  href={article.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-300 group/btn"
-                >
-                  Read on Medium 
-                  <ExternalLink size={16} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </a>
+
+                {/* Read on Medium Green Button */}
+                <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">
+                  <a
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-sm font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    Read on Medium <ExternalLink size={14} />
+                  </a>
+                </div>
               </div>
-              
+
+             
             </div>
           ))}
         </div>
 
         {/* View All Button - Blue */}
         <div className="text-center mt-12">
-          <a 
+          <a
             href="https://medium.com/@dulanachathurma99"
             target="_blank"
             rel="noopener noreferrer"
