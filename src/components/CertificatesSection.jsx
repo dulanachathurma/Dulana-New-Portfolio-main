@@ -10,7 +10,7 @@ const certificates = [
     date: "Oct 2025",
     description: "Introduction to programming and Python through the University of Moratuwa's Open Learning platform covering core programming fundamentals.",
     image: "/certificate-online-courses.jpg",
-    logoImg: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/University_of_Moratuwa_logo.png/200px-University_of_Moratuwa_logo.png",
+    logoImg: "University_of_Moratuwa_logo.png",
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["Python Programming", "Introduction to Programming", "Software Development"],
