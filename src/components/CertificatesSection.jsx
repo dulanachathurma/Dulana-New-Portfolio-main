@@ -1,7 +1,7 @@
 import { ExternalLink, Calendar, MapPin, Award } from "lucide-react";
 
 const certificates = [
-  // ── University of Moratuwa ────────────────────────────────────────────────
+  // University of Moratuwa 
   {
     id: 1,
     title: "Python for Beginners",
@@ -28,7 +28,7 @@ const certificates = [
     location: "Moratuwa, Sri Lanka",
     date: "Oct 2025",
     description: "Foundational web design course covering HTML, CSS and modern web development practices through the University of Moratuwa Open Learning platform.",
-    image: "/certificate-online-courses.jpg",
+    image: "/certificate-online-courses1.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/University_of_Moratuwa_logo.png/200px-University_of_Moratuwa_logo.png",
     logoText: "UoM",
     logoBg: "bg-indigo-600",
@@ -47,7 +47,7 @@ const certificates = [
     location: "Moratuwa, Sri Lanka",
     date: "Apr 2026",
     description: "Advanced-level Python course by the Department of CS & Engineering at UoM, covering AI, Machine Learning, and advanced software engineering with Python.",
-    image: "/certificate-online-courses.jpg",
+    image: "/certificate-online-courses2.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/University_of_Moratuwa_logo.png/200px-University_of_Moratuwa_logo.png",
     logoText: "UoM",
     logoBg: "bg-indigo-600",
@@ -88,7 +88,7 @@ const certificates = [
     location: "Online",
     date: "Oct 2025",
     description: "Hands-on course building Generative AI applications including PDF Chatbot and Receipt Chatbot using no-code and low-code tools.",
-    image: "/certificate-udemy-courses.jpg",
+    image: "/certificate-udemy-courses1.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
     logoText: "U",
     logoBg: "bg-purple-600",
@@ -158,7 +158,7 @@ const certificates = [
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
 
-  // ── HackerRank ────────────────────────────────────────────────────────────
+  //HackerRank
   {
     id: 9,
     title: "SQL (Basic) Certificate",
@@ -166,7 +166,7 @@ const certificates = [
     location: "Online",
     date: "Nov 2025",
     description: "Skill assessment certifying foundational SQL proficiency including queries, joins, and database management with MySQL.",
-    image: "/certificate-hackerrank.jpg",
+    image: "/certificate-hackerrank1.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/HackerRank_Icon-1000px.png/200px-HackerRank_Icon-1000px.png",
     logoText: "HR",
     logoBg: "bg-green-600",
@@ -184,7 +184,7 @@ const certificates = [
     location: "Online",
     date: "Nov 2025",
     description: "Skill assessment certifying foundational CSS proficiency covering selectors, layouts, and cascading style sheet techniques.",
-    image: "/certificate-hackerrank.jpg",
+    image: "/certificate-hackerrank2.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/HackerRank_Icon-1000px.png/200px-HackerRank_Icon-1000px.png",
     logoText: "HR",
     logoBg: "bg-green-600",
@@ -196,7 +196,7 @@ const certificates = [
     tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
   },
 
-  // ── Microsoft ─────────────────────────────────────────────────────────────
+  //Microsoft
   {
     id: 11,
     title: "Software Construction",
@@ -290,7 +290,7 @@ const certificates = [
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
 
-  // ── AWS ───────────────────────────────────────────────────────────────────
+  // AWS 
   {
     id: 16,
     title: "AWS Well-Architected Foundations",
@@ -298,7 +298,7 @@ const certificates = [
     location: "Online",
     date: "Feb 2026",
     description: "Industry-standard framework covering six pillars: operational excellence, security, reliability, performance, cost optimization, and sustainability with directly applicable design patterns.",
-    image: "/certificate-aws.jpg",
+    image: "/certificate-aws1.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/400px-Amazon_Web_Services_Logo.svg.png",
     logoText: "AWS",
     logoBg: "bg-amber-500",
@@ -316,7 +316,7 @@ const certificates = [
     location: "Online",
     date: "Feb 2026",
     description: "VPC, subnets, route tables, security groups, NACLs, internet gateways — cloud networking that maps directly to TCP/IP and OSI model concepts.",
-    image: "/certificate-aws.jpg",
+    image: "/certificate-aws3.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/400px-Amazon_Web_Services_Logo.svg.png",
     logoText: "AWS",
     logoBg: "bg-amber-500",
@@ -346,7 +346,7 @@ const certificates = [
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
 
-  // ── Google ────────────────────────────────────────────────────────────────
+  // Google
   {
     id: 19,
     title: "Android Basics with Compose (Unit 1 & 2)",
