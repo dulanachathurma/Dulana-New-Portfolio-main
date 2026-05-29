@@ -231,10 +231,7 @@ export const ProjectsSection = () => {
                 </div>
               </div>
 
-              {/* Bottom Gradient Line */}
-              <div className="h-1 w-full bg-gradient-to-r from-primary/0 via-primary to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-          ))}
+              
         </div>
 
         {/* View All Button */}
