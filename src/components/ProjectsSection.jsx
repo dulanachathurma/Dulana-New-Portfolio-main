@@ -11,18 +11,18 @@ const projects = [
     githubUrl: "https://github.com/dulanachathurma/VisionScope-AI",
     date: "2026",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
-  },
+},
   {
-    id: 2,
-    title: "GPA Calculator App",
-    description: "A full-featured academic GPA tracking web application that allows students to calculate Semester GPA, Year GPA, and Cumulative GPA across multiple academic years with a clean and responsive UI.",
-    image: "/project-gpa-calculator.jpg",
-    tags: ["React 19", "Vite", "Tailwind CSS", "JavaScript"],
-    demoUrl: "https://dcgpa.vercel.app/",
-    githubUrl: "https://github.com/dulanachathurma/GPA-Calculator-App",
-    date: "2026",
-    tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
-  },
+  id: 2,
+  title: "GPA Calculator App",
+  description: "A full-featured academic GPA tracking web application that allows students to calculate Semester GPA, Year GPA, and Cumulative GPA across multiple academic years with a clean and responsive UI.",
+  image: "/project-gpa-calculator.jpg",
+  tags: ["React 19", "Vite", "Tailwind CSS", "JavaScript"],
+  demoUrl: "https://dcgpa.vercel.app/",
+  githubUrl: "https://github.com/dulanachathurma/GPA-Calculator-App",
+  date: "2026",
+  tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
+},
   {
     id: 3,
     title: "CarePoint Medical Center",
@@ -100,6 +100,8 @@ const projects = [
     date: "Apr 2026 – Apr 2026",
     tagColor: "bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300"
   },
+
+ 
   {
     id: 10,
     title: "AI Career & University Recommendation System",
@@ -180,8 +182,8 @@ export const ProjectsSection = () => {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.slice(0, 4).map((tag, idx) => (
-                    <span
-                      key={idx}
+                    <span 
+                      key={idx} 
                       className={`px-2.5 py-1 text-xs font-medium rounded-full ${project.tagColor} shadow-sm`}
                     >
                       {tag}
@@ -198,12 +200,12 @@ export const ProjectsSection = () => {
                 <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h3>
-
+                
                 {/* Description */}
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-5 leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
-
+                
                 {/* Action Buttons */}
                 <div className="flex justify-between items-center pt-3 border-t border-gray-100 dark:border-gray-700">
                   <div className="flex space-x-3">
@@ -212,9 +214,9 @@ export const ProjectsSection = () => {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm font-medium text-white bg-green-500 hover:bg-green-600 px-3 py-1.5 rounded-full transition-all duration-300"
+                        className="flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 hover:gap-2"
                       >
-                        <ExternalLink size={14} /> Live Demo
+                        <ExternalLink size={16} /> Live Demo
                       </a>
                     )}
                     {project.githubUrl && project.githubUrl !== "#" && (
@@ -222,15 +224,15 @@ export const ProjectsSection = () => {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm font-medium text-white bg-green-500 hover:bg-green-600 px-3 py-1.5 rounded-full transition-all duration-300"
+                        className="flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 hover:gap-2"
                       >
-                        <Github size={14} /> Code
+                        <Github size={16} /> Code
                       </a>
                     )}
                   </div>
                 </div>
               </div>
-
+              
               {/* Bottom Gradient Line */}
               <div className="h-1 w-full bg-gradient-to-r from-primary/0 via-primary to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
@@ -238,16 +240,16 @@ export const ProjectsSection = () => {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-12">
-          <a
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/dulanachathurma"
-          >
-            Check My GitHub <ArrowRight size={16} />
-          </a>
-        </div>
+       <div className="text-center mt-12">
+  <a
+    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+    target="_blank"
+    rel="noopener noreferrer"
+    href="https://github.com/dulanachathurma"
+  >
+    Check My GitHub <ArrowRight size={16} />
+  </a>
+</div>
       </div>
     </section>
   );
