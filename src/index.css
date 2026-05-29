@@ -210,7 +210,7 @@ section .section-subtitle {
 
 /* Dark Mode */
 .dark section .section-subtitle {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Cards Grid - Clean Layout */
@@ -309,7 +309,7 @@ section h3 {
 .dark .experience-card h3,
 .dark .certificate-card h3,
 .dark .article-card h3 {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Lists - Clean Display */
