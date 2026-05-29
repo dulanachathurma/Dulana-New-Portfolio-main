@@ -82,7 +82,7 @@ export const AboutSection = () => {
 
             <p className="text-muted-foreground leading-relaxed">
               <span className="text-2xl mr-2"></span> 
-              I'm <strong className="text-primary text-lg">Dulana Chathurma</strong>, a passionate 2nd year Software Engineering (UG) student at the University of Kelaniya. 
+              I'm <strong className="text-primary text-lg">Dulana Chathurma</strong>, Software Engineering (UG) at the University of Kelaniya. 
               My passion lies in creating innovative solutions that bridge complex technical challenges with user-friendly experiences.
               <span className="inline-block ml-1"></span>
             </p>
