@@ -107,7 +107,7 @@ const certificates = [
     location: "Online",
     date: "Oct 2025",
     description: "Comprehensive MERN Stack course covering React.js, State & Event Forms, and 9+ additional skills for full stack web and mobile application development.",
-    image: "/certificate-udemy-courses.jpg",
+    image: "/certificate-udemy-courses2.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
     logoText: "U",
     logoBg: "bg-purple-600",
@@ -126,7 +126,7 @@ const certificates = [
     location: "Online",
     date: "Oct 2025",
     description: "Introductory course on Generative AI and Machine Learning fundamentals covering modern AI tools and techniques for beginners.",
-    image: "/certificate-udemy-courses.jpg",
+    image: "/certificate-udemy-courses3.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
     logoText: "U",
     logoBg: "bg-purple-600",
@@ -145,7 +145,7 @@ const certificates = [
     location: "Online",
     date: "Oct 2025",
     description: "Complete beginner course covering HTML, CSS, and JavaScript for building modern websites and understanding front-end web development.",
-    image: "/certificate-udemy-courses.jpg",
+    image: "/certificate-udemy-courses4.jpg",
     logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
     logoText: "U",
     logoBg: "bg-purple-600",
@@ -157,6 +157,31 @@ const certificates = [
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-226a83f7-6610-4734-9c04-b6216d8f257a/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
+  {
+    id: 19,
+    title: "Build Generative AI Apps and Solutions with No-Code Tools",
+    organization: "Udemy",
+    location: "Online",
+    date: "Oct 2025",
+    description: "Hands-on beginner course focused on building Generative AI applications using no-code tools, including AI-powered PDF and receipt chatbots.",
+    image: "/certificate-udemy-ai.jpg",
+    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
+    logoText: "U",
+    logoBg: "bg-purple-600",
+    skills: ["Generative AI", "PDF Chatbot", "Receipt Chatbot", "No-Code AI Tools"],
+    links: [
+      { 
+        text: "Show Credential", 
+        url: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/" 
+      },
+      { 
+        text: "Original Certificate", 
+        url: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/" 
+      }
+    ],
+    viewCertificateUrl: "https://www.udemy.com/certificate/UC-1574a301-ef07-4bf3-99b7-5e9bfca6b716/",
+    tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
+},
 
   //HackerRank
   {
@@ -177,6 +202,31 @@ const certificates = [
     viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1",
     tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
   },
+  {
+    id: 20,
+    title: "Java Programming for Beginners",
+    organization: "Udemy",
+    location: "Online",
+    date: "Oct 2025",
+    description: "Beginner-friendly Java programming course covering programming fundamentals, loops, arrays, strings, structures, and object-oriented programming concepts.",
+    image: "/certificate-udemy-java.jpg",
+    logoImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/400px-Udemy_logo.svg.png",
+    logoText: "U",
+    logoBg: "bg-purple-600",
+    skills: ["Java", "For Loop", "While Loop", "Arrays", "Structures", "OOP", "Strings"],
+    links: [
+      { 
+        text: "Show Credential", 
+        url: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/" 
+      },
+      { 
+        text: "Original Certificate", 
+        url: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/" 
+      }
+    ],
+    viewCertificateUrl: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/",
+    tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
+},
   {
     id: 10,
     title: "CSS (Basic) Certificate",
