@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* =========================
+   THEME VARIABLES
+========================= */
 @theme {
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
@@ -10,58 +13,37 @@
 
   --color-card: hsl(var(--card));
 
+  /* Animations */
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
   --animate-fade-in: fade-in 0.7s ease-out forwards;
-  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
-  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
-  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
-  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
 
   @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
+
   @keyframes pulse-subtle {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.8;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
   }
+
   @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
+
   @keyframes meteor {
-    0% {
-      transform: rotate(215deg) translateX(0);
-      opacity: 1;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(215deg) translateX(-500px);
-      opacity: 0;
-    }
+    0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
   }
 }
 
+/* =========================
+   BASE THEME COLORS
+========================= */
 @layer base {
   :root {
     --background: 210 40% 98%;
@@ -101,75 +83,23 @@
   }
 }
 
-@utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
-
-  @media (width >= 640px) {
-    max-width: 640px;
-  }
-  @media (width >= 768px) {
-    max-width: 768px;
-  }
-  @media (width >= 1024px) {
-    max-width: 1024px;
-  }
-  @media (width >= 1280px) {
-    max-width: 1280px;
-  }
-  @media (width >= 1400px) {
-    max-width: 1400px;
-  }
-}
-
-@utility text-glow {
-  @apply relative;
-  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
-}
-
-@utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
-}
-
-@utility gradient-border {
-  @apply relative rounded-md;
-  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
-  background-clip: padding-box;
-  border: 1px solid transparent;
-}
-
-@utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-         hover:scale-105 active:scale-95;
-}
-
-@utility star {
-  @apply absolute rounded-full bg-white;
-  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
-}
-
-@utility meteor {
-  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
-}
-
+/* =========================
+   ROOT
+========================= */
 #root {
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
   text-align: center;
 }
-/* ============================================
-   GLOBAL SECTION STYLES - Clean List Down for ALL Sections
-   ============================================ */
 
-/* All Sections - Clean Display */
+/* =========================
+   GLOBAL SECTIONS
+========================= */
 section {
   overflow-x: hidden;
 }
 
-/* Section Containers */
 section .container {
   width: 100%;
   max-width: 1280px;
@@ -198,58 +128,43 @@ section h2::after {
   border-radius: 9999px;
 }
 
-/* Section Subtitle */
 section .section-subtitle {
   text-align: center;
-  color: #64748b;
+  color: hsl(var(--foreground) / 0.7);
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Dark Mode */
-.dark section .section-subtitle {
-  color: #000000;
-}
-
-/* Cards Grid - Clean Layout */
+/* =========================
+   GRID
+========================= */
 .grid {
   display: grid;
   gap: 1.5rem;
 }
 
-/* Card Styles - Clean and Clear */
-.card, 
-.project-card, 
-.skill-card, 
-.education-card, 
-.experience-card, 
-.certificate-card, 
+/* =========================
+   CARDS (FIXED)
+========================= */
+.card,
+.project-card,
+.skill-card,
+.education-card,
+.experience-card,
+.certificate-card,
 .article-card,
 .contact-card {
-  background: #ffffff;
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
   border-radius: 1rem;
   padding: 1.5rem;
   transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
+  border: 1px solid hsl(var(--border));
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.dark .card,
-.dark .project-card,
-.dark .skill-card,
-.dark .education-card,
-.dark .experience-card,
-.dark .certificate-card,
-.dark .article-card,
-.dark .contact-card {
-  background: #1e293b;
-  border-color: #334155;
-  color: #000000;
-}
-
-/* Card Hover */
 .card:hover,
 .project-card:hover,
 .skill-card:hover,
@@ -261,59 +176,28 @@ section .section-subtitle {
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-/* Typography - Clean Text */
-section p {
+/* =========================
+   TEXT (FIXED - MAIN ISSUE SOLVED)
+========================= */
+section p,
+section li,
+section span {
+  color: hsl(var(--foreground));
   line-height: 1.6;
-  color: #475569;
-  margin-bottom: 1rem;
 }
 
-.dark .about p,
-.dark .about .description {
-  color: #ffffff;
-}
-
-/* Dark mode card text styles - ALL BLACK */
-.dark .card p,
-.dark .card li,
-.dark .card span,
-.dark .project-card p,
-.dark .project-card li,
-.dark .skill-card p,
-.dark .skill-card li,
-.dark .education-card p,
-.dark .education-card li,
-.dark .experience-card p,
-.dark .experience-card li,
-.dark .certificate-card p,
-.dark .article-card p {
-  color: #ffffff;
-}
-
+/* Headings */
 section h3 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #1e293b;
+  color: hsl(var(--foreground));
 }
 
-.dark section h3 {
-  color: #ffffff;
-}
-
-/* Dark mode card headings - BLACK */
-.dark .card h3,
-.dark .project-card h3,
-.dark .skill-card h3,
-.dark .education-card h3,
-.dark .experience-card h3,
-.dark .certificate-card h3,
-.dark .article-card h3 {
-  color: #ffffff;
-}
-
-/* Lists - Clean Display */
-section ul, 
+/* =========================
+   LISTS
+========================= */
+section ul,
 section ol {
   list-style: none;
   padding: 0;
@@ -324,11 +208,6 @@ section li {
   margin-bottom: 0.5rem;
   padding-left: 1.25rem;
   position: relative;
-  color: #475569;
-}
-
-.dark section li {
-  color: #ffffff;
 }
 
 section li::before {
@@ -336,42 +215,33 @@ section li::before {
   position: absolute;
   left: 0;
   color: #6366f1;
-  font-weight: bold;
 }
 
-/* Tags and Badges */
-.tag, 
-.skill-tag, 
+/* =========================
+   TAGS
+========================= */
+.tag,
+.skill-tag,
 .tool {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background: #f1f5f9;
+  background: hsl(var(--background));
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #475569;
+  color: hsl(var(--foreground));
   margin: 0.25rem;
 }
 
-.dark .tag,
-.dark .skill-tag,
-.dark .tool {
-  background: #334155;
-  color: #000000;
-}
-
-/* Stats Cards */
+/* =========================
+   STAT CARD
+========================= */
 .stat-card {
   text-align: center;
   padding: 1rem;
-  background: #ffffff;
+  background: hsl(var(--card));
   border-radius: 0.75rem;
-  border: 1px solid #e2e8f0;
-}
-
-.dark .stat-card {
-  background: #1e293b;
-  border-color: #334155;
+  border: 1px solid hsl(var(--border));
 }
 
 .stat-number {
@@ -382,27 +252,33 @@ section li::before {
 
 .stat-label {
   font-size: 0.75rem;
-  color: #ffffff;
+  color: hsl(var(--foreground));
 }
 
-.dark .stat-label {
-  color: #ffffff;
+/* =========================
+   UTILITIES
+========================= */
+.container {
+  margin-inline: auto;
+  padding-inline: 2rem;
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
   section .container {
     padding: 0 1rem;
   }
-  
+
   section h2 {
     font-size: 1.75rem;
   }
-  
+
   .grid {
     gap: 1rem;
   }
-  
+
   .card,
   .project-card,
   .skill-card,
