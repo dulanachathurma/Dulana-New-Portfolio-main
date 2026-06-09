@@ -23,6 +23,17 @@ const projects = [
     date: "2026",
     tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
   },
+    {
+  id: 14,
+  title: "My PHP CRUD App",
+  description: "A fully functional CRUD (Create, Read, Update, Delete) web application developed to strengthen backend development skills and database management. It allows users to create, view, update, and delete records with a simple and responsive interface.",
+  image: "/project-crud-app.jpg",
+  tags: ["HTML5", "CSS3", "PHP", "MySQL"],
+  demoUrl: "https://dulanacrud.infy.click",
+  githubUrl: "https://github.com/dulanachathurma/My-Crud-App",
+  date: "May 2026 – Jun 2026",
+  tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
+},
   {
     id: 3,
     title: "CarePoint Medical Center",
@@ -34,17 +45,7 @@ const projects = [
     date: "2026",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
-  {
-  id: 14,
-  title: "My PHP CRUD App",
-  description: "A fully functional CRUD (Create, Read, Update, Delete) web application developed to strengthen backend development skills and database management. It allows users to create, view, update, and delete records with a simple and responsive interface.",
-  image: "/project-crud-app.jpg",
-  tags: ["HTML5", "CSS3", "PHP", "MySQL"],
-  demoUrl: "https://dulanacrud.infy.click",
-  githubUrl: "https://github.com/dulanachathurma/My-Crud-App",
-  date: "May 2026 – Jun 2026",
-  tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
-},
+
   {
     id: 4,
     title: "Amazon Clone Website",
