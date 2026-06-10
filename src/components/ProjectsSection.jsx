@@ -30,7 +30,6 @@ const projects = [
   title: "My PHP CRUD App",
   description: "A fully functional CRUD (Create, Read, Update, Delete) web application developed to strengthen backend development skills and database management. It allows users to create, view, update, and delete records with a simple and responsive interface.",
   image: "/project-crud-app.jpg",
-  securityImage: "/security-update.jpg",
   tags: ["HTML5", "CSS3", "PHP", "MySQL"],
   demoUrl: "https://dulanacrud.infy.click",
   githubUrl: "https://github.com/dulanachathurma/My-Crud-App",
@@ -227,17 +226,8 @@ export const ProjectsSection = () => {
                   {project.description}
                 </p>
 
-                {/* Button */}
-                <button
-                  onClick={() => {
-                    setSelectedImage(project.securityImage);
-                    setShowImage(true);
-                  }}
-                  className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700"
-                >
-                  View Security Update
-                </button>
-
+        
+               
                 {/* Footer Actions */}
                 <div className="flex justify-between items-center pt-3 border-t border-gray-100 dark:border-gray-700">
                   <div className="flex space-x-3">
