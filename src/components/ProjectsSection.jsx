@@ -1,4 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { useState } from "react";
+
 
 const projects = [
   {
@@ -28,6 +30,7 @@ const projects = [
   title: "My PHP CRUD App",
   description: "A fully functional CRUD (Create, Read, Update, Delete) web application developed to strengthen backend development skills and database management. It allows users to create, view, update, and delete records with a simple and responsive interface.",
   image: "/project-crud-app.jpg",
+  securityImage: "/security-update.jpg",
   tags: ["HTML5", "CSS3", "PHP", "MySQL"],
   demoUrl: "https://dulanacrud.infy.click",
   githubUrl: "https://github.com/dulanachathurma/My-Crud-App",
@@ -148,6 +151,8 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
+  const [showImage, setShowImage] = useState(false);
+const [selectedImage, setSelectedImage] = useState("");
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-6xl">
@@ -217,34 +222,44 @@ export const ProjectsSection = () => {
                 </p>
 
                 {/* Action Buttons */}
-                <div className="flex justify-between items-center pt-3 border-t border-gray-100 dark:border-gray-700">
-                  <div className="flex space-x-3">
-                    {project.demoUrl && project.demoUrl !== "#" && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                      >
-                        <ExternalLink size={14} /> Live Demo
-                      </a>
-                    )}
-                    {project.githubUrl && project.githubUrl !== "#" && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                      >
-                        <Github size={16} /> Code
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+<div className="pt-3 border-t border-gray-100 dark:border-gray-700">
+
+  {project.securityImage && (
+    <button
+      onClick={() => {
+        setSelectedImage(project.securityImage);
+        setShowImage(true);
+      }}
+      className="w-full mb-3 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition"
+    >
+      View Security Update
+    </button>
+  )}
+
+  <div className="flex space-x-3">
+    {project.demoUrl && project.demoUrl !== "#" && (
+      <a
+        href={project.demoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+      >
+        <ExternalLink size={14} /> Live Demo
+      </a>
+    )}
+
+    {project.githubUrl && project.githubUrl !== "#" && (
+      <a
+        href={project.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+      >
+        <Github size={16} /> Code
+      </a>
+    )}
+  </div>
+</div>
 
         {/* View All Button */}
         <div className="text-center mt-12">
@@ -257,7 +272,32 @@ export const ProjectsSection = () => {
             Check My GitHub <ArrowRight size={16} />
           </a>
         </div>
+                {showImage && (
+  <div
+    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+    onClick={() => setShowImage(false)}
+  >
+    <div
+      className="relative max-w-4xl w-full"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        onClick={() => setShowImage(false)}
+        className="absolute -top-12 right-0 text-white text-4xl"
+      >
+        ×
+      </button>
+
+      <img
+        src={selectedImage}
+        alt="Security Update"
+        className="w-full rounded-xl"
+      />
+    </div>
+  </div>
+)}
       </div>
+              
     </section>
   );
 };
