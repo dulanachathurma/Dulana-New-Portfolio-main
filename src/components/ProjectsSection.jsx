@@ -150,5 +150,143 @@ const projects = [
   }
 ];
 
-export const ProjectsSection = () => { return ( <section id="projects" className="py-24 px-4 relative"> <div className="container mx-auto max-w-6xl"> {/* Section Header */} <div className="text-center mb-12"> <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"> My Portfolio </span> <h2 className="text-3xl md:text-4xl font-bold mb-4"> Featured Projects </h2> <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div> <p className="text-muted-foreground max-w-2xl mx-auto"> Here are some of my recent projects. Each project was carefully crafted with attention to detail, performance, and user experience. </p> </div> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> {projects.map((project) => ( <div key={project.id} className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700" > {/* Image Container with Overlay */} <div className="relative h-52 overflow-hidden bg-gray-100 dark:bg-gray-800"> <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" /> <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div> {project.date && ( <div className="absolute bottom-3 left-3 px-2 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-xs font-medium"> 📅 {project.date} </div> )} </div> {/* Content */} <div className="p-5"> {/* Tags */} <div className="flex flex-wrap gap-2 mb-4"> {project.tags.slice(0, 4).map((tag, idx) => ( <span key={idx} className={px-2.5 py-1 text-xs font-medium rounded-full ${project.tagColor} shadow-sm} > {tag} </span> ))} {project.tags.length > 4 && ( <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400"> +{project.tags.length - 4} </span> )} </div> {/* Title */} <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white group-hover:text-primary transition-colors duration-300"> {project.title} </h3> {/* Description */} <p className="text-gray-600 dark:text-gray-300 text-sm mb-5 leading-relaxed line-clamp-3"> {project.description} </p> {/* Action Buttons */} <div className="flex justify-between items-center pt-3 border-t border-gray-100 dark:border-gray-700"> <div className="flex space-x-3"> {project.demoUrl && project.demoUrl !== "#" && ( <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5" > <ExternalLink size={14} /> Live Demo </a> )} {project.githubUrl && project.githubUrl !== "#" && ( <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5" > <Github size={16} /> Code </a> )} </div> </div> </div> </div> ))} </div> {/* View All Button */} <div className="text-center mt-12"> <a className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer" href="https://github.com/dulanachathurma" > Check My GitHub <ArrowRight size={16} /> </a> </div> </div> </section> ); };
+export const ProjectsSection = () => {
+  return (
+    <section id="projects" className="py-24 px-4 relative">
+      <div className="container mx-auto max-w-6xl">
 
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            My Portfolio
+          </span>
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Featured Projects
+          </h2>
+
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6" />
+
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Here are some of my recent projects. Each project was carefully crafted with attention to detail, performance, and user experience.
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700"
+            >
+              {/* Image */}
+              <div className="relative h-52 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {project.date && (
+                  <div className="absolute bottom-3 left-3 px-2 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-xs font-medium">
+                    📅 {project.date}
+                  </div>
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="p-5">
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.slice(0, 4).map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className={`px-2.5 py-1 text-xs font-medium rounded-full ${project.tagColor} shadow-sm`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+
+                  {project.tags.length > 4 && (
+                    <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
+                      +{project.tags.length - 4}
+                    </span>
+                  )}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white group-hover:text-primary transition-colors duration-300">
+                  {project.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-5 leading-relaxed line-clamp-3">
+                  {project.description}
+                </p>
+
+                {/* Button */}
+                <button
+                  onClick={() => {
+                    setSelectedImage(project.securityImage);
+                    setShowImage(true);
+                  }}
+                  className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700"
+                >
+                  View Security Update
+                </button>
+
+                {/* Footer Actions */}
+                <div className="flex justify-between items-center pt-3 border-t border-gray-100 dark:border-gray-700">
+                  <div className="flex space-x-3">
+
+                    {project.demoUrl && project.demoUrl !== "#" && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                      >
+                        <ExternalLink size={14} />
+                        Live Demo
+                      </a>
+                    )}
+
+                    {project.githubUrl && project.githubUrl !== "#" && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                      >
+                        <Github size={16} />
+                        Code
+                      </a>
+                    )}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* GitHub Button */}
+        <div className="text-center mt-12">
+          <a
+            href="https://github.com/dulanachathurma"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+          >
+            Check My GitHub
+            <ArrowRight size={16} />
+          </a>
+        </div>
+
+      </div>
+    </section>
+  );
+};
