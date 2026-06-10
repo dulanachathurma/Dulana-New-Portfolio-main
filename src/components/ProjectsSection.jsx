@@ -299,5 +299,5 @@ const [selectedImage, setSelectedImage] = useState("");
       </div>
               
     </section>
-  )
+  );
 };
