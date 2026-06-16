@@ -52,7 +52,7 @@ export const HeroSection = () => {
   }, [charIndex, isTyping, textIndex, textArray]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20 relative">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20 relative bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <div className="container mx-auto max-w-5xl text-center">
         
         {/* Profile Image with Blue Border Circle + Animation */}
@@ -81,18 +81,20 @@ export const HeroSection = () => {
           </div>
         </div>
         
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-          Hi, I'm <span className="text-gray-900 dark:text-white"></span>{' '}
-          <br /><span className="text-blue-600">Dulana Chathurma</span>
+        {/* Main Heading - Fixed text colors for dual dark mode contexts */}
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-slate-900 dark:text-white">
+          Hi, I'm <br />
+          <span className="text-blue-600 dark:text-blue-500">Dulana Chathurma</span>
         </h1>
         
         <div className="h-24 mb-8">
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
             {displayText}
             <span className="inline-block w-0.5 h-6 bg-blue-500 ml-1 animate-blink"></span>
           </p>
         </div>
         
+        {/* Buttons Section - Fully Optimized */}
         <div className="flex flex-wrap gap-4 justify-center mb-12">
           <a 
             href="#contact" 
@@ -103,17 +105,18 @@ export const HeroSection = () => {
           <a 
             href="/Dulana-Chathurma-CV.pdf" 
             download
-            className="px-6 py-3 rounded-full border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white bg-white dark:bg-transparent hover:bg-gray-50 dark:hover:bg-white/10 transition-all duration-300 flex items-center gap-2 hover:-translate-y-1"
+            className="px-6 py-3 rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 flex items-center gap-2 hover:-translate-y-1 shadow-sm"
           >
             <Download className="h-4 w-4" /> Download CV
           </a>
         </div>
         
+        {/* Tags Section - Fixed text visibility */}
         <div className="flex flex-wrap gap-3 justify-center">
           {tags.map((tag, index) => (
             <span 
               key={tag} 
-              className="px-4 py-2 bg-primary/10 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-primary/20 hover:text-primary active:scale-95"
+              className="px-4 py-2 bg-blue-500/10 dark:bg-blue-500/20 rounded-full text-sm font-medium text-slate-700 dark:text-slate-200 cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white active:scale-95"
               style={{ transitionDelay: `${index * 0.05}s` }}
             >
               {tag}
@@ -121,12 +124,11 @@ export const HeroSection = () => {
           ))}
         </div>
         
-        {/* නිවැරදි කළ ලින්ක් එක (aria-label එකතු කරන ලදී): */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <a 
             href="#about" 
             aria-label="Scroll down to About section" 
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
             <ChevronDown className="h-8 w-8" />
           </a>
