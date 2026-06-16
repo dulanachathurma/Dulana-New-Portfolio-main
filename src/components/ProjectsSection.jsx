@@ -2,7 +2,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { useState } from "react";
 
 const projects = [
-  // === CATEGORY: major (විශාල හෝ ප්‍රධාන ප්‍රොජෙක්ට්ස්) ===
+  // === CATEGORY: major 
   {
     id: 1,
     title: "VisionScope AI",
@@ -64,7 +64,7 @@ const projects = [
     tagColor: "bg-fuchsia-100 dark:bg-fuchsia-900/50 text-fuchsia-700 dark:text-fuchsia-300"
   },
 
-  // === CATEGORY: mini (Mini ප්‍රොජෙක්ට්ස් හෝ UI Clones) ===
+
   {
     id: 2,
     title: "GPA Calculator App",
@@ -164,10 +164,9 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
-  // දැනට තෝරාගෙන ඇති category එක තියාගන්න state එකක් (Default: 'major')
+
   const [activeTab, setActiveTab] = useState("major");
 
-  // තෝරාගත් Tab එකට අදාළ ප්‍රොජෙක්ට්ස් විතරක් filter කරගැනීම
   const filteredProjects = projects.filter(project => project.category === activeTab);
 
   return (
@@ -271,7 +270,7 @@ export const ProjectsSection = () => {
                   {project.description}
                 </p>
 
-                {/* Footer Actions */}
+              {/* Footer Actions */}
                 <div className="flex justify-between items-center pt-3 border-t border-slate-100 dark:border-slate-700">
                   <div className="flex space-x-3 w-full">
                     {project.demoUrl && project.demoUrl !== "#" && (
@@ -279,7 +278,7 @@ export const ProjectsSection = () => {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                       >
                         <ExternalLink size={14} />
                         Live Demo
