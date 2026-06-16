@@ -426,3 +426,47 @@ section li::before {
     padding: 1rem;
   }
 }
+    /* index.css එකේ පල්ලෙහාටම මේක එකතු කරන්න */
+
+/* ඩාර්ක් මෝඩ් එකේදී cards ඇතුළේ තියෙන සියලුම headings සහ text සුදු කිරීම */
+.dark .card h3, 
+.dark .project-card h3, 
+.dark .skill-card h3, 
+.dark .education-card h3, 
+.dark .experience-card h3, 
+.dark .certificate-card h3, 
+.dark .article-card h3,
+.dark section h3 {
+  color: #ffffff !important;
+}
+
+.dark .card p, 
+.dark .card span, 
+.dark .card li,
+.dark .project-card p, 
+.dark .skill-card p, 
+.dark .education-card p, 
+.dark .experience-card p, 
+.dark .certificate-card p, 
+.dark .article-card p,
+.dark section p,
+.dark section li {
+  color: #cbd5e1 !important; /* ලස්සන light gray/white පාටක් */
+}
+
+/* ඩාර්ක් මෝඩ් එකේදී tags වල පසුබිම සහ අකුරු පැහැදිලිව පෙනෙන්න හැදීම */
+.dark .tag, 
+.dark .skill-tag, 
+.dark .tool,
+.dark .bg-primary\/10 {
+  background-color: #334155 !important; /* Slate-700 */
+  color: #f8fafc !important; /* Slate-50 */
+}
+
+/* Download CV වගේ බටන් වල අකුරු කළු/තද පාටින්ම තියාගන්න (පසුබිම සුදු නිසා) */
+.dark a[download],
+.dark .border-slate-300 {
+  background-color: #1e293b !important; /* Slate-800 */
+  border-color: #475569 !important;
+  color: #ffffff !important;
+}
