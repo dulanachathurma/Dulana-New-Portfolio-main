@@ -160,9 +160,7 @@
   padding: 0;
   text-align: center;
 }
-/* ============================================
-   GLOBAL SECTION STYLES - Clean List Down for ALL Sections
-   ============================================ */
+
 
 /* All Sections - Clean Display */
 section {
@@ -210,7 +208,7 @@ section .section-subtitle {
 
 /* Dark Mode */
 .dark section .section-subtitle {
-  color: #000000;
+  color: #cbd5e1;
 }
 
 /* Cards Grid - Clean Layout */
@@ -246,7 +244,7 @@ section .section-subtitle {
 .dark .contact-card {
   background: #1e293b;
   border-color: #334155;
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Card Hover */
@@ -357,7 +355,7 @@ section li::before {
 .dark .skill-tag,
 .dark .tool {
   background: #334155;
-  color: #000000;
+  color: #f8fafc;
 }
 
 /* Stats Cards */
