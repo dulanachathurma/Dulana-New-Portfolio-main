@@ -70,7 +70,7 @@ export const HeroSection = () => {
           <div className="relative w-36 h-36 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-blue-500/30 border-2 border-blue-500">
             <img 
               src="/dulana-profile-circle.jpg" 
-              alt="Dulana Chathurma" 
+              alt="Dulana Chathurma Profile Picture" 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
@@ -121,8 +121,13 @@ export const HeroSection = () => {
           ))}
         </div>
         
+        {/* නිවැරදි කළ ලින්ක් එක (aria-label එකතු කරන ලදී): */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
+          <a 
+            href="#about" 
+            aria-label="Scroll down to About section" 
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
             <ChevronDown className="h-8 w-8" />
           </a>
         </div>
