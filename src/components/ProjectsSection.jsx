@@ -15,18 +15,7 @@ const projects = [
     date: "2026",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
-  {
-    id: 5,
-    title: "User Management Application",
-    category: "major",
-    description: "Full-stack CRUD web application developed using Spring Boot, React.js, JavaScript, and MySQL. The system allows efficient user data management with a structured backend and a responsive front-end interface.",
-    image: "/project-user-management.jpg",
-    tags: ["Java", "JavaScript", "Spring Boot", "React.js", "MySQL", "Full-Stack"],
-    demoUrl: "https://github.com/dulanachathurma/User-Management-Application",
-    githubUrl: "https://github.com/dulanachathurma/User-Management-Application",
-    date: "Sep 2025 – Oct 2025",
-    tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
-  },
+ 
   {
     id: 6,
     title: "Sriseta Official Website",
@@ -51,6 +40,18 @@ const projects = [
     date: "Mar 2026 – Present",
     tagColor: "bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300"
   },
+  {
+  id: 4,
+  title: "TaskFlow",
+  category: "major",
+  description: "A modern full-stack task management application built with React, Node.js, Express, and MongoDB Atlas. Features JWT authentication, task creation and management, priority-based task sorting, secure user accounts, responsive design, and real-time database integration for efficient productivity management.", 
+  image: "/project-taskflow.jpg",
+  tags: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
+  demoUrl: "https://taskflow-app-nu.vercel.app",
+  githubUrl: "https://github.com/dulanachathurma/Task-Flow",
+  date: "2026",
+  tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
+},
   {
     id: 12,
     title: "Intelligent Career Skill Analysis Platform (NexGenAI)",
@@ -101,18 +102,7 @@ const projects = [
     date: "2026",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
-  {
-    id: 4,
-    title: "Amazon Clone Website",
-    category: "mini",
-    description: "A simple e-commerce web application inspired by Amazon, designed to simulate an online shopping experience with a clean and interactive interface. Features product browsing, add-to-cart functionality, responsive layout, and interactive UI elements.",
-    image: "/project-amazon-clone.jpg",
-    tags: ["HTML5", "CSS3", "JavaScript"],
-    demoUrl: "https://github.com/dulanachathurma/Amazon-Clone",
-    githubUrl: "https://github.com/dulanachathurma/Amazon-Clone",
-    date: "2026",
-    tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
-  },
+ 
   {
     id: 7,
     title: "TravelScope Website",
