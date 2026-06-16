@@ -206,9 +206,12 @@ section .section-subtitle {
   margin-right: auto;
 }
 
-/* Dark Mode */
-.dark section .section-subtitle {
-  color: #cbd5e1;
+/* Dark Mode - Subtitle */
+.dark section .section-subtitle,
+@media (prefers-color-scheme: dark) {
+  section .section-subtitle {
+    color: #cbd5e1;
+  }
 }
 
 /* Cards Grid - Clean Layout */
@@ -217,7 +220,7 @@ section .section-subtitle {
   gap: 1.5rem;
 }
 
-/* Card Styles - Clean and Clear */
+/* Card Styles - Light Mode Default */
 .card, 
 .project-card, 
 .skill-card, 
@@ -234,17 +237,14 @@ section .section-subtitle {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.dark .card,
-.dark .project-card,
-.dark .skill-card,
-.dark .education-card,
-.dark .experience-card,
-.dark .certificate-card,
-.dark .article-card,
-.dark .contact-card {
-  background: #1e293b;
-  border-color: #334155;
-  color: #ffffff;
+/* Card Styles - System Dark Mode සහ Manually Class Dark Mode දෙකෙහිදීම සුදුසු පරිදි වෙනස් වීම */
+.dark .card, .dark .project-card, .dark .skill-card, .dark .education-card, .dark .experience-card, .dark .certificate-card, .dark .article-card, .dark .contact-card,
+@media (prefers-color-scheme: dark) {
+  .card, .project-card, .skill-card, .education-card, .experience-card, .certificate-card, .article-card, .contact-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #ffffff !important;
+  }
 }
 
 /* Card Hover */
@@ -267,25 +267,29 @@ section p {
 }
 
 .dark .about p,
-.dark .about .description {
-  color: #ffffff;
+.dark .about .description,
+@media (prefers-color-scheme: dark) {
+  .about p, .about .description {
+    color: #ffffff;
+  }
 }
 
-/* Dark mode card text styles - ALL BLACK */
-.dark .card p,
-.dark .card li,
-.dark .card span,
-.dark .project-card p,
-.dark .project-card li,
-.dark .skill-card p,
-.dark .skill-card li,
-.dark .education-card p,
-.dark .education-card li,
-.dark .experience-card p,
-.dark .experience-card li,
-.dark .certificate-card p,
-.dark .article-card p {
-  color: #ffffff;
+/* Dark mode card text styles - System and Manual */
+.dark .card p, .dark .card li, .dark .card span,
+.dark .project-card p, .dark .project-card li,
+.dark .skill-card p, .dark .skill-card li,
+.dark .education-card p, .dark .education-card li,
+.dark .experience-card p, .dark .experience-card li,
+.dark .certificate-card p, .dark .article-card p,
+@media (prefers-color-scheme: dark) {
+  .card p, .card li, .card span,
+  .project-card p, .project-card li,
+  .skill-card p, .skill-card li,
+  .education-card p, .education-card li,
+  .experience-card p, .experience-card li,
+  .certificate-card p, .article-card p {
+    color: #ffffff !important;
+  }
 }
 
 section h3 {
@@ -295,19 +299,19 @@ section h3 {
   color: #1e293b;
 }
 
-.dark section h3 {
-  color: #ffffff;
+.dark section h3,
+@media (prefers-color-scheme: dark) {
+  section h3 {
+    color: #ffffff;
+  }
 }
 
-/* Dark mode card headings - BLACK */
-.dark .card h3,
-.dark .project-card h3,
-.dark .skill-card h3,
-.dark .education-card h3,
-.dark .experience-card h3,
-.dark .certificate-card h3,
-.dark .article-card h3 {
-  color: #ffffff;
+/* Dark mode card headings - Fixes Screenshot 2026-06-16 at 22.12.57.jpg and Screenshot 2026-06-16 at 22.12.49.jpg */
+.dark .card h3, .dark .project-card h3, .dark .skill-card h3, .dark .education-card h3, .dark .experience-card h3, .dark .certificate-card h3, .dark .article-card h3,
+@media (prefers-color-scheme: dark) {
+  .card h3, .project-card h3, .skill-card h3, .education-card h3, .experience-card h3, .certificate-card h3, .article-card h3 {
+    color: #ffffff !important;
+  }
 }
 
 /* Lists - Clean Display */
@@ -325,8 +329,11 @@ section li {
   color: #475569;
 }
 
-.dark section li {
-  color: #ffffff;
+.dark section li,
+@media (prefers-color-scheme: dark) {
+  section li {
+    color: #ffffff;
+  }
 }
 
 section li::before {
@@ -351,11 +358,12 @@ section li::before {
   margin: 0.25rem;
 }
 
-.dark .tag,
-.dark .skill-tag,
-.dark .tool {
-  background: #334155;
-  color: #f8fafc;
+.dark .tag, .dark .skill-tag, .dark .tool,
+@media (prefers-color-scheme: dark) {
+  .tag, .skill-tag, .tool {
+    background: #334155;
+    color: #f8fafc;
+  }
 }
 
 /* Stats Cards */
@@ -367,9 +375,12 @@ section li::before {
   border: 1px solid #e2e8f0;
 }
 
-.dark .stat-card {
-  background: #1e293b;
-  border-color: #334155;
+.dark .stat-card,
+@media (prefers-color-scheme: dark) {
+  .stat-card {
+    background: #1e293b;
+    border-color: #334155;
+  }
 }
 
 .stat-number {
@@ -383,8 +394,11 @@ section li::before {
   color: #64748b;
 }
 
-.dark .stat-label {
-  color: #ffffff;
+.dark .stat-label,
+@media (prefers-color-scheme: dark) {
+  .stat-label {
+    color: #ffffff;
+  }
 }
 
 /* Responsive */
