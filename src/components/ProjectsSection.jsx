@@ -1,11 +1,12 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-
-
+import { useState } from "react";
 
 const projects = [
+  // === CATEGORY: major (විශාල හෝ ප්‍රධාන ප්‍රොජෙක්ට්ස්) ===
   {
     id: 1,
     title: "VisionScope AI",
+    category: "major",
     description: "AI-powered real-time human feature detection system with webcam analysis, face & eye tracking, image upload processing, and drowsiness detection alerts for driver safety. Built using Flask, OpenCV, MediaPipe, React, and Machine Learning technologies.",
     image: "/project-visionscope-ai.jpg",
     tags: ["Python", "Flask", "OpenCV", "MediaPipe", "React.js", "Machine Learning"],
@@ -15,53 +16,9 @@ const projects = [
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
   {
-    id: 2,
-    title: "GPA Calculator App",
-    description: "A full-featured academic GPA tracking web application that allows students to calculate Semester GPA, Year GPA, and Cumulative GPA across multiple academic years with a clean and responsive UI.",
-    image: "/project-gpa-calculator.jpg",
-    tags: ["React 19", "Vite", "Tailwind CSS", "JavaScript"],
-    demoUrl: "https://dcgpa.vercel.app/",
-    githubUrl: "https://github.com/dulanachathurma/GPA-Calculator-App",
-    date: "2026",
-    tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
-  },
-    {
-  id: 14,
-  title: "My PHP CRUD App",
-  description: "A fully functional CRUD (Create, Read, Update, Delete) web application developed to strengthen backend development skills and database management. It allows users to create, view, update, and delete records with a simple and responsive interface.",
-  image: "/project-crud-app.jpg",
-  tags: ["HTML5", "CSS3", "PHP", "MySQL"],
-  demoUrl: "https://dulanacrud.infy.click",
-  githubUrl: "https://github.com/dulanachathurma/My-Crud-App",
-  date: "May 2026 – Jun 2026",
-  tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
-},
-  {
-    id: 3,
-    title: "CarePoint Medical Center",
-    description: "Modern healthcare web application designed for easy doctor search, appointment booking, and seamless patient experience. Features doctor search, online appointment booking, secure payment simulation, ambulance contact access, and a fully responsive user interface.",
-    image: "/project-medical-center.jpg",
-    tags: ["HTML5", "CSS3", "JavaScript"],
-    demoUrl: "https://dulanamedical.netlify.app",
-    githubUrl: "#",
-    date: "2026",
-    tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
-  },
-
-  {
-    id: 4,
-    title: "Amazon Clone Website",
-    description: "A simple e-commerce web application inspired by Amazon, designed to simulate an online shopping experience with a clean and interactive interface. Features product browsing, add-to-cart functionality, responsive layout, and interactive UI elements.",
-    image: "/project-amazon-clone.jpg",
-    tags: ["HTML5", "CSS3", "JavaScript"],
-    demoUrl: "https://github.com/dulanachathurma/Amazon-Clone",
-    githubUrl: "https://github.com/dulanachathurma/Amazon-Clone",
-    date: "2026",
-    tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
-  },
-  {
     id: 5,
     title: "User Management Application",
+    category: "major",
     description: "Full-stack CRUD web application developed using Spring Boot, React.js, JavaScript, and MySQL. The system allows efficient user data management with a structured backend and a responsive front-end interface.",
     image: "/project-user-management.jpg",
     tags: ["Java", "JavaScript", "Spring Boot", "React.js", "MySQL", "Full-Stack"],
@@ -73,6 +30,7 @@ const projects = [
   {
     id: 6,
     title: "Sriseta Official Website",
+    category: "major",
     description: "Modern astrology website with live horoscopes, service booking, WhatsApp integration, and mobile-friendly design. Features auto-updating predictions, interactive zodiac slider, and contact forms.",
     image: "/project-astrology-website.jpg",
     tags: ["React.js", "HTML5", "CSS3", "JavaScript"],
@@ -82,8 +40,83 @@ const projects = [
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
   {
+    id: 10,
+    title: "AI Career & University Recommendation System",
+    category: "major",
+    description: "Building an AI-Based Career Path Prediction and University Recommendation System that helps students make informed decisions. Analyzes academic profiles, interests, and market trends to suggest optimal career paths and matching universities.",
+    image: "/project-ai-career.jpg",
+    tags: ["Python", "Machine Learning", "AI", "Recommendation System", "Flask"],
+    demoUrl: "https://medium.com/@dulanachathurma99/ai-career-university-recommendation-system-2cfafe7d9842",
+    githubUrl: "#",
+    date: "Mar 2026 – Present",
+    tagColor: "bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300"
+  },
+  {
+    id: 12,
+    title: "Intelligent Career Skill Analysis Platform (NexGenAI)",
+    category: "major",
+    description: "NexGenAI is LIVE! An AI-powered career platform that analyzes CVs, maps skills intelligently, and provides career recommendations along with ATS scores in seconds. Features dynamic skill dashboards and career match predictions.",
+    image: "/project-nexgenai.jpg",
+    tags: ["React", "TailwindCSS", "HTML5", "CSS3", "AI Resume Analysis"],
+    demoUrl: "https://dulanachathurma.github.io/Intelligent-Career-Skill-Analysis-Platform/",
+    githubUrl: "https://github.com/dulanachathurma/Intelligent-Career-Skill-Analysis-Platform",
+    date: "Feb 2026 – Mar 2026",
+    tagColor: "bg-fuchsia-100 dark:bg-fuchsia-900/50 text-fuchsia-700 dark:text-fuchsia-300"
+  },
+
+  // === CATEGORY: mini (Mini ප්‍රොජෙක්ට්ස් හෝ UI Clones) ===
+  {
+    id: 2,
+    title: "GPA Calculator App",
+    category: "mini",
+    description: "A full-featured academic GPA tracking web application that allows students to calculate Semester GPA, Year GPA, and Cumulative GPA across multiple academic years with a clean and responsive UI.",
+    image: "/project-gpa-calculator.jpg",
+    tags: ["React 19", "Vite", "Tailwind CSS", "JavaScript"],
+    demoUrl: "https://dcgpa.vercel.app/",
+    githubUrl: "https://github.com/dulanachathurma/GPA-Calculator-App",
+    date: "2026",
+    tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
+  },
+  {
+    id: 14,
+    title: "My PHP CRUD App",
+    category: "mini",
+    description: "A fully functional CRUD (Create, Read, Update, Delete) web application developed to strengthen backend development skills and database management. It allows users to create, view, update, and delete records with a simple and responsive interface.",
+    image: "/project-crud-app.jpg",
+    tags: ["HTML5", "CSS3", "PHP", "MySQL"],
+    demoUrl: "https://dulanacrud.infy.click",
+    githubUrl: "https://github.com/dulanachathurma/My-Crud-App",
+    date: "May 2026 – Jun 2026",
+    tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
+  },
+  {
+    id: 3,
+    title: "CarePoint Medical Center",
+    category: "mini",
+    description: "Modern healthcare web application designed for easy doctor search, appointment booking, and seamless patient experience. Features doctor search, online appointment booking, secure payment simulation, ambulance contact access, and a fully responsive user interface.",
+    image: "/project-medical-center.jpg",
+    tags: ["HTML5", "CSS3", "JavaScript"],
+    demoUrl: "https://dulanamedical.netlify.app",
+    githubUrl: "#",
+    date: "2026",
+    tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
+  },
+  {
+    id: 4,
+    title: "Amazon Clone Website",
+    category: "mini",
+    description: "A simple e-commerce web application inspired by Amazon, designed to simulate an online shopping experience with a clean and interactive interface. Features product browsing, add-to-cart functionality, responsive layout, and interactive UI elements.",
+    image: "/project-amazon-clone.jpg",
+    tags: ["HTML5", "CSS3", "JavaScript"],
+    demoUrl: "https://github.com/dulanachathurma/Amazon-Clone",
+    githubUrl: "https://github.com/dulanachathurma/Amazon-Clone",
+    date: "2026",
+    tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
+  },
+  {
     id: 7,
     title: "TravelScope Website",
+    category: "mini",
     description: "A comprehensive travel platform showcasing Sri Lanka's beauty, built with modern web technologies. This project represents my passion for both technology and promoting Sri Lankan tourism.",
     image: "/project-travelscope.jpg",
     tags: ["React.js", "HTML5", "CSS3", "JavaScript", "Google Maps API"],
@@ -95,6 +128,7 @@ const projects = [
   {
     id: 8,
     title: "WeatherSphere Pro App",
+    category: "mini",
     description: "WeatherSphere Pro is a responsive weather web application providing real-time weather updates with a clean interface. Built using React.js, HTML, CSS, and JavaScript, providing real-time weather updates.",
     image: "/project-weather-app.jpg",
     tags: ["React.js", "HTML5", "CSS3", "JavaScript", "Weather API"],
@@ -106,6 +140,7 @@ const projects = [
   {
     id: 9,
     title: "React Stopwatch",
+    category: "mini",
     description: "This is a simple stopwatch application built with React. It allows users to start, pause, and reset the timer. The interface is clean and responsive, displaying the elapsed time in milliseconds, seconds, and minutes.",
     image: "/stopwatch-app.jpg",
     tags: ["React.js"],
@@ -115,19 +150,9 @@ const projects = [
     tagColor: "bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300"
   },
   {
-    id: 10,
-    title: "AI Career & University Recommendation System",
-    description: "Building an AI-Based Career Path Prediction and University Recommendation System that helps students make informed decisions. Analyzes academic profiles, interests, and market trends to suggest optimal career paths and matching universities.",
-    image: "/project-ai-career.jpg",
-    tags: ["Python", "Machine Learning", "AI", "Recommendation System", "Flask"],
-    demoUrl: "https://medium.com/@dulanachathurma99/ai-career-university-recommendation-system-2cfafe7d9842",
-    githubUrl: "#",
-    date: "Mar 2026 – Present",
-    tagColor: "bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300"
-  },
-  {
     id: 11,
     title: "YouTube Frontend UI Clone",
+    category: "mini",
     description: "YouTube-inspired homepage UI, built entirely with HTML5 & CSS3. Replicates the look and feel of YouTube's interface with clean, modern styling.",
     image: "/project-youtube-clone.jpg",
     tags: ["HTML5", "CSS3", "Responsive"],
@@ -135,51 +160,72 @@ const projects = [
     githubUrl: "https://github.com/dulanachathurma/YouTube-Interface",
     date: "2025",
     tagColor: "bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300"
-  },
-  {
-    id: 12,
-    title: "Intelligent Career Skill Analysis Platform (NexGenAI)",
-    description: "NexGenAI is LIVE! An AI-powered career platform that analyzes CVs, maps skills intelligently, and provides career recommendations along with ATS scores in seconds. Features dynamic skill dashboards and career match predictions.",
-    image: "/project-nexgenai.jpg",
-    tags: ["React", "TailwindCSS", "HTML5", "CSS3", "AI Resume Analysis"],
-    demoUrl: "https://dulanachathurma.github.io/Intelligent-Career-Skill-Analysis-Platform/",
-    githubUrl: "https://github.com/dulanachathurma/Intelligent-Career-Skill-Analysis-Platform",
-    date: "Feb 2026 – Mar 2026",
-    tagColor: "bg-fuchsia-100 dark:bg-fuchsia-900/50 text-fuchsia-700 dark:text-fuchsia-300"
   }
 ];
 
 export const ProjectsSection = () => {
+  // දැනට තෝරාගෙන ඇති category එක තියාගන්න state එකක් (Default: 'major')
+  const [activeTab, setActiveTab] = useState("major");
+
+  // තෝරාගත් Tab එකට අදාළ ප්‍රොජෙක්ට්ස් විතරක් filter කරගැනීම
+  const filteredProjects = projects.filter(project => project.category === activeTab);
+
   return (
-    <section id="projects" className="py-24 px-4 relative">
+    <section id="projects" className="py-24 px-4 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="container mx-auto max-w-6xl">
 
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1 rounded-full bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
             My Portfolio
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             Featured Projects
           </h2>
 
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6" />
 
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Here are some of my recent projects. Each project was carefully crafted with attention to detail, performance, and user experience.
           </p>
         </div>
 
-        {/* Projects Grid */}
+        {/* Professional Navigation Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="flex bg-slate-200/60 dark:bg-slate-800/60 p-1.5 rounded-xl backdrop-blur-sm border border-slate-300/50 dark:border-slate-700/50">
+            <button
+              onClick={() => setActiveTab("major")}
+              className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                activeTab === "major"
+                  ? "bg-blue-600 text-white shadow-md scale-105"
+                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              }`}
+            >
+              Major Ventures
+            </button>
+            <button
+              onClick={() => setActiveTab("mini")}
+              className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                activeTab === "mini"
+                  ? "bg-blue-600 text-white shadow-md scale-105"
+                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              }`}
+            >
+              Mini Endeavors
+            </button>
+          </div>
+        </div>
+
+        {/* Projects Grid with Smooth Animation Mapping */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700"
+              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-slate-50/50 dark:from-slate-900 dark:to-slate-800/80 border border-slate-200 dark:border-slate-700/60"
             >
               {/* Image */}
-              <div className="relative h-52 overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-800">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -197,7 +243,6 @@ export const ProjectsSection = () => {
 
               {/* Content */}
               <div className="p-5">
-
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.slice(0, 4).map((tag, idx) => (
@@ -210,34 +255,31 @@ export const ProjectsSection = () => {
                   ))}
 
                   {project.tags.length > 4 && (
-                    <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
+                    <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400">
                       +{project.tags.length - 4}
                     </span>
                   )}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-5 leading-relaxed line-clamp-3">
+                <p className="text-slate-600 dark:text-slate-300 text-sm mb-5 leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
 
-        
-               
                 {/* Footer Actions */}
-                <div className="flex justify-between items-center pt-3 border-t border-gray-100 dark:border-gray-700">
-                  <div className="flex space-x-3">
-
+                <div className="flex justify-between items-center pt-3 border-t border-slate-100 dark:border-slate-700">
+                  <div className="flex space-x-3 w-full">
                     {project.demoUrl && project.demoUrl !== "#" && (
                       <a
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                       >
                         <ExternalLink size={14} />
                         Live Demo
@@ -249,19 +291,25 @@ export const ProjectsSection = () => {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-800 hover:to-slate-700 dark:from-slate-800 dark:to-slate-700 dark:hover:from-slate-700 dark:hover:to-slate-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                       >
                         <Github size={16} />
                         Code
                       </a>
                     )}
-
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* empty layout fallback if no projects exist in filtered category */}
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-12 text-slate-500 dark:text-slate-400">
+            No projects found in this category.
+          </div>
+        )}
 
         {/* GitHub Button */}
         <div className="text-center mt-12">
