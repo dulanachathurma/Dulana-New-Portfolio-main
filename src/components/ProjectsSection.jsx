@@ -2,7 +2,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { useState } from "react";
 
 const projects = [
-  // === CATEGORY: major 
+  // CATEGORY: major 
   {
     id: 1,
     title: "VisionScope AI",
@@ -109,8 +109,8 @@ const projects = [
     description: "A comprehensive travel platform showcasing Sri Lanka's beauty, built with modern web technologies. This project represents my passion for both technology and promoting Sri Lankan tourism.",
     image: "/project-travelscope.jpg",
     tags: ["React.js", "HTML5", "CSS3", "JavaScript", "Google Maps API"],
-    demoUrl: "https://dulanachathurma.github.io/TravelScope/#home",
-    githubUrl: "https://github.com/dulanachathurma/TravelScope",
+    demoUrl: "https://dulanatravel.vercel.app",
+    githubUrl: "https://github.com/dulanachathurma/TravelScope-Website-Project",
     date: "2025",
     tagColor: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300"
   },
@@ -200,7 +200,7 @@ export const ProjectsSection = () => {
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
-              Mini Endeavors
+              Personal Projects
             </button>
           </div>
         </div>
