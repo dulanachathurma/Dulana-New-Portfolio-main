@@ -259,34 +259,34 @@ export const ProjectsSection = () => {
                   {project.description}
                 </p>
 
-              {/* Footer Actions */}
-                <div className="flex justify-between items-center pt-3 border-t border-slate-100 dark:border-slate-700">
-                  <div className="flex space-x-3 w-full">
-                    {project.demoUrl && project.demoUrl !== "#" && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                      >
-                        <ExternalLink size={14} />
-                        Live Demo
-                      </a>
-                    )}
+             {/* Footer Actions */}
+<div className="flex justify-between items-center pt-3 border-t border-slate-100 dark:border-slate-700">
+  <div className="flex gap-3 w-full">
+    {project.demoUrl && project.demoUrl !== "#" && (
+      <a
+        href={project.demoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 flex items-center justify-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+      >
+        <ExternalLink size={14} />
+        Live Demo
+      </a>
+    )}
 
-                    {project.githubUrl && project.githubUrl !== "#" && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-800 hover:to-slate-700 dark:from-slate-800 dark:to-slate-700 dark:hover:from-slate-700 dark:hover:to-slate-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                      >
-                        <Github size={16} />
-                        Code
-                      </a>
-                    )}
-                  </div>
-                </div>
+    {project.githubUrl && project.githubUrl !== "#" && (
+      <a
+        href={project.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 flex items-center justify-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+      >
+        <Github size={16} />
+        Code
+      </a>
+    )}
+  </div>
+</div>
               </div>
             </div>
           ))}
