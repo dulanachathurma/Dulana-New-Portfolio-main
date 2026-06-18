@@ -51,33 +51,6 @@ Sent from Dulana Chathurma Portfolio`;
     }, 500);
   };
 
-  const contactInfo = [
-    { 
-      icon: Mail, 
-      text: "My Official Mail",
-      href: "mailto:dulanachathurma99@gmail.com", 
-      color: "text-blue-500", 
-      bgColor: "bg-blue-50 dark:bg-blue-950/30",
-      borderColor: "group-hover:border-blue-500"
-    },
-    { 
-      icon: Phone, 
-      text: "+94 76 75 74 844", 
-      href: "tel:+94767574844", 
-      color: "text-green-500", 
-      bgColor: "bg-green-50 dark:bg-green-950/30",
-      borderColor: "group-hover:border-green-500"
-    },
-    { 
-      icon: MapPin, 
-      text: "Kopiwatta, Getamanna, Beliatta, Sri Lanka", 
-      href: "#", 
-      color: "text-red-500", 
-      bgColor: "bg-red-50 dark:bg-red-950/30",
-      borderColor: "group-hover:border-red-500"
-    },
-  ];
-
   const socialLinks = [
     { 
       name: "LinkedIn", 
@@ -166,29 +139,8 @@ Sent from Dulana Chathurma Portfolio`;
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Side - Contact Info */}
+          {/* Left Side - Socials & Map Only */}
           <div className="space-y-8">
-            <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
-              <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Get In Touch</h3>
-              
-              <div className="space-y-5">
-                {contactInfo.map((info, index) => (
-                  <a
-                    key={index}
-                    href={info.href}
-                    className={`flex items-center gap-4 group transition-all duration-300 hover:translate-x-2 p-3 rounded-xl ${info.bgColor} border border-transparent ${info.borderColor} hover:border-current`}
-                  >
-                    <div className={`p-3 rounded-full ${info.bgColor} ${info.color} group-hover:scale-110 transition-all duration-300`}>
-                      <info.icon className="h-5 w-5" />
-                    </div>
-                    <span className="text-gray-600 dark:text-gray-300 group-hover:text-primary transition-colors font-medium">
-                      {info.text}
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
-
             {/* Social Links */}
             <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
               <h4 className="text-xl font-bold mb-5 text-gray-800 dark:text-white">Connect with me</h4>
