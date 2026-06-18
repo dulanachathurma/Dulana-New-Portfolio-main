@@ -13,20 +13,8 @@ const experiences = [
     iconBg: "from-rose-500 to-pink-500",
     tags: ["Leadership", "Community", "Events"],
   },
-  {
+   {
     id: 2,
-    title: "GitHub Dev Day",
-    location: "University of Kelaniya · Hybrid",
-    date: "Apr 2026 - Present · 1 mo",
-    description: "Successfully completed the GitHub for Beginners program and participated in GitHub Dev Day Sri Lanka, led by Nisal Gunawardhana. Gained hands-on experience in Git fundamentals, branching, collaboration, and modern development workflows using GitHub.",
-    image: "/github-logo.png",
-    link: "https://nisalgunawardhana.com/github-dev-day/badge/nt6smxx1nvpxmnlk2tw8",
-    linkText: "View Badge",
-    iconBg: "from-gray-700 to-slate-700",
-    tags: ["Git", "GitHub", "Open Source"],
-  },
-  {
-    id: 3,
     title: "Student Participant – Safe Migration Program",
     location: "International Organization for Migration · On-site",
     date: "Dec 2025 · 1 mo",
@@ -37,6 +25,19 @@ const experiences = [
     iconBg: "from-emerald-500 to-teal-500",
     tags: ["Migration", "Awareness", "Rotaract"],
   },
+  {
+    id: 3,
+    title: "GitHub Dev Day",
+    location: "University of Kelaniya · Hybrid",
+    date: "Apr 2026 - Present · 1 mo",
+    description: "Successfully completed the GitHub for Beginners program and participated in GitHub Dev Day Sri Lanka, led by Nisal Gunawardhana. Gained hands-on experience in Git fundamentals, branching, collaboration, and modern development workflows using GitHub.",
+    image: "/github-logo.png",
+    link: "https://nisalgunawardhana.com/github-dev-day/badge/nt6smxx1nvpxmnlk2tw8",
+    linkText: "View Badge",
+    iconBg: "from-gray-700 to-slate-700",
+    tags: ["Git", "GitHub", "Open Source"],
+  },
+ 
 ];
 
 export const ExperienceSection = () => {
@@ -45,13 +46,13 @@ export const ExperienceSection = () => {
       <div className="container mx-auto max-w-5xl">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1 rounded-full bg-blue-600/10 text-blue-600 text-sm font-medium mb-4">
             Professional Journey
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Volunteering & My Experience
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-secondary rounded-full mx-auto mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             My professional journey and volunteer experiences that have shaped my career
           </p>
@@ -60,7 +61,7 @@ export const ExperienceSection = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical center line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/60 via-primary/30 to-transparent -translate-x-1/2 hidden md:block" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600/60 via-primary/30 to-transparent -translate-x-1/2 hidden md:block" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => {
@@ -87,11 +88,11 @@ export const ExperienceSection = () => {
                             {exp.title}
                           </h3>
                           <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-0.5">
-                            <MapPin size={11} className="text-primary shrink-0" />
+                            <MapPin size={11} className="text-blue-600 shrink-0" />
                             <span>{exp.location}</span>
                           </div>
                           <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
-                            <Calendar size={11} className="text-primary shrink-0" />
+                            <Calendar size={11} className="text-blue-600 shrink-0" />
                             <span>{exp.date}</span>
                           </div>
                         </div>
@@ -130,7 +131,7 @@ export const ExperienceSection = () => {
 
                   {/* CENTER DOT */}
                   <div className="hidden md:flex md:order-2 w-[10%] justify-center items-center z-10">
-                    <div className="w-5 h-5 rounded-full bg-primary shadow-lg ring-4 ring-primary/20" />
+                    <div className="w-5 h-5 rounded-full bg-blue-600 shadow-lg ring-4 ring-blue-600/20" />
                   </div>
 
                   {/* RIGHT EMPTY (for alternating layout) */}
