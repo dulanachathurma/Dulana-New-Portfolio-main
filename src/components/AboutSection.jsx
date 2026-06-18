@@ -1,4 +1,5 @@
-import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Sparkles, Rocket, Heart, Star, Zap } from "lucide-react";
+import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap } from "lucide-react";
+import profileImg from "../assets/dulana.jpeg";
 
 export const AboutSection = () => {
   const stats = [
@@ -14,7 +15,6 @@ export const AboutSection = () => {
       icon: Brain, 
       color: "text-blue-500",
       bgColor: "bg-blue-500/10",
-     
       gradient: "from-blue-500/20 to-purple-500/20"
     },
     { 
@@ -23,7 +23,6 @@ export const AboutSection = () => {
       icon: Code, 
       color: "text-blue-500",
       bgColor: "bg-blue-500/10",
-      
       gradient: "from-blue-500/20 to-cyan-500/20"
     },
     { 
@@ -32,7 +31,6 @@ export const AboutSection = () => {
       icon: Database, 
       color: "text-orange-500",
       bgColor: "bg-orange-500/10",
-      
       gradient: "from-orange-500/20 to-yellow-500/20"
     },
   ];
@@ -56,7 +54,7 @@ export const AboutSection = () => {
           Let me introduce myself <span className="inline-block"></span>
         </p>
 
-        {/* Stats Cards - 3 cards row with colors */}
+        {/* Stats Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-3xl mx-auto">
           {stats.map((stat) => (
             <div 
@@ -64,7 +62,6 @@ export const AboutSection = () => {
               className={`${stat.bgColor} backdrop-blur-sm rounded-xl p-4 text-center card-hover border border-${stat.color.split('-')[1]}-200/30 transition-all duration-300 hover:scale-105`}
             >
               <div className="flex items-center justify-center gap-2 mb-2">
-                <span className="text-2xl">{stat.emoji}</span>
                 <stat.icon className={`h-7 w-7 ${stat.color}`} />
               </div>
               <div className={`text-2xl md:text-3xl font-bold ${stat.color}`}>{stat.value}</div>
@@ -74,11 +71,30 @@ export const AboutSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Left: Text content */}
           <div className="space-y-6">
+            {/* Profile Image - circular */}
+            <div className="flex justify-center mb-6">
+              <div className="relative">
+                {/* Glowing ring */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-500 animate-spin-slow blur-sm opacity-60" style={{ padding: "3px" }}></div>
+                {/* Border ring */}
+                <div className="relative p-[3px] rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-500">
+                  <img
+                    src={profileImg}
+                    alt="Dulana Chathurma"
+                    className="w-40 h-40 rounded-full object-cover object-top border-4 border-background"
+                  />
+                </div>
+                {/* Online indicator */}
+                <span className="absolute bottom-2 right-2 w-4 h-4 bg-green-400 border-2 border-background rounded-full"></span>
+              </div>
+            </div>
+
             <h3 className="text-2xl font-semibold flex items-center justify-center gap-2 text-center">
-  My Journey<span className="text-primary"></span>
-  <span className="text-2xl"></span>
-</h3>
+              My Journey<span className="text-primary"></span>
+              <span className="text-2xl"></span>
+            </h3>
 
             <p className="text-muted-foreground leading-relaxed">
               <span className="text-2xl mr-2"></span> 
@@ -117,6 +133,7 @@ export const AboutSection = () => {
             </div>
           </div>
 
+          {/* Right: Feature cards */}
           <div className="grid grid-cols-1 gap-6">
             {features.map((feature) => (
               <div 
@@ -125,8 +142,7 @@ export const AboutSection = () => {
               >
                 <div className="flex items-start gap-4">
                   <div className={`p-3 rounded-full ${feature.bgColor} ${feature.color}`}>
-                    <span className="text-xl mr-1">{feature.emoji}</span>
-                    <feature.icon className="h-6 w-6 inline-block" />
+                    <feature.icon className="h-6 w-6" />
                   </div>
                   <div className="text-left">
                     <h4 className={`font-semibold text-lg ${feature.color} flex items-center gap-2`}>
@@ -138,13 +154,10 @@ export const AboutSection = () => {
                 </div>
               </div>
             ))}
-
-           
           </div>
         </div>
       </div>
 
-      {/* Add custom animations */}
       <style>{`
         @keyframes wave {
           0%, 100% { transform: rotate(0deg); }
@@ -153,17 +166,17 @@ export const AboutSection = () => {
           60% { transform: rotate(5deg); }
           80% { transform: rotate(-5deg); }
         }
-        
         .animate-wave {
           animation: wave 1.5s ease-in-out infinite;
           display: inline-block;
         }
-        
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.05; transform: scale(1); }
-          50% { opacity: 0.15; transform: scale(1.1); }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
-        
+        .animate-spin-slow {
+          animation: spin-slow 4s linear infinite;
+        }
         .delay-1000 {
           animation-delay: 1s;
         }
