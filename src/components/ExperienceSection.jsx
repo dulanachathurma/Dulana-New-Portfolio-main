@@ -13,20 +13,8 @@ const experiences = [
     iconBg: "from-rose-500 to-pink-500",
     tags: ["Leadership", "Community", "Events"],
   },
-   {
-    id: 2,
-    title: "Student Participant – Safe Migration Program",
-    location: "International Organization for Migration · On-site",
-    date: "Dec 2025 · 1 mo",
-    description: "Participated in a Safe Migration awareness program organized by the Rotaract Club of University of Kelaniya. Gained knowledge on international career opportunities and migration safety.",
-    image: "/abc.jpg",
-    link: "https://www.linkedin.com/in/dulana-chathurma/overlay/Position/2882945007/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B65jxYYkUQ2%2BYVbBokosGhA%3D%3D",
-    linkText: "View Photo",
-    iconBg: "from-emerald-500 to-teal-500",
-    tags: ["Migration", "Awareness", "Rotaract"],
-  },
   {
-    id: 3,
+    id: 2,
     title: "GitHub Dev Day",
     location: "University of Kelaniya · Hybrid",
     date: "Apr 2026 - Present · 1 mo",
@@ -37,7 +25,18 @@ const experiences = [
     iconBg: "from-gray-700 to-slate-700",
     tags: ["Git", "GitHub", "Open Source"],
   },
- 
+  {
+    id: 3,
+    title: "Student Participant – Safe Migration Program",
+    location: "International Organization for Migration · On-site",
+    date: "Dec 2025 · 1 mo",
+    description: "Participated in a Safe Migration awareness program organized by the Rotaract Club of University of Kelaniya. Gained knowledge on international career opportunities and migration safety.",
+    image: "/abc.jpg",
+    link: "https://www.linkedin.com/in/dulana-chathurma/overlay/Position/2882945007/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B65jxYYkUQ2%2BYVbBokosGhA%3D%3D",
+    linkText: "View Photo",
+    iconBg: "from-emerald-500 to-teal-500",
+    tags: ["Migration", "Awareness", "Rotaract"],
+  },
 ];
 
 export const ExperienceSection = () => {
@@ -52,7 +51,8 @@ export const ExperienceSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Volunteering & My Experience
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-secondary rounded-full mx-auto mb-6"></div>
+          {/* වෙනස් කරන ලදි: to-secondary වෙනුවට to-blue-400 දැමුවා */}
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             My professional journey and volunteer experiences that have shaped my career
           </p>
@@ -61,7 +61,8 @@ export const ExperienceSection = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical center line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600/60 via-primary/30 to-transparent -translate-x-1/2 hidden md:block" />
+          {/* වෙනස් කරන ලදි: via-primary/30 වෙනුවට via-blue-600/30 දැමුවා */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600/60 via-blue-600/30 to-transparent -translate-x-1/2 hidden md:block" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => {
@@ -129,7 +130,7 @@ export const ExperienceSection = () => {
                     </div>
                   </div>
 
-                  {/* CENTER DOT */}
+                  {/* CENTER DOT (දැනටමත් blue-600 කර ඇත) */}
                   <div className="hidden md:flex md:order-2 w-[10%] justify-center items-center z-10">
                     <div className="w-5 h-5 rounded-full bg-blue-600 shadow-lg ring-4 ring-blue-600/20" />
                   </div>
