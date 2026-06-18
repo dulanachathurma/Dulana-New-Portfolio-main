@@ -130,9 +130,7 @@ export const ExperienceSection = () => {
 
                   {/* CENTER DOT */}
                   <div className="hidden md:flex md:order-2 w-[10%] justify-center items-center z-10">
-                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg ring-4 ring-primary/20">
-                      <span className="text-white text-xs font-bold">{exp.id}</span>
-                    </div>
+                    <div className="w-5 h-5 rounded-full bg-primary shadow-lg ring-4 ring-primary/20" />
                   </div>
 
                   {/* RIGHT EMPTY (for alternating layout) */}
