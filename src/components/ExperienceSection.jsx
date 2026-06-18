@@ -10,10 +10,8 @@ const experiences = [
     image: "/experience-gavel-club.jpg",
     link: "https://www.linkedin.com/in/dulana-chathurma/overlay/VolunteerExperience/549063134/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B65jxYYkUQ2%2BYVbBokosGhA%3D%3D",
     linkText: "View Photo",
-    bgGradient: "from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/30",
-    borderColor: "border-rose-200 dark:border-rose-800",
     iconBg: "from-rose-500 to-pink-500",
-    tagColor: "bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300"
+    tags: ["Leadership", "Community", "Events"],
   },
   {
     id: 2,
@@ -24,10 +22,8 @@ const experiences = [
     image: "/github-logo.png",
     link: "https://nisalgunawardhana.com/github-dev-day/badge/nt6smxx1nvpxmnlk2tw8",
     linkText: "View Badge",
-    bgGradient: "from-gray-50 to-slate-50 dark:from-gray-950/30 dark:to-slate-950/30",
-    borderColor: "border-gray-200 dark:border-gray-700",
     iconBg: "from-gray-700 to-slate-700",
-    tagColor: "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+    tags: ["Git", "GitHub", "Open Source"],
   },
   {
     id: 3,
@@ -38,11 +34,9 @@ const experiences = [
     image: "/abc.jpg",
     link: "https://www.linkedin.com/in/dulana-chathurma/overlay/Position/2882945007/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B65jxYYkUQ2%2BYVbBokosGhA%3D%3D",
     linkText: "View Photo",
-    bgGradient: "from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30",
-    borderColor: "border-emerald-200 dark:border-emerald-800",
     iconBg: "from-emerald-500 to-teal-500",
-    tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
-  }
+    tags: ["Migration", "Awareness", "Rotaract"],
+  },
 ];
 
 export const ExperienceSection = () => {
@@ -50,7 +44,7 @@ export const ExperienceSection = () => {
     <section id="experience" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Professional Journey
           </span>
@@ -63,66 +57,90 @@ export const ExperienceSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {experiences.map((exp) => (
-            <div
-              key={exp.id}
-              className={`group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br ${exp.bgGradient} border ${exp.borderColor} flex flex-col`}
-            >
-              <div className="flex p-6 gap-5 flex-1">
-                {/* Image Circle with Gradient Border */}
-                <div className="flex-shrink-0">
-                  <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${exp.iconBg} p-1 shadow-md`}>
-                    <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-800">
-                      <img
-                        src={exp.image}
-                        alt={exp.title}
-                        className="w-full h-full object-cover"
-                      />
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical center line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/60 via-primary/30 to-transparent -translate-x-1/2 hidden md:block" />
+
+          <div className="space-y-12">
+            {experiences.map((exp, index) => {
+              const isLeft = index % 2 === 0;
+              return (
+                <div key={exp.id} className="relative flex flex-col md:flex-row items-center gap-6 md:gap-0">
+
+                  {/* LEFT CARD (even index) */}
+                  <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-10" : "md:order-3 md:pl-10"}`}>
+                    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                      {/* Top: image + title */}
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${exp.iconBg} p-0.5 shadow-md flex-shrink-0`}>
+                          <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-800">
+                            <img
+                              src={exp.image}
+                              alt={exp.title}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="text-base font-bold text-gray-800 dark:text-white leading-tight mb-1">
+                            {exp.title}
+                          </h3>
+                          <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-0.5">
+                            <MapPin size={11} className="text-primary shrink-0" />
+                            <span>{exp.location}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+                            <Calendar size={11} className="text-primary shrink-0" />
+                            <span>{exp.date}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                        {exp.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {exp.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2.5 py-0.5 rounded-full text-xs border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Button */}
+                      {exp.link && (
+                        <a
+                          href={exp.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-sm font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                        >
+                          {exp.linkText} <ExternalLink size={13} />
+                        </a>
+                      )}
                     </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="flex-1 flex flex-col">
-                  <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white leading-tight">
-                    {exp.title}
-                  </h3>
-
-                  {/* Info Row */}
-                  <div className="space-y-1.5 mb-3">
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                      <MapPin size={14} className="text-primary shrink-0" />
-                      <span>{exp.location}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                      <Calendar size={14} className="text-primary shrink-0" />
-                      <span>{exp.date}</span>
+                  {/* CENTER DOT */}
+                  <div className="hidden md:flex md:order-2 w-[10%] justify-center items-center z-10">
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg ring-4 ring-primary/20">
+                      <span className="text-white text-xs font-bold">{exp.id}</span>
                     </div>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                    {exp.description}
-                  </p>
-
-                  {/* Green Button */}
-                  {exp.link && (
-                    <div className="mt-auto pt-3 border-t border-black/5 dark:border-white/10">
-                      <a
-                        href={exp.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-sm font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-                      >
-                        {exp.linkText} <ExternalLink size={14} />
-                      </a>
-                    </div>
-                  )}
+                  {/* RIGHT EMPTY (for alternating layout) */}
+                  <div className={`hidden md:block md:w-[45%] ${isLeft ? "md:order-3" : "md:order-1"}`} />
                 </div>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
