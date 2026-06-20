@@ -3,9 +3,9 @@ import profileImg from "../assets/dulana.jpeg";
 
 export const AboutSection = () => {
   const stats = [
-    { value: "11+", label: "Projects Completed", icon: FolderGit2, color: "text-blue-500", bgColor: "bg-blue-500/10" },
-    { value: "2+", label: "Years of Experience", icon: Briefcase, color: "text-green-500", bgColor: "bg-green-500/10" },
-    { value: "2nd Year", label: "Undergraduate", icon: GraduationCap, color: "text-blue-500", bgColor: "bg-blue-500/10" },
+    { value: "11+", label: "Projects Completed", icon: FolderGit2 },
+    { value: "2+", label: "Years of Experience", icon: Briefcase },
+    { value: "2nd Year", label: "Undergraduate", icon: GraduationCap },
   ];
 
   const features = [
@@ -13,174 +13,135 @@ export const AboutSection = () => {
       title: "AI & Machine Learning", 
       description: "Building intelligent systems and prediction models using Python and ML algorithms.",
       icon: Brain, 
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10",
-      gradient: "from-blue-500/20 to-purple-500/20"
     },
     { 
       title: "Full-Stack Development", 
       description: "Creating complete web applications with Spring Boot, React.js, and MySQL.",
       icon: Code, 
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10",
-      gradient: "from-blue-500/20 to-cyan-500/20"
     },
     { 
       title: "Database Management", 
       description: "Designing and implementing efficient database solutions with MySQL and PostgreSQL.",
       icon: Database, 
-      color: "text-orange-500",
-      bgColor: "bg-orange-500/10",
-      gradient: "from-orange-500/20 to-yellow-500/20"
     },
   ];
 
   return (
-    <section id="about" className="py-24 px-4 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 left-10 text-4xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 text-4xl opacity-10 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 text-3xl opacity-5 animate-bounce"></div>
-      </div>
-
+    <section id="about" className="py-24 px-4 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="container mx-auto max-w-5xl relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          About Me<span className="text-primary"></span>
-          <span className="inline-block ml-2 text-3xl animate-wave"></span>
-        </h2>
         
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Let me introduce myself <span className="inline-block"></span>
-        </p>
+        {/* Section Header - Apple Minimal Style */}
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1 rounded-full bg-slate-200/50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-200 text-sm font-medium mb-4 backdrop-blur-sm border border-slate-300/30 dark:border-slate-700/30">
+            Biography
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white tracking-tight">
+            About Me
+          </h2>
+          <div className="w-12 h-0.5 bg-slate-900 dark:bg-white mx-auto mb-6 opacity-30"></div>
+          <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-sm">
+            Let me introduce myself and my technical background
+          </p>
+        </div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-3xl mx-auto">
+        {/* Stats Cards - Premium Clean Style */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16 max-w-3xl mx-auto">
           {stats.map((stat) => (
             <div 
               key={stat.label} 
-              className={`${stat.bgColor} backdrop-blur-sm rounded-xl p-4 text-center card-hover border border-${stat.color.split('-')[1]}-200/30 transition-all duration-300 hover:scale-105`}
+              className="bg-white dark:bg-slate-900 rounded-2xl p-5 text-center border border-slate-200/60 dark:border-slate-800/80 shadow-[0_4px_24px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <stat.icon className={`h-7 w-7 ${stat.color}`} />
+              <div className="flex items-center justify-center mb-3">
+                <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-100 dark:border-slate-800/60">
+                  <stat.icon className="h-5 w-5" />
+                </div>
               </div>
-              <div className={`text-2xl md:text-3xl font-bold ${stat.color}`}>{stat.value}</div>
-              <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+              <div className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">{stat.value}</div>
+              <div className="text-xs font-medium text-slate-400 dark:text-slate-500 mt-1 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left: Text content */}
-          <div className="space-y-6">
-            {/* Profile Image - circular */}
-            <div className="flex justify-center mb-6">
-              <div className="relative">
-                {/* Glowing ring */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-500 animate-spin-slow blur-sm opacity-60" style={{ padding: "3px" }}></div>
-                {/* Border ring */}
-                <div className="relative p-[3px] rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-500">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left: Text content & Profile Image (Spans 5 cols) */}
+          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-8">
+            
+            {/* Profile Image Container - Premium Square/Rounded Cut */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="relative group">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 p-2 bg-white dark:bg-slate-900 shadow-md">
                   <img
                     src={profileImg}
                     alt="Dulana Chathurma"
-                    className="w-40 h-40 rounded-full object-cover object-top border-4 border-background"
+                    className="w-48 h-48 lg:w-full lg:h-auto max-w-[240px] aspect-square rounded-xl object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                {/* Online indicator */}
-                <span className="absolute bottom-2 right-2 w-4 h-4 bg-green-400 border-2 border-background rounded-full"></span>
+                {/* Minimal Online Status Dot */}
+                <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-4 border-slate-50 dark:border-slate-950 rounded-full shadow-sm"></span>
               </div>
             </div>
 
-            <h3 className="text-2xl font-semibold flex items-center justify-center gap-2 text-center">
-              My Journey<span className="text-primary"></span>
-              <span className="text-2xl"></span>
-            </h3>
+            <div className="text-center lg:text-left space-y-4">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+                My Journey
+              </h3>
 
-            <p className="text-muted-foreground leading-relaxed">
-              <span className="text-2xl mr-2"></span> 
-              I'm <strong className="text-primary text-lg">Dulana Chathurma</strong>, Software Engineering (UG) at the University of Kelaniya. 
-              My passion lies in creating innovative solutions that bridge complex technical challenges with user-friendly experiences.
-              <span className="inline-block ml-1"></span>
-            </p>
+              <div className="space-y-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 font-normal">
+                <p>
+                  I'm <strong className="text-slate-900 dark:text-white font-semibold">Dulana Chathurma</strong>, a Software Engineering undergraduate at the University of Kelaniya. My passion lies in creating innovative solutions that bridge complex technical challenges with user-friendly experiences.
+                </p>
 
-            <p className="text-muted-foreground leading-relaxed">
-              <span className="text-xl mr-2"></span>
-              Currently diving deep into <strong className="text-purple-500">AI, Machine Learning</strong> and 
-              <strong className="text-blue-500"> Full-Stack Development</strong>, I'm constantly pushing boundaries to learn and build impactful systems. 
-              With over 2 years of coding experience and 11+ projects completed, my journey started with curiosity and has evolved into a career driven by continuous learning and excellence.
-              <span className="inline-block ml-1"></span>
-            </p>
+                <p>
+                  Currently diving deep into <span className="text-slate-900 dark:text-white font-medium">AI, Machine Learning</span>, and <span className="text-slate-900 dark:text-white font-medium">Full-Stack Development</span>, I'm constantly pushing boundaries to learn and build impactful systems driven by continuous learning and excellence.
+                </p>
 
-            <p className="text-muted-foreground leading-relaxed">
-              <span className="text-xl mr-2"></span>
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
-              writing technical articles on Medium, or sharing knowledge with the developer community. 
-              I believe in writing clean, maintainable code that makes a real difference.
-              <span className="inline-block ml-1"></span>
-            </p>
+                <p>
+                  When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, writing technical articles on Medium, or sharing knowledge with the developer community.
+                </p>
+              </div>
 
-            {/* Passion tags */}
-            <div className="flex flex-wrap gap-2 pt-4">
-              <span className="px-3 py-1 rounded-full bg-gradient-to-r from-pink-500/10 to-purple-500/10 text-pink-600 dark:text-pink-400 text-sm flex items-center gap-1">
-                <Heart size={14} className="text-pink-500" /> Code with Love
-              </span>
-              <span className="px-3 py-1 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 text-blue-600 dark:text-blue-400 text-sm flex items-center gap-1">
-                <Zap size={14} className="text-yellow-500" /> Fast Learner
-              </span>
-              <span className="px-3 py-1 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 text-green-600 dark:text-green-400 text-sm flex items-center gap-1">
-                <Star size={14} className="text-yellow-500" /> Problem Solver
-              </span>
+              {/* Passion tags - Apple Elegant Monochrome Tags */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2 pt-2">
+                <span className="px-3 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 text-slate-700 dark:text-slate-400 text-xs font-medium flex items-center gap-1.5 shadow-sm">
+                  <Heart size={12} className="text-slate-400" /> Code with Passion
+                </span>
+                <span className="px-3 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 text-slate-700 dark:text-slate-400 text-xs font-medium flex items-center gap-1.5 shadow-sm">
+                  <Zap size={12} className="text-slate-400" /> Adaptive Learner
+                </span>
+                <span className="px-3 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 text-slate-700 dark:text-slate-400 text-xs font-medium flex items-center gap-1.5 shadow-sm">
+                  <Star size={12} className="text-slate-400" /> Problem Solver
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Right: Feature cards */}
-          <div className="grid grid-cols-1 gap-6">
+          {/* Right: Feature cards (Spans 7 cols) */}
+          <div className="lg:col-span-7 space-y-4">
             {features.map((feature) => (
               <div 
                 key={feature.title} 
-                className={`bg-gradient-to-r ${feature.gradient} rounded-xl p-6 card-hover border border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200/60 dark:border-slate-800/80 shadow-[0_4px_24px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] transition-all duration-300 hover:border-slate-400 dark:hover:border-slate-600 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-full ${feature.bgColor} ${feature.color}`}>
-                    <feature.icon className="h-6 w-6" />
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-100 dark:border-slate-800/60 shrink-0 transition-colors duration-300 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black">
+                    <feature.icon className="h-5 w-5" />
                   </div>
-                  <div className="text-left">
-                    <h4 className={`font-semibold text-lg ${feature.color} flex items-center gap-2`}>
+                  <div className="text-left space-y-1.5">
+                    <h4 className="font-bold text-base text-slate-900 dark:text-white tracking-tight flex items-center gap-1.5">
                       {feature.title}
-                      <span className="text-sm opacity-70 animate-pulse">✦</span>
                     </h4>
-                    <p className="text-muted-foreground mt-2">{feature.description}</p>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
-
-      <style>{`
-        @keyframes wave {
-          0%, 100% { transform: rotate(0deg); }
-          20% { transform: rotate(15deg); }
-          40% { transform: rotate(-10deg); }
-          60% { transform: rotate(5deg); }
-          80% { transform: rotate(-5deg); }
-        }
-        .animate-wave {
-          animation: wave 1.5s ease-in-out infinite;
-          display: inline-block;
-        }
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 4s linear infinite;
-        }
-        .delay-1000 {
-          animation-delay: 1s;
-        }
-      `}</style>
     </section>
   );
 };
