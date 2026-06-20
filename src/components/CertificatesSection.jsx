@@ -355,6 +355,7 @@ export const CertificatesSection = () => {
               key={cert.id}
               className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 flex flex-col"
             >
+              <div className="w-full h-full rounded-[10px] overflow-hidden bg-white dark:bg-gray-900 flex flex-col flex-1">
               {/* Image Container */}
               <div className="relative h-44 overflow-hidden bg-gray-100 dark:bg-gray-800">
                 <img
@@ -447,7 +448,7 @@ export const CertificatesSection = () => {
                 </div>
               </div>
 
-        
+        </div>
              
             </div>
           ))}
