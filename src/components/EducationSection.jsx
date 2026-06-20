@@ -8,9 +8,9 @@ const education = [
     location: "Sri Lanka",
     date: "Mar 2025 - Apr 2029",
     image: "/education-software-engineering.jpg",
-    // පළමු කාඩ් එක: Light එකේදී Pure White | Dark එකේදී මෘදු Studio Gray
-    bgColor: "bg-[#ffffff] dark:bg-[#0c0c0d]",
-    borderColor: "border-slate-200 dark:border-[#1c1c1e]",
+    // Dark mode එකේදී #161618 (Dark Gray)
+    bgColor: "bg-[#ffffff] dark:bg-[#161618]", 
+    borderColor: "border-slate-200 dark:border-[#2d2d2d]", 
     skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS"]
   },
   {
@@ -20,9 +20,9 @@ const education = [
     location: "Weeraketiya, Sri Lanka",
     date: "2023 (2024)",
     image: "/education-al.jpg",
-    // දෙවැනි කාඩ් එක: Light එකේදී සියුම් Off-white | Dark එකේදී තද Pure Black
-    bgColor: "bg-[#fbfbfd] dark:bg-[#050505]",
-    borderColor: "border-slate-300/70 dark:border-[#121214]",
+    // Dark mode එකේදී #0a0a0a (Deep Black) - කාඩ් දෙක වෙන්වීමට මෙය හොඳයි
+    bgColor: "bg-[#fbfbfd] dark:bg-[#0a0a0a]", 
+    borderColor: "border-slate-300/70 dark:border-[#1c1c1e]",
     skills: ["Combined Mathematics: A", "Physics: B", "Chemistry: B"]
   }
 ];
@@ -47,7 +47,7 @@ export const EducationSection = () => {
           {education.map((edu) => (
             <div 
               key={edu.id} 
-              className={`${edu.bgColor} ${edu.borderColor} border rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.03)] dark:hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] hover:border-slate-400 dark:hover:border-[#2d2d30] group`}
+              className={`${edu.bgColor} ${edu.borderColor} border rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] hover:border-slate-400 dark:hover:border-[#3d3d3d] group`}
             >
               <div>
                 {/* Header: Institution Image + Meta */}
@@ -81,7 +81,7 @@ export const EducationSection = () => {
                 </div>
               </div>
 
-              {/* Competencies / Core Subjects */}
+              {/* Core Competencies */}
               <div>
                 <h5 className="text-[11px] font-bold uppercase tracking-wider text-[#6e6e73] mb-3">
                   Core Competencies
@@ -90,7 +90,6 @@ export const EducationSection = () => {
                   {edu.skills.map((skill, idx) => (
                     <span 
                       key={idx} 
-                      // මෙහි Badge එකේ පසුබිමද කාඩ් එකට සාපේක්ෂව කැපී පෙනෙන ලෙස සකස් කර ඇත
                       className="px-3 py-1.5 text-xs font-medium rounded-full bg-slate-100 dark:bg-[#1c1c1e] text-[#1d1d1f] dark:text-[#a1a1a6] border border-slate-200/30 dark:border-[#2d2d30]/30 transition-colors duration-300 hover:bg-slate-200 dark:hover:bg-[#2d2d30]"
                     >
                       {skill}
