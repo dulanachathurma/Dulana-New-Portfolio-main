@@ -26,7 +26,7 @@ export const Footer = () => {
               links: [
                 { name: "GitHub", href: "https://github.com/dulanachathurma" },
                 { name: "LinkedIn", href: "https://linkedin.com/in/dulana-chathurma" },
-                { name: "Resume", href: "#" } // මෙතනට ඔබේ Resume link එක දාන්න
+                { name: "Resume", href: "https://dulanaportfolio.vercel.app/Dulana-Chathurma-CV.pdf" } 
               ] 
             },
             { title: "Contact", links: ["dulanachathurma99@gmail.com", "+94 76 757 4844"] },
