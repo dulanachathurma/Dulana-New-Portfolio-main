@@ -15,12 +15,12 @@ export const SkillsSection = () => {
   return (
     <section id="skills" className="py-32 bg-white dark:bg-black transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        {/* Header - Apple Style with extra bottom margin for space */}
-        <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-32 tracking-tight">
+       
+        <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-48 tracking-tight">
           Technical Proficiency.
         </h2>
 
-        {/* Skills Grid - Minimalist approach */}
+        {/* Skills Grid */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           {skills.map((skill, index) => (
             <div
