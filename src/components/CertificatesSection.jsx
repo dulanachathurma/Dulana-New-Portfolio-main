@@ -353,7 +353,7 @@ export const CertificatesSection = () => {
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 flex flex-col"
+             className="group rounded-xl overflow-hidden bg-blue-600 p-[2px] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col"
             >
               <div className="w-full h-full rounded-[10px] overflow-hidden bg-white dark:bg-gray-900 flex flex-col flex-1">
               {/* Image Container */}
