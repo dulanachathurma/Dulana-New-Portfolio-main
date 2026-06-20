@@ -8,7 +8,6 @@ const education = [
     location: "Sri Lanka",
     date: "Mar 2025 - Apr 2029",
     image: "/education-software-engineering.jpg",
-
     bgColor: "bg-white dark:bg-[#1c1c1e]", 
     borderColor: "border-slate-200/50 dark:border-white/5",
     skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS"]
@@ -20,7 +19,6 @@ const education = [
     location: "Weeraketiya, Sri Lanka",
     date: "2023 (2024)",
     image: "/education-al.jpg",
- 
     bgColor: "bg-[#fbfbfd] dark:bg-[#1c1c1e]", 
     borderColor: "border-slate-200/50 dark:border-white/5",
     skills: ["Combined Mathematics: A", "Physics: B", "Chemistry: B"]
@@ -29,7 +27,8 @@ const education = [
 
 export const EducationSection = () => {
   return (
-    <section id="education" className="py-32 px-6 bg-[#f5f5f7] dark:bg-[#000000] transition-colors duration-700">
+    // මෙතැනදී පසුබිම සම්පූර්ණ කළු (dark:bg-black) කර ඇත, තිත් ඉෆෙක්ට් එකක් නැත
+    <section id="education" className="py-32 px-6 bg-[#f5f5f7] dark:bg-black transition-colors duration-700">
       <div className="container mx-auto max-w-5xl">
         
         <div className="text-center mb-20">
@@ -42,7 +41,6 @@ export const EducationSection = () => {
           {education.map((edu) => (
             <div 
               key={edu.id} 
-             
               className={`${edu.bgColor} ${edu.borderColor} border rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl dark:hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] group`}
             >
               <div>
