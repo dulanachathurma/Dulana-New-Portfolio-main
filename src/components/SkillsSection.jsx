@@ -23,7 +23,7 @@ export const SkillsSection = () => {
         </h2>
 
         
-        <div className="mb-[400px]"></div>
+        <div className="mb-[100px]"></div>
 
         {/* Skills Grid */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
