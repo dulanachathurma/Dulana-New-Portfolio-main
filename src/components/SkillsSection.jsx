@@ -2,6 +2,7 @@ export const SkillsSection = () => {
   const skills = [
     { name: "Java", icon: "/icon-java.png" },
     { name: "Python", icon: "/icon-python.png" },
+    { name: "PHP", icon: "/icon-php.png" },
     { name: "C", icon: "/icon-c-language.png" },
     { name: "JavaScript", icon: "/icon-javascript.png" },
     { name: "HTML", icon: "/icon-html-css.png" },
@@ -10,16 +11,19 @@ export const SkillsSection = () => {
     { name: "MySQL", icon: "/icon-mysql.png" },
     { name: "Spring Boot", icon: "/icon-spring-boot.png" },
     { name: "React.js", icon: "/icon-react.png" },
-     { name: "PHP", icon: "/icon-php.png" },
   ];
 
   return (
     <section id="skills" className="py-32 bg-white dark:bg-black transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6 text-center">
-       
-        <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-48 tracking-tight">
+        
+        {/* Technical Proficiency  */}
+        <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-gray-100 tracking-tight">
           Technical Proficiency.
         </h2>
+
+        
+        <div className="mb-[400px]"></div>
 
         {/* Skills Grid */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
