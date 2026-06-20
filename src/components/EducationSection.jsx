@@ -8,9 +8,9 @@ const education = [
     location: "Sri Lanka",
     date: "Mar 2025 - Apr 2029",
     image: "/education-software-engineering.jpg",
-    // Dark mode එකේදී #161618 (Dark Gray)
-    bgColor: "bg-[#ffffff] dark:bg-[#161618]", 
-    borderColor: "border-slate-200 dark:border-[#2d2d2d]", 
+    // පසුබිමෙන් වෙන් වීමට Dark Mode එකේදී තරමක් ලා Grey පැහැයක් (Layering)
+    bgColor: "bg-white dark:bg-[#1c1c1e]", 
+    borderColor: "border-slate-200/50 dark:border-white/5",
     skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS"]
   },
   {
@@ -20,88 +20,65 @@ const education = [
     location: "Weeraketiya, Sri Lanka",
     date: "2023 (2024)",
     image: "/education-al.jpg",
-    // Dark mode එකේදී #0a0a0a (Deep Black) - කාඩ් දෙක වෙන්වීමට මෙය හොඳයි
-    bgColor: "bg-[#fbfbfd] dark:bg-[#0a0a0a]", 
-    borderColor: "border-slate-300/70 dark:border-[#1c1c1e]",
+    // පසුබිමෙන් වෙන් වීමට Dark Mode එකේදී එම Grey පැහැයම (Consistency)
+    bgColor: "bg-[#fbfbfd] dark:bg-[#1c1c1e]", 
+    borderColor: "border-slate-200/50 dark:border-white/5",
     skills: ["Combined Mathematics: A", "Physics: B", "Chemistry: B"]
   }
 ];
 
 export const EducationSection = () => {
   return (
-    <section id="education" className="py-28 px-6 bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] transition-colors duration-500 relative select-none">
+    <section id="education" className="py-32 px-6 bg-[#f5f5f7] dark:bg-[#000000] transition-colors duration-700">
       <div className="container mx-auto max-w-5xl">
         
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.03em] text-[#1d1d1f] dark:text-[#ffffff] mb-4">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.03em] text-[#1d1d1f] dark:text-[#f5f5f7] mb-6">
             Academic Foundations
           </h2>
-          <p className="text-[#86868b] text-base md:text-lg tracking-tight max-w-2xl mx-auto">
-            The structured knowledge blueprints shaping my engineering mindset.
-          </p>
         </div>
 
-        {/* Apple Dynamic Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {education.map((edu) => (
             <div 
               key={edu.id} 
-              className={`${edu.bgColor} ${edu.borderColor} border rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] hover:border-slate-400 dark:hover:border-[#3d3d3d] group`}
+              // Background එකෙන් පැහැදිලිව වෙන් වීමට Dark mode එකේදී subtle white border එකක් යොදා ඇත
+              className={`${edu.bgColor} ${edu.borderColor} border rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl dark:hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] group`}
             >
               <div>
-                {/* Header: Institution Image + Meta */}
-                <div className="flex items-center gap-5 mb-6">
-                  <div className="w-16 h-16 rounded-[1.2rem] overflow-hidden bg-slate-100 dark:bg-[#1d1d1f] border border-slate-200/60 dark:border-[#2d2d30] flex-shrink-0">
-                    <img 
-                      src={edu.image} 
-                      alt={edu.institution}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                <div className="flex items-center gap-6 mb-8">
+                  <div className="w-16 h-16 rounded-[1.2rem] overflow-hidden bg-black/5 dark:bg-black/20">
+                    <img src={edu.image} alt={edu.institution} className="w-full h-full object-cover"/>
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-widest text-[#86868b] mb-1">
+                    <h4 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#86868b] mb-1">
                       {edu.institution}
                     </h4>
-                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-[#1d1d1f] dark:text-[#ffffff] leading-snug">
+                    <h3 className="text-xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white leading-snug">
                       {edu.degree}
                     </h3>
                   </div>
                 </div>
 
-                {/* Meta Row: Timeline & Location */}
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm text-[#86868b] font-medium border-t border-slate-100 dark:border-[#1d1d1f]/60 pt-4 mb-6">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar size={14} className="text-[#6e6e73]" /> {edu.date}
-                  </span>
-                  <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-[#2d2d30] hidden sm:block" />
-                  <span className="flex items-center gap-1.5">
-                    <MapPin size={14} className="text-[#6e6e73]" /> {edu.location}
-                  </span>
+                <div className="flex flex-wrap items-center gap-4 text-xs text-[#86868b] font-medium border-t border-black/5 dark:border-white/5 pt-6 mb-8">
+                  <span className="flex items-center gap-1.5"><Calendar size={14} /> {edu.date}</span>
+                  <span className="flex items-center gap-1.5"><MapPin size={14} /> {edu.location}</span>
                 </div>
               </div>
 
-              {/* Core Competencies */}
               <div>
-                <h5 className="text-[11px] font-bold uppercase tracking-wider text-[#6e6e73] mb-3">
-                  Core Competencies
-                </h5>
+                <h5 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#6e6e73] mb-4">Core Competencies</h5>
                 <div className="flex flex-wrap gap-2">
                   {edu.skills.map((skill, idx) => (
-                    <span 
-                      key={idx} 
-                      className="px-3 py-1.5 text-xs font-medium rounded-full bg-slate-100 dark:bg-[#1c1c1e] text-[#1d1d1f] dark:text-[#a1a1a6] border border-slate-200/30 dark:border-[#2d2d30]/30 transition-colors duration-300 hover:bg-slate-200 dark:hover:bg-[#2d2d30]"
-                    >
+                    <span key={idx} className="px-3 py-1 text-[11px] font-medium rounded-full bg-black/5 dark:bg-white/5 text-[#424245] dark:text-[#a1a1a6]">
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
-
             </div>
           ))}
         </div>
-        
       </div>
     </section>
   );
