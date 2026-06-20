@@ -49,18 +49,19 @@ const articles = [
 
 export const ArticlesSection = () => {
   return (
-    <section id="articles" className="py-24 px-4 relative bg-muted/30">
+    <section id="articles" className="py-24 px-4 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="container mx-auto max-w-6xl">
+        
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1 rounded-full bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
             Knowledge Sharing
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             My Articles
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6"></div>
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Sharing knowledge and insights through technical writing on Medium
           </p>
         </div>
@@ -68,63 +69,61 @@ export const ArticlesSection = () => {
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {articles.map((article) => (
-            
-            /* ✨ කාඩ් එක වටේට විතරක් ලස්සන නිල් රාමුවක් (Border) දමා ඇත */
             <div
               key={article.id}
-              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-white dark:bg-gray-900 border-[2px] border-blue-600 flex flex-col"
+              className="group relative rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-2 border-white dark:border-slate-800/80 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.02),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15),0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1.5 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out flex flex-col h-full"
             >
               {/* Image Container */}
-              <div className="relative h-52 overflow-hidden bg-gray-100 dark:bg-gray-800 border-b-[2px] border-blue-600">
+              <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-800">
                 <img
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Tag Badge */}
                 <div className="absolute top-3 left-3">
-                  <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${article.tagColor} shadow-sm backdrop-blur-sm`}>
+                  <span className={`px-2.5 py-1 text-[11px] font-bold rounded-full ${article.tagColor} shadow-sm backdrop-blur-sm border border-black/5 dark:border-white/5`}>
                     {article.tag}
                   </span>
                 </div>
 
                 {/* Read Time Badge */}
                 <div className="absolute bottom-3 right-3">
-                  <span className="px-2 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-xs font-medium flex items-center gap-1">
-                    <Calendar size={12} /> {article.readTime}
+                  <span className="px-2.5 py-1 rounded-md bg-black/40 backdrop-blur-sm text-white text-[11px] font-semibold flex items-center gap-1">
+                    <Calendar size={11} /> {article.readTime}
                   </span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col flex-1">
+              <div className="p-6 flex flex-col flex-grow">
                 {/* Date */}
-                <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3">
-                  <Calendar size={14} className="text-primary" />
+                <div className="flex items-center gap-1.5 text-xs font-medium text-slate-400 dark:text-slate-500 mb-2.5">
+                  <Calendar size={13} />
                   <span>{article.date}</span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                <h3 className="text-lg font-bold mb-2 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
                   {article.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-5 leading-relaxed line-clamp-3">
+                <p className="text-slate-600 dark:text-slate-300 text-xs mb-5 leading-relaxed line-clamp-3 flex-grow">
                   {article.description}
                 </p>
 
-                {/* Read on Medium Green Button */}
-                <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">
+                {/* Read on Medium Button */}
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-auto">
                   <a
                     href={article.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-sm font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                    className="inline-flex w-full items-center justify-center gap-1.5 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-xs font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
                   >
-                    Read on Medium <ExternalLink size={14} />
+                    Read on Medium <ExternalLink size={13} />
                   </a>
                 </div>
               </div>
@@ -133,8 +132,8 @@ export const ArticlesSection = () => {
           ))}
         </div>
 
-        {/* View All Button - Blue */}
-        <div className="text-center mt-12">
+        {/* View All Button */}
+        <div className="text-center mt-16">
           <a
             href="https://medium.com/@dulanachathurma99"
             target="_blank"
