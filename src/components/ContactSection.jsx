@@ -142,8 +142,9 @@ Sent from Dulana Chathurma Portfolio`;
           {/* Left Side - Socials & Map Only */}
           <div className="space-y-8">
             {/* Social Links */}
-            <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
-              <h4 className="text-xl font-bold mb-5 text-gray-800 dark:text-white">Connect with me</h4>
+            {/* Social Links */}
+<div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-[2px] border-blue-600 shadow-lg">
+  <h4 className="text-xl font-bold mb-5 text-gray-800 dark:text-white">Connect with me</h4>
               <div className="flex gap-4 flex-wrap">
                 {socialLinks.map((social) => (
                   <a 
@@ -163,8 +164,8 @@ Sent from Dulana Chathurma Portfolio`;
             </div>
 
             {/* Map */}
-            <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
-              <h4 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">Find me</h4>
+<div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-[2px] border-blue-600 shadow-lg">
+  <h4 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">Find me</h4>
               <div className="rounded-xl overflow-hidden h-52 shadow-inner">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.207289909686!2d80.75844177499636!3d6.049260593952773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae142b6c8b5b5a5%3A0x8a0b8c8c8c8c8c8c!2sKopiwatta%2C%20Getamanna%2C%20Beliatta!5e0!3m2!1sen!2slk!4v1690000000000!5m2!1sen!2slk" 
@@ -178,8 +179,9 @@ Sent from Dulana Chathurma Portfolio`;
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
-            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Send me a message</h3>
+          {/* Right Side - Contact Form */}
+<div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 md:p-8 border-[2px] border-blue-600 shadow-lg">
+  <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Send me a message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
