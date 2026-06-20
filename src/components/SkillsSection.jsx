@@ -17,8 +17,8 @@ export const SkillsSection = () => {
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Header - Apple Style */}
         <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-16 tracking-tight">
-          Technical Proficiency.
-        </h2>
+          Technical Proficiency
+        </h2></br>
 
         {/* Skills Grid - Minimalist */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
