@@ -125,7 +125,7 @@ export const ArticlesSection = () => {
                 </div>
               </div>
 
-               </div>
+              
             </div>
           ))}
         </div>
