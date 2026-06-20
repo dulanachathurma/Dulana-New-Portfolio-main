@@ -71,8 +71,8 @@ export const ExperienceSection = () => {
                   {/* TIMELINE CARD */}
                   <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-10" : "md:order-3 md:pl-10"}`}>
                     
-                    {/* Apple Style Premium Glassmorphic Card (Blue wrapper removed) */}
-                    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl border border-white/50 dark:border-gray-800/50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500 ease-out">
+                    {/* Apple 2026 Premium High-Contrast Glass Card */}
+                    <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-2xl border-2 border-white dark:border-gray-800 p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2),0_20px_50px_rgba(0,0,0,0.4)] hover:-translate-y-1.5 hover:shadow-[0_30px_70px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_30px_70px_rgba(0,0,0,0.6)] transition-all duration-500 ease-out">
                       
                       {/* Top: image + title */}
                       <div className="flex items-start gap-4 mb-4">
@@ -110,7 +110,7 @@ export const ExperienceSection = () => {
                         {exp.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2.5 py-0.5 rounded-full text-xs border border-gray-100 dark:border-gray-800 text-gray-500 dark:text-gray-400 bg-gray-50/50 dark:bg-gray-800/50"
+                            className="px-2.5 py-0.5 rounded-full text-xs border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 bg-neutral-50/50 dark:bg-neutral-800/50"
                           >
                             {tag}
                           </span>
