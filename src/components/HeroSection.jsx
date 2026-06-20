@@ -11,7 +11,7 @@ export const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex flex-col justify-between items-center px-6 pt-20 pb-8 bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] relative overflow-hidden select-none transition-colors duration-500"
+      className="min-h-screen flex flex-col justify-between items-center px-6 pt-26 pb-8 bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] relative overflow-hidden select-none transition-colors duration-500"
       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}
     >
       {/* 1. DYNAMIC LIGHT/DARK AMBIENT GLOW */}
