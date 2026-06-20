@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Calendar, MapPin, GraduationCap } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
 
 const education = [
   {
@@ -9,6 +8,9 @@ const education = [
     location: "Sri Lanka",
     date: "Mar 2025 - Apr 2029",
     image: "/education-software-engineering.jpg",
+    // පළමු කාඩ් එක: Light එකේදී Pure White | Dark එකේදී මෘදු Studio Gray
+    bgColor: "bg-[#ffffff] dark:bg-[#0c0c0d]",
+    borderColor: "border-slate-200 dark:border-[#1c1c1e]",
     skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS"]
   },
   {
@@ -18,6 +20,9 @@ const education = [
     location: "Weeraketiya, Sri Lanka",
     date: "2023 (2024)",
     image: "/education-al.jpg",
+    // දෙවැනි කාඩ් එක: Light එකේදී සියුම් Off-white | Dark එකේදී තද Pure Black
+    bgColor: "bg-[#fbfbfd] dark:bg-[#050505]",
+    borderColor: "border-slate-300/70 dark:border-[#121214]",
     skills: ["Combined Mathematics: A", "Physics: B", "Chemistry: B"]
   }
 ];
@@ -27,7 +32,7 @@ export const EducationSection = () => {
     <section id="education" className="py-28 px-6 bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] transition-colors duration-500 relative select-none">
       <div className="container mx-auto max-w-5xl">
         
-        {/* Section Header in Apple Editorial Style */}
+        {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.03em] text-[#1d1d1f] dark:text-[#ffffff] mb-4">
             Academic Foundations
@@ -37,12 +42,12 @@ export const EducationSection = () => {
           </p>
         </div>
 
-        {/* Apple Premium Minimalist Grid */}
+        {/* Apple Dynamic Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {education.map((edu) => (
             <div 
               key={edu.id} 
-              className="bg-[#ffffff] dark:bg-[#111112] border border-slate-200 dark:border-[#1d1d1f] rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_30px_60px_rgba(0,0,0,0.4)] hover:border-slate-300 dark:hover:border-[#2d2d30] group"
+              className={`${edu.bgColor} ${edu.borderColor} border rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.03)] dark:hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] hover:border-slate-400 dark:hover:border-[#2d2d30] group`}
             >
               <div>
                 {/* Header: Institution Image + Meta */}
@@ -65,7 +70,7 @@ export const EducationSection = () => {
                 </div>
 
                 {/* Meta Row: Timeline & Location */}
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm text-[#86868b] font-medium border-t border-slate-100 dark:border-[#1d1d1f] pt-4 mb-6">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm text-[#86868b] font-medium border-t border-slate-100 dark:border-[#1d1d1f]/60 pt-4 mb-6">
                   <span className="flex items-center gap-1.5">
                     <Calendar size={14} className="text-[#6e6e73]" /> {edu.date}
                   </span>
@@ -85,7 +90,8 @@ export const EducationSection = () => {
                   {edu.skills.map((skill, idx) => (
                     <span 
                       key={idx} 
-                      className="px-3 py-1.5 text-xs font-medium rounded-full bg-[#f5f5f7] dark:bg-[#1d1d1f] text-[#1d1d1f] dark:text-[#a1a1a6] border border-slate-200/40 dark:border-[#2d2d30]/50 transition-colors duration-300 hover:bg-slate-200 dark:hover:bg-[#2d2d30]"
+                      // මෙහි Badge එකේ පසුබිමද කාඩ් එකට සාපේක්ෂව කැපී පෙනෙන ලෙස සකස් කර ඇත
+                      className="px-3 py-1.5 text-xs font-medium rounded-full bg-slate-100 dark:bg-[#1c1c1e] text-[#1d1d1f] dark:text-[#a1a1a6] border border-slate-200/30 dark:border-[#2d2d30]/30 transition-colors duration-300 hover:bg-slate-200 dark:hover:bg-[#2d2d30]"
                     >
                       {skill}
                     </span>
