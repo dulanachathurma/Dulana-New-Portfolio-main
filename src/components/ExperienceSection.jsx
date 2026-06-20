@@ -52,7 +52,7 @@ export const ExperienceSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Volunteering & My Experience
           </h2>
-          {/* වෙනස් කරන ලදි: to-secondary වෙනුවට to-blue-400 දැමුවා */}
+       
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             My professional journey and volunteer experiences that have shaped my career
@@ -62,7 +62,7 @@ export const ExperienceSection = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical center line */}
-          {/* වෙනස් කරන ලදි: via-primary/30 වෙනුවට via-blue-600/30 දැමුවා */}
+         
           <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600/60 via-blue-600/30 to-transparent -translate-x-1/2 hidden md:block" />
 
           <div className="space-y-12">
@@ -73,6 +73,7 @@ export const ExperienceSection = () => {
 
                   {/* LEFT CARD (even index) */}
                   <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-10" : "md:order-3 md:pl-10"}`}>
+                    <div className="bg-blue-600 p-[2px] rounded-2xl shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                     <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                       {/* Top: image + title */}
                       <div className="flex items-start gap-4 mb-4">
@@ -131,7 +132,7 @@ export const ExperienceSection = () => {
                     </div>
                   </div>
 
-                  {/* CENTER DOT (දැනටමත් blue-600 කර ඇත) */}
+                  {/* CENTER DOT */}
                   <div className="hidden md:flex md:order-2 w-[10%] justify-center items-center z-10">
                     <div className="w-5 h-5 rounded-full bg-blue-600 shadow-lg ring-4 ring-blue-600/20" />
                   </div>
