@@ -55,71 +55,48 @@ Sent from Dulana Chathurma Portfolio`;
     { 
       name: "LinkedIn", 
       url: "https://linkedin.com/in/dulana-chathurma",
-      color: "#0077B5",
-      bgColor: "bg-[#0077B5]/10",
-      hoverBg: "hover:bg-[#0077B5]/20",
-      iconColor: "text-[#0077B5]"
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      )
     },
     { 
       name: "GitHub", 
       url: "https://github.com/dulanachathurma",
-      color: "#333333",
-      bgColor: "bg-[#333333]/10",
-      hoverBg: "hover:bg-[#333333]/20",
-      iconColor: "text-[#333333] dark:text-[#ffffff]"
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+      )
     },
     { 
       name: "Medium", 
       url: "https://medium.com/@dulanachathurma99",
-      color: "#000000",
-      bgColor: "bg-black/10 dark:bg-white/10",
-      hoverBg: "hover:bg-black/20 dark:hover:bg-white/20",
-      iconColor: "text-black dark:text-white"
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+          <polyline points="22,6 12,13 2,6" />
+        </svg>
+      ) || (
+        /* Premium Clean Medium Icon */
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/>
+        </svg>
+      )
     },
     { 
       name: "WhatsApp", 
       url: "https://wa.me/94767574844",
-      color: "#25D366",
-      bgColor: "bg-[#25D366]/10",
-      hoverBg: "hover:bg-[#25D366]/20",
-      iconColor: "text-[#25D366]"
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </svg>
+      )
     },
   ];
-
-  // Social Icons
-  const LinkedInIcon = () => (
-    <svg className="h-5 w-5" fill="#0077B5" viewBox="0 0 24 24">
-      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-    </svg>
-  );
-
-  const GitHubIcon = () => (
-    <svg className="h-5 w-5" fill="#333333" viewBox="0 0 24 24">
-      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-    </svg>
-  );
-
-  const MediumIcon = () => (
-    <svg className="h-5 w-5" fill="#000000" viewBox="0 0 24 24">
-      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/>
-    </svg>
-  );
-
-  const WhatsAppIcon = () => (
-    <svg className="h-5 w-5" fill="#25D366" viewBox="0 0 24 24">
-      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.181-.573c.978.588 2.014.896 3.15.896h.002c3.18 0 5.767-2.586 5.768-5.766.001-3.18-2.585-5.768-5.766-5.768zm2.421 7.891c-.105.296-.614.582-.842.655-.228.073-.39.102-.631.102-.187 0-.432-.046-.66-.139-.545-.218-1.124-.668-1.541-1.098-.396-.408-.762-.903-1.007-1.447-.226-.502-.274-.969-.135-1.38.086-.253.338-.406.562-.453.14-.03.282-.03.414-.03.104 0 .197.017.285.123.135.163.293.42.365.555.09.168.063.371-.06.531-.121.156-.213.27-.334.435-.076.102-.132.174-.19.264-.074.111-.025.246.058.336.296.317.719.648 1.098.863.216.122.432.191.648.225.141.022.282-.011.423-.074.108-.048.231-.156.306-.258.108-.147.27-.353.369-.456.078-.082.174-.099.276-.051.203.097.606.28.715.369.104.087.158.191.173.301.016.111-.017.245-.079.457z"/>
-    </svg>
-  );
-
-  const getSocialIcon = (name) => {
-    switch(name) {
-      case "LinkedIn": return <LinkedInIcon />;
-      case "GitHub": return <GitHubIcon />;
-      case "Medium": return <MediumIcon />;
-      case "WhatsApp": return <WhatsAppIcon />;
-      default: return null;
-    }
-  };
 
   return (
     <section id="contact" className="py-24 px-4 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
@@ -146,7 +123,7 @@ Sent from Dulana Chathurma Portfolio`;
             
             {/* Social Links Container */}
             <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 border-2 border-white dark:border-slate-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.02),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15),0_20px_40px_rgba(0,0,0,0.3)]">
-              <h4 className="text-lg font-bold mb-5 text-slate-800 dark:text-white">Connect with me</h4>
+              <h4 className="text-sm font-bold uppercase tracking-wider mb-5 text-slate-400 dark:text-slate-500">Connect with me</h4>
               <div className="flex gap-4 flex-wrap">
                 {socialLinks.map((social) => (
                   <a 
@@ -154,11 +131,11 @@ Sent from Dulana Chathurma Portfolio`;
                     href={social.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className={`p-3.5 rounded-full ${social.bgColor} ${social.hoverBg} transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 group shadow-sm`}
+                    className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 border border-slate-200/50 dark:border-slate-700/30 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-black hover:border-transparent shadow-sm"
                     title={social.name}
                   >
-                    <div className={`${social.iconColor} transition-all duration-300`}>
-                      {getSocialIcon(social.name)}
+                    <div className="transition-transform duration-300 group-hover:scale-110">
+                      {social.icon}
                     </div>
                   </a>
                 ))}
@@ -167,10 +144,10 @@ Sent from Dulana Chathurma Portfolio`;
 
             {/* Map Container */}
             <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 border-2 border-white dark:border-slate-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.02),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15),0_20px_40px_rgba(0,0,0,0.3)]">
-              <h4 className="text-lg font-bold mb-4 text-slate-800 dark:text-white">Find me</h4>
+              <h4 className="text-sm font-bold uppercase tracking-wider mb-4 text-slate-400 dark:text-slate-500">Find me</h4>
               <div className="rounded-xl overflow-hidden h-52 shadow-inner border border-slate-100 dark:border-slate-800">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.207289909686!2d80.75844177499636!3d6.049260593952773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae142b6c8b5b5a5%3A0x8a0b8c8c8c8c8c8c!2sKopiwatta%2C%20Getamanna%2C%20Beliatta!5e0!3m2!1sen!2slk!4v1690000000000!5m2!1sen!2slk" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.3242095640165!2d80.74100000000001!3d6.0461667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae143162799ef17%3A0x64cf557b7f167e4e!2sGetamanna!5e0!3m2!1sen!2slk!4v1718900000000!5m2!1sen!2slk"
                   className="w-full h-full grayscale dark:invert dark:opacity-80 transition-all duration-500 hover:grayscale-0 dark:hover:invert-0"
                   allowFullScreen 
                   loading="lazy"
