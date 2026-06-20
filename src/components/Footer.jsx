@@ -7,10 +7,12 @@ export const Footer = () => {
     <footer className="bg-[#f5f5f7] dark:bg-[#161617] text-[#86868b] py-16 border-t border-black/10 dark:border-white/10">
       <div className="container mx-auto max-w-6xl px-6">
         
-        {/* Top Info Section */}
-        <div className="mb-12">
-          <h2 className="text-xl font-semibold text-[#1d1d1f] dark:text-white mb-2 text-center md:text-left">Dulana Chathurma</h2>
-          <p className="text-sm max-w-lg leading-relaxed text-center md:text-left mx-auto md:mx-0">
+     
+        <div className="mb-12 text-center">
+          <h2 className="text-xl font-semibold text-[#1d1d1f] dark:text-white mb-2">
+            Dulana Chathurma
+          </h2>
+          <p className="text-sm max-w-lg leading-relaxed mx-auto">
             Second year Software Engineering undergraduate at University of Kelaniya. 
             Passionate about building scalable web applications and exploring modern technologies. 
             Actively seeking internship opportunities to contribute and grow.
@@ -18,7 +20,7 @@ export const Footer = () => {
         </div>
 
         {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 text-center md:text-left">
           {[
             { 
               title: "Navigation", 
@@ -40,7 +42,7 @@ export const Footer = () => {
             { title: "Contact", links: ["dulanachathurma99@gmail.com", "+94 76 757 4844"] },
             { title: "Location", links: ["Beliatta, Sri Lanka"] }
           ].map((section, idx) => (
-            <div key={idx} className="text-center md:text-left">
+            <div key={idx}>
               <h4 className="text-[12px] font-semibold text-[#1d1d1f] dark:text-white mb-4 uppercase tracking-widest">
                 {section.title}
               </h4>
@@ -70,7 +72,7 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/10 dark:border-white/10 gap-6">
-          <p className="text-[12px]">
+          <p className="text-[14px]">
             &copy; {currentYear} Dulana Chathurma. Built with excellence.
           </p>
           
