@@ -52,23 +52,23 @@ export const HeroSection = () => {
           </p>
         </div>
 
-        {/* 3. MASTER IDENTITY WITH PREMIUM SHIMMER GRADIENT */}
-        <h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.035em] leading-[1.04] mb-8">
-          <span 
-            className={`block text-[#86868b] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
-              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
-          >
-            Dulana Chathurma.
-          </span>
-          <span 
-            className={`block bg-clip-text text-transparent bg-gradient-to-r from-[#1d1d1f] via-[#6e6e73] to-[#1d1d1f] dark:from-[#ffffff] dark:via-[#a1a1a6] dark:to-[#ffffff] bg-[length:200%_auto] animate-shimmer transition-all duration-[1400ms] delay-300 cubic-bezier(0.25, 1, 0.5, 1) ${
-              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
-          >
-            Engineering Enterprise Intelligence
-          </span>
-        </h1>
+
+<h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.035em] leading-[1.06] pb-4 mb-6">
+  <span 
+    className={`block text-[#86868b] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
+      animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+    }`}
+  >
+    Dulana Chathurma.
+  </span>
+  <span 
+    className={`block bg-clip-text text-transparent bg-gradient-to-r from-[#1d1d1f] via-[#6e6e73] to-[#1d1d1f] dark:from-[#ffffff] dark:via-[#a1a1a6] dark:to-[#ffffff] bg-[length:200%_auto] animate-shimmer transition-all duration-[1400ms] delay-300 cubic-bezier(0.25, 1, 0.5, 1) ${
+      animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+    }`}
+  >
+    Engineering Enterprise Intelligence
+  </span>
+</h1>
 
         {/* High-Value Pitch */}
         <div className="overflow-hidden max-w-3xl mx-auto mb-12">
