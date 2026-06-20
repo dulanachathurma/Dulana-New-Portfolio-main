@@ -15,7 +15,6 @@ const projects = [
     date: "2026",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
- 
   {
     id: 6,
     title: "Sriseta Official Website",
@@ -41,16 +40,16 @@ const projects = [
     tagColor: "bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300"
   },
   {
-  id: 4,
-  title: "TaskFlow",
-  category: "major",
-  description: "A modern full-stack task management application built with React, Node.js, Express, and MongoDB Atlas. Features JWT authentication, task creation and management, priority-based task sorting, secure user accounts, responsive design, and real-time database integration for efficient productivity management.", 
-  image: "/project-taskflow.jpg",
-  tags: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
-  githubUrl: "https://github.com/dulanachathurma/Task-Flow",
-  date: "2026",
-  tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
-},
+    id: 4,
+    title: "TaskFlow",
+    category: "major",
+    description: "A modern full-stack task management application built with React, Node.js, Express, and MongoDB Atlas. Features JWT authentication, task creation and management, priority-based task sorting, secure user accounts, responsive design, and real-time database integration for efficient productivity management.", 
+    image: "/project-taskflow.jpg",
+    tags: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
+    githubUrl: "https://github.com/dulanachathurma/Task-Flow",
+    date: "2026",
+    tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
+  },
   {
     id: 12,
     title: "Intelligent Career Skill Analysis Platform (NexGenAI)",
@@ -63,8 +62,6 @@ const projects = [
     date: "Feb 2026 – Mar 2026",
     tagColor: "bg-fuchsia-100 dark:bg-fuchsia-900/50 text-fuchsia-700 dark:text-fuchsia-300"
   },
-
-
   {
     id: 2,
     title: "GPA Calculator App",
@@ -101,7 +98,6 @@ const projects = [
     date: "2026",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
- 
   {
     id: 7,
     title: "TravelScope Website",
@@ -153,9 +149,7 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
-
   const [activeTab, setActiveTab] = useState("major");
-
   const filteredProjects = projects.filter(project => project.category === activeTab);
 
   return (
@@ -205,106 +199,103 @@ export const ProjectsSection = () => {
           </div>
         </div>
 
-        {/* Projects Grid with Smooth Animation Mapping */}
+        {/* Projects Grid with Apple 2026 Quality Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-             
-className="group rounded-xl overflow-hidden bg-blue-600 p-[2px] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              className="group relative rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-2 border-white dark:border-slate-800/80 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.02),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15),0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out"
             >
-          
-        <div className="w-full h-full rounded-[10px] overflow-hidden bg-white dark:bg-slate-900">
-              {/* Image */}
+              {/* Image Container */}
               <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-800">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {project.date && (
-                  <div className="absolute bottom-3 left-3 px-2 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-xs font-medium">
+                  <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-[11px] font-medium tracking-wide">
                     📅 {project.date}
                   </div>
                 )}
               </div>
 
-              {/* Content */}
-              <div className="p-5">
+              {/* Content Box */}
+              <div className="p-5 flex flex-col h-[calc(100%-13rem)]">
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.slice(0, 4).map((tag, idx) => (
+                <div className="flex flex-wrap gap-1.5 mb-3.5">
+                  {project.tags.slice(0, 3).map((tag, idx) => (
                     <span
                       key={idx}
-                      className={`px-2.5 py-1 text-xs font-medium rounded-full ${project.tagColor} shadow-sm`}
+                      className={`px-2.5 py-0.5 text-[11px] font-semibold rounded-full ${project.tagColor} shadow-sm border border-black/5 dark:border-white/5`}
                     >
                       {tag}
                     </span>
                   ))}
 
-                  {project.tags.length > 4 && (
-                    <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400">
-                      +{project.tags.length - 4}
+                  {project.tags.length > 3 && (
+                    <span className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-black/5 dark:border-white/5">
+                      +{project.tags.length - 3}
                     </span>
                   )}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-lg font-bold mb-2 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-slate-600 dark:text-slate-300 text-sm mb-5 leading-relaxed line-clamp-3">
+                <p className="text-slate-600 dark:text-slate-300 text-sm mb-5 leading-relaxed line-clamp-3 flex-grow">
                   {project.description}
                 </p>
 
-             {/* Footer Actions */}
-<div className="flex justify-between items-center pt-3 border-t border-slate-100 dark:border-slate-700">
-  <div className="flex gap-3 w-full">
-    {project.demoUrl && project.demoUrl !== "#" && (
-      <a
-        href={project.demoUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 flex items-center justify-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-      >
-        <ExternalLink size={14} />
-        Live Demo
-      </a>
-    )}
+                {/* Footer Actions (Stays clean at bottom) */}
+                <div className="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-auto">
+                  <div className="flex gap-3 w-full">
+                    {project.demoUrl && project.demoUrl !== "#" && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                      >
+                        <ExternalLink size={13} />
+                        Live Demo
+                      </a>
+                    )}
 
-    {project.githubUrl && project.githubUrl !== "#" && (
-      <a
-        href={project.githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 flex items-center justify-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-      >
-        <Github size={16} />
-        Code
-      </a>
-    )}
-  </div>
-</div>
+                    {project.githubUrl && project.githubUrl !== "#" && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                      >
+                        <Github size={14} />
+                        Code
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
+
             </div>
           ))}
         </div>
 
-        {/* empty layout fallback if no projects exist in filtered category */}
+        {/* Empty layout fallback */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-12 text-slate-500 dark:text-slate-400">
             No projects found in this category.
           </div>
         )}
 
-        {/* GitHub Button */}
-        <div className="text-center mt-12">
+        {/* GitHub Central Button */}
+        <div className="text-center mt-16">
           <a
             href="https://github.com/dulanachathurma"
             target="_blank"
