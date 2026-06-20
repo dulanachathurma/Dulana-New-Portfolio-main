@@ -130,23 +130,23 @@ export const SkillsSection = () => {
         </div>
       </div>
 
-      {/* Stats Section */}
-   <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+  {/* Stats Section */}
+<div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
   <div className="text-center p-4 rounded-xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
     <div className="text-3xl font-bold text-emerald-500 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300">10+</div>
-    <div className="text-sm text-black dark:text-black font-medium">Technologies</div>
+    <div className="text-sm text-gray-700 dark:text-gray-300 font-medium">Technologies</div>
   </div>
   <div className="text-center p-4 rounded-xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
     <div className="text-3xl font-bold text-emerald-500 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300">85%</div>
-    <div className="text-sm text-black dark:text-black font-medium">Avg Proficiency</div>
+    <div className="text-sm text-gray-700 dark:text-gray-300 font-medium">Avg Proficiency</div>
   </div>
   <div className="text-center p-4 rounded-xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
     <div className="text-3xl font-bold text-emerald-500 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300">2+</div>
-    <div className="text-sm text-black dark:text-black font-medium">Years Exp</div>
+    <div className="text-sm text-gray-700 dark:text-gray-300 font-medium">Years Exp</div>
   </div>
   <div className="text-center p-4 rounded-xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
     <div className="text-3xl font-bold text-emerald-500 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300">12+</div>
-    <div className="text-sm text-black dark:text-black font-medium">Projects</div>
+    <div className="text-sm text-gray-700 dark:text-gray-300 font-medium">Projects</div>
   </div>
 </div>
       <style jsx>{`
