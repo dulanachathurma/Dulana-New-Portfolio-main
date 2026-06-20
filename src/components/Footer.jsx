@@ -39,7 +39,7 @@ export const Footer = () => {
                 { name: "Resume", href: "/Dulana-Chathurma-CV.pdf" }
               ] 
             },
-            { title: "Contact", links: ["dulanachathurma99@gmail.com", "+94 76 757 4844"] },
+            { title: "Contact", links: [ "+94 76 757 4844"] },
             { title: "Location", links: ["Beliatta, Sri Lanka"] }
           ].map((section, idx) => (
             <div key={idx}>
