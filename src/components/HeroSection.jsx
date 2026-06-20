@@ -31,7 +31,7 @@ export const HeroSection = () => {
         >
           <div className="relative rounded-[2.2rem] overflow-hidden border border-slate-300/50 dark:border-[#2d2d30] p-1.5 bg-slate-100/80 dark:bg-[#111112] shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] group">
             <img 
-              src="/dulana-profile-circle.jpg" 
+              src="/dulana-profile-circle1.jpg" 
               alt="Dulana Chathurma" 
               className="w-28 h-28 md:w-32 md:h-32 rounded-[1.8rem] object-cover object-top transition-transform duration-700 group-hover:scale-105"
             />
