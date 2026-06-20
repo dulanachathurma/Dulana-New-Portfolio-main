@@ -131,6 +131,7 @@ export const ExperienceSection = () => {
                       )}
                     </div>
                   </div>
+                    </div>
 
                   {/* CENTER DOT */}
                   <div className="hidden md:flex md:order-2 w-[10%] justify-center items-center z-10">
