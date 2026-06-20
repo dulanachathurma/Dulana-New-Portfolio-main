@@ -11,21 +11,19 @@ export const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex flex-col justify-between items-center px-6 pt-36 pb-12 bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] relative overflow-hidden select-none transition-colors duration-500"
+      className="min-h-screen flex flex-col justify-between items-center px-6 pt-36 pb-8 bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] relative overflow-hidden select-none transition-colors duration-500"
       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}
     >
-      {/* 1. YOUR EXISTING PARTICLE BACKGROUND CONTAINER */}
-      {/* (ඔයා දැනට පාවිච්චි කරන Canvas හෝ Particles Component එක මෙතනින් තියන්න. 
-          පහත තියෙන්නේ CSS වලින් Light/Dark වලට හැඩවෙන Ambient Glow එකයි) */}
+      {/* 2026 Dynamic Light/Dark Apple Refraction Ambient */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[145%] max-w-[1600px] h-[550px] bg-[radial-gradient(ellipse_at_top,_rgba(0,0,0,0.01),_transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.06),_transparent_55%)]" />
         <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 dark:from-blue-500/10 dark:via-indigo-500/5 dark:to-purple-500/10 rounded-full blur-[150px] opacity-80" />
       </div>
 
       {/* Main Impact Copy Area */}
-      <div className="w-full max-w-5xl mx-auto text-center relative z-10 my-auto flex flex-col items-center">
+      <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-20 flex flex-col items-center">
         
-        {/* 2. AUTHENTIC APPLE SQUIRCLE PROFILE IMAGE */}
+        {/* AUTHENTIC APPLE SQUIRCLE PROFILE IMAGE */}
         <div 
           className={`mb-8 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
@@ -37,7 +35,6 @@ export const HeroSection = () => {
               alt="Dulana Chathurma" 
               className="w-28 h-28 md:w-32 md:h-32 rounded-[1.8rem] object-cover object-top transition-transform duration-700 group-hover:scale-105"
             />
-            {/* Minimal Status Light */}
             <span className="absolute bottom-2 right-2 w-3.5 h-3.5 bg-emerald-500 border-4 border-slate-100 dark:border-[#111112] rounded-full shadow-sm animate-pulse" />
           </div>
         </div>
@@ -53,7 +50,7 @@ export const HeroSection = () => {
           </p>
         </div>
 
-        {/* Master Identity: Authentic Apple Tight Tracking Large Typography */}
+        {/* Master Identity */}
         <h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.035em] leading-[1.04] mb-8">
           <span 
             className={`block text-[#86868b] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
@@ -88,7 +85,6 @@ export const HeroSection = () => {
             animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          {/* Official Apple Blue Pill Button */}
           <a 
             href="#projects" 
             className="w-full sm:w-auto bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm font-medium py-3 px-7 rounded-full tracking-tight transition-all duration-300 shadow-[0_4px_12px_rgba(0,113,227,0.15)] hover:shadow-[0_6px_20px_rgba(0,113,227,0.3)] active:scale-98"
@@ -96,7 +92,6 @@ export const HeroSection = () => {
             Explore Productions
           </a>
           
-          {/* Traditional Apple Action Link with Micro-Arrow */}
           <a 
             href="/Dulana-Chathurma-CV.pdf" 
             download
@@ -109,9 +104,9 @@ export const HeroSection = () => {
 
       </div>
 
-      {/* Production-Level Competency Grid for Tech Leads (Apple Editorial Style) */}
+      {/* ─── HORIZONTAL LINE & COMPETENCY GRID (PUSHED LOWER) ─── */}
       <div 
-        className={`w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-slate-200 dark:border-[#1d1d1f] pt-10 text-[#6e6e73] transition-all duration-[1600ms] delay-900 ${
+        className={`w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-slate-200 dark:border-[#1d1d1f] pt-6 pb-2 text-[#6e6e73] transition-all duration-[1600ms] delay-900 mt-auto ${
           animate ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -150,7 +145,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Subtle Scroll Cue */}
-      <div className="absolute bottom-4 right-6 hidden md:block">
+      <div className="absolute bottom-2 right-6 hidden md:block">
         <a href="#about" aria-label="Scroll down" className="text-[#6e6e73] hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7] transition-colors block animate-bounce-subtle">
           <ChevronDown className="h-4 w-4" />
         </a>
