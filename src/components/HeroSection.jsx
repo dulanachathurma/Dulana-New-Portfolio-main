@@ -15,7 +15,6 @@ export const HeroSection = () => {
       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}
     >
       {/* 1. DYNAMIC LIGHT/DARK AMBIENT GLOW */}
-      
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[145%] max-w-[1600px] h-[550px] bg-[radial-gradient(ellipse_at_top,_rgba(0,0,0,0.01),_transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.06),_transparent_55%)]" />
         <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 dark:from-blue-500/10 dark:via-indigo-500/5 dark:to-purple-500/10 rounded-full blur-[150px] opacity-80" />
@@ -42,7 +41,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Apple Product Campaign Style Kicker */}
-        <div className="mb-6 overflow-hidden inline-block">
+        <div className="mb-6 overflow-visible inline-block">
           <p 
             className={`text-[#86868b] text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -52,26 +51,26 @@ export const HeroSection = () => {
           </p>
         </div>
 
+        {/* 3. FIXED HEADING (g අකුර කැපීම වැළැක්වීමට leading-[1.15] සහ pb-6 දමා ඇත) */}
+        <h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.03em] leading-[1.15] pb-6 mb-4 overflow-visible">
+          <span 
+            className={`block text-[#86868b] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
+              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            }`}
+          >
+            Dulana Chathurma.
+          </span>
+          <span 
+            className={`block bg-clip-text text-transparent bg-gradient-to-r from-[#1d1d1f] via-[#6e6e73] to-[#1d1d1f] dark:from-[#ffffff] dark:via-[#a1a1a6] dark:to-[#ffffff] bg-[length:200%_auto] animate-shimmer transition-all duration-[1400ms] delay-300 cubic-bezier(0.25, 1, 0.5, 1) py-2 ${
+              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            }`}
+          >
+            Engineering Enterprise Intelligence
+          </span>
+        </h1>
 
-<h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.035em] leading-[1.06] pb-4 mb-6">
-  <span 
-    className={`block text-[#86868b] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
-      animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-    }`}
-  >
-    Dulana Chathurma.
-  </span>
-  <span 
-    className={`block bg-clip-text text-transparent bg-gradient-to-r from-[#1d1d1f] via-[#6e6e73] to-[#1d1d1f] dark:from-[#ffffff] dark:via-[#a1a1a6] dark:to-[#ffffff] bg-[length:200%_auto] animate-shimmer transition-all duration-[1400ms] delay-300 cubic-bezier(0.25, 1, 0.5, 1) ${
-      animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-    }`}
-  >
-    Engineering Enterprise Intelligence
-  </span>
-</h1>
-
-        {/* High-Value Pitch */}
-        <div className="overflow-hidden max-w-3xl mx-auto mb-12">
+        {/* High-Value Pitch (g අකුර නිදහස් කිරීමට overflow-visible කර ඇත) */}
+        <div className="overflow-visible max-w-3xl mx-auto mb-12">
           <p 
             className={`text-[#86868b] text-base sm:text-lg md:text-xl font-normal tracking-tight leading-relaxed transition-all duration-[1400ms] delay-500 cubic-bezier(0.25, 1, 0.5, 1) ${
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -108,7 +107,7 @@ export const HeroSection = () => {
 
       </div>
 
-      {/* 4. HORIZONTAL LINE & COMPETENCY GRID (PUSHED DOWN TO LOWER EDGE) */}
+      {/* 4. HORIZONTAL LINE & COMPETENCY GRID */}
       <div 
         className={`w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-slate-200 dark:border-[#1d1d1f] pt-6 pb-2 text-[#6e6e73] transition-all duration-[1600ms] delay-900 mt-auto ${
           animate ? "opacity-100" : "opacity-0"
