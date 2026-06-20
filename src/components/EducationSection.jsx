@@ -8,7 +8,7 @@ const education = [
     location: "Sri Lanka",
     date: "Mar 2025 - Apr 2029",
     image: "/education-software-engineering.jpg",
-    // මෙතන bg-white සහ dark:bg-[#121212] Solid කර ඇත
+    // Solid background
     bgColor: "bg-white dark:bg-[#121212]", 
     borderColor: "border-gray-200 dark:border-[#262626]",
     skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS", "MySQL", "PHP", "OS", "DSA"]
@@ -41,8 +41,8 @@ export const EducationSection = () => {
           {education.map((edu) => (
             <div 
               key={edu.id} 
-              // මෙතැනදීත් කිසිම opacity/transparent class එකක් නැත
-              className={`${edu.bgColor} ${edu.borderColor} border rounded-[2.5rem] p-8 flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] cursor-default`}
+              // කිසිම transparent class එකක් නොමැත
+              className={`${edu.bgColor} ${edu.borderColor} border-2 rounded-[2.5rem] p-8 flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] cursor-default`}
             >
               <div>
                 <div className="flex items-center gap-5 mb-8">
@@ -71,7 +71,7 @@ export const EducationSection = () => {
                   {edu.skills.map((skill, idx) => (
                     <span 
                       key={idx} 
-                      // මෙතනදීත් Solid bg-gray-200 සහ dark:bg-[#1f1f1f] භාවිතා කර ඇත
+                      // බැජ් එකේ වර්ණයත් පිරිසිදු Solid වර්ණයක්
                       className="px-3 py-1 text-[11px] font-medium rounded-lg bg-gray-200 dark:bg-[#1f1f1f] text-[#333333] dark:text-[#cccccc]"
                     >
                       {skill}
