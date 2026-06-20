@@ -26,7 +26,7 @@ const articles = [
   {
     id: 3,
     title: "Understanding the Importance of a Banking System Use Case Diagram",
-    description: "A clear look into why use case diagrams are essential for modeling banking systems, improving design clarity and communication.",
+    description: "A look into why use case diagrams are essential for modeling banking systems, improving design clarity and communication.",
     image: "/article-banking-use-case.jpg",
     date: "2025",
     link: "https://medium.com/@dulanachathurma99/understanding-the-importance-of-a-banking-system-use-case-diagram-ffe6a938a53f",
@@ -65,13 +65,17 @@ export const ArticlesSection = () => {
           </p>
         </div>
 
+        {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {articles.map((article) => (
+            
+            /* ✨ කාඩ් එක වටේට විතරක් ලස්සන නිල් රාමුවක් (Border) දමා ඇත */
             <div
               key={article.id}
-              className="group rounded-xl overflow-hidden bg-blue-600 p-[2px] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col"
+              className="group rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-white dark:bg-gray-900 border-[2px] border-blue-600 flex flex-col"
             >
-             <div className="w-full h-full rounded-[10px] overflow-hidden bg-white dark:bg-gray-900 flex flex-col flex-1">
+              {/* Image Container */}
+              <div className="relative h-52 overflow-hidden bg-gray-100 dark:bg-gray-800 border-b-[2px] border-blue-600">
                 <img
                   src={article.image}
                   alt={article.title}
@@ -125,7 +129,6 @@ export const ArticlesSection = () => {
                 </div>
               </div>
 
-              
             </div>
           ))}
         </div>
