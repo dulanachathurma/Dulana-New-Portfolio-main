@@ -13,7 +13,7 @@ const experiences = [
     iconBg: "from-rose-500 to-pink-500",
     tags: ["Leadership", "Community", "Events"],
   },
-    {
+  {
     id: 2,
     title: "Student Participant – Safe Migration Program",
     location: "International Organization for Migration · On-site",
@@ -37,7 +37,6 @@ const experiences = [
     iconBg: "from-gray-700 to-slate-700",
     tags: ["Git", "GitHub", "Open Source"],
   },
-
 ];
 
 export const ExperienceSection = () => {
@@ -52,7 +51,6 @@ export const ExperienceSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Volunteering & My Experience
           </h2>
-       
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             My professional journey and volunteer experiences that have shaped my career
@@ -62,8 +60,7 @@ export const ExperienceSection = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical center line */}
-         
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600/60 via-blue-600/30 to-transparent -translate-x-1/2 hidden md:block" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600/40 via-blue-600/10 to-transparent -translate-x-1/2 hidden md:block" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => {
@@ -71,13 +68,15 @@ export const ExperienceSection = () => {
               return (
                 <div key={exp.id} className="relative flex flex-col md:flex-row items-center gap-6 md:gap-0">
 
-                  {/* LEFT CARD (even index) */}
+                  {/* TIMELINE CARD */}
                   <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-10" : "md:order-3 md:pl-10"}`}>
-                    <div className="bg-blue-600 p-[2px] rounded-2xl shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    
+                    {/* Apple Style Premium Glassmorphic Card (Blue wrapper removed) */}
+                    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl border border-white/50 dark:border-gray-800/50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500 ease-out">
+                      
                       {/* Top: image + title */}
                       <div className="flex items-start gap-4 mb-4">
-                        <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${exp.iconBg} p-0.5 shadow-md flex-shrink-0`}>
+                        <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${exp.iconBg} p-0.5 shadow-sm flex-shrink-0`}>
                           <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-800">
                             <img
                               src={exp.image}
@@ -111,7 +110,7 @@ export const ExperienceSection = () => {
                         {exp.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2.5 py-0.5 rounded-full text-xs border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800"
+                            className="px-2.5 py-0.5 rounded-full text-xs border border-gray-100 dark:border-gray-800 text-gray-500 dark:text-gray-400 bg-gray-50/50 dark:bg-gray-800/50"
                           >
                             {tag}
                           </span>
@@ -131,14 +130,13 @@ export const ExperienceSection = () => {
                       )}
                     </div>
                   </div>
-                    </div>
 
                   {/* CENTER DOT */}
                   <div className="hidden md:flex md:order-2 w-[10%] justify-center items-center z-10">
-                    <div className="w-5 h-5 rounded-full bg-blue-600 shadow-lg ring-4 ring-blue-600/20" />
+                    <div className="w-4 h-4 rounded-full bg-blue-600 shadow-md ring-4 ring-white dark:ring-gray-900" />
                   </div>
 
-                  {/* RIGHT EMPTY (for alternating layout) */}
+                  {/* RIGHT EMPTY */}
                   <div className={`hidden md:block md:w-[45%] ${isLeft ? "md:order-3" : "md:order-1"}`} />
                 </div>
               );
