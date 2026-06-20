@@ -13,28 +13,28 @@ export const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 bg-white dark:bg-black transition-colors duration-500">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        {/* Header - Apple Style */}
-        <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-16 tracking-tight">
-          Technical Proficiency
-        </h2></br>
+    <section id="skills" className="py-32 bg-white dark:bg-black transition-colors duration-500">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        {/* Header - Apple Style with extra bottom margin for space */}
+        <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-32 tracking-tight">
+          Technical Proficiency.
+        </h2>
 
-        {/* Skills Grid - Minimalist */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        {/* Skills Grid - Minimalist approach */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="group flex flex-col items-center p-6 rounded-3xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-500 ease-out"
+              className="group flex flex-col items-center p-8 rounded-3xl bg-gray-50/50 dark:bg-gray-900/30 border border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-500 ease-out hover:shadow-xl hover:shadow-gray-200/50 dark:hover:shadow-none"
             >
-              <div className="w-16 h-16 mb-4 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+              <div className="w-20 h-20 mb-6 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
                 <img 
                   src={skill.icon} 
                   alt={skill.name} 
                   className="w-full h-full object-contain opacity-90"
                 />
               </div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 tracking-wide">
+              <h4 className="text-base font-medium text-gray-700 dark:text-gray-300 tracking-wide">
                 {skill.name}
               </h4>
             </div>
