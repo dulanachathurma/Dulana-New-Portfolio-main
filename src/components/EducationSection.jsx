@@ -8,7 +8,7 @@ const education = [
     location: "Sri Lanka",
     date: "Mar 2025 - Apr 2029",
     image: "/education-software-engineering.jpg",
-    // පසුබිමෙන් වෙන් වීමට Dark Mode එකේදී තරමක් ලා Grey පැහැයක් (Layering)
+
     bgColor: "bg-white dark:bg-[#1c1c1e]", 
     borderColor: "border-slate-200/50 dark:border-white/5",
     skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS"]
@@ -20,7 +20,7 @@ const education = [
     location: "Weeraketiya, Sri Lanka",
     date: "2023 (2024)",
     image: "/education-al.jpg",
-    // පසුබිමෙන් වෙන් වීමට Dark Mode එකේදී එම Grey පැහැයම (Consistency)
+ 
     bgColor: "bg-[#fbfbfd] dark:bg-[#1c1c1e]", 
     borderColor: "border-slate-200/50 dark:border-white/5",
     skills: ["Combined Mathematics: A", "Physics: B", "Chemistry: B"]
@@ -42,7 +42,7 @@ export const EducationSection = () => {
           {education.map((edu) => (
             <div 
               key={edu.id} 
-              // Background එකෙන් පැහැදිලිව වෙන් වීමට Dark mode එකේදී subtle white border එකක් යොදා ඇත
+             
               className={`${edu.bgColor} ${edu.borderColor} border rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl dark:hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] group`}
             >
               <div>
