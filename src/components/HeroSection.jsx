@@ -15,7 +15,7 @@ export const HeroSection = () => {
       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}
     >
       {/* 1. DYNAMIC LIGHT/DARK AMBIENT GLOW */}
-      {/* (ඔයා දැනට පාවිච්චි කරන Canvas/Particle Background එක මේ Container එක ඇතුළේ හෝ පිටුපසින් ක්‍රියාත්මක වේ) */}
+      
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[145%] max-w-[1600px] h-[550px] bg-[radial-gradient(ellipse_at_top,_rgba(0,0,0,0.01),_transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.06),_transparent_55%)]" />
         <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 dark:from-blue-500/10 dark:via-indigo-500/5 dark:to-purple-500/10 rounded-full blur-[150px] opacity-80" />
