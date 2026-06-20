@@ -122,29 +122,31 @@ Sent from Dulana Chathurma Portfolio`;
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative">
+    <section id="contact" className="py-24 px-4 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="container mx-auto max-w-6xl">
+        
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1 rounded-full bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
             Get In Touch
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             Contact Me
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6"></div>
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Get in touch with me for collaborations or just a friendly hello
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Side - Socials & Map Only */}
+          
+          {/* Left Side - Socials & Map */}
           <div className="space-y-8">
-            {/* Social Links */}
-            {/* Social Links */}
-<div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-[2px] border-blue-600 shadow-lg">
-  <h4 className="text-xl font-bold mb-5 text-gray-800 dark:text-white">Connect with me</h4>
+            
+            {/* Social Links Container */}
+            <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 border-2 border-white dark:border-slate-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.02),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15),0_20px_40px_rgba(0,0,0,0.3)]">
+              <h4 className="text-lg font-bold mb-5 text-slate-800 dark:text-white">Connect with me</h4>
               <div className="flex gap-4 flex-wrap">
                 {socialLinks.map((social) => (
                   <a 
@@ -152,7 +154,7 @@ Sent from Dulana Chathurma Portfolio`;
                     href={social.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className={`p-3.5 rounded-full ${social.bgColor} ${social.hoverBg} transition-all duration-300 hover:scale-110 hover:-translate-y-1 group shadow-md`}
+                    className={`p-3.5 rounded-full ${social.bgColor} ${social.hoverBg} transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 group shadow-sm`}
                     title={social.name}
                   >
                     <div className={`${social.iconColor} transition-all duration-300`}>
@@ -163,13 +165,13 @@ Sent from Dulana Chathurma Portfolio`;
               </div>
             </div>
 
-            {/* Map */}
-<div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 border-[2px] border-blue-600 shadow-lg">
-  <h4 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">Find me</h4>
-              <div className="rounded-xl overflow-hidden h-52 shadow-inner">
+            {/* Map Container */}
+            <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 border-2 border-white dark:border-slate-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.02),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15),0_20px_40px_rgba(0,0,0,0.3)]">
+              <h4 className="text-lg font-bold mb-4 text-slate-800 dark:text-white">Find me</h4>
+              <div className="rounded-xl overflow-hidden h-52 shadow-inner border border-slate-100 dark:border-slate-800">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.207289909686!2d80.75844177499636!3d6.049260593952773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae142b6c8b5b5a5%3A0x8a0b8c8c8c8c8c8c!2sKopiwatta%2C%20Getamanna%2C%20Beliatta!5e0!3m2!1sen!2slk!4v1690000000000!5m2!1sen!2slk" 
-                  className="w-full h-full"
+                  className="w-full h-full grayscale dark:invert dark:opacity-80 transition-all duration-500 hover:grayscale-0 dark:hover:invert-0"
                   allowFullScreen 
                   loading="lazy"
                   title="Location Map"
@@ -178,60 +180,59 @@ Sent from Dulana Chathurma Portfolio`;
             </div>
           </div>
 
-          {/* Right Side - Contact Form */}
-          {/* Right Side - Contact Form */}
-<div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-6 md:p-8 border-[2px] border-blue-600 shadow-lg">
-  <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Send me a message</h3>
+          {/* Right Side - Contact Form Container */}
+          <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border-2 border-white dark:border-slate-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.02),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15),0_20px_40px_rgba(0,0,0,0.3)]">
+            <h3 className="text-xl font-bold mb-6 text-slate-800 dark:text-white">Send me a message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Your Name</label>
+                <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-500 dark:text-slate-400">Your Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-800 dark:text-white"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm text-slate-800 dark:text-white placeholder:text-slate-400"
                   placeholder="John Doe"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Your Email</label>
+                <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-500 dark:text-slate-400">Your Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-800 dark:text-white"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm text-slate-800 dark:text-white placeholder:text-slate-400"
                   placeholder="john@example.com"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Subject</label>
+                <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-500 dark:text-slate-400">Subject</label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-800 dark:text-white"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm text-slate-800 dark:text-white placeholder:text-slate-400"
                   placeholder="Project Inquiry"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Message</label>
+                <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-500 dark:text-slate-400">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none text-gray-800 dark:text-white"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm resize-none text-slate-800 dark:text-white placeholder:text-slate-400"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -239,27 +240,28 @@ Sent from Dulana Chathurma Portfolio`;
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-md hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-sm hover:shadow-md hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Sending...
+                    <span>Sending...</span>
                   </>
                 ) : (
                   <>
-                    <Send size={18} className="group-hover:translate-x-1 transition-transform" />
-                    Send via WhatsApp
+                    <Send size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <span>Send via WhatsApp</span>
                   </>
                 )}
               </button>
             </form>
             
-            <p className="text-xs text-center text-gray-500 dark:text-gray-400 mt-5 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <p className="text-[11px] font-medium text-center text-slate-400 dark:text-slate-500 mt-5 pt-3 border-t border-slate-100 dark:border-slate-800/60">
               <MessageCircle size={12} className="inline mr-1 text-green-500" />
               Your message will be sent directly to my WhatsApp
             </p>
           </div>
+
         </div>
       </div>
     </section>
