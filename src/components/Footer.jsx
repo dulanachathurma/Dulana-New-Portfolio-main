@@ -9,18 +9,26 @@ export const Footer = () => {
         
         {/* Top Info Section */}
         <div className="mb-12">
-          <h2 className="text-xl font-semibold text-[#1d1d1f] dark:text-white mb-2">Dulana Chathurma</h2>
-         <p className="text-sm max-w-lg leading-relaxed text-center mx-auto">
-  Second year Software Engineering undergraduate at University of Kelaniya. 
-  Passionate about building scalable web applications and exploring modern technologies. 
-  Actively seeking internship opportunities to contribute and grow.
-</p>
+          <h2 className="text-xl font-semibold text-[#1d1d1f] dark:text-white mb-2 text-center md:text-left">Dulana Chathurma</h2>
+          <p className="text-sm max-w-lg leading-relaxed text-center md:text-left mx-auto md:mx-0">
+            Second year Software Engineering undergraduate at University of Kelaniya. 
+            Passionate about building scalable web applications and exploring modern technologies. 
+            Actively seeking internship opportunities to contribute and grow.
+          </p>
         </div>
 
         {/* Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {[
-            { title: "Navigation", links: ["About", "Projects", "Skills", "Contact"] },
+            { 
+              title: "Navigation", 
+              links: [
+                { name: "About", href: "#about" },
+                { name: "Projects", href: "#projects" },
+                { name: "Skills", href: "#skills" },
+                { name: "Contact", href: "#contact" }
+              ] 
+            },
             { 
               title: "Professional", 
               links: [
@@ -32,7 +40,7 @@ export const Footer = () => {
             { title: "Contact", links: ["dulanachathurma99@gmail.com", "+94 76 757 4844"] },
             { title: "Location", links: ["Beliatta, Sri Lanka"] }
           ].map((section, idx) => (
-            <div key={idx}>
+            <div key={idx} className="text-center md:text-left">
               <h4 className="text-[12px] font-semibold text-[#1d1d1f] dark:text-white mb-4 uppercase tracking-widest">
                 {section.title}
               </h4>
@@ -67,18 +75,16 @@ export const Footer = () => {
           </p>
           
           <div className="flex items-center gap-6">
-            {/* Social Icons - Apple Style: Gray by default, Black/White on hover */}
-            <a href="https://github.com/dulanachathurma" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200">
+            <a href="https://github.com/dulanachathurma" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com/in/dulana-chathurma" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200">
+            <a href="https://linkedin.com/in/dulana-chathurma" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200">
               <Linkedin size={20} />
             </a>
-            <a href="/Dulana-Chathurma-CV.pdf" target="_blank" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200">
+            <a href="/Dulana-Chathurma-CV.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200">
               <FileText size={20} />
             </a>
             
-            {/* Apple Style Back to Top Button */}
             <a 
               href="#home" 
               className="p-2 rounded-full bg-black/5 dark:bg-white/10 text-gray-500 hover:text-black dark:hover:text-white transition-all duration-300 hover:scale-105"
