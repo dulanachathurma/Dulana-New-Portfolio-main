@@ -1,4 +1,4 @@
-import { ArrowUp, Github, Linkedin, FileText, Mail, Phone } from "lucide-react";
+import { ArrowUp, Github, Linkedin, FileText } from "lucide-react";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +11,7 @@ export const Footer = () => {
         <div className="mb-12">
           <h2 className="text-xl font-semibold text-[#1d1d1f] dark:text-white mb-2">Dulana Chathurma</h2>
           <p className="text-sm max-w-lg leading-relaxed">
-            second year Software Engineering undergraduate at University of Kelaniya. 
+            Second year Software Engineering undergraduate at University of Kelaniya. 
             Passionate about building scalable web applications and exploring modern technologies. 
             Actively seeking internship opportunities to contribute and grow.
           </p>
@@ -26,7 +26,7 @@ export const Footer = () => {
               links: [
                 { name: "GitHub", href: "https://github.com/dulanachathurma" },
                 { name: "LinkedIn", href: "https://linkedin.com/in/dulana-chathurma" },
-                { name: "Resume", href: "/Dulana-Chathurma-CV.pdf" } 
+                { name: "Resume", href: "/Dulana-Chathurma-CV.pdf" }
               ] 
             },
             { title: "Contact", links: ["dulanachathurma99@gmail.com", "+94 76 757 4844"] },
@@ -40,9 +40,16 @@ export const Footer = () => {
                 {section.links.map((link, i) => (
                   <li key={i}>
                     {typeof link === 'string' ? (
-                      <span className="hover:text-blue-600 cursor-pointer transition-colors">{link}</span>
+                      <span className="hover:text-black dark:hover:text-white cursor-pointer transition-colors duration-200">
+                        {link}
+                      </span>
                     ) : (
-                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
+                      <a 
+                        href={link.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="hover:text-black dark:hover:text-white transition-colors duration-200"
+                      >
                         {link.name}
                       </a>
                     )}
@@ -60,12 +67,23 @@ export const Footer = () => {
           </p>
           
           <div className="flex items-center gap-6">
-            <a href="https://github.com/dulanachathurma" className="text-blue-600 hover:scale-110 transition-transform"><Github size={20} /></a>
-            <a href="https://linkedin.com/in/dulana-chathurma" className="text-blue-600 hover:scale-110 transition-transform"><Linkedin size={20} /></a>
-            {/* Resume Icon */}
-            <a href="#" className="text-blue-600 hover:scale-110 transition-transform"><FileText size={20} /></a>
+            {/* Social Icons - Apple Style: Gray by default, Black/White on hover */}
+            <a href="https://github.com/dulanachathurma" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200">
+              <Github size={20} />
+            </a>
+            <a href="https://linkedin.com/in/dulana-chathurma" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200">
+              <Linkedin size={20} />
+            </a>
+            <a href="/Dulana-Chathurma-CV.pdf" target="_blank" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200">
+              <FileText size={20} />
+            </a>
             
-            <a href="#home" className="p-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-blue-600 hover:text-white transition-all">
+            {/* Apple Style Back to Top Button */}
+            <a 
+              href="#home" 
+              className="p-2 rounded-full bg-black/5 dark:bg-white/10 text-gray-500 hover:text-black dark:hover:text-white transition-all duration-300 hover:scale-105"
+              aria-label="Back to top"
+            >
               <ArrowUp size={16} />
             </a>
           </div>
