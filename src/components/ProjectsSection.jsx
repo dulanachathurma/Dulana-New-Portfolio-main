@@ -213,7 +213,8 @@ export const ProjectsSection = () => {
              
 className="group rounded-xl overflow-hidden bg-blue-600 p-[2px] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
-            <div className="w-full h-full rounded-[10px] overflow-hidden bg-gradient-to-br from-white to-slate-50/50 dark:from-slate-900 dark:to-slate-800/80">
+          
+        <div className="w-full h-full rounded-[10px] overflow-hidden bg-white dark:bg-slate-900">
               {/* Image */}
               <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-800">
                 <img
