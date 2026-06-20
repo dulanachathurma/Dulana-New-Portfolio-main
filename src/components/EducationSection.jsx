@@ -8,9 +8,9 @@ const education = [
     location: "Sri Lanka",
     date: "Mar 2025 - Apr 2029",
     image: "/education-software-engineering.jpg",
-    bgColor: "bg-white dark:bg-[#1c1c1e]", 
-    borderColor: "border-slate-200/50 dark:border-white/5",
-    skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS"]
+    bgColor: "bg-white dark:bg-[#161618]", 
+    borderColor: "border-slate-200 dark:border-[#2d2d2d]",
+    skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS", "MySQL", "PHP", "OS", "DSA"]
   },
   {
     id: 2,
@@ -20,15 +20,14 @@ const education = [
     date: "2023 (2024)",
     image: "/education-al.jpg",
     bgColor: "bg-[#fbfbfd] dark:bg-[#1c1c1e]", 
-    borderColor: "border-slate-200/50 dark:border-white/5",
+    borderColor: "border-slate-200 dark:border-[#2d2d2d]",
     skills: ["Combined Mathematics: A", "Physics: B", "Chemistry: B"]
   }
 ];
 
 export const EducationSection = () => {
   return (
-    // මෙතැනදී පසුබිම සම්පූර්ණ කළු (dark:bg-black) කර ඇත, තිත් ඉෆෙක්ට් එකක් නැත
-    <section id="education" className="py-32 px-6 bg-[#f5f5f7] dark:bg-black transition-colors duration-700">
+    <section id="education" className="py-32 px-6 bg-[#f5f5f7] dark:bg-[#000000] transition-colors duration-700">
       <div className="container mx-auto max-w-5xl">
         
         <div className="text-center mb-20">
@@ -41,11 +40,11 @@ export const EducationSection = () => {
           {education.map((edu) => (
             <div 
               key={edu.id} 
-              className={`${edu.bgColor} ${edu.borderColor} border rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl dark:hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] group`}
+              className={`${edu.bgColor} ${edu.borderColor} border rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500`}
             >
               <div>
                 <div className="flex items-center gap-6 mb-8">
-                  <div className="w-16 h-16 rounded-[1.2rem] overflow-hidden bg-black/5 dark:bg-black/20">
+                  <div className="w-16 h-16 rounded-[1.2rem] overflow-hidden bg-white dark:bg-black">
                     <img src={edu.image} alt={edu.institution} className="w-full h-full object-cover"/>
                   </div>
                   <div>
@@ -58,7 +57,7 @@ export const EducationSection = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4 text-xs text-[#86868b] font-medium border-t border-black/5 dark:border-white/5 pt-6 mb-8">
+                <div className="flex flex-wrap items-center gap-4 text-xs text-[#86868b] font-medium border-t border-slate-200 dark:border-white/10 pt-6 mb-8">
                   <span className="flex items-center gap-1.5"><Calendar size={14} /> {edu.date}</span>
                   <span className="flex items-center gap-1.5"><MapPin size={14} /> {edu.location}</span>
                 </div>
@@ -68,7 +67,10 @@ export const EducationSection = () => {
                 <h5 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#6e6e73] mb-4">Core Competencies</h5>
                 <div className="flex flex-wrap gap-2">
                   {edu.skills.map((skill, idx) => (
-                    <span key={idx} className="px-3 py-1 text-[11px] font-medium rounded-full bg-black/5 dark:bg-white/5 text-[#424245] dark:text-[#a1a1a6]">
+                    <span 
+                      key={idx} 
+                      className="px-3 py-1 text-[11px] font-medium rounded-md bg-[#e5e7eb] dark:bg-[#252527] text-[#1f2937] dark:text-[#e0e0e0]"
+                    >
                       {skill}
                     </span>
                   ))}
