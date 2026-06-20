@@ -333,50 +333,50 @@ const certificates = [
 
 export const CertificatesSection = () => {
   return (
-    <section id="certificates" className="py-24 px-4 relative">
+    <section id="certificates" className="py-24 px-4 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="container mx-auto max-w-6xl">
+        
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1 rounded-full bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
             Professional Credentials
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             My Certificates
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Professional certifications and courses I've completed to enhance my skills
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6"></div>
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            Professional certifications and courses I've completed to enhance my skills.
           </p>
         </div>
 
+        {/* Certificates Grid with Apple 2026 Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert) => (
             <div
               key={cert.id}
-             className="group rounded-xl overflow-hidden bg-blue-600 p-[2px] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col"
+              className="group relative rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-2 border-white dark:border-slate-800/80 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.02),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15),0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out flex flex-col h-full"
             >
-              <div className="w-full h-full rounded-[10px] overflow-hidden bg-white dark:bg-gray-900 flex flex-col flex-1">
               {/* Image Container */}
-              <div className="relative h-44 overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <div className="relative h-44 overflow-hidden bg-slate-100 dark:bg-slate-800">
                 <img
                   src={cert.image}
                   alt={cert.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute top-3 right-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Award className="h-4 w-4 text-white" />
                   </div>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-5 flex flex-col flex-1">
-
+              {/* Content Box */}
+              <div className="p-5 flex flex-col flex-grow">
                 {/* Organization Logo + Name Row */}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-10 h-10 rounded-full flex-shrink-0 shadow-md overflow-hidden ${cert.logoImg ? "bg-white border border-gray-200 dark:border-gray-600 p-1" : `${cert.logoBg} flex items-center justify-center`}`}>
+                <div className="flex items-center gap-2.5 mb-3.5">
+                  <div className={`w-8 h-8 rounded-full flex-shrink-0 shadow-sm overflow-hidden ${cert.logoImg ? "bg-white border border-slate-200 dark:border-slate-700 p-1" : `${cert.logoBg} flex items-center justify-center`}`}>
                     {cert.logoImg ? (
                       <img
                         src={cert.logoImg}
@@ -384,78 +384,76 @@ export const CertificatesSection = () => {
                         className="w-full h-full object-contain"
                         onError={(e) => {
                           e.target.style.display = "none";
-                          e.target.parentElement.classList.remove("bg-white", "border", "border-gray-200", "dark:border-gray-600", "p-1");
+                          e.target.parentElement.classList.remove("bg-white", "border", "border-slate-200", "dark:border-slate-700", "p-1");
                           e.target.parentElement.classList.add(cert.logoBg, "flex", "items-center", "justify-center");
                           const span = document.createElement("span");
-                          span.className = "text-white text-xs font-bold tracking-wide";
+                          span.className = "text-white text-[10px] font-bold tracking-wide";
                           span.textContent = cert.logoText;
                           e.target.parentElement.appendChild(span);
                         }}
                       />
                     ) : (
-                      <span className="text-white text-xs font-bold tracking-wide">
+                      <span className="text-white text-[10px] font-bold tracking-wide">
                         {cert.logoText}
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-primary font-semibold leading-tight line-clamp-2">{cert.organization}</p>
+                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 leading-tight line-clamp-1">{cert.organization}</p>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white line-clamp-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-base font-bold mb-2 text-slate-800 dark:text-white line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                   {cert.title}
                 </h3>
 
                 {/* Location & Date */}
-                <div className="flex flex-wrap gap-3 text-xs text-gray-500 dark:text-gray-400 mb-3">
+                <div className="flex flex-wrap gap-3 text-[11px] text-slate-400 dark:text-slate-500 mb-3 font-medium">
                   <span className="flex items-center gap-1">
-                    <MapPin size={12} /> {cert.location}
+                    <MapPin size={11} /> {cert.location}
                   </span>
                   <span className="flex items-center gap-1">
-                    <Calendar size={12} /> {cert.date}
+                    <Calendar size={11} /> {cert.date}
                   </span>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300 text-xs mb-4 leading-relaxed line-clamp-2">
+                <p className="text-slate-600 dark:text-slate-300 text-xs mb-4 leading-relaxed line-clamp-2 flex-grow">
                   {cert.description}
                 </p>
 
                 {/* Skills Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {cert.skills.slice(0, 3).map((skill, idx) => (
-                    <span key={idx} className={`px-2 py-0.5 text-xs rounded-full ${cert.tagColor} font-medium`}>
+                <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
+                  {cert.skills.slice(0, 2).map((skill, idx) => (
+                    <span key={idx} className={`px-2.5 py-0.5 text-[11px] rounded-full ${cert.tagColor} font-semibold shadow-sm border border-black/5 dark:border-white/5`}>
                       {skill}
                     </span>
                   ))}
-                  {cert.skills.length > 3 && (
-                    <span className="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
-                      +{cert.skills.length - 3}
+                  {cert.skills.length > 2 && (
+                    <span className="px-2.5 py-0.5 text-[11px] rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-black/5 dark:border-white/5 font-semibold">
+                      +{cert.skills.length - 2}
                     </span>
                   )}
                 </div>
 
-                {/* View Certificate Button */}
-                <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">
+                {/* View Certificate Button (Clean Action at Bottom) */}
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60">
                   <a
                     href={cert.viewCertificateUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-sm font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                    className="flex w-full items-center justify-center gap-1.5 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
                   >
-                    View Certificate <ExternalLink size={14} />
+                    View Certificate <ExternalLink size={13} />
                   </a>
                 </div>
               </div>
 
-        </div>
-             
             </div>
           ))}
         </div>
 
-        {/* View All Button */}
-        <div className="text-center mt-12">
+        {/* View All LinkedIn Button */}
+        <div className="text-center mt-16">
           <a
             href="https://www.linkedin.com/in/dulana-chathurma/details/certifications/"
             target="_blank"
