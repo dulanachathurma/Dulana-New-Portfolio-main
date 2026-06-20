@@ -10,6 +10,7 @@ export const SkillsSection = () => {
     { name: "MySQL", icon: "/icon-mysql.png" },
     { name: "Spring Boot", icon: "/icon-spring-boot.png" },
     { name: "React.js", icon: "/icon-react.png" },
+     { name: "PHP", icon: "/icon-php.png" },
   ];
 
   return (
