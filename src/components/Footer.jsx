@@ -10,11 +10,11 @@ export const Footer = () => {
         {/* Top Info Section */}
         <div className="mb-12">
           <h2 className="text-xl font-semibold text-[#1d1d1f] dark:text-white mb-2">Dulana Chathurma</h2>
-          <p className="text-sm max-w-lg leading-relaxed">
-            Second year Software Engineering undergraduate at University of Kelaniya. 
-            Passionate about building scalable web applications and exploring modern technologies. 
-            Actively seeking internship opportunities to contribute and grow.
-          </p>
+         <p className="text-sm max-w-lg leading-relaxed text-center mx-auto">
+  Second year Software Engineering undergraduate at University of Kelaniya. 
+  Passionate about building scalable web applications and exploring modern technologies. 
+  Actively seeking internship opportunities to contribute and grow.
+</p>
         </div>
 
         {/* Links Grid */}
