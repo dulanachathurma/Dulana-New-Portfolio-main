@@ -11,7 +11,7 @@ export const Footer = () => {
         <div className="mb-12">
           <h2 className="text-xl font-semibold text-[#1d1d1f] dark:text-white mb-2">Dulana Chathurma</h2>
           <p className="text-sm max-w-lg leading-relaxed">
-            Final year Software Engineering undergraduate at University of Kelaniya. 
+            second year Software Engineering undergraduate at University of Kelaniya. 
             Passionate about building scalable web applications and exploring modern technologies. 
             Actively seeking internship opportunities to contribute and grow.
           </p>
@@ -26,7 +26,7 @@ export const Footer = () => {
               links: [
                 { name: "GitHub", href: "https://github.com/dulanachathurma" },
                 { name: "LinkedIn", href: "https://linkedin.com/in/dulana-chathurma" },
-                { name: "Resume", href: "https://dulanaportfolio.vercel.app/Dulana-Chathurma-CV.pdf" } 
+                { name: "Resume", href: "/Dulana-Chathurma-CV.pdf" } 
               ] 
             },
             { title: "Contact", links: ["dulanachathurma99@gmail.com", "+94 76 757 4844"] },
