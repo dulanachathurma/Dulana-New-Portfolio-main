@@ -30,8 +30,8 @@ export const SnowEffect = () => {
     const getSnowflakeCount = () => {
       const width = window.innerWidth;
       if (width < 768) return 20;      // Mobile
-      if (width < 1024) return 30;    // Tablet
-      return 30;                       // Desktop
+      if (width < 1024) return 20;    // Tablet
+      return 20;                       // Desktop
     };
 
     const createSnowflake = (id) => ({
