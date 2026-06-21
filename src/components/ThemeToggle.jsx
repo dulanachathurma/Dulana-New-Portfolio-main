@@ -1,10 +1,19 @@
+import { Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+
 export const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // 1. දැනටමත් dark mode එක සක්‍රිය දැයි පරීක්ෂා කරන්න
-    const isDark = document.documentElement.classList.contains("dark");
-    setIsDarkMode(isDark);
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      setIsDarkMode(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      localStorage.setItem("theme", "light");
+      setIsDarkMode(false);
+    }
   }, []);
 
   const toggleTheme = () => {
@@ -22,13 +31,17 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
       className={cn(
         "fixed z-50 p-2 rounded-full transition-all duration-300",
         "backdrop-blur-sm shadow-md hover:scale-110 active:scale-95",
+        // Mobile: center at top
         "top-5 left-1/2 -translate-x-1/2",
+        // Desktop: right side
         "md:left-auto md:right-5 md:translate-x-0",
-        "bg-white dark:bg-slate-800" // මෙතැන එකම පේළියට දැමීම වඩා සුදුසුයි
+        // Light mode background - White
+        "bg-white",
+        // Dark mode background - white
+        "dark:bg-white-800"
       )}
     >
       {isDarkMode ? (
