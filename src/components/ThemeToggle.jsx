@@ -2,15 +2,9 @@ export const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    
-    if (storedTheme === "dark" || (!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove("dark");
-    }
+    // 1. දැනටමත් dark mode එක සක්‍රිය දැයි පරීක්ෂා කරන්න
+    const isDark = document.documentElement.classList.contains("dark");
+    setIsDarkMode(isDark);
   }, []);
 
   const toggleTheme = () => {
@@ -28,16 +22,13 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-     
       aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
       className={cn(
         "fixed z-50 p-2 rounded-full transition-all duration-300",
         "backdrop-blur-sm shadow-md hover:scale-110 active:scale-95",
         "top-5 left-1/2 -translate-x-1/2",
         "md:left-auto md:right-5 md:translate-x-0",
-        "bg-white",
-     
-        "dark:bg-slate-800" 
+        "bg-white dark:bg-slate-800" // මෙතැන එකම පේළියට දැමීම වඩා සුදුසුයි
       )}
     >
       {isDarkMode ? (
