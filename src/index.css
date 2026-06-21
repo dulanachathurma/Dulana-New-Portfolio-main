@@ -470,4 +470,19 @@ section li::before {
   border-color: #475569 !important;
   color: #ffffff !important;
 }
+
+    /* Navigation Bar එක සැමවිටම උඩින් තියෙන්න */
+nav, .navbar, header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important; /* මේ අගය වැඩියෙන් තියන්න */
+    background: white; /* Dark mode එකේදී මෙතනට background-color එකක් අලුතින් දෙන්න */
+}
+
+/* ඩාර්ක් මෝඩ් සඳහා background එක වෙනස් කිරීම */
+.dark nav, .dark .navbar, .dark header {
+    background: #0f172a !important; /* ඔයාගේ dark background පාට */
+}
   
