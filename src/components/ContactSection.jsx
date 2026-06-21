@@ -159,16 +159,16 @@ Sent from Dulana Chathurma Portfolio`;
                 </div>
               </div>
 
-              {/* Map Iframe */}
-              <div className="rounded-xl overflow-hidden h-48 shadow-inner border border-slate-100 dark:border-slate-800/60">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.3242095640165!2d80.74100000000001!3d6.0461667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae143162799ef17%3A0x64cf557b7f167e4e!2sGetamanna!5e0!3m2!1sen!2slk!4v1718900000000!5m2!1sen!2slk"
-                  className="w-full h-full grayscale dark:invert dark:opacity-70 transition-all duration-700 hover:grayscale-0 dark:hover:invert-0"
-                  allowFullScreen 
-                  loading="lazy"
-                  title="Location Map"
-                />
-              </div>
+             {/* Map Iframe */}
+<div className="rounded-xl overflow-hidden h-48 shadow-inner border border-slate-100 dark:border-slate-800/60">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.3242095640165!2d80.74100000000001!3d6.0461667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae143162799ef17%3A0x64cf557b7f167e4e!2sGetamanna!5e0!3m2!1sen!2slk!4v1718900000000!5m2!1sen!2slk"
+    className="w-full h-full transition-all duration-700" // මෙතැනින් grayscale, hover ආදිය ඉවත් කරන්න
+    allowFullScreen 
+    loading="lazy"
+    title="Location Map"
+  />
+</div>
             </div>
           </div>
 
