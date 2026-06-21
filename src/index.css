@@ -470,3 +470,10 @@ section li::before {
   border-color: #475569 !important;
   color: #ffffff !important;
 }
+    html {
+  scroll-padding-top: 80px;
+}
+
+body {
+  padding-top: 80px; /* Navbar එකේ උසට සමාන ඉඩක් ඉහළින් තබයි */
+}
