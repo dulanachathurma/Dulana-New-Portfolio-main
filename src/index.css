@@ -475,5 +475,5 @@ section li::before {
 }
 
 body {
-  padding-top: 80px; /* Navbar එකේ උසට සමාන ඉඩක් ඉහළින් තබයි */
+  padding-top: 0px; /* Navbar එකේ උසට සමාන ඉඩක් ඉහළින් තබයි */
 }
