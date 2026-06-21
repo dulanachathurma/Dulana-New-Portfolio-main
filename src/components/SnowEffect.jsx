@@ -29,9 +29,9 @@ export const SnowEffect = () => {
     // Window size එක අනුව snowflakes ගණන
     const getSnowflakeCount = () => {
       const width = window.innerWidth;
-      if (width < 768) return 20;      // Mobile
-      if (width < 1024) return 30;    // Tablet
-      return 40;                       // Desktop
+      if (width < 768) return 80;      // Mobile
+      if (width < 1024) return 120;    // Tablet
+      return 180;                       // Desktop
     };
 
     const createSnowflake = (id) => ({
