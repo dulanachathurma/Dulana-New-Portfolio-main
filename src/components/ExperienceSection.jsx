@@ -2,7 +2,19 @@ import { Calendar, MapPin, ExternalLink } from "lucide-react";
 
 const experiences = [
   {
-    id: 1,
+  id: 1,
+  title: "LED KLN",
+  location: "University of Kelaniya, Sri Lanka",
+  date: "Jun 2026 - Present",
+  description: "Member of LED KLN, contributing to leadership development activities, teamwork, communication, and student engagement initiatives.",
+  image: "/experience-led-kln-logo.jpg",
+  link: "https://www.linkedin.com/in/dulana-chathurma/edit/forms/position/2949165932/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bw5JyoO8LSzuWUj6UYDPfpw%3D%3D",
+  linkText: "View Profile",
+  iconBg: "from-blue-500 to-indigo-500",
+  tags: ["Leadership", "Communication", "Team Leadership"],
+},
+  {
+    id: 2,
     title: "Gavel Club - University of Kelaniya",
     location: "Kelaniya, Sri Lanka",
     date: "2023 - Present",
@@ -14,7 +26,7 @@ const experiences = [
     tags: ["Leadership", "Community", "Events"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Student Participant – Safe Migration Program",
     location: "International Organization for Migration · On-site",
     date: "Dec 2025 · 1 mo",
@@ -26,7 +38,7 @@ const experiences = [
     tags: ["Migration", "Awareness", "Rotaract"],
   },
   {
-    id: 3,
+    id: 4,
     title: "GitHub Dev Day",
     location: "University of Kelaniya · Hybrid",
     date: "Apr 2026 - Present · 1 mo",
