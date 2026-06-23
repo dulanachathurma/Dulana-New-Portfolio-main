@@ -7,31 +7,25 @@ const education = [
     institution: "University of Kelaniya",
     location: "Sri Lanka",
     date: "Mar 2025 - Apr 2029",
-    image: "/education-software-engineering1.jpg",
-     image: "/education-software-engineering2.jpg",
+    images: ["/education-software-engineering1.jpg", "/education-software-engineering2.jpg"],
     skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS", "MySQL", "PHP", "OS", "DSA"]
   },
   {
-  id: 2,
-  degree: "Open Learning Programming Courses",
-  institution: "University of Moratuwa",
-  location: "Sri Lanka",
-  date: "Oct 2025 - Jan 2027",
-  image: "/education-uom-open-learning.jpg",
-  skills: [
-    "Python",
-    "Python Calculator Projects",
-    "Programming Fundamentals",
-    "Problem Solving"
-  ]
-},
+    id: 2,
+    degree: "Open Learning Programming Courses",
+    institution: "University of Moratuwa",
+    location: "Sri Lanka",
+    date: "Oct 2025 - Jan 2027",
+    images: ["/education-uom-open-learning.jpg"],
+    skills: ["Python", "Python Calculator Projects", "Programming Fundamentals", "Problem Solving"]
+  },
   {
     id: 3,
     degree: "G.C.E. Advanced Level Examination",
     institution: "H/ Rajapaksa National College",
     location: "Weeraketiya, Sri Lanka",
     date: "2023 (2024)",
-    image: "/educations-al.jpg",
+    images: ["/educations-al.jpg"],
     skills: ["Combined Mathematics: A", "Physics: B", "Chemistry: B"]
   }
 ];
@@ -65,10 +59,14 @@ export const EducationSection = () => {
                   <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-10" : "md:order-3 md:pl-10"}`}>
                     <div className="bg-white dark:bg-[#121212] border-2 border-gray-200 dark:border-[#262626] rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2),0_20px_50px_rgba(0,0,0,0.4)] hover:-translate-y-1.5 transition-all duration-500 ease-out">
                       
-                      {/* Top: image + Title */}
+                      {/* Top: images + Title */}
                       <div className="flex items-start gap-4 mb-4">
-                        <div className="w-14 h-14 rounded-full overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-[#262626] flex-shrink-0">
-                          <img src={edu.image} alt={edu.institution} className="w-full h-full object-cover" />
+                        <div className="flex -space-x-3">
+                          {edu.images.map((img, idx) => (
+                            <div key={idx} className="w-14 h-14 rounded-full overflow-hidden bg-white dark:bg-gray-800 border-2 border-white dark:border-[#121212] flex-shrink-0">
+                              <img src={img} alt={`${edu.institution} ${idx}`} className="w-full h-full object-cover" />
+                            </div>
+                          ))}
                         </div>
                         <div>
                           <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#86868b] mb-1">
