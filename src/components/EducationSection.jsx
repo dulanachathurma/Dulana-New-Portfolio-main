@@ -30,7 +30,7 @@ const education = [
     institution: "H/ Rajapaksa National College",
     location: "Weeraketiya, Sri Lanka",
     date: "2023 (2024)",
-    image: "/education-al.jpg",
+    image: "/educations-al.jpg",
     skills: ["Combined Mathematics: A", "Physics: B", "Chemistry: B"]
   }
 ];
