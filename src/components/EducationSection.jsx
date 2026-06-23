@@ -11,7 +11,21 @@ const education = [
     skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS", "MySQL", "PHP", "OS", "DSA"]
   },
   {
-    id: 2,
+  id: 2,
+  degree: "Open Learning Programming Courses",
+  institution: "University of Moratuwa",
+  location: "Sri Lanka",
+  date: "Oct 2025 - Jan 2027",
+  image: "/education-uom-open-learning.jpg",
+  skills: [
+    "Python",
+    "Python Calculator Projects",
+    "Programming Fundamentals",
+    "Problem Solving"
+  ]
+},
+  {
+    id: 3,
     degree: "G.C.E. Advanced Level Examination",
     institution: "H/ Rajapaksa National College",
     location: "Weeraketiya, Sri Lanka",
