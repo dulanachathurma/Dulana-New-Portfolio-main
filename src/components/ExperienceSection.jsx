@@ -8,7 +8,7 @@ const experiences = [
   date: "Jun 2026 - Present",
   description: "Member of LED KLN, contributing to leadership development activities, teamwork, communication, and student engagement initiatives.",
   image: "/experience-led-kln-logo.jpg",
-  link: "https://www.linkedin.com/in/dulana-chathurma/edit/forms/position/2949165932/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bw5JyoO8LSzuWUj6UYDPfpw%3D%3D",
+  link: "https://www.linkedin.com/in/dulana-chathurma/edit/forms/position/2949165932/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_position%3BZkz2WWhZQ6O44ruo3WBH2g%3D%3D",
   linkText: "View Profile",
   iconBg: "from-blue-500 to-indigo-500",
   tags: ["Leadership", "Communication", "Team Leadership"],
