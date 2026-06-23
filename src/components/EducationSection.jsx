@@ -7,7 +7,8 @@ const education = [
     institution: "University of Kelaniya",
     location: "Sri Lanka",
     date: "Mar 2025 - Apr 2029",
-    image: "/education-software-engineering.jpg",
+    image: "/education-software-engineering1.jpg",
+     image: "/education-software-engineering2.jpg",
     skills: ["Mathematics for Computing", "C Language", "Data Structures", "OOP", "Database Systems", "Python", "Java", "JavaScript", "HTML & CSS", "MySQL", "PHP", "OS", "DSA"]
   },
   {
