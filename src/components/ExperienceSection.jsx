@@ -35,18 +35,7 @@ const experiences = [
     iconBg: "from-emerald-500 to-teal-500",
     tags: ["Migration", "Awareness", "Rotaract"],
   },
-  {
-    id: 4,
-    title: "GitHub Dev Day",
-    location: "University of Kelaniya · Hybrid",
-    date: "Apr 2026 - Present · 1 mo",
-    description: "Successfully completed the GitHub for Beginners program and participated in GitHub Dev Day Sri Lanka, led by Nisal Gunawardhana. Gained hands-on experience in Git fundamentals, branching, collaboration, and modern development workflows using GitHub.",
-    images: ["/education-software-engineering1.jpg", "/github-logo.png"],
-    link: "https://nisalgunawardhana.com/github-dev-day/badge/nt6smxx1nvpxmnlk2tw8",
-    linkText: "View Badge",
-    iconBg: "from-gray-700 to-slate-700",
-    tags: ["Git", "GitHub", "Open Source"],
-  },
+ 
 ];
 
 export const ExperienceSection = () => {
