@@ -156,6 +156,29 @@ const certificates = [
     viewCertificateUrl: "https://www.udemy.com/certificate/UC-4f2803e2-1da6-4447-9be2-f6cc0b362622/",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
+  {
+  id: 41,
+  title: "GitHub Dev Day Sri Lanka",
+  organization: "GitHub",
+  location: "University of Kelaniya · Hybrid",
+  date: "Apr 2026",
+  description: "Successfully completed the GitHub for Beginners program and participated in GitHub Dev Day Sri Lanka. Learned Git fundamentals, branching, collaboration, pull requests, and GitHub workflow.",
+  image: "/certificate-github-dev-day.jpg",
+  logoImg: "/github-logo.png",
+  logoText: "GH",
+  logoBg: "bg-gray-900",
+  skills: [
+    "Git",
+    "GitHub",
+    "Version Control",
+    "Branching",
+    "Pull Requests",
+    "Collaboration",
+    "Open Source"
+  ],
+  viewCertificateUrl: "https://nisalgunawardhana.com/github-dev-day/badge/nt6smxx1nvpxmnlk2tw8",
+  tagColor: "bg-gray-100 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300"
+},
 
   // HackerRank
   {
