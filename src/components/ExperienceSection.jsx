@@ -11,7 +11,7 @@ const experiences = [
     iconBg: "from-blue-600 to-cyan-500",
     tags: ["IEEE", "Professional Network", "Student Member", "ID : 102613884"],
     linkText: "View Photo",
-    linkUrl: "/experience-ieee-logo1.jpg", 
+    linkUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Position/2984494659/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BOEEmrJeRSgubvvATRBJvmQ%3D%3D", 
 },
   {
     id: 2,
