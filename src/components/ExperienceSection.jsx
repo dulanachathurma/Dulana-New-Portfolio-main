@@ -19,7 +19,7 @@ const experiences = [
     description: "Member of LED KLN, contributing to leadership development activities, teamwork, communication, and student engagement initiatives.",
     images: ["/education-software-engineering1.jpg", "/experience-led-kln-logo.jpg"],
     iconBg: "from-blue-500 to-indigo-500",
-    tags: ["Leadership", "Communication", "Team Leadership",ID: 263092"],
+    tags: ["Leadership", "Communication", "Team Leadership","ID: 263092"],
   },
   {
     id: 3,
