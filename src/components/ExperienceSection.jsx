@@ -6,11 +6,10 @@ const experiences = [
     title: "Member",
     location: "Sri Lanka · Hybrid",
     date: "Aug 2026 - Present",
-     tags: [ "ID: 102613884"],
     description: "Active student member of the IEEE Sri Lanka Section, engaging in professional networks and technical community initiatives.",
     images: ["/experience-ieee-logo.jpg"],
     iconBg: "from-blue-600 to-cyan-500",
-    tags: ["IEEE", "Professional Network", "Student Member"],
+    tags: ["IEEE", "Professional Network", "Student Member", "ID: 102613884"],
   },
   {
     id: 2,
