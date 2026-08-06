@@ -3,6 +3,16 @@ import { Calendar, MapPin, ExternalLink } from "lucide-react";
 const experiences = [
   {
     id: 1,
+    title: "Member",
+    location: "Sri Lanka · Hybrid",
+    date: "Aug 2026 - Present",
+    description: "Active student member of the IEEE Sri Lanka Section with ID 102613884, engaging in professional networks and technical community initiatives.",
+    images: ["/experience-ieee-logo.jpg"],
+    iconBg: "from-blue-600 to-cyan-500",
+    tags: ["IEEE", "Professional Network", "Student Member"],
+  },
+  {
+    id: 2,
     title: "LED KLN",
     location: "University of Kelaniya, Sri Lanka",
     date: "Jun 2026 - Present",
@@ -12,7 +22,7 @@ const experiences = [
     tags: ["Leadership", "Communication", "Team Leadership"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Gavel Club - University of Kelaniya",
     location: "Kelaniya, Sri Lanka",
     date: "2023 - Present",
@@ -24,7 +34,7 @@ const experiences = [
     tags: ["Leadership", "Community", "Events"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Student Participant – Safe Migration Program",
     location: "International Organization for Migration · On-site",
     date: "Dec 2025 · 1 mo",
