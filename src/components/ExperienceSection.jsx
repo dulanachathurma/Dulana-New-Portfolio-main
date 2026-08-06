@@ -1,12 +1,12 @@
 import { Calendar, MapPin, ExternalLink } from "lucide-react";
 
 const experiences = [
-  {
+{
     id: 1,
     title: "Member",
     location: "Sri Lanka · Hybrid",
     date: "Aug 2026 - Present",
-    description: "Active student member of the IEEE Sri Lanka Section with ID 102613884, engaging in professional networks and technical community initiatives.",
+    description: "Active student member of the IEEE Sri Lanka Section with ID **102613884**, engaging in professional networks and technical community initiatives.",
     images: ["/experience-ieee-logo.jpg"],
     iconBg: "from-blue-600 to-cyan-500",
     tags: ["IEEE", "Professional Network", "Student Member"],
