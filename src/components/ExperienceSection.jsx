@@ -10,7 +10,9 @@ const experiences = [
     images: ["/experience-ieee-logo.jpg"],
     iconBg: "from-blue-600 to-cyan-500",
     tags: ["IEEE", "Professional Network", "Student Member", "ID : 102613884"],
-  },
+    linkText: "View Photo",
+    linkUrl: "/experience-ieee-logo1.jpg", 
+},
   {
     id: 2,
     title: "LED KLN",
