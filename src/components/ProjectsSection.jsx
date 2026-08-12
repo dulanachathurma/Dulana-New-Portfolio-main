@@ -22,8 +22,8 @@ const projects = [
     description: "Modern astrology website with live horoscopes, service booking, WhatsApp integration, and mobile-friendly design. Features auto-updating predictions, interactive zodiac slider, and contact forms.",
     image: "/project-astrology-website.jpg",
     tags: ["React.js", "HTML5", "CSS3", "JavaScript"],
-    demoUrl: "https://dulanachathurma.github.io/Astrology-Services-App/",
-    githubUrl: "https://github.com/dulanachathurma/Astrology-Services-App",
+    demoUrl: "https://sriseta.vercel.app",
+    githubUrl: "https://github.com/dulanachathurma/sriseta-astrology-platform",
     date: "Dec 2025 – Present",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
