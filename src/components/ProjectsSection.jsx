@@ -69,10 +69,35 @@ const projects = [
   description: "A full-stack web application designed to streamline pet care service bookings and administrative operations. Allows pet owners to browse services like grooming and vet checkups and schedule appointments, while providing administrators with a secure dashboard to manage bookings.",
   image: "/project-petcare.jpg",
   tags: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3", "Git"],
- 
   githubUrl: "https://github.com/kavindugimshan/Pet-Care-System",
   date: "Aug 2026",
-  tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
+  tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300",
+  contributors: [
+    {
+      name: "Kavindu Gimshan",
+      username: "kavindugimshan",
+      avatarUrl: "https://github.com/kavindugimshan.png",
+      profileUrl: "https://github.com/kavindugimshan"
+    },
+    {
+      name: "Chanindu Iman...",
+      username: "Chanindulmanjith",
+      avatarUrl: "https://github.com/Chanindulmanjith.png",
+      profileUrl: "https://github.com/Chanindulmanjith"
+    },
+    {
+      name: "Minindu",
+      username: "Rajapakshaminindu",
+      avatarUrl: "https://github.com/Rajapakshaminindu.png",
+      profileUrl: "https://github.com/Rajapakshaminindu"
+    },
+    {
+      name: "DULANA CHAT...",
+      username: "dulanachathurma",
+      avatarUrl: "https://github.com/dulanachathurma.png",
+      profileUrl: "https://github.com/dulanachathurma"
+    }
+  ]
 },
   {
     id: 2,
