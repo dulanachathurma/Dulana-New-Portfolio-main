@@ -69,8 +69,8 @@ const projects = [
   description: "A full-stack web application designed to streamline pet care service bookings and administrative operations. Allows pet owners to browse services like grooming and vet checkups and schedule appointments, while providing administrators with a secure dashboard to manage bookings.",
   image: "/project-petcare.jpg",
   tags: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3", "Git"],
-  demoUrl: "https://github.com/dulanachathurma/Pet-Care-System", // Replace with live URL if available
-  githubUrl: "https://github.com/dulanachathurma/Pet-Care-System",
+ 
+  githubUrl: "https://github.com/kavindugimshan/Pet-Care-System",
   date: "Aug 2026",
   tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
 },
