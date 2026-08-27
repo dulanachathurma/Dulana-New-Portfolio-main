@@ -39,17 +39,7 @@ const projects = [
     date: "Mar 2026 – Present",
     tagColor: "bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300"
   },
-  {
-    id: 4,
-    title: "TaskFlow",
-    category: "major",
-    description: "A modern full-stack task management application built with React, Node.js, Express, and MongoDB Atlas. Features JWT authentication, task creation and management, priority-based task sorting, secure user accounts, responsive design, and real-time database integration for efficient productivity management.", 
-    image: "/project-taskflow.jpg",
-    tags: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
-    githubUrl: "https://github.com/dulanachathurma/Task-Flow",
-    date: "2026",
-    tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
-  },
+
   {
     id: 12,
     title: "Intelligent Career Skill Analysis Platform (NexGenAI)",
