@@ -59,7 +59,7 @@ const projects = [
   description: "NexaTask is a modern, responsive full-stack task management web app featuring a glassmorphism dark UI, JWT authentication, real-time search, priority-based sorting, dynamic dashboard analytics, and schedule tracking.",
   image: "/project-nexatask.jpg",
   tags: ["Full-Stack", "React", "Node.js", "JWT", "TailwindCSS"],
-  demoUrl: "https://dulanachathurma.github.io/NexaTask/",
+  
   githubUrl: "https://github.com/dulanachathurma/NexaTask",
   date: "Mar 2026 – Apr 2026",
   tagColor: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300"
