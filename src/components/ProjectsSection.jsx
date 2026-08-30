@@ -27,18 +27,7 @@ const projects = [
     date: "Dec 2025 – Present",
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
-  {
-    id: 10,
-    title: "AI Career & University Recommendation System",
-    category: "major",
-    description: "Building an AI-Based Career Path Prediction and University Recommendation System that helps students make informed decisions. Analyzes academic profiles, interests, and market trends to suggest optimal career paths and matching universities.",
-    image: "/project-ai-career.jpg",
-    tags: ["Python", "Machine Learning", "AI", "Recommendation System", "Flask"],
-    demoUrl: "https://medium.com/@dulanachathurma99/ai-career-university-recommendation-system-2cfafe7d9842",
-    githubUrl: "#",
-    date: "Mar 2026 – Present",
-    tagColor: "bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300"
-  },
+ 
 
   {
     id: 12,
