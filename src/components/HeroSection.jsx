@@ -23,32 +23,36 @@ export const HeroSection = () => {
       {/* Main Impact Copy Area */}
       <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-20 flex flex-col items-center">
         
-        {/* 2. PREMIUM APPLE PROFILE IMAGE (LARGER + FLOATING ANIMATION) */}
+        {/* 2. PREMIUM APPLE PROFILE IMAGE (RUNNING BORDER ANIMATION) */}
         <div 
           className={`mb-10 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
-          {/* Subtle Outer Glow / Premium Ring */}
-          <div className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-slate-300 via-white to-slate-300 dark:from-slate-700 dark:via-gray-500 dark:to-slate-700 opacity-40 blur-lg transition-all duration-1000 group-hover:opacity-70 animate-pulse-slow z-0"></div>
+          {/* Running Border Wrapper */}
+          <div className="relative rounded-full p-[3px] overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+            
+            {/* The Spinning Animated Gradient (The line that runs around) */}
+            <div className="absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#0071e3_100%)] dark:bg-[conic-gradient(from_0deg,transparent_75%,#2997ff_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+            
+            {/* Inner Mask (Hides the center of the gradient to create a border effect) */}
+            <div className="relative z-10 bg-[#f5f5f7] dark:bg-[#000000] p-1.5 rounded-full transition-colors duration-500">
+              
+              {/* Image Container */}
+              <div className="relative w-44 h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden">
+                <img 
+                  src="/dulana-profile-circle1.jpg" 
+                  alt="Dulana Chathurma" 
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
 
-          {/* Main Image Container with Float Animation & Glassmorphism */}
-          <div className="relative z-10 animate-float rounded-full aspect-square overflow-hidden border-[3px] border-white/80 dark:border-[#222225]/80 p-1.5 bg-white/40 dark:bg-[#111112]/60 backdrop-blur-md shadow-[0_24px_60px_-12px_rgba(0,0,0,0.12)] dark:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.5)] group cursor-pointer">
-            
-            {/* Inner Frame with Increased Size (w-44 to md:w-56) */}
-            <div className="relative rounded-full overflow-hidden w-44 h-44 sm:w-48 sm:h-48 md:w-56 md:h-56">
-              <img 
-                src="/dulana-profile-circle1.jpg" 
-                alt="Dulana Chathurma" 
-                className="w-full h-full object-cover object-top transition-all duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
-              />
-            </div>
-            
-            {/* Enhanced Premium Online Indicator with Ping Effect */}
-            <div className="absolute bottom-5 right-5 z-20 flex h-5 w-5 items-center justify-center">
-               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-               <span className="relative inline-flex h-4 w-4 rounded-full bg-emerald-500 border-2 border-white dark:border-[#111112]"></span>
-            </div>
+          {/* Online Indicator (Placed outside overflow-hidden to prevent clipping) */}
+          <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-5 md:right-5 z-20 flex h-5 w-5 md:h-6 md:w-6 items-center justify-center">
+             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+             <span className="relative inline-flex h-4 w-4 md:h-5 md:w-5 rounded-full bg-emerald-500 border-[2.5px] border-[#f5f5f7] dark:border-[#000000]"></span>
           </div>
         </div>
 
@@ -167,37 +171,20 @@ export const HeroSection = () => {
 
       {/* 5. MICRO-INTERACTION ANIMATION KEYFRAMES */}
       <style>{`
-        /* Floating Animation for the Profile Image */
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-        }
-        
         @keyframes bounce-subtle {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-4px); }
         }
-        
         @keyframes shimmer {
           0% { background-position: 0% center; }
           50% { background-position: 100% center; }
           100% { background-position: 0% center; }
         }
-        
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        
         .animate-bounce-subtle {
           animation: bounce-subtle 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
         }
-        
         .animate-shimmer {
           animation: shimmer 7s ease infinite;
-        }
-        
-        .animate-pulse-slow {
-          animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
       `}</style>
     </section>
