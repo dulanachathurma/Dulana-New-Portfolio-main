@@ -23,37 +23,33 @@ export const HeroSection = () => {
       {/* Main Impact Copy Area */}
       <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-20 flex flex-col items-center">
         
-        {/* 2. AUTHENTIC APPLE SQUIRCLE PROFILE IMAGE */}
+        {/* 2. AUTHENTIC APPLE PROFILE IMAGE (MODIFIED TO TRUE CIRCLE) */}
         <div 
           className={`mb-8 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
-       <div className="relative rounded-[2.2rem] overflow-hidden border border-slate-300/50 dark:border-[#2d2d30] p-1.5 bg-slate-100/80 dark:bg-[#111112] shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] group">
-  <img 
-    src="/dulana-profile-circle1.jpg" 
-    alt="Dulana Chathurma" 
-  
-    className="w-40 h-40 md:w-48 md:h-48 rounded-[1.8rem] object-cover object-top transition-transform duration-700 group-hover:scale-105"
-  />
-  
- 
-  <span className="absolute bottom-3 right-3 w-4 h-4 bg-emerald-500 border-4 border-slate-100 dark:border-[#111112] rounded-full shadow-sm animate-pulse" />
-</div>
+          <div className="relative rounded-full aspect-square overflow-hidden border border-slate-300/50 dark:border-[#2d2d30] p-1.5 bg-slate-100/80 dark:bg-[#111112] shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] group">
+            <img 
+              src="/dulana-profile-circle1.jpg" 
+              alt="Dulana Chathurma" 
+              className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <span className="absolute bottom-3 right-4 w-4 h-4 bg-emerald-500 border-4 border-slate-100 dark:border-[#111112] rounded-full shadow-sm animate-pulse" />
+          </div>
         </div>
 
         {/* Apple Product Campaign Style Kicker */}
         <div className="mb-6 overflow-visible inline-block">
-      <p 
-  className={`text-[#86868b] text-sm sm:text-base font-semibold tracking-wider uppercase transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
-    animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-  }`}
->
-  Software Engineering • University of Kelaniya
-</p>
+          <p 
+            className={`text-[#86868b] text-sm sm:text-base font-semibold tracking-wider uppercase transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
+              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            Software Engineering • University of Kelaniya
+          </p>
         </div>
 
-        
         <h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.03em] leading-[1.15] pb-6 mb-4 overflow-visible">
           <span 
             className={`block text-[#86868b] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
