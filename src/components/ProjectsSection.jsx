@@ -44,7 +44,7 @@ const projects = [
   {
   id: 17,
   title: "NexaTask – Modern Task Management Platform",
-  category: "major",
+  category: "mini",
   description: "NexaTask is a modern, responsive full-stack task management web app featuring a glassmorphism dark UI, JWT authentication, real-time search, priority-based sorting, dynamic dashboard analytics, and schedule tracking.",
   image: "/project-nexatask.jpg",
   tags: ["Full-Stack", "React", "Node.js", "JWT", "TailwindCSS"],
