@@ -55,6 +55,18 @@ const articles = [
   readTime: "4 min read",
   tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300",
   tag: "Machine Learning"
+},
+  {
+  id: 6,
+  title: "A Developer’s Leap into Machine Learning",
+  category: "article",
+  description: "Exploring the transition from traditional programming to AI algorithms, core Python tools for beginners, and practical machine learning implementation.",
+  image: "/article-leap-into-machine-learning.jpg",
+  tags: ["Machine Learning", "Python", "AI", "Software Engineering"],
+  demoUrl: "https://medium.com/@dulanachathurma99/a-developers-leap-into-machine-learning-90e518d3c9f9",
+  githubUrl: "https://github.com/dulanachathurma",
+  date: "Aug 2026",
+  tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
 }
 ];
 
