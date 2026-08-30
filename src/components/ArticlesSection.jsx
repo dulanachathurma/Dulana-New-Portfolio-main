@@ -56,17 +56,16 @@ const articles = [
   tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300",
   tag: "Machine Learning"
 },
-  {
+{
   id: 6,
-  title: "A Developer’s Leap into Machine Learning",
-  category: "article",
-  description: "Exploring the transition from traditional programming to AI algorithms, core Python tools for beginners, and practical machine learning implementation.",
-  image: "/article-leap-into-machine-learning.jpg",
-  tags: ["Machine Learning", "Python", "AI", "Software Engineering"],
-  demoUrl: "https://medium.com/@dulanachathurma99/a-developers-leap-into-machine-learning-90e518d3c9f9",
-  githubUrl: "https://github.com/dulanachathurma",
-  date: "Aug 2026",
-  tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+  title: "Building an AI-Based Career & University Recommendation System",
+  description: "How I built an AI system that analyzes academic profiles, interests, and market trends to predict optimal career paths and recommend matching universities for students.",
+  image: "/project-ai-career.jpg",
+  date: "2026",
+  link: "https://medium.com/@dulanachathurma99/ai-career-university-recommendation-system-2cfafe7d9842",
+  readTime: "5 min read",
+  tagColor: "bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300",
+  tag: "Machine Learning"
 }
 ];
 
