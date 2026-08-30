@@ -92,7 +92,6 @@ export const ArticlesSection = () => {
           {articles.map((article) => (
             <article
               key={article.id}
-              // Added lg:hover specifically for laptop animations
               className="group relative rounded-3xl bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-white/10 overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all duration-500 ease-out flex flex-col h-full lg:hover:-translate-y-1.5 lg:hover:shadow-[0_24px_48px_rgba(0,0,0,0.08)] dark:lg:hover:shadow-[0_24px_48px_rgba(0,0,0,0.4)] lg:hover:border-slate-300 dark:lg:hover:border-white/20"
             >
               {/* Image Container */}
@@ -100,7 +99,6 @@ export const ArticlesSection = () => {
                 <img
                   src={article.image}
                   alt={article.title}
-                  // Image zoom restricted to laptop hover
                   className="w-full h-full object-cover transition-transform duration-700 ease-out lg:group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-slate-900/10 dark:bg-slate-950/20 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -128,7 +126,7 @@ export const ArticlesSection = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-base md:text-lg font-semibold tracking-tight mb-2.5 text-slate-900 dark:text-slate-100 lg:group-hover:text-green-600 dark:lg:group-hover:text-green-400 transition-colors duration-300 line-clamp-2">
+                <h3 className="text-base md:text-lg font-semibold tracking-tight mb-2.5 text-slate-900 dark:text-slate-100 lg:group-hover:text-emerald-500 dark:lg:group-hover:text-emerald-400 transition-colors duration-300 line-clamp-2">
                   {article.title}
                 </h3>
 
@@ -137,16 +135,15 @@ export const ArticlesSection = () => {
                   {article.description}
                 </p>
 
-                {/* Read on Medium Button */}
+                {/* Read on Medium Button (Updated to Light Green / Emerald) */}
                 <div className="pt-4 border-t border-slate-100 dark:border-white/5 mt-auto">
                   <a
                     href={article.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-1.5 bg-green-600 lg:hover:bg-green-700 dark:bg-green-500 dark:lg:hover:bg-green-400 text-white dark:text-slate-950 text-xs font-medium py-2.5 px-4 rounded-xl transition-all duration-300 shadow-xs active:scale-[0.98]"
+                    className="inline-flex w-full items-center justify-center gap-1.5 bg-emerald-500 lg:hover:bg-emerald-600 dark:bg-emerald-500 dark:lg:hover:bg-emerald-400 text-white text-xs font-medium py-2.5 px-4 rounded-xl transition-all duration-300 shadow-sm active:scale-[0.98]"
                   >
                     <span>Read on Medium</span>
-                    {/* Arrow animation restricted to laptop hover */}
                     <ArrowUpRight size={14} className="opacity-80 lg:group-hover:translate-x-0.5 lg:group-hover:-translate-y-0.5 transition-transform duration-300" />
                   </a>
                 </div>
@@ -155,16 +152,16 @@ export const ArticlesSection = () => {
           ))}
         </div>
 
-        {/* View All Button */}
+        {/* View All Button (Updated to Solid Blue) */}
         <div className="text-center mt-16">
           <a
             href="https://medium.com/@dulanachathurma99"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-green-50 lg:hover:bg-green-100 dark:bg-green-900/20 dark:lg:hover:bg-green-900/40 text-green-700 dark:text-green-400 font-medium text-xs md:text-sm py-3 px-8 rounded-full transition-all duration-300 border border-green-200/50 dark:border-green-800/30 lg:hover:scale-105 active:scale-95 shadow-xs"
+            className="inline-flex items-center gap-2 bg-blue-600 lg:hover:bg-blue-700 dark:bg-blue-600 dark:lg:hover:bg-blue-500 text-white font-medium text-xs md:text-sm py-3.5 px-8 rounded-full transition-all duration-300 lg:hover:scale-105 active:scale-95 shadow-md lg:hover:shadow-lg"
           >
             <span>View All Articles on Medium</span>
-            <ExternalLink size={14} />
+            <ExternalLink size={16} />
           </a>
         </div>
       </div>
