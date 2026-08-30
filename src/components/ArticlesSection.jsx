@@ -44,7 +44,18 @@ const articles = [
     readTime: "4 min read",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300",
     tag: "AI & Conservation"
-  }
+  },
+  {
+  id: 5,
+  title: "A Developer’s Leap into Machine Learning",
+  description: "Why I’m shifting my focus to AI and how you can start your own journey into the world of algorithms.",
+  image: "/article-leap-into-machine-learning.jpg",
+  date: "2026",
+  link: "https://medium.com/@dulanachathurma99/a-developers-leap-into-machine-learning-90e518d3c9f9",
+  readTime: "4 min read",
+  tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300",
+  tag: "Machine Learning"
+}
 ];
 
 export const ArticlesSection = () => {
