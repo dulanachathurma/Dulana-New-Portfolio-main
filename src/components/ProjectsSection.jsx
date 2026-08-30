@@ -32,7 +32,7 @@ const projects = [
   {
     id: 12,
     title: "Intelligent Career Skill Analysis Platform (NexGenAI)",
-    category: "major",
+    category: "mini",
     description: "NexGenAI is LIVE! An AI-powered career platform that analyzes CVs, maps skills intelligently, and provides career recommendations along with ATS scores in seconds. Features dynamic skill dashboards and career match predictions.",
     image: "/project-nexgenai.jpg",
     tags: ["React", "TailwindCSS", "HTML5", "CSS3", "AI Resume Analysis"],
@@ -44,7 +44,7 @@ const projects = [
   {
   id: 17,
   title: "NexaTask – Modern Task Management Platform",
-  category: "mini",
+  category: "major",
   description: "NexaTask is a modern, responsive full-stack task management web app featuring a glassmorphism dark UI, JWT authentication, real-time search, priority-based sorting, dynamic dashboard analytics, and schedule tracking.",
   image: "/project-nexatask.jpg",
   tags: ["Full-Stack", "React", "Node.js", "JWT", "TailwindCSS"],
