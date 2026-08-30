@@ -126,7 +126,7 @@ export const ArticlesSection = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-base md:text-lg font-semibold tracking-tight mb-2.5 text-slate-900 dark:text-slate-100 lg:group-hover:text-emerald-500 dark:lg:group-hover:text-emerald-400 transition-colors duration-300 line-clamp-2">
+                <h3 className="text-base md:text-lg font-semibold tracking-tight mb-2.5 text-slate-900 dark:text-slate-100 lg:group-hover:text-[#00c46a] transition-colors duration-300 line-clamp-2">
                   {article.title}
                 </h3>
 
@@ -135,13 +135,13 @@ export const ArticlesSection = () => {
                   {article.description}
                 </p>
 
-                {/* Read on Medium Button (Updated to Light Green / Emerald) */}
+                {/* Read on Medium Button (Updated to exact Screenshot Green) */}
                 <div className="pt-4 border-t border-slate-100 dark:border-white/5 mt-auto">
                   <a
                     href={article.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-1.5 bg-emerald-500 lg:hover:bg-emerald-600 dark:bg-emerald-500 dark:lg:hover:bg-emerald-400 text-white text-xs font-medium py-2.5 px-4 rounded-xl transition-all duration-300 shadow-sm active:scale-[0.98]"
+                    className="inline-flex w-full items-center justify-center gap-1.5 bg-[#02c36a] lg:hover:bg-[#00a95c] dark:bg-[#02c36a] text-white text-xs font-medium py-2.5 px-4 rounded-xl transition-all duration-300 shadow-sm active:scale-[0.98]"
                   >
                     <span>Read on Medium</span>
                     <ArrowUpRight size={14} className="opacity-80 lg:group-hover:translate-x-0.5 lg:group-hover:-translate-y-0.5 transition-transform duration-300" />
@@ -152,7 +152,7 @@ export const ArticlesSection = () => {
           ))}
         </div>
 
-        {/* View All Button (Updated to Solid Blue) */}
+        {/* View All Button (Solid Blue) */}
         <div className="text-center mt-16">
           <a
             href="https://medium.com/@dulanachathurma99"
