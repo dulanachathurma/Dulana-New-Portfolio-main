@@ -91,6 +91,17 @@ const projects = [
   ]
 },
   {
+  id: 18,
+  title: "Bare-Metal x86 Operating System",
+  category: "major",
+  description: "A custom-built, bare-metal x86 operating system developed from scratch. Features include a custom bootloader, round-robin process scheduler, multithreading, memory management (PMM & Heap), and a custom file system on a RAM disk.",
+  image: "/project-os.jpg", 
+  tags: ["C", "Assembly", "OS Development", "QEMU", "Low-Level"],
+  githubUrl: "https://github.com/dulanachathurma/seng21213-os",
+  date: "Aug 2026 – Sep 2026",
+  tagColor: "bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300"
+},
+  {
     id: 2,
     title: "GPA Calculator App",
     category: "mini",
