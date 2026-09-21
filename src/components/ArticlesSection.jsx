@@ -1,6 +1,7 @@
 import { ExternalLink, Calendar, ArrowUpRight } from "lucide-react";
 
 const articles = [
+  
   {
     id: 1,
     title: "CIA Triad: Safeguarding Our Information",
@@ -66,6 +67,17 @@ const articles = [
     readTime: "5 min read",
     tagColor: "bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 border-purple-200/50 dark:border-purple-800/40",
     tag: "Machine Learning"
+  },
+  {
+    id: 7,
+    title: "Building a Bare-Metal x86 Operating System from Scratch",
+    description: "A comprehensive journey into low-level systems engineering, exploring how to build a custom OS kernel, memory manager, and file system.",
+    image: "/project-os.jpg",
+    date: "Sep 2026",
+    link: "https://medium.com/@dulanachathurma99/building-a-bare-metal-x86-operating-system-from-scratch",
+    readTime: "8 min read",
+    tagColor: "bg-slate-50 dark:bg-slate-950/40 text-slate-600 dark:text-slate-400 border-slate-200/50 dark:border-slate-800/40",
+    tag: "Low-Level Programming"
   }
 ];
 
