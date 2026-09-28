@@ -11,6 +11,7 @@ import { CertificatesSection } from "../components/CertificatesSection";
 import { ArticlesSection } from "../components/ArticlesSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
+import { AIAssistant } from "../components/AIAssistant";
 
 export const Home = () => {
   return (
@@ -30,6 +31,7 @@ export const Home = () => {
         <ContactSection />
       </main>
       <Footer />
+      <AIAssistant />
     </div>
   );
 };

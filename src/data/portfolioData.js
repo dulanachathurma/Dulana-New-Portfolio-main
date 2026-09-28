@@ -35,18 +35,25 @@ export const portfolioData = {
     ]
   },
   
-  // Skills
+  // Skills - grouped by category
   skills: [
-    { name: "Java", icon: "/icon-java.png" },
-    { name: "Python", icon: "/icon-python.png" },
-    { name: "C", icon: "/icon-c-language.png" },
-    { name: "JavaScript", icon: "/icon-javascript.png" },
-    { name: "HTML", icon: "/icon-html-css.png" },
-    { name: "CSS", icon: "/icon-html-css1.png" },
-    { name: "AI / ML", icon: "/icon-ai-ml.png" },
-    { name: "MySQL", icon: "/icon-mysql.png" },
-    { name: "Spring Boot", icon: "/icon-spring-boot.png" },
-    { name: "React.js", icon: "/icon-react.png" }
+    // Languages
+    { name: "Java", icon: "/icon-java.png", category: "Languages" },
+    { name: "Python", icon: "/icon-python.png", category: "Languages" },
+    { name: "C", icon: "/icon-c-language.png", category: "Languages" },
+    { name: "JavaScript", icon: "/icon-javascript.png", category: "Languages" },
+    { name: "PHP", icon: "/icon-php.png", category: "Languages" },
+    // Frontend
+    { name: "HTML5", icon: "/icon-html-css.png", category: "Frontend" },
+    { name: "CSS3", icon: "/icon-html-css1.png", category: "Frontend" },
+    { name: "React.js", icon: "/icon-react.png", category: "Frontend" },
+    // Backend & DB
+    { name: "Spring Boot", icon: "/icon-spring-boot.png", category: "Backend" },
+    { name: "MySQL", icon: "/icon-mysql.png", category: "Backend" },
+    { name: "PostgreSQL", icon: "/icon-mysql.png", category: "Backend" },
+    // AI/ML
+    { name: "AI / ML", icon: "/icon-ai-ml.png", category: "AI & ML" },
+    { name: "Flask", icon: "/icon-python.png", category: "AI & ML" },
   ],
   
   // Education
@@ -243,7 +250,8 @@ export const portfolioData = {
       github: "https://github.com/dulanachathurma",
       medium: "https://medium.com/@dulanachathurma99",
       whatsapp: "https://wa.me/94767574844",
-      email: "mailto:dulanachathurma99@gmail.com"
+      email: "mailto:dulanachathurma99@gmail.com",
+      twitter: "https://x.com/DulanaChathurma"
     }
   },
   
