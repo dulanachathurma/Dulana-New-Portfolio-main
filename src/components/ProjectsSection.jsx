@@ -114,6 +114,17 @@ const projects = [
   tagColor: "bg-fuchsia-100 dark:bg-fuchsia-900/50 text-fuchsia-700 dark:text-fuchsia-300"
 },
   {
+  id: 20,
+  title: "CLI Sales Report Generator",
+  category: "mini",
+  description: "A Java command-line application that parses CSV sales data, performs calculations, and generates formatted output using the Strategy design pattern, custom exception handling, and JUnit 5 testing.",
+  image: "/project-sales-reporter.jpg",
+  tags: ["Java", "OOP", "Strategy Pattern", "JUnit 5", "CLI"],
+  githubUrl: "https://github.com/dulanachathurma/SENG-21222-Sales-Report-Generator",
+  date: "Aug 2026 – Sep 2026",
+  tagColor: "bg-fuchsia-100 dark:bg-fuchsia-900/50 text-fuchsia-700 dark:text-fuchsia-300"
+},
+  {
     id: 2,
     title: "GPA Calculator App",
     category: "mini",
