@@ -102,6 +102,18 @@ const projects = [
   tagColor: "bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300"
 },
   {
+  id: 19,
+  title: "Vehicle Spare Parts E-Commerce & Management System",
+  category: "major",
+  description: "A full-stack web application designed to streamline inventory management, spare parts cataloging, and order processing workflows.",
+  image: "/project-spareparts.jpg", 
+  tags: ["PHP", "MySQL", "JavaScript", "Full-Stack", "E-Commerce"],
+  githubUrl: "https://github.com/dulanachathurma/Vehicle-Spare-Parts",
+  liveUrl: "http://spareparts.kesug.com",
+  date: "Jul 2026 – Aug 2026",
+  tagColor: "bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300"
+},
+  {
     id: 2,
     title: "GPA Calculator App",
     category: "mini",
