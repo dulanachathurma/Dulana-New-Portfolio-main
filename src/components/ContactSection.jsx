@@ -55,6 +55,7 @@ Sent from Dulana Chathurma Portfolio`;
     { 
       name: "LinkedIn", 
       url: "https://linkedin.com/in/dulana-chathurma",
+      hoverColor: "hover:bg-[#0a66c2] hover:text-white hover:border-transparent",
       icon: (
         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -66,6 +67,7 @@ Sent from Dulana Chathurma Portfolio`;
     { 
       name: "GitHub", 
       url: "https://github.com/dulanachathurma",
+      hoverColor: "hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-black hover:border-transparent",
       icon: (
         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
@@ -73,24 +75,36 @@ Sent from Dulana Chathurma Portfolio`;
       )
     },
     { 
+      name: "X (Twitter)", 
+      url: "https://x.com/DulanaChathurma",
+      hoverColor: "hover:bg-black hover:text-white hover:border-transparent",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      )
+    },
+    { 
       name: "Medium", 
       url: "https://medium.com/@dulanachathurma99",
+      hoverColor: "hover:bg-black hover:text-white hover:border-transparent",
       icon: (
         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
           <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/>
         </svg>
       )
     },
-   { 
-  name: "Gmail", 
-  url: "mailto:dulanachathurma99@gmail.com",
-  icon: (
-    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-      <polyline points="22,6 12,13 2,6" />
-    </svg>
-  )
-},
+    { 
+      name: "Gmail", 
+      url: "mailto:dulanachathurma99@gmail.com",
+      hoverColor: "hover:bg-[#ea4335] hover:text-white hover:border-transparent",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+          <polyline points="22,6 12,13 2,6" />
+        </svg>
+      )
+    },
   ];
 
   return (
@@ -128,7 +142,7 @@ Sent from Dulana Chathurma Portfolio`;
                     href={social.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-slate-800/60 transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-black hover:border-transparent shadow-sm"
+                    className={`p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-slate-800/60 transition-all duration-300 hover:-translate-y-0.5 ${social.hoverColor} shadow-sm`}
                     title={social.name}
                   >
                     <div className="w-5 h-5 flex items-center justify-center">
