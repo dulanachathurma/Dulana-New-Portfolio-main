@@ -4,6 +4,7 @@ const allSkills = [
   // Languages
   { name: "Java", icon: "/icon-java.png", category: "Languages", level: 85, color: "#f89820" },
   { name: "Python", icon: "/icon-python.png", category: "Languages", level: 80, color: "#3776ab" },
+  { name: "Ballerina", icon: "/icon-ballerina.png", category: "Languages", level: 75, color: "#20b2aa" },
   { name: "C", icon: "/icon-c-language.png", category: "Languages", level: 75, color: "#a8b9cc" },
   { name: "JavaScript", icon: "/icon-javascript.png", category: "Languages", level: 88, color: "#f7df1e" },
   { name: "PHP", icon: "/icon-php.png", category: "Languages", level: 65, color: "#777bb4" },
@@ -156,7 +157,7 @@ export const SkillsSection = () => {
         {/* Stats row */}
         <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { value: "13+", label: "Technologies", color: "#0071e3" },
+            { value: "14+", label: "Technologies", color: "#0071e3" },
             { value: "4", label: "Skill Categories", color: "#5e5ce6" },
             { value: "11+", label: "Projects Built", color: "#bf5af2" },
             { value: "5+", label: "Years Learning", color: "#ff375f" },
