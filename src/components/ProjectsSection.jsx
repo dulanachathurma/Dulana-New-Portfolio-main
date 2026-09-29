@@ -125,6 +125,17 @@ const projects = [
   tagColor: "bg-fuchsia-100 dark:bg-fuchsia-900/50 text-fuchsia-700 dark:text-fuchsia-300"
 },
   {
+  id: 21,
+  title: "AstroPulse-AIOps Observability Gateway",
+  category: "major",
+  description: "A Cloud-Native Integration Gateway built with Ballerina and Python that uses Claude AI to analyze microservice telemetry logs and generate real-time automated Root Cause Analysis (RCA) with interactive anomaly simulation.",
+  image: "/project-astropulse-aiops.jpg",
+  tags: ["Ballerina", "Python", "React", "Claude AI", "AIOps", "TailwindCSS"],
+  githubUrl: "https://github.com/dulanachathurma/AstroPulse-AIOps",
+  date: "Sep 2026",
+  tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
+},
+  {
     id: 2,
     title: "GPA Calculator App",
     category: "mini",
