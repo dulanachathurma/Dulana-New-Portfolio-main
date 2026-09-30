@@ -142,7 +142,7 @@ const projects = [
   description: "A Cloud-Native Trilingual Health & Wellness Platform built with React, Node.js, Express, and Chart.js. Features real-time BMI tracking analytics, symptom-driven smart doctor recommendations, and persistent health vitals logging inside an interactive mobile frame.",
   image: "/project-healthpulse-ai.jpg",
   tags: ["React", "Node.js", "Express", "MongoDB", "Chart.js", "TailwindCSS"],
-  githubUrl: "https://github.com/dulanachathurma/healthpulse-ai-fullstack",
+  githubUrl: "https://github.com/dulanachathurma/Vitacare-mobile-fullstack",
   date: "Oct 2026",
   tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
 },
