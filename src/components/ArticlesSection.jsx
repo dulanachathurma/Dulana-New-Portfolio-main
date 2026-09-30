@@ -78,7 +78,18 @@ const articles = [
     readTime: "8 min read",
     tagColor: "bg-slate-50 dark:bg-slate-950/40 text-slate-600 dark:text-slate-400 border-slate-200/50 dark:border-slate-800/40",
     tag: "Low-Level Programming"
-  }
+  },
+  {
+  id: 8,
+  title: "Building a Cloud-Native Integration Gateway with AI-Driven Observability & System Health Analytics",
+  description: "An advanced cloud-native architecture combining integration services with intelligent observability, leveraging JavaScript, Python, and Ballerina for real-time system health analytics.",
+  image: "/project-gateway.jpg",
+  date: "Sep 2026",
+  link: "https://medium.com/@dulanachathurma99/building-a-cloud-native-integration-gateway-with-ai-driven-observability-system-health-analytics-53269835dadf?postPublishedType=repub",
+  readTime: "7 min read",
+  tagColor: "bg-slate-50 dark:bg-slate-950/40 text-slate-600 dark:text-slate-400 border-slate-200/50 dark:border-slate-800/40",
+  tag: "Cloud-Native & AI"
+}
 ];
 
 export const ArticlesSection = () => {
