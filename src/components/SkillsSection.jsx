@@ -159,8 +159,8 @@ export const SkillsSection = () => {
           {[
             { value: "14+", label: "Technologies", color: "#0071e3" },
             { value: "4", label: "Skill Categories", color: "#5e5ce6" },
-            { value: "11+", label: "Projects Built", color: "#bf5af2" },
-            { value: "5+", label: "Years Learning", color: "#ff375f" },
+            { value: "17+", label: "Projects Built", color: "#bf5af2" },
+            { value: "3+", label: "Years Learning", color: "#ff375f" },
           ].map((stat, i) => (
             <div
               key={i}
