@@ -94,7 +94,7 @@ const articles = [
   id: 9,
   title: "Building HealthPulse AI: A Full-Stack Trilingual Health Analytics & Doctor Recommendation Platform",
   description: "An in-depth exploration of building a modern full-stack healthcare mobile web app with Node.js, React, Chart.js, dynamic trilingual (EN/SI/TA) support, and intelligent symptom-based doctor recommendation engines.",
-  image: "/project-healthpulse-ai.jpg",
+  image: "/project-healthpulse.jpg",
   date: "Oct 2026",
   link: "https://medium.com/@dulanachathurma99/building-healthpulse-ai-a-full-stack-trilingual-health-analytics-doctor-recommendation-platform",
   readTime: "6 min read",
