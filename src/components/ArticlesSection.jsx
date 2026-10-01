@@ -96,7 +96,7 @@ const articles = [
   description: "An in-depth exploration of building a modern full-stack healthcare mobile web app with Node.js, React, Chart.js, dynamic trilingual (EN/SI/TA) support, and intelligent symptom-based doctor recommendation engines.",
   image: "/project-healthpulse.jpg",
   date: "Oct 2026",
-  link: "https://medium.com/@dulanachathurma99/building-healthpulse-ai-a-full-stack-trilingual-health-analytics-doctor-recommendation-platform",
+  link: "https://medium.com/@dulanachathurma99/i-built-a-multilingual-health-tracker-with-a-built-in-doctor-finder-afacdc7783d4",
   readTime: "6 min read",
   tagColor: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200/50 dark:border-emerald-800/40",
   tag: "Full-Stack & HealthTech"
