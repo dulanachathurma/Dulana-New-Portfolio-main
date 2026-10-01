@@ -3,7 +3,7 @@ import profileImg from "../assets/dulana.jpeg";
 
 export const AboutSection = () => {
   const stats = [
-    { value: "11+", label: "Projects Completed", icon: FolderGit2 },
+    { value: "17+", label: "Projects Completed", icon: FolderGit2 },
     { value: "2+", label: "Years of Experience", icon: Briefcase },
     { value: "2nd Year", label: "Undergraduate", icon: GraduationCap },
   ];
