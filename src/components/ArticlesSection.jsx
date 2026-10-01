@@ -89,6 +89,17 @@ const articles = [
   readTime: "7 min read",
   tagColor: "bg-slate-50 dark:bg-slate-950/40 text-slate-600 dark:text-slate-400 border-slate-200/50 dark:border-slate-800/40",
   tag: "Cloud-Native & AI"
+},
+  {
+  id: 9,
+  title: "Building HealthPulse AI: A Full-Stack Trilingual Health Analytics & Doctor Recommendation Platform",
+  description: "An in-depth exploration of building a modern full-stack healthcare mobile web app with Node.js, React, Chart.js, dynamic trilingual (EN/SI/TA) support, and intelligent symptom-based doctor recommendation engines.",
+  image: "/project-healthpulse-ai.jpg",
+  date: "Oct 2026",
+  link: "https://medium.com/@dulanachathurma99/building-healthpulse-ai-a-full-stack-trilingual-health-analytics-doctor-recommendation-platform",
+  readTime: "6 min read",
+  tagColor: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200/50 dark:border-emerald-800/40",
+  tag: "Full-Stack & HealthTech"
 }
 ];
 
