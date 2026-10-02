@@ -111,7 +111,7 @@ export const HeroSection = () => {
           
           {/* Executive Action Link */}
           <a 
-            href="/Dulana-Chathurma-CV.pdf" 
+            href="/Dulana_Chathurma_Resume.pdf" 
             download
             className="group flex items-center gap-1 text-[#0066cc] dark:text-[#2997ff] hover:underline text-sm font-medium tracking-tight"
           >
