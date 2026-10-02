@@ -14,7 +14,7 @@ export const portfolioData = {
     education: "Pursuing B.Sc (Honours) in Software Engineering (UG) – University of Kelaniya",
     tags: ["AI", "ML", "Mobile Apps", "Software Engineering", "Problem Solving", "Full-Stack", "Spring Boot"],
     profileImage: "/dulana-profile-circle.jpg",
-    cvLink: "/Dulana-Chathurma-CV.pdf"
+    cvLink: "/Dulana_Chathurma_Resume.pdf"
   },
   
   // About Section
