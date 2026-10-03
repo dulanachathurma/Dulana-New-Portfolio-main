@@ -65,7 +65,7 @@
   }
 
   .dark {
-    --background: 222 100% 7%;    /* deep navy matches constellation bg */
+    --background: 222 47% 4%;
     --foreground: 213 31% 91%;
 
     --card: 222 47% 8%;
@@ -144,24 +144,9 @@
 }
 
 
-/* All Sections - Transparent so Constellation Shows Through */
+/* All Sections - Clean Display */
 section {
   overflow-x: hidden;
-  background: transparent !important;
-  position: relative;
-  z-index: 1;
-}
-
-/* Skills section has its own blobs — keep them but clear BG */
-#skills {
-  background: transparent !important;
-}
-
-/* Main wrapper transparent */
-main {
-  position: relative;
-  z-index: 1;
-  background: transparent !important;
 }
 
 /* Section Containers */
@@ -217,7 +202,7 @@ section .section-subtitle {
   gap: 1.5rem;
 }
 
-/* Card Styles - Light Mode Default (Borderless Surface Elevation) */
+/* Card Styles - Light Mode Default */
 .card, 
 .project-card, 
 .skill-card, 
@@ -229,23 +214,22 @@ section .section-subtitle {
   background: #ffffff;
   border-radius: 1rem;
   padding: 1.5rem;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  border: none !important;
-  box-shadow: 0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 10px -2px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Card Styles - Dark Mode (Borderless + Blue Ambient Glow) */
+/* Card Styles - System Dark Mode සහ Manually Class Dark Mode දෙකෙහිදීම සුදුසු පරිදි වෙනස් වීම */
 .dark .card, .dark .project-card, .dark .skill-card, .dark .education-card, .dark .experience-card, .dark .certificate-card, .dark .article-card, .dark .contact-card,
 @media (prefers-color-scheme: dark) {
   .card, .project-card, .skill-card, .education-card, .experience-card, .certificate-card, .article-card, .contact-card {
-    background: #0f172a !important;
-    border: none !important;
-    box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.15), 0 10px 30px -10px rgba(0, 0, 0, 0.8) !important;
+    background: #1e293b !important;
+    border-color: #334155 !important;
     color: #ffffff !important;
   }
 }
 
-/* Card Hover — Smooth Elevation */
+/* Card Hover */
 .card:hover,
 .project-card:hover,
 .skill-card:hover,
@@ -254,18 +238,7 @@ section .section-subtitle {
 .certificate-card:hover,
 .article-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -8px rgba(0,0,0,0.14), 0 8px 16px -4px rgba(0,0,0,0.08);
-}
-
-.dark .card:hover,
-.dark .project-card:hover,
-.dark .skill-card:hover,
-.dark .education-card:hover,
-.dark .experience-card:hover,
-.dark .certificate-card:hover,
-.dark .article-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 35px -4px rgba(59, 130, 246, 0.25), 0 20px 40px -10px rgba(0, 0, 0, 0.9) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 /* Typography - Clean Text */
@@ -375,14 +348,13 @@ section li::before {
   }
 }
 
-/* Stats Cards — borderless in both modes */
+/* Stats Cards */
 .stat-card {
   text-align: center;
   padding: 1rem;
   background: #ffffff;
   border-radius: 0.75rem;
-  border: none !important;
-  box-shadow: 0 4px 12px -2px rgba(0,0,0,0.06);
+  border: 1px solid #e2e8f0;
 }
 
 .dark .stat-card,
@@ -495,106 +467,3 @@ nav, .navbar, header {
     background: #0f172a !important; /* ඔයාගේ dark background පාට */
 }
   
-
-/* ═══════════════════════════════════════════════════════════════
-   Constellation Background — Interaction Safety Rules
-   • z-index: -1 → sits behind ALL content, nav, footer, cards
-   • pointer-events: none on BOTH wrapper div AND canvas
-     → every click / tap / hover passes straight through to the DOM
-   • No mouse or touch listeners registered — purely auto-drift
-   ═══════════════════════════════════════════════════════════════ */
-
-/* Safety net: ensure the canvas never captures pointer events via CSS too */
-[data-constellation-bg],
-[data-constellation-bg] canvas {
-  pointer-events: none !important;
-  z-index: -1 !important;
-}
-
-/* Stat cards – borderless in dark mode too */
-.dark .stat-card,
-@media (prefers-color-scheme: dark) {
-  .stat-card {
-    background: #0f172a;
-    border: none !important;
-    box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.10);
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   GLOBAL CARD SURFACE ELEVATION
-   Targets the actual Tailwind inline classes used in every component.
-   Light  → Pure White #ffffff  + Soft multi-layer gray shadow
-   Dark   → Deep Slate #0f172a  + Cyan/Blue ambient glow
-   Hover  → translateY(-4px) lift + intensified shadow / glow
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* ── Light Mode: ALL rounded card wrappers ───────────────────────── */
-/* Projects, Certificates, Articles, About, Experience, Education, Contact */
-.group.relative.rounded-2xl,
-.group.relative.rounded-3xl,
-.rounded-2xl.bg-white,
-.rounded-2xl.bg-white\/90,
-.bg-white\/90.backdrop-blur-md.rounded-2xl,
-.bg-white.dark\:bg-slate-900.rounded-2xl,
-.bg-white.rounded-2xl {
-  background: #ffffff !important;
-  border: none !important;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08),
-              0 4px 10px -2px rgba(0, 0, 0, 0.04) !important;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-/* AboutSection info/stat cards that use border class variants */
-[class*="rounded-2xl"][class*="border-slate-200"],
-[class*="rounded-2xl"][class*="border-slate-200\/60"],
-[class*="rounded-2xl"][class*="border-white"],
-[class*="rounded-2xl"][class*="border-2"] {
-  border: none !important;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08),
-              0 4px 10px -2px rgba(0, 0, 0, 0.04) !important;
-}
-
-/* ── Light Mode Hover ────────────────────────────────────────────── */
-.group.relative.rounded-2xl:hover,
-.group.relative.rounded-3xl:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.13),
-              0 8px 16px -4px rgba(0, 0, 0, 0.07) !important;
-}
-
-/* ── Dark Mode: ALL card wrappers ────────────────────────────────── */
-.dark .group.relative.rounded-2xl,
-.dark .group.relative.rounded-3xl,
-.dark .rounded-2xl.bg-white,
-.dark .rounded-2xl.bg-white\/90,
-.dark .bg-white\/90.backdrop-blur-md.rounded-2xl,
-.dark .bg-white.dark\:bg-slate-900.rounded-2xl,
-.dark .bg-white.rounded-2xl,
-.dark [class*="rounded-2xl"][class*="bg-slate-900"],
-.dark [class*="rounded-3xl"][class*="bg-slate-900"],
-.dark [class*="rounded-2xl"][class*="bg-gray-900"] {
-  background: #0f172a !important;
-  border: none !important;
-  box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.15),
-              0 10px 30px -10px rgba(0, 0, 0, 0.80) !important;
-}
-
-/* Dark: remove borders from border-slate-800 / border-gray-800 variants */
-.dark [class*="rounded-2xl"][class*="border-slate-800"],
-.dark [class*="rounded-2xl"][class*="border-gray-800"],
-.dark [class*="rounded-2xl"][class*="border-white"],
-.dark [class*="rounded-2xl"][class*="border-2"] {
-  border: none !important;
-  box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.15),
-              0 10px 30px -10px rgba(0, 0, 0, 0.80) !important;
-}
-
-/* ── Dark Mode Hover ─────────────────────────────────────────────── */
-.dark .group.relative.rounded-2xl:hover,
-.dark .group.relative.rounded-3xl:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 0 35px -4px rgba(59, 130, 246, 0.28),
-              0 20px 40px -10px rgba(0, 0, 0, 0.90) !important;
-}
