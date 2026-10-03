@@ -20,107 +20,6 @@
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   
 
-
-/* ═══════════════════════════════════════════════════════════════════
-   GLOBAL CARD SHADOW — Light & Dark Mode
-   Targets every card wrapper used across all sections.
-   Light Mode → Soft layered gray drop shadow
-   Dark Mode  → Subtle cyan-blue ambient glow
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* ── Light Mode Shadows ───────────────────────────────────────── */
-
-/* About, Contact, Skills, Articles cards */
-.bg-white.rounded-2xl,
-.bg-white.dark\:bg-slate-900.rounded-2xl,
-.rounded-2xl.bg-white {
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.04),
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 12px 28px -6px rgba(0, 0, 0, 0.08) !important;
-  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
-}
-
-/* Experience & Education cards (bg-white/90) */
-.bg-white\/90.rounded-2xl,
-.bg-white\/90.backdrop-blur-md.rounded-2xl {
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.04),
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 12px 28px -6px rgba(0, 0, 0, 0.08) !important;
-}
-
-/* Certificates & Projects (group relative rounded-2xl) */
-.group.relative.rounded-2xl {
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.04),
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 12px 28px -6px rgba(0, 0, 0, 0.08) !important;
-}
-
-/* Articles (rounded-3xl) */
-.group.relative.rounded-3xl {
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.04),
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 12px 28px -6px rgba(0, 0, 0, 0.08) !important;
-}
-
-/* Skills section card */
-.rounded-2xl.bg-white.dark\:bg-\[\#1a1a1c\] {
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.04),
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 12px 28px -6px rgba(0, 0, 0, 0.08) !important;
-}
-
-/* ── Light Mode Hover Lift ────────────────────────────────────── */
-.bg-white.rounded-2xl:hover,
-.bg-white\/90.rounded-2xl:hover,
-.group.relative.rounded-2xl:hover,
-.group.relative.rounded-3xl:hover {
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.06),
-    0 8px 16px -4px rgba(0, 0, 0, 0.08),
-    0 24px 48px -8px rgba(0, 0, 0, 0.12) !important;
-  transform: translateY(-3px) !important;
-}
-
-/* ── Dark Mode: Cyan-Blue Ambient Glow ───────────────────────── */
-.dark .bg-white.rounded-2xl,
-.dark .bg-white.dark\:bg-slate-900.rounded-2xl,
-.dark .rounded-2xl.bg-white,
-.dark .bg-white\/90.rounded-2xl,
-.dark .bg-white\/90.backdrop-blur-md.rounded-2xl,
-.dark .group.relative.rounded-2xl,
-.dark .group.relative.rounded-3xl,
-.dark [class*="rounded-2xl"][class*="bg-slate-900"],
-.dark [class*="rounded-3xl"][class*="bg-slate-900"],
-.dark [class*="rounded-2xl"][class*="bg-gray-900"],
-.dark [class*="rounded-2xl"][class*="bg-\[#1a1a1c\]"] {
-  box-shadow:
-    0 0 0 1px rgba(148, 163, 184, 0.06),
-    0 0 20px -4px rgba(59, 130, 246, 0.12),
-    0 8px 24px -6px rgba(0, 0, 0, 0.50),
-    0 24px 48px -12px rgba(0, 0, 0, 0.70) !important;
-  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
-}
-
-/* ── Dark Mode Hover Glow Intensified ────────────────────────── */
-.dark .bg-white.rounded-2xl:hover,
-.dark .bg-white\/90.rounded-2xl:hover,
-.dark .group.relative.rounded-2xl:hover,
-.dark .group.relative.rounded-3xl:hover,
-.dark [class*="rounded-2xl"][class*="bg-slate-900"]:hover,
-.dark [class*="rounded-2xl"][class*="bg-gray-900"]:hover {
-  box-shadow:
-    0 0 0 1px rgba(148, 163, 184, 0.10),
-    0 0 32px -4px rgba(59, 130, 246, 0.22),
-    0 12px 32px -8px rgba(0, 0, 0, 0.55),
-    0 32px 64px -12px rgba(0, 0, 0, 0.75) !important;
-  transform: translateY(-3px) !important;
-}
-
   @keyframes float {
     0%,
     100% {
@@ -150,6 +49,70 @@
     }
   }
   
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBAL CARD SHADOW — Light & Dark Mode
+   Targets every card wrapper used across all sections.
+   Light Mode → Soft layered gray drop shadow
+   Dark Mode  → Subtle cyan-blue ambient glow
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Light Mode Shadows ───────────────────────────────────────── */
+.bg-white.rounded-2xl,
+.bg-white\/90.rounded-2xl,
+.bg-white\/90.backdrop-blur-md.rounded-2xl,
+.group.relative.rounded-2xl,
+.group.relative.rounded-3xl {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.04),
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 12px 28px -6px rgba(0, 0, 0, 0.08) !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+/* ── Light Mode Hover Lift ────────────────────────────────────── */
+.bg-white.rounded-2xl:hover,
+.bg-white\/90.rounded-2xl:hover,
+.group.relative.rounded-2xl:hover,
+.group.relative.rounded-3xl:hover {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 8px 16px -4px rgba(0, 0, 0, 0.08),
+    0 24px 48px -8px rgba(0, 0, 0, 0.12) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* ── Dark Mode: Cyan-Blue Ambient Glow ───────────────────────── */
+.dark .bg-white.rounded-2xl,
+.dark .bg-white\/90.rounded-2xl,
+.dark .bg-white\/90.backdrop-blur-md.rounded-2xl,
+.dark .group.relative.rounded-2xl,
+.dark .group.relative.rounded-3xl,
+.dark [class*="rounded-2xl"][class*="bg-slate-900"],
+.dark [class*="rounded-3xl"][class*="bg-slate-900"],
+.dark [class*="rounded-2xl"][class*="bg-gray-900"] {
+  box-shadow:
+    0 0 0 1px rgba(148, 163, 184, 0.06),
+    0 0 20px -4px rgba(59, 130, 246, 0.12),
+    0 8px 24px -6px rgba(0, 0, 0, 0.50),
+    0 24px 48px -12px rgba(0, 0, 0, 0.70) !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+/* ── Dark Mode Hover Glow Intensified ────────────────────────── */
+.dark .bg-white.rounded-2xl:hover,
+.dark .bg-white\/90.rounded-2xl:hover,
+.dark .group.relative.rounded-2xl:hover,
+.dark .group.relative.rounded-3xl:hover,
+.dark [class*="rounded-2xl"][class*="bg-slate-900"]:hover,
+.dark [class*="rounded-2xl"][class*="bg-gray-900"]:hover {
+  box-shadow:
+    0 0 0 1px rgba(148, 163, 184, 0.10),
+    0 0 32px -4px rgba(59, 130, 246, 0.22),
+    0 12px 32px -8px rgba(0, 0, 0, 0.55),
+    0 32px 64px -12px rgba(0, 0, 0, 0.75) !important;
+  transform: translateY(-3px) !important;
 }
 
 @layer base {
