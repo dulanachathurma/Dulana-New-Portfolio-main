@@ -202,7 +202,7 @@ section .section-subtitle {
   gap: 1.5rem;
 }
 
-/* Card Styles - Light Mode Default */
+/* Card Styles - Light Mode Default (Borderless Surface Elevation) */
 .card, 
 .project-card, 
 .skill-card, 
@@ -214,22 +214,23 @@ section .section-subtitle {
   background: #ffffff;
   border-radius: 1rem;
   padding: 1.5rem;
-  transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none !important;
+  box-shadow: 0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 10px -2px rgba(0,0,0,0.04);
 }
 
-/* Card Styles - System Dark Mode සහ Manually Class Dark Mode දෙකෙහිදීම සුදුසු පරිදි වෙනස් වීම */
+/* Card Styles - Dark Mode (Borderless + Blue Ambient Glow) */
 .dark .card, .dark .project-card, .dark .skill-card, .dark .education-card, .dark .experience-card, .dark .certificate-card, .dark .article-card, .dark .contact-card,
 @media (prefers-color-scheme: dark) {
   .card, .project-card, .skill-card, .education-card, .experience-card, .certificate-card, .article-card, .contact-card {
-    background: #1e293b !important;
-    border-color: #334155 !important;
+    background: #0f172a !important;
+    border: none !important;
+    box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.15), 0 10px 30px -10px rgba(0, 0, 0, 0.8) !important;
     color: #ffffff !important;
   }
 }
 
-/* Card Hover */
+/* Card Hover — Smooth Elevation */
 .card:hover,
 .project-card:hover,
 .skill-card:hover,
@@ -238,7 +239,18 @@ section .section-subtitle {
 .certificate-card:hover,
 .article-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px -8px rgba(0,0,0,0.14), 0 8px 16px -4px rgba(0,0,0,0.08);
+}
+
+.dark .card:hover,
+.dark .project-card:hover,
+.dark .skill-card:hover,
+.dark .education-card:hover,
+.dark .experience-card:hover,
+.dark .certificate-card:hover,
+.dark .article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px -4px rgba(59, 130, 246, 0.25), 0 20px 40px -10px rgba(0, 0, 0, 0.9) !important;
 }
 
 /* Typography - Clean Text */
@@ -467,3 +479,19 @@ nav, .navbar, header {
     background: #0f172a !important; /* ඔයාගේ dark background පාට */
 }
   
+
+/* ═══════════════════════════════════════════════════════════════
+   Constellation Background — pointer-events setup
+   canvas gets pointer-events:auto (set inline) so grab lines work;
+   the wrapper div keeps pointer-events:none so scroll is never blocked.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Stat cards – borderless in dark mode too */
+.dark .stat-card,
+@media (prefers-color-scheme: dark) {
+  .stat-card {
+    background: #0f172a;
+    border: none !important;
+    box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.1);
+  }
+}
