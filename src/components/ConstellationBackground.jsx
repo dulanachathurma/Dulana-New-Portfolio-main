@@ -3,211 +3,172 @@ import { useEffect, useRef } from "react";
 /**
  * ConstellationBackground
  * ─────────────────────────────────────────────────────────────
- * Anti-gravity, floating constellation network using a plain
- * <canvas> element. No extra npm package required.
+ * Auto-drifting ambient constellation network — pure canvas, no library.
  *
- * Features
- *  • position: fixed  →  zero scroll lag / speed impact
- *  • pointer-events: none on wrapper, auto on canvas
- *    →  grab lines connect to cursor while letting scroll pass through
- *  • Dark-mode aware (reads .dark on <html>)
- *  • "Grab" interaction: lines drawn from nearby particles to mouse
- *  • Click interactions DISABLED
+ * Key design decisions that prevent ALL interaction bugs:
+ *  • z-index: -1          → sits behind every DOM element including footer
+ *  • pointer-events: none on BOTH wrapper AND canvas → ALL clicks/taps/
+ *    hover events pass straight through to links and buttons
+ *  • NO mouse/touch listeners at all → zero interaction, zero interference
+ *  • position: fixed, 100vw×100vh → covers only the viewport, never
+ *    pushes the footer or any content
+ *  • Particles auto-drift smoothly with subtle opacity — purely decorative
  */
 
-const CONFIG = {
-  particleCount: 80,
-  maxSpeed: 0.35,
-  minRadius: 1.2,
-  maxRadius: 2.8,
-  connectionDist: 140,
-  grabRadius: 180,
-  grabLineWidth: 1.2,
-  baseLineWidth: 0.5,
-  baseLineAlpha: 0.18,
-  grabLineAlpha: 0.55,
-  particleAlphaMin: 0.4,
-  particleAlphaMax: 0.9,
+const CFG = {
+  count:         70,          // particle count
+  speedMax:      0.28,        // max drift speed
+  rMin:          1.0,         // min particle radius
+  rMax:          2.5,         // max particle radius
+  connectDist:   130,         // max distance for connecting lines
+  lineAlpha:     0.14,        // max line opacity (subtle)
+  dotAlphaMin:   0.25,        // particle min opacity
+  dotAlphaMax:   0.65,        // particle max opacity
 };
 
-function hexToRgb(hex) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `${r},${g},${b}`;
-}
+// Pre-compute RGB strings for fast rendering
+const rgb = (hex) => {
+  const n = parseInt(hex.slice(1), 16);
+  return `${(n >> 16) & 255},${(n >> 8) & 255},${n & 255}`;
+};
 
-const LIGHT_PARTICLE = hexToRgb("#6366f1");
-const DARK_PARTICLE  = hexToRgb("#818cf8");
-const LIGHT_LINE     = hexToRgb("#6366f1");
-const DARK_LINE      = hexToRgb("#93c5fd");
-const GRAB_LINE_LIGHT = hexToRgb("#4f46e5");
-const GRAB_LINE_DARK  = hexToRgb("#60a5fa");
+// Light mode  → soft indigo
+// Dark mode   → soft blue-violet
+const THEME = {
+  light: { dot: rgb("#6366f1"), line: rgb("#818cf8") },
+  dark:  { dot: rgb("#93c5fd"), line: rgb("#a5b4fc") },
+};
 
 export const ConstellationBackground = () => {
-  const canvasRef  = useRef(null);
-  const stateRef   = useRef({
-    particles: [],
-    mouse: { x: -9999, y: -9999 },
-    raf: null,
-    dark: false,
-  });
+  const canvasRef = useRef(null);
+  const rafRef    = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx    = canvas.getContext("2d");
-    const S      = stateRef.current;
 
-    // ── helpers ─────────────────────────────────────────────
+    let W, H, particles;
+
+    // ── Helpers ────────────────────────────────────────────────
     const isDark = () => document.documentElement.classList.contains("dark");
 
-    const makeParticle = (w, h) => ({
-      x:  Math.random() * w,
-      y:  Math.random() * h,
-      vx: (Math.random() - 0.5) * CONFIG.maxSpeed * 2,
-      vy: (Math.random() - 0.5) * CONFIG.maxSpeed * 2,
-      r:  CONFIG.minRadius + Math.random() * (CONFIG.maxRadius - CONFIG.minRadius),
-      a:  CONFIG.particleAlphaMin + Math.random() * (CONFIG.particleAlphaMax - CONFIG.particleAlphaMin),
+    const makeParticle = () => ({
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      vx: (Math.random() - 0.5) * CFG.speedMax * 2,
+      vy: (Math.random() - 0.5) * CFG.speedMax * 2,
+      r:  CFG.rMin + Math.random() * (CFG.rMax - CFG.rMin),
+      a:  CFG.dotAlphaMin + Math.random() * (CFG.dotAlphaMax - CFG.dotAlphaMin),
     });
 
-    const initParticles = (w, h) => {
-      S.particles = Array.from({ length: CONFIG.particleCount }, () => makeParticle(w, h));
+    const init = () => {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      particles = Array.from({ length: CFG.count }, makeParticle);
     };
 
-    // ── resize ───────────────────────────────────────────────
-    const resize = () => {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles(canvas.width, canvas.height);
-    };
-
-    resize();
-
+    // ── Resize (debounced) ─────────────────────────────────────
     let resizeTimer;
-    const onResize = () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(resize, 200); };
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(init, 200);
+    };
     window.addEventListener("resize", onResize);
 
-    // ── mouse (no click, only move/leave) ────────────────────
-    const onMove = (e) => {
-      const t = e.touches ? e.touches[0] : e;
-      S.mouse = { x: t.clientX, y: t.clientY };
-    };
-    const onLeave = () => { S.mouse = { x: -9999, y: -9999 }; };
-
-    window.addEventListener("mousemove",  onMove,  { passive: true });
-    window.addEventListener("touchmove",  onMove,  { passive: true });
-    window.addEventListener("mouseleave", onLeave);
-    window.addEventListener("touchend",   onLeave);
-
-    // ── animation loop ───────────────────────────────────────
-    const draw = () => {
-      const W = canvas.width;
-      const H = canvas.height;
-      const dark = isDark();
-      const { particles, mouse } = S;
-
+    // ── Render loop ────────────────────────────────────────────
+    const tick = () => {
       ctx.clearRect(0, 0, W, H);
 
-      const pColor  = dark ? DARK_PARTICLE  : LIGHT_PARTICLE;
-      const lColor  = dark ? DARK_LINE      : LIGHT_LINE;
-      const gColor  = dark ? GRAB_LINE_DARK : GRAB_LINE_LIGHT;
+      const { dot, line } = THEME[isDark() ? "dark" : "light"];
 
-      // update positions
+      // Update positions — wrap around edges
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
-        if (p.x < 0)  p.x = W;
-        if (p.x > W)  p.x = 0;
-        if (p.y < 0)  p.y = H;
-        if (p.y > H)  p.y = 0;
+        if (p.x < 0) p.x = W;
+        if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H;
+        if (p.y > H) p.y = 0;
       }
 
-      // draw connections between particles
+      // Draw connecting lines between close particles
       for (let i = 0; i < particles.length; i++) {
         const a = particles[i];
         for (let j = i + 1; j < particles.length; j++) {
-          const b   = particles[j];
-          const dx  = a.x - b.x;
-          const dy  = a.y - b.y;
-          const d   = Math.sqrt(dx * dx + dy * dy);
-          if (d < CONFIG.connectionDist) {
-            const alpha = CONFIG.baseLineAlpha * (1 - d / CONFIG.connectionDist);
+          const b  = particles[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const d  = Math.sqrt(dx * dx + dy * dy);
+          if (d < CFG.connectDist) {
+            const alpha = CFG.lineAlpha * (1 - d / CFG.connectDist);
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(${lColor},${alpha})`;
-            ctx.lineWidth   = CONFIG.baseLineWidth;
+            ctx.strokeStyle = `rgba(${line},${alpha})`;
+            ctx.lineWidth   = 0.6;
             ctx.stroke();
           }
         }
       }
 
-      // draw grab lines from cursor to nearby particles
-      for (const p of particles) {
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-        const d  = Math.sqrt(dx * dx + dy * dy);
-        if (d < CONFIG.grabRadius) {
-          const alpha = CONFIG.grabLineAlpha * (1 - d / CONFIG.grabRadius);
-          ctx.beginPath();
-          ctx.moveTo(mouse.x, mouse.y);
-          ctx.lineTo(p.x, p.y);
-          ctx.strokeStyle = `rgba(${gColor},${alpha})`;
-          ctx.lineWidth   = CONFIG.grabLineWidth;
-          ctx.stroke();
-        }
-      }
-
-      // draw particles
+      // Draw particles
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${pColor},${p.a})`;
+        ctx.fillStyle = `rgba(${dot},${p.a})`;
         ctx.fill();
       }
 
-      S.raf = requestAnimationFrame(draw);
+      rafRef.current = requestAnimationFrame(tick);
     };
 
-    S.raf = requestAnimationFrame(draw);
+    // ── Boot ───────────────────────────────────────────────────
+    init();
+    rafRef.current = requestAnimationFrame(tick);
 
-    // watch for dark-mode toggle
-    const observer = new MutationObserver(() => { S.dark = isDark(); });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    // Watch dark-mode class changes (no re-render needed — tick() reads live)
+    const observer = new MutationObserver(() => {});
+    observer.observe(document.documentElement, {
+      attributes:      true,
+      attributeFilter: ["class"],
+    });
 
     return () => {
-      cancelAnimationFrame(S.raf);
+      cancelAnimationFrame(rafRef.current);
       clearTimeout(resizeTimer);
-      window.removeEventListener("resize",      onResize);
-      window.removeEventListener("mousemove",   onMove);
-      window.removeEventListener("touchmove",   onMove);
-      window.removeEventListener("mouseleave",  onLeave);
-      window.removeEventListener("touchend",    onLeave);
+      window.removeEventListener("resize", onResize);
       observer.disconnect();
     };
   }, []);
 
   return (
-    /* wrapper: fixed, full-viewport, pointer-events none so scroll is never blocked */
+    /*
+     * ┌──────────────────────────────────────────────────────────┐
+     * │  wrapper: position fixed, z-index -1                     │
+     * │  → sits behind ALL content, nav, footer, modals         │
+     * │  pointer-events: none on BOTH wrapper + canvas           │
+     * │  → every click / tap passes straight through to the DOM  │
+     * └──────────────────────────────────────────────────────────┘
+     */
     <div
+      aria-hidden="true"
       style={{
         position:      "fixed",
         top:           0,
         left:          0,
         width:         "100vw",
         height:        "100vh",
-        pointerEvents: "none",
-        zIndex:        0,
+        zIndex:        -1,          // ← behind everything
+        pointerEvents: "none",      // ← clicks pass through wrapper
       }}
     >
-      {/* canvas itself gets pointer-events:auto so grab interaction works */}
       <canvas
         ref={canvasRef}
         style={{
           display:       "block",
           width:         "100%",
           height:        "100%",
-          pointerEvents: "auto",
+          pointerEvents: "none",    // ← clicks pass through canvas too
         }}
       />
     </div>

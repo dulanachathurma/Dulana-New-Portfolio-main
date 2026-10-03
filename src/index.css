@@ -360,13 +360,14 @@ section li::before {
   }
 }
 
-/* Stats Cards */
+/* Stats Cards — borderless in both modes */
 .stat-card {
   text-align: center;
   padding: 1rem;
   background: #ffffff;
   border-radius: 0.75rem;
-  border: 1px solid #e2e8f0;
+  border: none !important;
+  box-shadow: 0 4px 12px -2px rgba(0,0,0,0.06);
 }
 
 .dark .stat-card,
@@ -481,10 +482,19 @@ nav, .navbar, header {
   
 
 /* ═══════════════════════════════════════════════════════════════
-   Constellation Background — pointer-events setup
-   canvas gets pointer-events:auto (set inline) so grab lines work;
-   the wrapper div keeps pointer-events:none so scroll is never blocked.
+   Constellation Background — Interaction Safety Rules
+   • z-index: -1 → sits behind ALL content, nav, footer, cards
+   • pointer-events: none on BOTH wrapper div AND canvas
+     → every click / tap / hover passes straight through to the DOM
+   • No mouse or touch listeners registered — purely auto-drift
    ═══════════════════════════════════════════════════════════════ */
+
+/* Safety net: ensure the canvas never captures pointer events via CSS too */
+[data-constellation-bg],
+[data-constellation-bg] canvas {
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
 
 /* Stat cards – borderless in dark mode too */
 .dark .stat-card,
@@ -492,6 +502,6 @@ nav, .navbar, header {
   .stat-card {
     background: #0f172a;
     border: none !important;
-    box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.10);
   }
 }
