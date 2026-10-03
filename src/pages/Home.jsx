@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import { ThemeToggle } from "../components/ThemeToggle";
-import { StarBackground } from "@/components/StarBackground";
+import { ParticleBackground } from "@/components/ParticleBackground";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
 import { EducationSection } from "../components/EducationSection";
@@ -17,19 +17,25 @@ export const Home = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <ThemeToggle />
-      <StarBackground />
       <Navbar />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <EducationSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <CertificatesSection />
-        <ArticlesSection />
-        <ContactSection />
-      </main>
+
+      {/* Main content area with particle background */}
+      <div style={{ position: "relative" }}>
+        <ParticleBackground />
+        <main style={{ position: "relative", zIndex: 1 }}>
+          <HeroSection />
+          <AboutSection />
+          <EducationSection />
+          <ExperienceSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <CertificatesSection />
+          <ArticlesSection />
+          <ContactSection />
+        </main>
+      </div>
+
+      {/* Footer outside particle background */}
       <Footer />
       <AIAssistant />
     </div>
