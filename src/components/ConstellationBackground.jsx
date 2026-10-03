@@ -1,44 +1,46 @@
 import { useEffect, useRef } from "react";
 
 /**
- * ConstellationBackground
- * ─────────────────────────────────────────────────────────────
- * Auto-drifting ambient constellation network — pure canvas, no library.
+ * ConstellationBackground — Prominent Visible Network
+ * ─────────────────────────────────────────────────────
+ * Designed to match the reference image:
+ *   Light mode: thin indigo/slate lines on soft white — clearly visible
+ *   Dark  mode: bright cyan-blue glowing lines on deep navy — bold & electric
  *
- * Key design decisions that prevent ALL interaction bugs:
- *  • z-index: -1          → sits behind every DOM element including footer
- *  • pointer-events: none on BOTH wrapper AND canvas → ALL clicks/taps/
- *    hover events pass straight through to links and buttons
- *  • NO mouse/touch listeners at all → zero interaction, zero interference
- *  • position: fixed, 100vw×100vh → covers only the viewport, never
- *    pushes the footer or any content
- *  • Particles auto-drift smoothly with subtle opacity — purely decorative
+ * Architecture (zero interaction bugs):
+ *   • z-index: -1, pointer-events: none on BOTH wrapper + canvas
+ *   • No mouse/touch listeners → auto-drift only, zero event interference
+ *   • position: fixed → never affects layout or scroll
  */
 
-const CFG = {
-  count:         70,          // particle count
-  speedMax:      0.28,        // max drift speed
-  rMin:          1.0,         // min particle radius
-  rMax:          2.5,         // max particle radius
-  connectDist:   130,         // max distance for connecting lines
-  lineAlpha:     0.14,        // max line opacity (subtle)
-  dotAlphaMin:   0.25,        // particle min opacity
-  dotAlphaMax:   0.65,        // particle max opacity
+// ── Config ───────────────────────────────────────────────────────
+const LIGHT = {
+  bg:          "#f8faff",         // soft off-white page tint
+  dot:         "99,102,241",      // indigo-500
+  dotAlpha:    [0.45, 0.80],
+  line:        "99,102,241",      // indigo lines
+  lineAlpha:   0.22,
+  connectDist: 160,
+  count:       110,
+  speed:       0.28,
+  rMin:        1.2,
+  rMax:        2.8,
 };
 
-// Pre-compute RGB strings for fast rendering
-const rgb = (hex) => {
-  const n = parseInt(hex.slice(1), 16);
-  return `${(n >> 16) & 255},${(n >> 8) & 255},${n & 255}`;
+const DARK = {
+  bg:          "#060d1f",         // near-black navy
+  dot:         "56,189,248",      // sky-400 (electric cyan-blue)
+  dotAlpha:    [0.55, 0.95],
+  line:        "99,179,237",      // sky-300 for lines
+  lineAlpha:   0.38,              // much more visible in dark
+  connectDist: 170,
+  count:       120,
+  speed:       0.25,
+  rMin:        1.4,
+  rMax:        3.0,
 };
 
-// Light mode  → soft indigo
-// Dark mode   → soft blue-violet
-const THEME = {
-  light: { dot: rgb("#6366f1"), line: rgb("#818cf8") },
-  dark:  { dot: rgb("#93c5fd"), line: rgb("#a5b4fc") },
-};
-
+// ── Component ────────────────────────────────────────────────────
 export const ConstellationBackground = () => {
   const canvasRef = useRef(null);
   const rafRef    = useRef(null);
@@ -49,39 +51,37 @@ export const ConstellationBackground = () => {
 
     let W, H, particles;
 
-    // ── Helpers ────────────────────────────────────────────────
-    const isDark = () => document.documentElement.classList.contains("dark");
+    const isDark  = () => document.documentElement.classList.contains("dark");
+    const getTheme = () => (isDark() ? DARK : LIGHT);
 
-    const makeParticle = () => ({
+    // ── Particle factory ─────────────────────────────────────────
+    const make = (theme) => ({
       x:  Math.random() * W,
       y:  Math.random() * H,
-      vx: (Math.random() - 0.5) * CFG.speedMax * 2,
-      vy: (Math.random() - 0.5) * CFG.speedMax * 2,
-      r:  CFG.rMin + Math.random() * (CFG.rMax - CFG.rMin),
-      a:  CFG.dotAlphaMin + Math.random() * (CFG.dotAlphaMax - CFG.dotAlphaMin),
+      vx: (Math.random() - 0.5) * theme.speed * 2,
+      vy: (Math.random() - 0.5) * theme.speed * 2,
+      r:  theme.rMin + Math.random() * (theme.rMax - theme.rMin),
+      a:  theme.dotAlpha[0] + Math.random() * (theme.dotAlpha[1] - theme.dotAlpha[0]),
     });
 
+    // ── Init / resize ────────────────────────────────────────────
     const init = () => {
       W = canvas.width  = window.innerWidth;
       H = canvas.height = window.innerHeight;
-      particles = Array.from({ length: CFG.count }, makeParticle);
+      const t = getTheme();
+      particles = Array.from({ length: t.count }, () => make(t));
     };
 
-    // ── Resize (debounced) ─────────────────────────────────────
     let resizeTimer;
-    const onResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(init, 200);
-    };
+    const onResize = () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(init, 180); };
     window.addEventListener("resize", onResize);
 
-    // ── Render loop ────────────────────────────────────────────
+    // ── Render loop ──────────────────────────────────────────────
     const tick = () => {
+      const theme = getTheme();
       ctx.clearRect(0, 0, W, H);
 
-      const { dot, line } = THEME[isDark() ? "dark" : "light"];
-
-      // Update positions — wrap around edges
+      // Update positions (wrap)
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
@@ -91,7 +91,7 @@ export const ConstellationBackground = () => {
         if (p.y > H) p.y = 0;
       }
 
-      // Draw connecting lines between close particles
+      // Draw lines between nearby particles
       for (let i = 0; i < particles.length; i++) {
         const a = particles[i];
         for (let j = i + 1; j < particles.length; j++) {
@@ -99,38 +99,50 @@ export const ConstellationBackground = () => {
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const d  = Math.sqrt(dx * dx + dy * dy);
-          if (d < CFG.connectDist) {
-            const alpha = CFG.lineAlpha * (1 - d / CFG.connectDist);
+          if (d < theme.connectDist) {
+            const alpha = theme.lineAlpha * (1 - d / theme.connectDist);
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(${line},${alpha})`;
-            ctx.lineWidth   = 0.6;
+            ctx.strokeStyle = `rgba(${theme.line},${alpha})`;
+            ctx.lineWidth   = isDark() ? 0.9 : 0.65;
             ctx.stroke();
           }
         }
       }
 
-      // Draw particles
+      // Draw particles (with subtle glow in dark mode)
       for (const p of particles) {
+        if (isDark()) {
+          // Outer glow ring
+          const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3.5);
+          grd.addColorStop(0,   `rgba(${theme.dot},${p.a * 0.5})`);
+          grd.addColorStop(1,   `rgba(${theme.dot},0)`);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
+          ctx.fillStyle = grd;
+          ctx.fill();
+        }
+        // Core dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${dot},${p.a})`;
+        ctx.fillStyle = `rgba(${theme.dot},${p.a})`;
         ctx.fill();
       }
 
       rafRef.current = requestAnimationFrame(tick);
     };
 
-    // ── Boot ───────────────────────────────────────────────────
     init();
     rafRef.current = requestAnimationFrame(tick);
 
-    // Watch dark-mode class changes (no re-render needed — tick() reads live)
-    const observer = new MutationObserver(() => {});
+    // Watch theme toggling
+    const observer = new MutationObserver(() => {
+      const t = getTheme();
+      particles = particles.map(() => make(t));
+    });
     observer.observe(document.documentElement, {
-      attributes:      true,
-      attributeFilter: ["class"],
+      attributes: true, attributeFilter: ["class"],
     });
 
     return () => {
@@ -142,24 +154,13 @@ export const ConstellationBackground = () => {
   }, []);
 
   return (
-    /*
-     * ┌──────────────────────────────────────────────────────────┐
-     * │  wrapper: position fixed, z-index -1                     │
-     * │  → sits behind ALL content, nav, footer, modals         │
-     * │  pointer-events: none on BOTH wrapper + canvas           │
-     * │  → every click / tap passes straight through to the DOM  │
-     * └──────────────────────────────────────────────────────────┘
-     */
     <div
       aria-hidden="true"
       style={{
         position:      "fixed",
-        top:           0,
-        left:          0,
-        width:         "100vw",
-        height:        "100vh",
-        zIndex:        -1,          // ← behind everything
-        pointerEvents: "none",      // ← clicks pass through wrapper
+        inset:         0,
+        zIndex:        -1,          // behind everything
+        pointerEvents: "none",      // clicks pass through
       }}
     >
       <canvas
@@ -168,7 +169,7 @@ export const ConstellationBackground = () => {
           display:       "block",
           width:         "100%",
           height:        "100%",
-          pointerEvents: "none",    // ← clicks pass through canvas too
+          pointerEvents: "none",    // clicks pass through canvas too
         }}
       />
     </div>

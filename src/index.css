@@ -65,7 +65,7 @@
   }
 
   .dark {
-    --background: 222 47% 4%;
+    --background: 222 100% 7%;    /* deep navy matches constellation bg */
     --foreground: 213 31% 91%;
 
     --card: 222 47% 8%;
@@ -144,9 +144,24 @@
 }
 
 
-/* All Sections - Clean Display */
+/* All Sections - Transparent so Constellation Shows Through */
 section {
   overflow-x: hidden;
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Skills section has its own blobs — keep them but clear BG */
+#skills {
+  background: transparent !important;
+}
+
+/* Main wrapper transparent */
+main {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
 }
 
 /* Section Containers */
