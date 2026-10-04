@@ -9,7 +9,7 @@ export const HeroSection = () => {
     setAnimate(true);
   }, []);
 
-  // --- INTERACTIVE GRAPH CANVAS WITH VISIBLE GRID LOGIC ---
+  // --- INTERACTIVE GRAPH CANVAS WITH MOBILE PERFORMANCE OPTIMIZATION ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -20,7 +20,11 @@ export const HeroSection = () => {
 
     let mouse = { x: null, y: null, radius: 170 };
 
+    // Mobile check to prevent scrolling lag
+    const isMobile = window.innerWidth < 768;
+
     const handleMouseMove = (e) => {
+      if (isMobile) return;
       const rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
@@ -54,14 +58,13 @@ export const HeroSection = () => {
 
     let animationFrameId;
 
-    // Draw Graph Paper Grid Lines (කොටු රටාව)
     const drawGrid = (isDark) => {
       const gridSize = 45;
       ctx.beginPath();
       ctx.lineWidth = 0.6;
       ctx.strokeStyle = isDark
-        ? "rgba(255, 255, 255, 0.075)" // Dark Mode Grid Line Color
-        : "rgba(0, 0, 0, 0.065)";      // Light Mode Grid Line Color
+        ? "rgba(255, 255, 255, 0.075)"
+        : "rgba(0, 0, 0, 0.065)";
 
       for (let x = 0; x <= width; x += gridSize) {
         ctx.moveTo(x, 0);
@@ -78,10 +81,12 @@ export const HeroSection = () => {
       ctx.clearRect(0, 0, width, height);
       const isDark = document.documentElement.classList.contains("dark");
 
-      // 1. Grid Background එක ඇඳීම
+      // Grid Background
       drawGrid(isDark);
 
-      // 2. Interactive Graph Nodes සහ Connected Lines ඇඳීම
+      // Mobile නම් Animation Render කිරීම නතර කර සරල Grid එක පමණක් පෙන්වයි
+      if (isMobile) return;
+
       particles.forEach((p, i) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -89,7 +94,6 @@ export const HeroSection = () => {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Mouse Interactivity Push Effect
         if (mouse.x !== null && mouse.y !== null) {
           let dx = mouse.x - p.x;
           let dy = mouse.y - p.y;
@@ -101,7 +105,6 @@ export const HeroSection = () => {
           }
         }
 
-        // Nodes (තිත්) ඇඳීම
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = isDark
@@ -109,7 +112,6 @@ export const HeroSection = () => {
           : "rgba(51, 65, 85, 0.5)";
         ctx.fill();
 
-        // Connecting Lines (සම්බන්ධ කරන ඉරි) ඇඳීම
         for (let j = i + 1; j < particles.length; j++) {
           let p2 = particles[j];
           let dx = p.x - p2.x;
@@ -165,17 +167,17 @@ export const HeroSection = () => {
       {/* Main Impact Copy Area */}
       <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-20 flex flex-col items-center">
         
-        {/* 2. PREMIUM APPLE PROFILE IMAGE */}
+        {/* 2. PROFILE IMAGE CARD (LIGHT MODE: SOLID GRAY BORDER | DARK MODE: CONIC SPIN BORDER) */}
         <div 
           className={`mb-10 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
-          {/* Running Border Wrapper */}
-          <div className="relative rounded-full p-[3px] overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          {/* Border Wrapper */}
+          <div className="relative rounded-full p-[3px] overflow-hidden group cursor-pointer border border-slate-300/80 dark:border-transparent shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             
-            {/* Spinning Gradient Border */}
-            <div className="absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#0071e3_100%)] dark:bg-[conic-gradient(from_0deg,transparent_75%,#38bdf8_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* Spinning Gradient Border (Dark Mode Only) */}
+            <div className="hidden dark:block absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#38bdf8_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
             
             {/* Inner Mask */}
             <div className="relative z-10 bg-[#f5f5f7] dark:bg-[#0a101d] p-1.5 rounded-full transition-colors duration-500">
