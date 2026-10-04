@@ -35,7 +35,7 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 220 14% 96%; /* Apple Soft Off-White Background */
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
     --primary: 250 47% 60%;
@@ -44,9 +44,9 @@
   }
 
   .dark {
-    --background: 222 47% 4%;
+    --background: 240 10% 4%; /* Deep Linear/Raycast Dark Background */
     --foreground: 213 31% 91%;
-    --card: 222 47% 8%;
+    --card: 240 6% 10%;
     --primary: 250 65% 65%;
     --primary-foreground: 213 31% 91%;
     --border: 217 33% 20%;
@@ -75,28 +75,6 @@
   @media (width >= 1024px) { max-width: 1024px; }
   @media (width >= 1280px) { max-width: 1280px; }
   @media (width >= 1400px) { max-width: 1400px; }
-}
-
-@utility text-glow {
-  @apply relative;
-  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
-}
-
-@utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
-}
-
-@utility gradient-border {
-  @apply relative rounded-md;
-  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
-  background-clip: padding-box;
-  border: 1px solid transparent;
-}
-
-@utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-         hover:scale-105 active:scale-95;
 }
 
 #root {
@@ -146,11 +124,8 @@ section .section-subtitle {
   margin-right: auto;
 }
 
-.dark section .section-subtitle,
-@media (prefers-color-scheme: dark) {
-  section .section-subtitle {
-    color: #cbd5e1;
-  }
+.dark section .section-subtitle {
+  color: #a1a1aa;
 }
 
 .grid {
@@ -159,7 +134,7 @@ section .section-subtitle {
 }
 
 /* ========================================================
-    HIGH-CONTRAST SHADOW & ELEVATED CARDS (ALL CARDS)
+    WORLD-CLASS PROFESSIONAL ELEVATED CARDS
    ======================================================== */
 
 .card, 
@@ -171,21 +146,18 @@ section .section-subtitle {
 .article-card,
 .contact-card,
 .apple-card,
-/* Form/Map Inner Boxes */
-form, 
-.bg-white\/50, 
-.bg-white\/80 {
+form {
   position: relative !important;
-  border-radius: 1.5rem !important;
+  border-radius: 1.25rem !important;
   padding: 1.75rem !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: visible !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   
-  /* LIGHT MODE: Clear Slate-Gray Elevated Shadow */
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important; /* Soft Slate Border */
-  box-shadow: 
-    0 10px 25px -5px rgba(100, 116, 139, 0.18), 
-    0 8px 10px -6px rgba(100, 116, 139, 0.1) !important;
+  /* LIGHT MODE: Off-White Page vs Pure White Pure Card */
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 
+              0 2px 6px -1px rgba(15, 23, 42, 0.04) !important;
 }
 
 .card:hover, 
@@ -196,15 +168,15 @@ form,
 .certificate-card:hover, 
 .article-card:hover,
 .contact-card:hover,
-.apple-card:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: 
-    0 20px 35px -8px rgba(100, 116, 139, 0.28), 
-    0 10px 15px -5px rgba(100, 116, 139, 0.15) !important;
+.apple-card:hover,
+form:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.14), 
+              0 4px 10px -2px rgba(15, 23, 42, 0.06) !important;
   border-color: #cbd5e1 !important;
 }
 
-/* DARK MODE: High Contrast Edge & Deep Surface Shadow */
+/* DARK MODE: Deep Obsidian Page vs Elevated Zinc Card */
 .dark .card, 
 .dark .project-card, 
 .dark .skill-card, 
@@ -214,16 +186,12 @@ form,
 .dark .article-card,
 .dark .contact-card,
 .dark .apple-card,
-.dark form,
-@media (prefers-color-scheme: dark) {
-  .card, .project-card, .skill-card, .education-card, .experience-card, .certificate-card, .article-card, .contact-card {
-    background: #18181b !important; /* Rich Dark Zinc Surface */
-    border: 1px solid rgba(255, 255, 255, 0.18) !important; /* Bright White Border Line */
-    box-shadow: 
-      0 15px 35px -5px rgba(0, 0, 0, 0.9),
-      0 0 20px 0 rgba(99, 102, 241, 0.08) !important; /* Subtle Ambient Glow */
-    color: #ffffff !important;
-  }
+.dark form {
+  background-color: #18181b !important; /* Zinc Surface - Distinct from Pure Dark Body */
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8),
+              0 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
 }
 
 .dark .card:hover, 
@@ -234,19 +202,16 @@ form,
 .dark .certificate-card:hover, 
 .dark .article-card:hover,
 .dark .contact-card:hover,
-.dark .apple-card:hover {
-  transform: translateY(-5px) !important;
-  background: #1f1f23 !important;
-  border-color: rgba(255, 255, 255, 0.35) !important;
-  box-shadow: 
-    0 25px 45px -10px rgba(0, 0, 0, 0.95),
-    0 0 25px 2px rgba(129, 140, 248, 0.18) !important; /* Indigo Ambient Glow on Hover */
+.dark .apple-card:hover,
+.dark form:hover {
+  transform: translateY(-4px) !important;
+  background-color: #202024 !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.95),
+              0 0 20px 0 rgba(99, 102, 241, 0.15) !important;
 }
 
-/* ========================================================
-   TAGS & BADGES
-   ======================================================== */
-
+/* Badges and Tags */
 .tag, 
 .skill-tag, 
 .tool,
@@ -259,34 +224,25 @@ form,
   margin: 0.25rem !important;
   transition: all 0.2s ease !important;
   background: #f1f5f9 !important;
-  color: #1e293b !important;
-  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  border: 1px solid #e2e8f0 !important;
 }
 
 .dark .tag, 
 .dark .skill-tag, 
 .dark .tool,
-.dark .apple-badge,
-@media (prefers-color-scheme: dark) {
-  .tag, .skill-tag, .tool {
-    background: rgba(255, 255, 255, 0.12) !important;
-    color: #f8fafc !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  }
+.dark .apple-badge {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Typography & Text */
-section p {
-  line-height: 1.6;
-  color: #475569;
-  margin-bottom: 1rem;
-}
-
+/* Headings and Paragraphs */
 section h3 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #1e293b;
+  color: #0f172a;
 }
 
 .dark section h3,
@@ -311,7 +267,7 @@ section h3 {
 .dark .article-card p,
 .dark section p,
 .dark section li {
-  color: #cbd5e1 !important;
+  color: #a1a1aa !important;
 }
 
 /* Fixed Navigation Bar */
@@ -321,10 +277,10 @@ nav, .navbar, header {
   left: 0 !important;
   right: 0 !important;
   z-index: 9999 !important;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(244, 244, 246, 0.85);
   backdrop-filter: blur(16px);
 }
 
 .dark nav, .dark .navbar, .dark header {
-  background: rgba(15, 23, 42, 0.85) !important;
+  background: rgba(9, 9, 11, 0.85) !important;
 }
