@@ -1,11 +1,120 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ArrowUpRight, Shield, Cpu, Terminal, ChevronDown } from "lucide-react";
 
 export const HeroSection = () => {
   const [animate, setAnimate] = useState(false);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
     setAnimate(true);
+  }, []);
+
+  // --- INTERACTIVE PARTICLES CANVAS LOGIC ---
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width = (canvas.width = canvas.parentElement.offsetWidth);
+    let height = (canvas.height = canvas.parentElement.offsetHeight);
+
+    let mouse = { x: null, y: null, radius: 150 };
+
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
+
+    const handleResize = () => {
+      if (!canvas.parentElement) return;
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    };
+
+    const parent = canvas.parentElement;
+    parent.addEventListener("mousemove", handleMouseMove);
+    parent.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("resize", handleResize);
+
+    const particleCount = Math.floor((width * height) / 10000);
+    const particles = Array.from({ length: particleCount }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.7,
+      vy: (Math.random() - 0.5) * 0.7,
+      radius: Math.random() * 1.5 + 1,
+    }));
+
+    let animationFrameId;
+
+    const animateParticles = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      // Light/Dark mode detection
+      const isDark = document.documentElement.classList.contains("dark");
+
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        // Mouse Interactivity Movement
+        if (mouse.x !== null && mouse.y !== null) {
+          let dx = mouse.x - p.x;
+          let dy = mouse.y - p.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            let force = (mouse.radius - dist) / mouse.radius;
+            p.x -= (dx / dist) * force * 3;
+            p.y -= (dy / dist) * force * 3;
+          }
+        }
+
+        // Draw Dot
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.4)" : "rgba(0, 0, 0, 0.25)";
+        ctx.fill();
+
+        // Draw Lines
+        for (let j = i + 1; j < particles.length; j++) {
+          let p2 = particles[j];
+          let dx = p.x - p2.x;
+          let dy = p.y - p2.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = isDark
+              ? `rgba(255, 255, 255, ${0.18 * (1 - dist / 120)})`
+              : `rgba(0, 0, 0, ${0.12 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.7;
+            ctx.stroke();
+          }
+        }
+      });
+
+      animationFrameId = requestAnimationFrame(animateParticles);
+    };
+
+    animateParticles();
+
+    return () => {
+      parent.removeEventListener("mousemove", handleMouseMove);
+      parent.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   return (
@@ -14,6 +123,12 @@ export const HeroSection = () => {
       className="min-h-screen flex flex-col justify-between items-center px-6 pt-26 pb-8 bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] relative overflow-hidden select-none transition-colors duration-500"
       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}
     >
+      {/* 0. INTERACTIVE NETWORK CANVAS BACKGROUND */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80"
+      />
+
       {/* 1. DYNAMIC LIGHT/DARK AMBIENT GLOW */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[145%] max-w-[1600px] h-[550px] bg-[radial-gradient(ellipse_at_top,_rgba(0,0,0,0.01),_transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.06),_transparent_55%)]" />
@@ -32,10 +147,10 @@ export const HeroSection = () => {
           {/* Running Border Wrapper */}
           <div className="relative rounded-full p-[3px] overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
             
-            {/* The Spinning Animated Gradient (The line that runs around) */}
+            {/* The Spinning Animated Gradient */}
             <div className="absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#0071e3_100%)] dark:bg-[conic-gradient(from_0deg,transparent_75%,#2997ff_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
             
-            {/* Inner Mask (Hides the center of the gradient to create a border effect) */}
+            {/* Inner Mask */}
             <div className="relative z-10 bg-[#f5f5f7] dark:bg-[#000000] p-1.5 rounded-full transition-colors duration-500">
               
               {/* Image Container */}
@@ -49,7 +164,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Online Indicator (Placed outside overflow-hidden to prevent clipping) */}
+          {/* Online Indicator */}
           <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-5 md:right-5 z-20 flex h-5 w-5 md:h-6 md:w-6 items-center justify-center">
              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
              <span className="relative inline-flex h-4 w-4 md:h-5 md:w-5 rounded-full bg-emerald-500 border-[2.5px] border-[#f5f5f7] dark:border-[#000000]"></span>
@@ -169,7 +284,7 @@ export const HeroSection = () => {
         </a>
       </div>
 
-      {/* 5. MICRO-INTERACTION ANIMATION KEYFRAMES */}
+      {/* MICRO-INTERACTION ANIMATION KEYFRAMES */}
       <style>{`
         @keyframes bounce-subtle {
           0%, 100% { transform: translateY(0); }
