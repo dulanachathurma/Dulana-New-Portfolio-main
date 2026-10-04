@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +10,7 @@ export const ContactSection = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const canvasRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -50,6 +51,141 @@ Sent from Dulana Chathurma Portfolio`;
       setIsSubmitting(false);
     }, 500);
   };
+
+  // --- MOBILE OPTIMIZED INTERACTIVE GRAPH CANVAS ---
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width = (canvas.width = canvas.parentElement.offsetWidth);
+    let height = (canvas.height = canvas.parentElement.offsetHeight);
+
+    let mouse = { x: null, y: null, radius: 150 };
+
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
+
+    const handleResize = () => {
+      if (!canvas.parentElement) return;
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    };
+
+    const parent = canvas.parentElement;
+    parent.addEventListener("mousemove", handleMouseMove, { passive: true });
+    parent.addEventListener("mouseleave", handleMouseLeave, { passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    // Dynamic density factor for mobile devices
+    const isMobile = window.innerWidth < 768;
+    const densityDivider = isMobile ? 14000 : 9500;
+    const particleCount = Math.floor((width * height) / densityDivider);
+
+    const particles = Array.from({ length: particleCount }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: Math.random() * 1.5 + 1.2,
+    }));
+
+    let animationFrameId;
+
+    // Draw Subtle Grid Pattern
+    const drawGrid = (isDark) => {
+      const gridSize = 45;
+      ctx.beginPath();
+      ctx.lineWidth = 0.6;
+      ctx.strokeStyle = isDark
+        ? "rgba(255, 255, 255, 0.075)"
+        : "rgba(0, 0, 0, 0.065)";
+
+      for (let x = 0; x <= width; x += gridSize) {
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+      }
+      for (let y = 0; y <= height; y += gridSize) {
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+      }
+      ctx.stroke();
+    };
+
+    const animateParticles = () => {
+      ctx.clearRect(0, 0, width, height);
+      const isDark = document.documentElement.classList.contains("dark");
+
+      // 1. Grid Background
+      drawGrid(isDark);
+
+      // 2. Nodes & Lines
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        if (mouse.x !== null && mouse.y !== null) {
+          let dx = mouse.x - p.x;
+          let dy = mouse.y - p.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            let force = (mouse.radius - dist) / mouse.radius;
+            p.x -= (dx / dist) * force * 3;
+            p.y -= (dy / dist) * force * 3;
+          }
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = isDark
+          ? "rgba(180, 205, 235, 0.65)"
+          : "rgba(51, 65, 85, 0.5)";
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          let p2 = particles[j];
+          let dx = p.x - p2.x;
+          let dy = p.y - p2.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+
+            const alpha = 1 - dist / 120;
+            ctx.strokeStyle = isDark
+              ? `rgba(148, 163, 184, ${0.28 * alpha})`
+              : `rgba(71, 85, 105, ${0.25 * alpha})`;
+            ctx.lineWidth = 0.85;
+            ctx.stroke();
+          }
+        }
+      });
+
+      animationFrameId = requestAnimationFrame(animateParticles);
+    };
+
+    animateParticles();
+
+    return () => {
+      parent.removeEventListener("mousemove", handleMouseMove);
+      parent.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
 
   const socialLinks = [
     { 
@@ -108,19 +244,31 @@ Sent from Dulana Chathurma Portfolio`;
   ];
 
   return (
-    <section id="contact" className="py-24 px-4 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-      <div className="container mx-auto max-w-6xl">
+    <section id="contact" className="py-24 px-4 relative bg-[#f5f5f7] dark:bg-[#0a101d] overflow-hidden transition-colors duration-500">
+      {/* 0. HIGH PERFORMANCE CANVAS BACKGROUND */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 transform-gpu"
+        style={{ willChange: "transform" }}
+      />
+
+      {/* Dynamic Ambient Background Glow */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-cyan-500/5 dark:from-blue-600/10 dark:via-cyan-500/10 dark:to-blue-600/10 rounded-full blur-[150px] opacity-70" />
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1 rounded-full bg-slate-200/50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-200 text-sm font-medium mb-4 backdrop-blur-sm border border-slate-300/30 dark:border-slate-700/30">
+          <span className="inline-block px-4 py-1 rounded-full bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
             Get In Touch
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1d1d1f] dark:text-[#f5f5f7] tracking-tight">
             Contact Me
           </h2>
-          <div className="w-12 h-0.5 bg-slate-900 dark:bg-white mx-auto mb-6 opacity-30"></div>
-          <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-sm">
+          <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6"></div>
+          <p className="text-[#86868b] dark:text-[#94a3b8] max-w-2xl mx-auto text-sm sm:text-base">
             Get in touch with me for collaborations or just a friendly hello
           </p>
         </div>
@@ -131,141 +279,151 @@ Sent from Dulana Chathurma Portfolio`;
           <div className="space-y-8">
             
             {/* CONNECT WITH ME */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200/60 dark:border-slate-800/80 shadow-[0_4px_24px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
-              <h4 className="text-xs font-bold uppercase tracking-widest mb-5 text-slate-900 dark:text-white">
-                Connect with me
-              </h4>
-              <div className="flex gap-3 flex-wrap">
-                {socialLinks.map((social) => (
-                  <a 
-                    key={social.name}
-                    href={social.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={`p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-slate-800/60 transition-all duration-300 hover:-translate-y-0.5 ${social.hoverColor} shadow-sm`}
-                    title={social.name}
-                  >
-                    <div className="w-5 h-5 flex items-center justify-center">
-                      {social.icon}
-                    </div>
-                  </a>
-                ))}
+            <div className="group relative rounded-2xl">
+              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 pointer-events-none" />
+              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md rounded-2xl p-6 border-2 border-gray-200/80 dark:border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)]">
+                <h4 className="text-xs font-bold uppercase tracking-widest mb-5 text-slate-900 dark:text-white">
+                  Connect with me
+                </h4>
+                <div className="flex gap-3 flex-wrap">
+                  {socialLinks.map((social) => (
+                    <a 
+                      key={social.name}
+                      href={social.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={`p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-slate-800/60 transition-all duration-300 hover:-translate-y-0.5 ${social.hoverColor} shadow-sm`}
+                      title={social.name}
+                    >
+                      <div className="w-5 h-5 flex items-center justify-center">
+                        {social.icon}
+                      </div>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* FIND ME */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200/60 dark:border-slate-800/80 shadow-[0_4px_24px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
-              <h4 className="text-xs font-bold uppercase tracking-widest mb-4 text-slate-900 dark:text-white">
-                Find me
-              </h4>
-              
-              {/* Premium Apple Style Clear Location Display */}
-              <div className="flex items-start gap-3 p-4 mb-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/40 dark:border-slate-800/40">
-                <div className="p-2 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-900/30 shrink-0">
-                  <MapPin size={18} fill="currentColor" fillOpacity="0.1" />
+            <div className="group relative rounded-2xl">
+              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 pointer-events-none" />
+              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md rounded-2xl p-6 border-2 border-gray-200/80 dark:border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)]">
+                <h4 className="text-xs font-bold uppercase tracking-widest mb-4 text-slate-900 dark:text-white">
+                  Find me
+                </h4>
+                
+                {/* Premium Location Display */}
+                <div className="flex items-start gap-3 p-4 mb-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/40 dark:border-slate-800/40">
+                  <div className="p-2 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-900/30 shrink-0">
+                    <MapPin size={18} fill="currentColor" fillOpacity="0.1" />
+                  </div>
+                  <div className="space-y-0.5">
+                    <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Current Location</p>
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">
+                      Chathurma samanala Mawatha, Kopiwatta, <br />
+                      Getamanna, Beliatta.
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-0.5">
-                  <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Current Location</p>
-                  <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">
-                    Chathurma samanala Mawatha, Kopiwatta, <br />
-                    Getamanna, Beliatta.
-                  </p>
+
+                {/* Map Iframe targeting exact coordinates for Getamanna, Kopiwatta, Beliatta, Hambantota, Southern Province */}
+                <div className="rounded-xl overflow-hidden h-48 shadow-inner border border-slate-100 dark:border-slate-800/60">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15873.34442111162!2d80.7310344!3d6.0445209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae143162799ef17%3A0x64cf557b7f167e4e!2sGetamanna!5e0!3m2!1sen!2slk!4v1718900000000!5m2!1sen!2slk"
+                    className="w-full h-full transition-all duration-700"
+                    allowFullScreen 
+                    loading="lazy"
+                    title="Getamanna Kopiwatta Beliatta Map Location"
+                  />
                 </div>
               </div>
-
-             {/* Map Iframe */}
-<div className="rounded-xl overflow-hidden h-48 shadow-inner border border-slate-100 dark:border-slate-800/60">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.3242095640165!2d80.74100000000001!3d6.0461667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae143162799ef17%3A0x64cf557b7f167e4e!2sGetamanna!5e0!3m2!1sen!2slk!4v1718900000000!5m2!1sen!2slk"
-    className="w-full h-full transition-all duration-700" // මෙතැනින් grayscale, hover ආදිය ඉවත් කරන්න
-    allowFullScreen 
-    loading="lazy"
-    title="Location Map"
-  />
-</div>
             </div>
+
           </div>
 
           {/* Right Side - Contact Form Container */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 md:p-8 border border-slate-200/60 dark:border-slate-800/80 shadow-[0_4px_24px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
-            <h3 className="text-xl font-bold mb-6 text-slate-800 dark:text-white tracking-tight">Send me a message</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">Your Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-1 focus:ring-slate-900 dark:focus:ring-white focus:border-slate-900 dark:focus:border-white transition-all text-sm text-slate-800 dark:text-white placeholder:text-slate-400/70"
-                  placeholder="John Doe"
-                />
-              </div>
+          <div className="group relative rounded-2xl">
+            <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 pointer-events-none" />
+            <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border-2 border-gray-200/80 dark:border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)]">
+              <h3 className="text-xl font-bold mb-6 text-slate-800 dark:text-white tracking-tight">Send me a message</h3>
               
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">Your Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-1 focus:ring-slate-900 dark:focus:ring-white focus:border-slate-900 dark:focus:border-white transition-all text-sm text-slate-800 dark:text-white placeholder:text-slate-400/70"
-                  placeholder="john@example.com"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">Your Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-blue-600 dark:focus:border-blue-400 transition-all text-sm text-slate-800 dark:text-white placeholder:text-slate-400/70"
+                    placeholder="John Doe"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">Your Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-blue-600 dark:focus:border-blue-400 transition-all text-sm text-slate-800 dark:text-white placeholder:text-slate-400/70"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-blue-600 dark:focus:border-blue-400 transition-all text-sm text-slate-800 dark:text-white placeholder:text-slate-400/70"
+                    placeholder="Project Inquiry"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">Message</label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows="5"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-blue-600 dark:focus:border-blue-400 transition-all text-sm resize-none text-slate-800 dark:text-white placeholder:text-slate-400/70"
+                    placeholder="Tell me about your project..."
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-sm hover:shadow-md hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed text-sm"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <span>Send via WhatsApp</span>
+                    </>
+                  )}
+                </button>
+              </form>
               
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">Subject</label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-1 focus:ring-slate-900 dark:focus:ring-white focus:border-slate-900 dark:focus:border-white transition-all text-sm text-slate-800 dark:text-white placeholder:text-slate-400/70"
-                  placeholder="Project Inquiry"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-1 focus:ring-slate-900 dark:focus:ring-white focus:border-slate-900 dark:focus:border-white transition-all text-sm resize-none text-slate-800 dark:text-white placeholder:text-slate-400/70"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-              
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-sm hover:shadow-md hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed text-sm"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    <span>Send via WhatsApp</span>
-                  </>
-                )}
-              </button>
-            </form>
-            
-            <p className="text-[11px] font-medium text-center text-slate-400 dark:text-slate-500 mt-5 pt-3 border-t border-slate-100 dark:border-slate-800/60">
-              <MessageCircle size={12} className="inline mr-1 text-green-500" />
-              Your message will be sent directly to my WhatsApp
-            </p>
+              <p className="text-[11px] font-medium text-center text-slate-400 dark:text-slate-500 mt-5 pt-3 border-t border-slate-100 dark:border-slate-800/60">
+                <MessageCircle size={12} className="inline mr-1 text-green-500" />
+                Your message will be sent directly to my WhatsApp
+              </p>
+            </div>
           </div>
 
         </div>
