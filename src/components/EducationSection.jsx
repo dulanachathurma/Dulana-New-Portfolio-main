@@ -207,21 +207,21 @@ export const EducationSection = () => {
               return (
                 <div key={edu.id} className="relative flex flex-col md:flex-row items-center gap-6 md:gap-0">
                   
-                  {/* EDUCATION CARD WITH DARK MODE GLOW */}
+                  {/* EDUCATION CARD WITH PERMANENT DARK MODE GLOW */}
                   <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-10" : "md:order-3 md:pl-10"}`}>
                     <div className="group relative rounded-2xl transition-all duration-500">
                       
-                      {/* Dark Mode Glowing Background Shadow (Hover Glow) */}
-                      <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:group-hover:from-blue-600/30 dark:group-hover:via-cyan-400/20 dark:group-hover:to-blue-600/30 blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none" />
+                      {/* Permanent Dark Mode Glowing Background Aura */}
+                      <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 dark:group-hover:opacity-100 dark:group-hover:blur-xl transition-all duration-500 pointer-events-none" />
 
-                      {/* Main Card Container */}
-                      <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border-2 border-gray-200/80 dark:border-[#1e293b] dark:group-hover:border-blue-500/50 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_25px_rgba(0,0,0,0.4)] dark:group-hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] group-hover:-translate-y-1.5 transition-all duration-500 ease-out">
+                      {/* Main Card Container with Permanent Glow Borders */}
+                      <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border-2 border-gray-200/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-1.5 transition-all duration-500 ease-out">
                         
                         {/* Top: images + Title */}
                         <div className="flex items-start gap-4 mb-4">
                           <div className="flex -space-x-3">
                             {edu.images.map((img, idx) => (
-                              <div key={idx} className="w-14 h-14 rounded-full overflow-hidden bg-white dark:bg-gray-800 border-2 border-white dark:border-[#1e293b] flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                              <div key={idx} className="w-14 h-14 rounded-full overflow-hidden bg-white dark:bg-gray-800 border-2 border-white dark:border-blue-500/40 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                                 <img src={img} alt={`${edu.institution} ${idx}`} className="w-full h-full object-cover" />
                               </div>
                             ))}
@@ -252,7 +252,7 @@ export const EducationSection = () => {
                           {edu.skills.map((skill, idx) => (
                             <span
                               key={idx}
-                              className="px-2.5 py-0.5 rounded-lg text-xs font-medium bg-gray-200/80 dark:bg-[#1e293b] text-[#333333] dark:text-[#cbd5e1] dark:group-hover:bg-[#1e293b]/80 border border-transparent dark:group-hover:border-blue-500/20 transition-colors duration-300"
+                              className="px-2.5 py-0.5 rounded-lg text-xs font-medium bg-gray-200/80 dark:bg-[#1e293b] text-[#333333] dark:text-[#cbd5e1] border border-transparent dark:border-blue-500/20 transition-colors duration-300"
                             >
                               {skill}
                             </span>
@@ -264,7 +264,7 @@ export const EducationSection = () => {
 
                   {/* CENTER DOT */}
                   <div className="hidden md:flex md:order-2 w-[10%] justify-center items-center z-10">
-                    <div className="w-4 h-4 rounded-full bg-blue-600 shadow-md ring-4 ring-[#f5f5f7] dark:ring-[#0a101d] transition-transform duration-300 group-hover:scale-125" />
+                    <div className="w-4 h-4 rounded-full bg-blue-600 shadow-[0_0_12px_rgba(37,99,235,0.8)] ring-4 ring-[#f5f5f7] dark:ring-[#0a101d] transition-transform duration-300 group-hover:scale-125" />
                   </div>
 
                   {/* RIGHT EMPTY */}
