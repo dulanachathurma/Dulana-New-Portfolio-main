@@ -20,7 +20,8 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="relative z-10 bg-[#f5f5f7] dark:bg-black text-[#86868b] py-16 border-t border-gray-300 dark:border-neutral-800">
+    /* උඩ රේඛාව (Top Border) - Light mode එකේදී Black, Dark mode එකේදී White */
+    <footer className="relative z-10 bg-[#f5f5f7] dark:bg-black text-[#86868b] py-16 border-t border-black/30 dark:border-white/30">
       <div className="container mx-auto max-w-6xl px-6">
         
         {/* Profile Header */}
@@ -71,7 +72,6 @@ export const Footer = () => {
                         {link}
                       </span>
                     ) : link.isInternal ? (
-                      /* Navigation links - Smooth scroll in SAME tab */
                       <a 
                         href={link.href} 
                         onClick={(e) => handleScroll(e, link.href)}
@@ -80,7 +80,6 @@ export const Footer = () => {
                         {link.name}
                       </a>
                     ) : (
-                      /* External links - Open in NEW tab */
                       <a 
                         href={link.href} 
                         target="_blank" 
@@ -97,8 +96,8 @@ export const Footer = () => {
           ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-300 dark:border-neutral-800 gap-6">
+        {/* යට රේඛාව (Bottom Border Line) - Light mode එකේදී Black, Dark mode එකේදී White */}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/30 dark:border-white/30 gap-6">
           <p className="text-[14px] md:text-[15px]">
             &copy; {currentYear} Dulana Chathurma. Built with excellence.
           </p>
@@ -117,7 +116,7 @@ export const Footer = () => {
               <FileText size={20} />
             </a>
             
-            {/* Smooth scroll-to-top arrow button */}
+            {/* Scroll-to-top button */}
             <a 
               href="#home" 
               onClick={(e) => handleScroll(e, "#home")}
