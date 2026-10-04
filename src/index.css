@@ -159,7 +159,7 @@ section .section-subtitle {
 }
 
 /* ========================================================
-    EMBOSSED CARDS DESIGN (ALL CARDS)
+    HIGH-CONTRAST SHADOW & ELEVATED CARDS (ALL CARDS)
    ======================================================== */
 
 .card, 
@@ -170,19 +170,22 @@ section .section-subtitle {
 .certificate-card, 
 .article-card,
 .contact-card,
-.apple-card {
+.apple-card,
+/* Form/Map Inner Boxes */
+form, 
+.bg-white\/50, 
+.bg-white\/80 {
   position: relative !important;
   border-radius: 1.5rem !important;
   padding: 1.75rem !important;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
   
-  /* Light Mode - Strong Embossed Shadow & Border */
+  /* LIGHT MODE: Clear Slate-Gray Elevated Shadow */
   background: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid #e2e8f0 !important; /* Soft Slate Border */
   box-shadow: 
-    0 10px 25px -5px rgba(0, 0, 0, 0.08),
-    0 8px 10px -6px rgba(0, 0, 0, 0.05),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9) !important;
+    0 10px 25px -5px rgba(100, 116, 139, 0.18), 
+    0 8px 10px -6px rgba(100, 116, 139, 0.1) !important;
 }
 
 .card:hover, 
@@ -194,14 +197,14 @@ section .section-subtitle {
 .article-card:hover,
 .contact-card:hover,
 .apple-card:hover {
-  transform: translateY(-6px) !important;
+  transform: translateY(-5px) !important;
   box-shadow: 
-    0 20px 35px -10px rgba(0, 0, 0, 0.14),
-    0 10px 15px -5px rgba(0, 0, 0, 0.08) !important;
-  border-color: rgba(0, 0, 0, 0.22) !important;
+    0 20px 35px -8px rgba(100, 116, 139, 0.28), 
+    0 10px 15px -5px rgba(100, 116, 139, 0.15) !important;
+  border-color: #cbd5e1 !important;
 }
 
-/* Dark Mode - High Contrast Embossed Depth */
+/* DARK MODE: High Contrast Edge & Deep Surface Shadow */
 .dark .card, 
 .dark .project-card, 
 .dark .skill-card, 
@@ -211,14 +214,14 @@ section .section-subtitle {
 .dark .article-card,
 .dark .contact-card,
 .dark .apple-card,
+.dark form,
 @media (prefers-color-scheme: dark) {
   .card, .project-card, .skill-card, .education-card, .experience-card, .certificate-card, .article-card, .contact-card {
-    background: #18181b !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: #18181b !important; /* Rich Dark Zinc Surface */
+    border: 1px solid rgba(255, 255, 255, 0.18) !important; /* Bright White Border Line */
     box-shadow: 
-      0 15px 35px -5px rgba(0, 0, 0, 0.85),
-      0 8px 15px -6px rgba(0, 0, 0, 0.7),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.18) !important;
+      0 15px 35px -5px rgba(0, 0, 0, 0.9),
+      0 0 20px 0 rgba(99, 102, 241, 0.08) !important; /* Subtle Ambient Glow */
     color: #ffffff !important;
   }
 }
@@ -232,12 +235,12 @@ section .section-subtitle {
 .dark .article-card:hover,
 .dark .contact-card:hover,
 .dark .apple-card:hover {
-  transform: translateY(-6px) !important;
-  background: #202024 !important;
+  transform: translateY(-5px) !important;
+  background: #1f1f23 !important;
   border-color: rgba(255, 255, 255, 0.35) !important;
   box-shadow: 
     0 25px 45px -10px rgba(0, 0, 0, 0.95),
-    0 0 25px 2px rgba(255, 255, 255, 0.1) !important;
+    0 0 25px 2px rgba(129, 140, 248, 0.18) !important; /* Indigo Ambient Glow on Hover */
 }
 
 /* ========================================================
@@ -255,9 +258,9 @@ section .section-subtitle {
   font-weight: 500 !important;
   margin: 0.25rem !important;
   transition: all 0.2s ease !important;
-  background: rgba(0, 0, 0, 0.06) !important;
-  color: #1d1d1f !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+  border: 1px solid #cbd5e1 !important;
 }
 
 .dark .tag, 
@@ -268,11 +271,11 @@ section .section-subtitle {
   .tag, .skill-tag, .tool {
     background: rgba(255, 255, 255, 0.12) !important;
     color: #f8fafc !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
   }
 }
 
-/* Typography & Headings */
+/* Typography & Text */
 section p {
   line-height: 1.6;
   color: #475569;
