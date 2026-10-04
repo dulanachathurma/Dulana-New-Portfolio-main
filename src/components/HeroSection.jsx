@@ -1,16 +1,14 @@
-import { useEffect, useState, useRef } from "react";
-import { ArrowUpRight, Shield, Cpu, Terminal, ChevronDown } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 
 export const HeroSection = () => {
-  const [animate, setAnimate] = useState(false);
   const canvasRef = useRef(null);
 
+  // --- MOBILE OPTIMIZED BACKGROUND LOGIC ---
   useEffect(() => {
-    setAnimate(true);
-  }, []);
+    // 1. MOBILE CHECK: Don't run animation on mobile to keep scrolling fast
+    if (window.innerWidth < 768) return;
 
-  // --- INTERACTIVE GRAPH CANVAS WITH VISIBLE GRID LOGIC ---
-  useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -42,8 +40,8 @@ export const HeroSection = () => {
     parent.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("resize", handleResize);
 
-    // Nodes (Particles) Creation
-    const particleCount = Math.floor((width * height) / 9500);
+    // Node configuration for Desktop
+    const particleCount = Math.floor((width * height) / 9000);
     const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -54,14 +52,14 @@ export const HeroSection = () => {
 
     let animationFrameId;
 
-    // Draw Graph Paper Grid Lines (කොටු රටාව)
+    // Draw Subtle Grid Pattern
     const drawGrid = (isDark) => {
       const gridSize = 45;
       ctx.beginPath();
       ctx.lineWidth = 0.6;
       ctx.strokeStyle = isDark
-        ? "rgba(255, 255, 255, 0.075)" // Dark Mode Grid Line Color
-        : "rgba(0, 0, 0, 0.065)";      // Light Mode Grid Line Color
+        ? "rgba(255, 255, 255, 0.08)"
+        : "rgba(0, 0, 0, 0.07)";
 
       for (let x = 0; x <= width; x += gridSize) {
         ctx.moveTo(x, 0);
@@ -78,10 +76,10 @@ export const HeroSection = () => {
       ctx.clearRect(0, 0, width, height);
       const isDark = document.documentElement.classList.contains("dark");
 
-      // 1. Grid Background එක ඇඳීම
+      // 1. Grid Background
       drawGrid(isDark);
 
-      // 2. Interactive Graph Nodes සහ Connected Lines ඇඳීම
+      // 2. Nodes & Lines
       particles.forEach((p, i) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -89,7 +87,6 @@ export const HeroSection = () => {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Mouse Interactivity Push Effect
         if (mouse.x !== null && mouse.y !== null) {
           let dx = mouse.x - p.x;
           let dy = mouse.y - p.y;
@@ -101,7 +98,6 @@ export const HeroSection = () => {
           }
         }
 
-        // Nodes (තිත්) ඇඳීම
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = isDark
@@ -109,7 +105,6 @@ export const HeroSection = () => {
           : "rgba(51, 65, 85, 0.5)";
         ctx.fill();
 
-        // Connecting Lines (සම්බන්ධ කරන ඉරි) ඇඳීම
         for (let j = i + 1; j < particles.length; j++) {
           let p2 = particles[j];
           let dx = p.x - p2.x;
@@ -145,183 +140,95 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section 
-      id="home" 
-      className="min-h-screen flex flex-col justify-between items-center px-6 pt-26 pb-8 bg-[#f5f5f7] dark:bg-[#0a101d] text-[#1d1d1f] dark:text-[#f5f5f7] relative overflow-hidden select-none transition-colors duration-500"
-      style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}
-    >
-      {/* 0. INTERACTIVE GRAPH + GRID CANVAS BACKGROUND */}
+    <section id="home" className="min-h-screen relative flex items-center justify-center px-4 bg-[#f5f5f7] dark:bg-[#0a101d] overflow-hidden transition-colors duration-500">
+      
+      {/* 0. INTERACTIVE GRAPH CANVAS BACKGROUND (HIDDEN ON MOBILE) */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none z-0"
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block"
       />
 
-      {/* 1. DYNAMIC LIGHT/DARK AMBIENT GLOW */}
+      {/* Modern Gradient Background Glows */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[145%] max-w-[1600px] h-[550px] bg-[radial-gradient(ellipse_at_top,_rgba(0,113,227,0.03),_transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(30,58,138,0.15),_transparent_60%)]" />
-        <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 dark:from-blue-600/15 dark:via-indigo-500/10 dark:to-cyan-500/10 rounded-full blur-[150px] opacity-80" />
+        <div className="absolute top-[20%] left-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-[100px]sm:blur-[150px]" />
+        <div className="absolute bottom-[20%] right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-[100px]sm:blur-[150px]" />
       </div>
 
-      {/* Main Impact Copy Area */}
-      <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-20 flex flex-col items-center">
+      <div className="container mx-auto max-w-6xl relative z-10 py-20 md:py-0 text-center">
         
-        {/* 2. PREMIUM APPLE PROFILE IMAGE */}
-        <div 
-          className={`mb-10 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
-            animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          }`}
-        >
-          {/* Running Border Wrapper */}
-          <div className="relative rounded-full p-[3px] overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            
-            {/* Spinning Gradient Border */}
-            <div className="absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#0071e3_100%)] dark:bg-[conic-gradient(from_0deg,transparent_75%,#38bdf8_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            {/* Inner Mask */}
-            <div className="relative z-10 bg-[#f5f5f7] dark:bg-[#0a101d] p-1.5 rounded-full transition-colors duration-500">
-              <div className="relative w-44 h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden">
-                <img 
-                  src="/dulana-profile-circle1.jpg" 
-                  alt="Dulana Chathurma" 
-                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Online Indicator */}
-          <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-5 md:right-5 z-20 flex h-5 w-5 md:h-6 md:w-6 items-center justify-center">
-             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-             <span className="relative inline-flex h-4 w-4 md:h-5 md:w-5 rounded-full bg-emerald-500 border-[2.5px] border-[#f5f5f7] dark:border-[#0a101d]"></span>
+        {/* Profile Image with subtle border and shadow */}
+        <div className="relative inline-block mb-10 group">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
+          <div className="relative aspect-square w-32 md:w-40 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-xl group-hover:scale-105 transition-all duration-300 ease-out">
+            <img 
+              src="/path-to-your-profile.jpg" 
+              alt="Dulana Chathurma Profile"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
-        {/* Campaign Kicker */}
-        <div className="mb-6 overflow-visible inline-block">
-          <p 
-            className={`text-[#86868b] dark:text-[#94a3b8] text-sm sm:text-base font-semibold tracking-wider uppercase transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
-              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            Software Engineering • University of Kelaniya
-          </p>
-        </div>
-
-        {/* Headline */}
-        <h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.03em] leading-[1.15] pb-6 mb-4 overflow-visible">
-          <span 
-            className={`block text-[#86868b] dark:text-[#94a3b8] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
-              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
-          >
-            Dulana Chathurma.
+        {/* Hero Content */}
+        <div className="space-y-6">
+          <span className="inline-block px-4 py-1 rounded-full bg-slate-900/5 dark:bg-white/10 text-slate-800 dark:text-slate-100 text-xs sm:text-sm font-semibold mb-2">
+            Software Engineering Student @ University of Kelaniya
           </span>
-          <span 
-            className={`block bg-clip-text text-transparent bg-gradient-to-r from-[#1d1d1f] via-[#6e6e73] to-[#1d1d1f] dark:from-[#ffffff] dark:via-[#cbd5e1] dark:to-[#ffffff] bg-[length:200%_auto] animate-shimmer transition-all duration-[1400ms] delay-300 cubic-bezier(0.25, 1, 0.5, 1) py-2 ${
-              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
-          >
-            Engineering Enterprise Intelligence
-          </span>
-        </h1>
 
-        {/* Pitch Text */}
-        <div className="overflow-visible max-w-3xl mx-auto mb-12">
-          <p 
-            className={`text-[#86868b] dark:text-[#94a3b8] text-base sm:text-lg md:text-xl font-normal tracking-tight leading-relaxed transition-all duration-[1400ms] delay-500 cubic-bezier(0.25, 1, 0.5, 1) ${
-              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            Building production-ready solutions with <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-medium">Spring Boot</span> robust architectures, seamless <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-medium">AI/ML integrations</span>, and high-performance full-stack ecosystems that scale.
-          </p>
-        </div>
-
-        {/* Buttons */}
-        <div 
-          className={`flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-[1400ms] delay-700 cubic-bezier(0.25, 1, 0.5, 1) ${
-            animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          <a 
-            href="#projects" 
-            className="w-full sm:w-auto bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm font-medium py-3 px-7 rounded-full tracking-tight transition-all duration-300 shadow-[0_4px_12px_rgba(0,113,227,0.2)] hover:shadow-[0_6px_20px_rgba(0,113,227,0.4)] active:scale-98"
-          >
-            Explore Productions
-          </a>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#1d1d1f] dark:text-[#f5f5f7]">
+            Dulana Chathurma
+          </h1>
           
-          <a 
-            href="/Dulana_Chathurma_Resume.pdf" 
-            download
-            className="group flex items-center gap-1 text-[#0066cc] dark:text-[#38bdf8] hover:underline text-sm font-medium tracking-tight"
+          <p className="text-lg sm:text-xl md:text-2xl text-slate-700 dark:text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+            Crafting efficient software solutions and exploring the intersections of AI and low-level engineering.
+          </p>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          <a
+            href="#projects"
+            className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 group text-sm md:text-base w-full sm:w-auto"
           >
-            Review Executive CV 
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            View My Projects
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a
+            href="/path-to-your-cv.pdf"
+            download
+            className="flex items-center justify-center gap-2 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-sm md:text-base w-full sm:w-auto border border-slate-200 dark:border-slate-700 hover:border-blue-500/50"
+          >
+            Download CV
+            <Download size={18} />
           </a>
         </div>
 
-      </div>
-
-      {/* 4. COMPETENCY GRID */}
-      <div 
-        className={`w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-slate-200 dark:border-[#1e293b] pt-6 pb-2 text-[#6e6e73] transition-all duration-[1600ms] delay-900 mt-auto ${
-          animate ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <div className="flex items-start gap-3.5 text-left group">
-          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
-            <Shield className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
-          </div>
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Robust Core</h3>
-            <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Spring Boot backend models, clean architecture, and highly secure RESTful APIs.</p>
-          </div>
-        </div>
-
-        <div className="flex items-start gap-3.5 text-left group">
-          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
-            <Cpu className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
-          </div>
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Intelligent Logic</h3>
-            <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Seamless integration of LLMs and machine learning pipelines into standard workflows.</p>
+        {/* Social Media Links */}
+        <div className="mt-16 sm:mt-24 pt-10 border-t border-slate-200 dark:border-slate-800/80 max-w-3xl mx-auto">
+          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-6">
+            Connect With Me
+          </p>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            {[
+              { icon: Linkedin, url: "https://linkedin.com/in/dulana-chathurma", label: "LinkedIn" },
+              { icon: Github, url: "https://github.com/dulanachathurma", label: "GitHub" },
+              { icon: Mail, url: "mailto:dulanachathurma99@gmail.com", label: "Email" },
+              { icon: () => <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/></svg>, url: "https://medium.com/@dulanachathurma99", label: "Medium" }
+            ].map((link, index) => (
+              <a 
+                key={index}
+                href={link.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                title={link.label}
+                className="flex items-center justify-center aspect-square w-12 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 shadow-sm border border-slate-100 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110 transition-all duration-300"
+              >
+                <link.icon className="w-5 h-5" />
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="flex items-start gap-3.5 text-left group">
-          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
-            <Terminal className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
-          </div>
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Advanced UX</h3>
-            <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Next.js & React ecosystems optimized for fluid interactivity and Core Web Vitals.</p>
-          </div>
-        </div>
       </div>
-
-      {/* Scroll Cue */}
-      <div className="absolute bottom-2 right-6 hidden md:block">
-        <a href="#about" aria-label="Scroll down" className="text-[#6e6e73] hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7] transition-colors block animate-bounce-subtle">
-          <ChevronDown className="h-4 w-4" />
-        </a>
-      </div>
-
-      <style>{`
-        @keyframes bounce-subtle {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-4px); }
-        }
-        @keyframes shimmer {
-          0% { background-position: 0% center; }
-          50% { background-position: 100% center; }
-          100% { background-position: 0% center; }
-        }
-        .animate-bounce-subtle {
-          animation: bounce-subtle 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
-        }
-        .animate-shimmer {
-          animation: shimmer 7s ease infinite;
-        }
-      `}</style>
     </section>
   );
 };
