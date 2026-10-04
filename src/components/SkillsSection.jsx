@@ -154,7 +154,7 @@ export const SkillsSection = () => {
           })}
         </div>
 
-        {/* Stats row - Updated only for bottom cards */}
+        {/* Stats row - Enhanced Spreading Glow Effect */}
         <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { value: "14+", label: "Technologies", color: "#0071e3" },
@@ -164,7 +164,7 @@ export const SkillsSection = () => {
           ].map((stat, i) => (
             <div
               key={i}
-              className="p-6 rounded-2xl bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/50 shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_0_25px_rgba(6,182,212,0.25)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-400 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_35px_rgba(6,182,212,0.4)]"
+              className="p-6 rounded-2xl bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.12)] dark:shadow-[0_0_35px_rgba(6,182,212,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-400 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_45px_rgba(6,182,212,0.65)]"
             >
               <p className="text-4xl font-bold mb-1" style={{ color: stat.color }}>{stat.value}</p>
               <p className="text-sm text-[#6e6e73] dark:text-slate-400 font-medium">{stat.label}</p>
