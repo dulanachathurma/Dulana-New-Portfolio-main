@@ -272,9 +272,9 @@ export const ExperienceSection = () => {
                           ))}
                         </div>
 
-                        {/* External Link Button */}
+                        {/* External Link Button (Original Green Gradient Restored) */}
                         {exp.link && (
-                          <a href={exp.link} target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-sm font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                          <a href={exp.link} target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-sm font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
                             {exp.linkText} <ExternalLink size={13} />
                           </a>
                         )}
