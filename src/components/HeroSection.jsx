@@ -263,17 +263,22 @@ export const HeroSection = () => {
 
       </div>
 
-      {/* 4. COMPETENCY GRID CONTAINER WITH EXACT MATCH GLOW STREAK LINE */}
+      {/* 4. COMPETENCY GRID CONTAINER WITH DUAL-MODE ENHANCED GLOW STREAK LINE */}
       <div className="w-full max-w-5xl mx-auto relative mt-auto">
         
-        {/* Glow Streak Line (Image matching style) */}
+        {/* Glow Streak Line (Light Mode: Soft Ambient Blue Backglow | Dark Mode: Bright Laser Beam) */}
         <div className="relative w-full h-[1px] mb-8">
           {/* Base Horizontal Fading Line */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/50 dark:via-slate-200/80 to-transparent h-full" />
-          {/* Intense Center White/Cyan Core Beam */}
-          <div className="absolute inset-y-0 left-10 right-10 bg-gradient-to-r from-transparent via-white dark:via-cyan-100 to-transparent h-full" />
-          {/* Soft Outer Ambient Glow */}
-          <div className="absolute -inset-y-1.5 left-1/4 right-1/4 bg-gradient-to-r from-transparent via-sky-400/30 dark:via-cyan-300/60 to-transparent blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0071e3]/40 dark:via-slate-200/80 to-transparent h-full" />
+          
+          {/* Center Bright Core Beam */}
+          <div className="absolute inset-y-0 left-10 right-10 bg-gradient-to-r from-transparent via-[#0071e3] dark:via-cyan-100 to-transparent h-full" />
+          
+          {/* Light Mode Backglow Effect (Aura) */}
+          <div className="absolute -inset-y-2 left-1/6 right-1/6 bg-gradient-to-r from-transparent via-[#0071e3]/25 dark:via-cyan-300/60 to-transparent blur-md dark:blur-sm" />
+          
+          {/* Light Mode Subtle Blue Highlight */}
+          <div className="absolute -inset-y-1 left-1/3 right-1/3 bg-gradient-to-r from-transparent via-[#38bdf8]/40 dark:via-cyan-200/80 to-transparent blur-xs" />
         </div>
 
         <div 
