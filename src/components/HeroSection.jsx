@@ -167,7 +167,7 @@ export const HeroSection = () => {
       {/* Main Impact Copy Area */}
       <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-20 flex flex-col items-center">
         
-        {/* 2. PROFILE IMAGE CARD (LIGHT MODE: SOLID GRAY BORDER | DARK MODE: CONIC SPIN BORDER) */}
+        {/* 2. PROFILE IMAGE CARD */}
         <div 
           className={`mb-10 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
@@ -263,39 +263,52 @@ export const HeroSection = () => {
 
       </div>
 
-      {/* 4. COMPETENCY GRID */}
-      <div 
-        className={`w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-slate-200 dark:border-[#1e293b] pt-6 pb-2 text-[#6e6e73] transition-all duration-[1600ms] delay-900 mt-auto ${
-          animate ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <div className="flex items-start gap-3.5 text-left group">
-          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
-            <Shield className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
-          </div>
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Robust Core</h3>
-            <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Spring Boot backend models, clean architecture, and highly secure RESTful APIs.</p>
-          </div>
+      {/* 4. COMPETENCY GRID CONTAINER WITH EXACT MATCH GLOW STREAK LINE */}
+      <div className="w-full max-w-5xl mx-auto relative mt-auto">
+        
+        {/* Glow Streak Line (Image matching style) */}
+        <div className="relative w-full h-[1px] mb-8">
+          {/* Base Horizontal Fading Line */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/50 dark:via-slate-200/80 to-transparent h-full" />
+          {/* Intense Center White/Cyan Core Beam */}
+          <div className="absolute inset-y-0 left-10 right-10 bg-gradient-to-r from-transparent via-white dark:via-cyan-100 to-transparent h-full" />
+          {/* Soft Outer Ambient Glow */}
+          <div className="absolute -inset-y-1.5 left-1/4 right-1/4 bg-gradient-to-r from-transparent via-sky-400/30 dark:via-cyan-300/60 to-transparent blur-sm" />
         </div>
 
-        <div className="flex items-start gap-3.5 text-left group">
-          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
-            <Cpu className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
+        <div 
+          className={`grid grid-cols-1 sm:grid-cols-3 gap-8 pt-2 pb-2 text-[#6e6e73] transition-all duration-[1600ms] delay-900 ${
+            animate ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <div className="flex items-start gap-3.5 text-left group">
+            <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
+              <Shield className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
+            </div>
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Robust Core</h3>
+              <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Spring Boot backend models, clean architecture, and highly secure RESTful APIs.</p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Intelligent Logic</h3>
-            <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Seamless integration of LLMs and machine learning pipelines into standard workflows.</p>
-          </div>
-        </div>
 
-        <div className="flex items-start gap-3.5 text-left group">
-          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
-            <Terminal className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
+          <div className="flex items-start gap-3.5 text-left group">
+            <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
+              <Cpu className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
+            </div>
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Intelligent Logic</h3>
+              <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Seamless integration of LLMs and machine learning pipelines into standard workflows.</p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Advanced UX</h3>
-            <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Next.js & React ecosystems optimized for fluid interactivity and Core Web Vitals.</p>
+
+          <div className="flex items-start gap-3.5 text-left group">
+            <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
+              <Terminal className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
+            </div>
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Advanced UX</h3>
+              <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Next.js & React ecosystems optimized for fluid interactivity and Core Web Vitals.</p>
+            </div>
           </div>
         </div>
       </div>
