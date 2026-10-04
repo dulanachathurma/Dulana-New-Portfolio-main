@@ -18,61 +18,37 @@
   --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
   --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
-  
 
   @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
   @keyframes pulse-subtle {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.8;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
   }
   @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  
 }
 
 @layer base {
   :root {
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;
-
     --card: 0 0% 100%;
-
     --primary: 250 47% 60%;
     --primary-foreground: 210 40% 98%;
-
     --border: 214 32% 91%;
   }
 
   .dark {
     --background: 222 47% 4%;
     --foreground: 213 31% 91%;
-
     --card: 222 47% 8%;
-
     --primary: 250 65% 65%;
     --primary-foreground: 213 31% 91%;
-
     --border: 217 33% 20%;
   }
 
@@ -90,119 +66,10 @@
   }
 }
 
-@utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
+/* ========================================================
+    APPLE GLASSMORPHISM CARDS (FOR ALL CARDS ACROSS WEBSITE)
+   ======================================================== */
 
-  @media (width >= 640px) {
-    max-width: 640px;
-  }
-  @media (width >= 768px) {
-    max-width: 768px;
-  }
-  @media (width >= 1024px) {
-    max-width: 1024px;
-  }
-  @media (width >= 1280px) {
-    max-width: 1280px;
-  }
-  @media (width >= 1400px) {
-    max-width: 1400px;
-  }
-}
-
-@utility text-glow {
-  @apply relative;
-  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
-}
-
-@utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
-}
-
-@utility gradient-border {
-  @apply relative rounded-md;
-  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
-  background-clip: padding-box;
-  border: 1px solid transparent;
-}
-
-@utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-         hover:scale-105 active:scale-95;
-}
-
-
-
-
-#root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-}
-
-
-/* All Sections - Clean Display */
-section {
-  overflow-x: hidden;
-}
-
-/* Section Containers */
-section .container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* Headings */
-section h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -0.75rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(to right, #6366f1, #10b981);
-  border-radius: 9999px;
-}
-
-/* Section Subtitle */
-section .section-subtitle {
-  text-align: center;
-  color: #64748b;
-  margin-bottom: 3rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Dark Mode - Subtitle */
-.dark section .section-subtitle,
-@media (prefers-color-scheme: dark) {
-  section .section-subtitle {
-    color: #cbd5e1;
-  }
-}
-
-/* Cards Grid - Clean Layout */
-.grid {
-  display: grid;
-  gap: 1.5rem;
-}
-
-/* Card Styles - Light Mode Default */
 .card, 
 .project-card, 
 .skill-card, 
@@ -210,214 +77,126 @@ section .section-subtitle {
 .experience-card, 
 .certificate-card, 
 .article-card,
-.contact-card {
-  background: #ffffff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+.contact-card,
+.apple-card {
+  position: relative !important;
+  border-radius: 1.5rem !important; /* Apple-style rounded 24px */
+  padding: 1.75rem !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  
+  /* Apple Light Mode Design (Frosted Glass & Light Border) */
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
 }
 
-/* Card Styles - System Dark Mode සහ Manually Class Dark Mode දෙකෙහිදීම සුදුසු පරිදි වෙනස් වීම */
-.dark .card, .dark .project-card, .dark .skill-card, .dark .education-card, .dark .experience-card, .dark .certificate-card, .dark .article-card, .dark .contact-card,
-@media (prefers-color-scheme: dark) {
-  .card, .project-card, .skill-card, .education-card, .experience-card, .certificate-card, .article-card, .contact-card {
-    background: #1e293b !important;
-    border-color: #334155 !important;
-    color: #ffffff !important;
-  }
+/* Apple Hover Effect */
+.card:hover, 
+.project-card:hover, 
+.skill-card:hover, 
+.education-card:hover, 
+.experience-card:hover, 
+.certificate-card:hover, 
+.article-card:hover,
+.contact-card:hover,
+.apple-card:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Card Hover */
-.card:hover,
-.project-card:hover,
-.skill-card:hover,
-.education-card:hover,
-.experience-card:hover,
-.certificate-card:hover,
-.article-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+/* Apple Dark Mode Design (Dark Glass & Subtle Edge Glow) */
+.dark .card, 
+.dark .project-card, 
+.dark .skill-card, 
+.dark .education-card, 
+.dark .experience-card, 
+.dark .certificate-card, 
+.dark .article-card,
+.dark .contact-card,
+.dark .apple-card {
+  background: rgba(28, 28, 30, 0.8) !important; /* Apple macOS Dark Gray */
+  backdrop-filter: blur(25px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important; /* Ultra-thin Apple white border */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  color: #ffffff !important;
 }
 
-/* Typography - Clean Text */
-section p {
-  line-height: 1.6;
-  color: #475569;
-  margin-bottom: 1rem;
+.dark .card:hover, 
+.dark .project-card:hover, 
+.dark .skill-card:hover, 
+.dark .education-card:hover, 
+.dark .experience-card:hover, 
+.dark .certificate-card:hover, 
+.dark .article-card:hover,
+.dark .contact-card:hover,
+.dark .apple-card:hover {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.05) !important;
 }
 
-.dark .about p,
-.dark .about .description,
-@media (prefers-color-scheme: dark) {
-  .about p, .about .description {
-    color: #ffffff;
-  }
+/* ========================================================
+    APPLE BADGES / TAGS (Competencies, Technologies)
+   ======================================================== */
+
+.tag, 
+.skill-tag, 
+.tool,
+.apple-badge {
+  display: inline-block !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: 9999px !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  margin: 0.25rem !important;
+  transition: all 0.2s ease !important;
+  
+  /* Light Mode Badge */
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #1d1d1f !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Dark mode card text styles - System and Manual */
-.dark .card p, .dark .card li, .dark .card span,
-.dark .project-card p, .dark .project-card li,
-.dark .skill-card p, .dark .skill-card li,
-.dark .education-card p, .dark .education-card li,
-.dark .experience-card p, .dark .experience-card li,
-.dark .certificate-card p, .dark .article-card p,
-@media (prefers-color-scheme: dark) {
-  .card p, .card li, .card span,
-  .project-card p, .project-card li,
-  .skill-card p, .skill-card li,
-  .education-card p, .education-card li,
-  .experience-card p, .experience-card li,
-  .certificate-card p, .article-card p {
-    color: #ffffff !important;
-  }
+.dark .tag, 
+.dark .skill-tag, 
+.dark .tool,
+.dark .apple-badge {
+  /* Dark Mode Badge */
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #f5f5f7 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
+
+.tag:hover, .skill-tag:hover, .tool:hover, .apple-badge:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark .tag:hover, .dark .skill-tag:hover, .dark .tool:hover, .dark .apple-badge:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* ========================================================
+   TYPOGRAPHY & TEXT FIXES
+   ======================================================== */
 
 section h3 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #1e293b;
+  color: #1d1d1f;
 }
 
 .dark section h3,
-@media (prefers-color-scheme: dark) {
-  section h3 {
-    color: #ffffff;
-  }
-}
-
-/* Dark mode card headings - Fixes Screenshot 2026-06-16 at 22.12.57.jpg and Screenshot 2026-06-16 at 22.12.49.jpg */
-.dark .card h3, .dark .project-card h3, .dark .skill-card h3, .dark .education-card h3, .dark .experience-card h3, .dark .certificate-card h3, .dark .article-card h3,
-@media (prefers-color-scheme: dark) {
-  .card h3, .project-card h3, .skill-card h3, .education-card h3, .experience-card h3, .certificate-card h3, .article-card h3 {
-    color: #ffffff !important;
-  }
-}
-
-/* Lists - Clean Display */
-section ul, 
-section ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-section li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.25rem;
-  position: relative;
-  color: #475569;
-}
-
-.dark section li,
-@media (prefers-color-scheme: dark) {
-  section li {
-    color: #ffffff;
-  }
-}
-
-section li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #6366f1;
-  font-weight: bold;
-}
-
-/* Tags and Badges */
-.tag, 
-.skill-tag, 
-.tool {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: #f1f5f9;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #475569;
-  margin: 0.25rem;
-}
-
-.dark .tag, .dark .skill-tag, .dark .tool,
-@media (prefers-color-scheme: dark) {
-  .tag, .skill-tag, .tool {
-    background: #334155;
-    color: #f8fafc;
-  }
-}
-
-/* Stats Cards */
-.stat-card {
-  text-align: center;
-  padding: 1rem;
-  background: #ffffff;
-  border-radius: 0.75rem;
-  border: 1px solid #e2e8f0;
-}
-
-.dark .stat-card,
-@media (prefers-color-scheme: dark) {
-  .stat-card {
-    background: #1e293b;
-    border-color: #334155;
-  }
-}
-
-.stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #6366f1;
-}
-
-.stat-label {
-  font-size: 0.75rem;
-  color: #64748b;
-}
-
-.dark .stat-label,
-@media (prefers-color-scheme: dark) {
-  .stat-label {
-    color: #ffffff;
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  section .container {
-    padding: 0 1rem;
-  }
-  
-  section h2 {
-    font-size: 1.75rem;
-  }
-  
-  .grid {
-    gap: 1rem;
-  }
-  
-  .card,
-  .project-card,
-  .skill-card,
-  .education-card,
-  .experience-card,
-  .certificate-card,
-  .article-card {
-    padding: 1rem;
-  }
-}
-    /* index.css එකේ පල්ලෙහාටම මේක එකතු කරන්න */
-
-/* ඩාර්ක් මෝඩ් එකේදී cards ඇතුළේ තියෙන සියලුම headings සහ text සුදු කිරීම */
 .dark .card h3, 
 .dark .project-card h3, 
 .dark .skill-card h3, 
 .dark .education-card h3, 
 .dark .experience-card h3, 
 .dark .certificate-card h3, 
-.dark .article-card h3,
-.dark section h3 {
+.dark .article-card h3 {
   color: #ffffff !important;
 }
 
@@ -432,38 +211,20 @@ section li::before {
 .dark .article-card p,
 .dark section p,
 .dark section li {
-  color: #cbd5e1 !important; /* ලස්සන light gray/white පාටක් */
+  color: #a1a1a6 !important; /* Apple Neutral Light Gray */
 }
 
-/* ඩාර්ක් මෝඩ් එකේදී tags වල පසුබිම සහ අකුරු පැහැදිලිව පෙනෙන්න හැදීම */
-.dark .tag, 
-.dark .skill-tag, 
-.dark .tool,
-.dark .bg-primary\/10 {
-  background-color: #334155 !important; /* Slate-700 */
-  color: #f8fafc !important; /* Slate-50 */
-}
-
-/* Download CV වගේ බටන් වල අකුරු කළු/තද පාටින්ම තියාගන්න (පසුබිම සුදු නිසා) */
-.dark a[download],
-.dark .border-slate-300 {
-  background-color: #1e293b !important; /* Slate-800 */
-  border-color: #475569 !important;
-  color: #ffffff !important;
-}
-
-    /* Navigation Bar එක සැමවිටම උඩින් තියෙන්න */
+/* Navbar Always on Top */
 nav, .navbar, header {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 9999 !important; /* මේ අගය වැඩියෙන් තියන්න */
-    background: white; /* Dark mode එකේදී මෙතනට background-color එකක් අලුතින් දෙන්න */
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
 }
 
-/* ඩාර්ක් මෝඩ් සඳහා background එක වෙනස් කිරීම */
 .dark nav, .dark .navbar, .dark header {
-    background: #0f172a !important; /* ඔයාගේ dark background පාට */
+  background: rgba(10, 10, 12, 0.8) !important;
 }
-  
