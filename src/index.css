@@ -66,8 +66,100 @@
   }
 }
 
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= 640px) { max-width: 640px; }
+  @media (width >= 768px) { max-width: 768px; }
+  @media (width >= 1024px) { max-width: 1024px; }
+  @media (width >= 1280px) { max-width: 1280px; }
+  @media (width >= 1400px) { max-width: 1400px; }
+}
+
+@utility text-glow {
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+@utility card-hover {
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+}
+
+@utility gradient-border {
+  @apply relative rounded-md;
+  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+@utility cosmic-button {
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+         hover:scale-105 active:scale-95;
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+section {
+  overflow-x: hidden;
+}
+
+section .container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #6366f1, #10b981);
+  border-radius: 9999px;
+}
+
+section .section-subtitle {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dark section .section-subtitle,
+@media (prefers-color-scheme: dark) {
+  section .section-subtitle {
+    color: #cbd5e1;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
 /* ========================================================
-    APPLE GLASSMORPHISM CARDS (FOR ALL CARDS ACROSS WEBSITE)
+    EMBOSSED CARDS DESIGN (ALL CARDS)
    ======================================================== */
 
 .card, 
@@ -80,19 +172,19 @@
 .contact-card,
 .apple-card {
   position: relative !important;
-  border-radius: 1.5rem !important; /* Apple-style rounded 24px */
+  border-radius: 1.5rem !important;
   padding: 1.75rem !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
   
-  /* Apple Light Mode Design (Frosted Glass & Light Border) */
-  background: rgba(255, 255, 255, 0.75) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
+  /* Light Mode - Strong Embossed Shadow & Border */
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 
+    0 10px 25px -5px rgba(0, 0, 0, 0.08),
+    0 8px 10px -6px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9) !important;
 }
 
-/* Apple Hover Effect */
 .card:hover, 
 .project-card:hover, 
 .skill-card:hover, 
@@ -102,12 +194,14 @@
 .article-card:hover,
 .contact-card:hover,
 .apple-card:hover {
-  transform: translateY(-4px) scale(1.01) !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
-  border-color: rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 
+    0 20px 35px -10px rgba(0, 0, 0, 0.14),
+    0 10px 15px -5px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
 }
 
-/* Apple Dark Mode Design (Dark Glass & Subtle Edge Glow) */
+/* Dark Mode - High Contrast Embossed Depth */
 .dark .card, 
 .dark .project-card, 
 .dark .skill-card, 
@@ -116,13 +210,17 @@
 .dark .certificate-card, 
 .dark .article-card,
 .dark .contact-card,
-.dark .apple-card {
-  background: rgba(28, 28, 30, 0.8) !important; /* Apple macOS Dark Gray */
-  backdrop-filter: blur(25px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important; /* Ultra-thin Apple white border */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
-  color: #ffffff !important;
+.dark .apple-card,
+@media (prefers-color-scheme: dark) {
+  .card, .project-card, .skill-card, .education-card, .experience-card, .certificate-card, .article-card, .contact-card {
+    background: #18181b !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 
+      0 15px 35px -5px rgba(0, 0, 0, 0.85),
+      0 8px 15px -6px rgba(0, 0, 0, 0.7),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.18) !important;
+    color: #ffffff !important;
+  }
 }
 
 .dark .card:hover, 
@@ -134,12 +232,16 @@
 .dark .article-card:hover,
 .dark .contact-card:hover,
 .dark .apple-card:hover {
-  border-color: rgba(255, 255, 255, 0.25) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.05) !important;
+  transform: translateY(-6px) !important;
+  background: #202024 !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 
+    0 25px 45px -10px rgba(0, 0, 0, 0.95),
+    0 0 25px 2px rgba(255, 255, 255, 0.1) !important;
 }
 
 /* ========================================================
-    APPLE BADGES / TAGS (Competencies, Technologies)
+   TAGS & BADGES
    ======================================================== */
 
 .tag, 
@@ -153,40 +255,35 @@
   font-weight: 500 !important;
   margin: 0.25rem !important;
   transition: all 0.2s ease !important;
-  
-  /* Light Mode Badge */
-  background: rgba(0, 0, 0, 0.05) !important;
+  background: rgba(0, 0, 0, 0.06) !important;
   color: #1d1d1f !important;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 .dark .tag, 
 .dark .skill-tag, 
 .dark .tool,
-.dark .apple-badge {
-  /* Dark Mode Badge */
-  background: rgba(255, 255, 255, 0.1) !important;
-  color: #f5f5f7 !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+.dark .apple-badge,
+@media (prefers-color-scheme: dark) {
+  .tag, .skill-tag, .tool {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #f8fafc !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  }
 }
 
-.tag:hover, .skill-tag:hover, .tool:hover, .apple-badge:hover {
-  background: rgba(0, 0, 0, 0.1) !important;
+/* Typography & Headings */
+section p {
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 1rem;
 }
-
-.dark .tag:hover, .dark .skill-tag:hover, .dark .tool:hover, .dark .apple-badge:hover {
-  background: rgba(255, 255, 255, 0.18) !important;
-}
-
-/* ========================================================
-   TYPOGRAPHY & TEXT FIXES
-   ======================================================== */
 
 section h3 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #1d1d1f;
+  color: #1e293b;
 }
 
 .dark section h3,
@@ -211,20 +308,20 @@ section h3 {
 .dark .article-card p,
 .dark section p,
 .dark section li {
-  color: #a1a1a6 !important; /* Apple Neutral Light Gray */
+  color: #cbd5e1 !important;
 }
 
-/* Navbar Always on Top */
+/* Fixed Navigation Bar */
 nav, .navbar, header {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
   z-index: 9999 !important;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
 }
 
 .dark nav, .dark .navbar, .dark header {
-  background: rgba(10, 10, 12, 0.8) !important;
+  background: rgba(15, 23, 42, 0.85) !important;
 }
