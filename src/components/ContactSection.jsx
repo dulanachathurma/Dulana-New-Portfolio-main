@@ -52,7 +52,7 @@ Sent from Dulana Chathurma Portfolio`;
     }, 500);
   };
 
-  // --- MOBILE OPTIMIZED INTERACTIVE GRAPH CANVAS ---
+  // --- INTERACTIVE GRAPH CANVAS WITH MOBILE PERFORMANCE OPTIMIZATION ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -63,7 +63,11 @@ Sent from Dulana Chathurma Portfolio`;
 
     let mouse = { x: null, y: null, radius: 150 };
 
+    // Mobile Check to prevent scroll lag
+    const isMobile = window.innerWidth < 768;
+
     const handleMouseMove = (e) => {
+      if (isMobile) return;
       const rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
@@ -85,10 +89,7 @@ Sent from Dulana Chathurma Portfolio`;
     parent.addEventListener("mouseleave", handleMouseLeave, { passive: true });
     window.addEventListener("resize", handleResize, { passive: true });
 
-    // Dynamic density factor for mobile devices
-    const isMobile = window.innerWidth < 768;
-    const densityDivider = isMobile ? 14000 : 9500;
-    const particleCount = Math.floor((width * height) / densityDivider);
+    const particleCount = Math.floor((width * height) / 9500);
 
     const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
@@ -126,6 +127,9 @@ Sent from Dulana Chathurma Portfolio`;
 
       // 1. Grid Background
       drawGrid(isDark);
+
+      // Mobile devices නම් heavy particle logic run නොකර නතර කරයි
+      if (isMobile) return;
 
       // 2. Nodes & Lines
       particles.forEach((p, i) => {
@@ -281,7 +285,7 @@ Sent from Dulana Chathurma Portfolio`;
             {/* CONNECT WITH ME */}
             <div className="group relative rounded-2xl">
               <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 pointer-events-none" />
-              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md rounded-2xl p-6 border-2 border-gray-200/80 dark:border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)]">
+              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md rounded-2xl p-6 border border-slate-300/80 dark:border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)]">
                 <h4 className="text-xs font-bold uppercase tracking-widest mb-5 text-slate-900 dark:text-white">
                   Connect with me
                 </h4>
@@ -307,12 +311,12 @@ Sent from Dulana Chathurma Portfolio`;
             {/* FIND ME */}
             <div className="group relative rounded-2xl">
               <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 pointer-events-none" />
-              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md rounded-2xl p-6 border-2 border-gray-200/80 dark:border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)]">
+              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md rounded-2xl p-6 border border-slate-300/80 dark:border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)]">
                 <h4 className="text-xs font-bold uppercase tracking-widest mb-4 text-slate-900 dark:text-white">
                   Find me
                 </h4>
                 
-                {/* Premium Location Display */}
+                {/* Location Display */}
                 <div className="flex items-start gap-3 p-4 mb-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/40 dark:border-slate-800/40">
                   <div className="p-2 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-900/30 shrink-0">
                     <MapPin size={18} fill="currentColor" fillOpacity="0.1" />
@@ -326,7 +330,7 @@ Sent from Dulana Chathurma Portfolio`;
                   </div>
                 </div>
 
-                {/* Map Iframe targeting exact coordinates for Getamanna, Kopiwatta, Beliatta, Hambantota, Southern Province */}
+                {/* Map Iframe */}
                 <div className="rounded-xl overflow-hidden h-48 shadow-inner border border-slate-100 dark:border-slate-800/60">
                   <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15873.34442111162!2d80.7310344!3d6.0445209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae143162799ef17%3A0x64cf557b7f167e4e!2sGetamanna!5e0!3m2!1sen!2slk!4v1718900000000!5m2!1sen!2slk"
@@ -344,7 +348,7 @@ Sent from Dulana Chathurma Portfolio`;
           {/* Right Side - Contact Form Container */}
           <div className="group relative rounded-2xl">
             <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 pointer-events-none" />
-            <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border-2 border-gray-200/80 dark:border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)]">
+            <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-slate-300/80 dark:border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)]">
               <h3 className="text-xl font-bold mb-6 text-slate-800 dark:text-white tracking-tight">Send me a message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-5">
