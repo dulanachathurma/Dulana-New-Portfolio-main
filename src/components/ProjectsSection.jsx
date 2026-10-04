@@ -234,7 +234,7 @@ export const ProjectsSection = () => {
   const canvasRef = useRef(null);
   const filteredProjects = projects.filter(project => project.category === activeTab);
 
-  // --- MOBILE OPTIMIZED INTERACTIVE GRAPH CANVAS ---
+  // --- INTERACTIVE GRAPH CANVAS WITH MOBILE PERFORMANCE OPTIMIZATION ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -245,7 +245,11 @@ export const ProjectsSection = () => {
 
     let mouse = { x: null, y: null, radius: 150 };
 
+    // Mobile Check to optimize scroll performance
+    const isMobile = window.innerWidth < 768;
+
     const handleMouseMove = (e) => {
+      if (isMobile) return;
       const rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
@@ -267,10 +271,7 @@ export const ProjectsSection = () => {
     parent.addEventListener("mouseleave", handleMouseLeave, { passive: true });
     window.addEventListener("resize", handleResize, { passive: true });
 
-    // Dynamic density factor for mobile devices
-    const isMobile = window.innerWidth < 768;
-    const densityDivider = isMobile ? 14000 : 9500; // Less nodes on mobile for maximum fps & smooth scrolling
-    const particleCount = Math.floor((width * height) / densityDivider);
+    const particleCount = Math.floor((width * height) / 9500);
 
     const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
@@ -308,6 +309,9 @@ export const ProjectsSection = () => {
 
       // 1. Grid Background
       drawGrid(isDark);
+
+      // Mobile devices නම් heavy particle logic run නොකර නතර කරයි
+      if (isMobile) return;
 
       // 2. Nodes & Lines
       particles.forEach((p, i) => {
@@ -371,7 +375,7 @@ export const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-24 px-4 relative bg-[#f5f5f7] dark:bg-[#0a101d] overflow-hidden transition-colors duration-500">
-      {/* 0. HIGH PERFORMANCE MOBILE CANVAS BACKGROUND */}
+      {/* 0. HIGH PERFORMANCE CANVAS BACKGROUND */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none z-0 transform-gpu"
@@ -433,11 +437,11 @@ export const ProjectsSection = () => {
           {filteredProjects.map((project) => (
             <div key={project.id} className="group relative rounded-2xl transition-all duration-500 flex flex-col h-full">
               
-              {/* Permanent Dark Mode Glowing Background Aura */}
+              {/* Dark Mode Glowing Background Aura */}
               <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 dark:group-hover:opacity-100 dark:group-hover:blur-xl transition-all duration-500 pointer-events-none" />
 
               {/* Main Project Card Container */}
-              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border-2 border-gray-200/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col h-full">
+              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border border-slate-300/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col h-full">
                 
                 {/* Image Container */}
                 <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
