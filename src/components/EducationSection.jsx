@@ -34,7 +34,7 @@ const education = [
 export const EducationSection = () => {
   const canvasRef = useRef(null);
 
-  // --- INTERACTIVE GRAPH CANVAS + VISIBLE GRID LOGIC ---
+  // --- INTERACTIVE GRAPH CANVAS WITH MOBILE PERFORMANCE OPTIMIZATION ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -45,7 +45,11 @@ export const EducationSection = () => {
 
     let mouse = { x: null, y: null, radius: 170 };
 
+    // Mobile Check to optimize scroll performance
+    const isMobile = window.innerWidth < 768;
+
     const handleMouseMove = (e) => {
+      if (isMobile) return;
       const rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
@@ -79,7 +83,7 @@ export const EducationSection = () => {
 
     let animationFrameId;
 
-    // Draw Subtle Grid Pattern (කොටු රටාව)
+    // Draw Subtle Grid Pattern
     const drawGrid = (isDark) => {
       const gridSize = 45;
       ctx.beginPath();
@@ -105,6 +109,9 @@ export const EducationSection = () => {
 
       // 1. Grid Background
       drawGrid(isDark);
+
+      // Mobile නම් heavy particle calculations සිදු නොකර ස්කිප් කරයි
+      if (isMobile) return;
 
       // 2. Interactive Nodes & Lines
       particles.forEach((p, i) => {
@@ -207,15 +214,15 @@ export const EducationSection = () => {
               return (
                 <div key={edu.id} className="relative flex flex-col md:flex-row items-center gap-6 md:gap-0">
                   
-                  {/* EDUCATION CARD WITH PERMANENT DARK MODE GLOW */}
+                  {/* EDUCATION CARD WITH LIGHT/DARK OPTIMIZED BORDERS */}
                   <div className={`w-full md:w-[45%] ${isLeft ? "md:pr-10" : "md:order-3 md:pl-10"}`}>
                     <div className="group relative rounded-2xl transition-all duration-500">
                       
-                      {/* Permanent Dark Mode Glowing Background Aura */}
+                      {/* Dark Mode Glowing Background Aura */}
                       <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 dark:group-hover:opacity-100 dark:group-hover:blur-xl transition-all duration-500 pointer-events-none" />
 
-                      {/* Main Card Container with Permanent Glow Borders */}
-                      <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border-2 border-gray-200/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-1.5 transition-all duration-500 ease-out">
+                      {/* Main Card Container */}
+                      <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border border-slate-300/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-1.5 transition-all duration-500 ease-out">
                         
                         {/* Top: images + Title */}
                         <div className="flex items-start gap-4 mb-4">
