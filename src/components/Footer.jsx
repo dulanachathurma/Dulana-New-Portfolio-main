@@ -23,22 +23,20 @@ export const Footer = () => {
     <footer className="relative z-10 bg-[#f5f5f7] dark:bg-black text-[#86868b] py-16 border-t-2 border-black/50 dark:border-white/50">
       <div className="container mx-auto max-w-6xl px-6">
         
-        {/* Profile Header with Responsive Logo Positioning */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-start md:justify-between gap-6 text-center md:text-left">
+        {/* Profile Header: Desktop ne Mobile zonna biri Mwagati (Centered) */}
+        <div className="mb-12 flex flex-col items-center text-center">
           
-          {/* Logo Container: Mobile = Center & Larger, Desktop = Left Top & Large */}
-          <div className="flex justify-center md:justify-start">
-            <div className="p-2.5 rounded-xl bg-black shadow-lg border border-white/10">
-              <img 
-                src="/nav-logo.jpg" 
-                alt="Dulana Chathurma Logo" 
-                className="h-16 md:h-24 w-auto object-contain" 
-              />
-            </div>
+          {/* Logo Container: Mwagati okwetoloola kompyuta ne essimu */}
+          <div className="mb-6 inline-block p-3 rounded-2xl bg-black shadow-xl border border-white/10">
+            <img 
+              src="/nav-logo.jpg" 
+              alt="Dulana Chathurma Logo" 
+              className="h-20 md:h-28 w-auto object-contain" 
+            />
           </div>
 
-          {/* Profile Bio */}
-          <div className="max-w-xl">
+          {/* Profile Details */}
+          <div className="max-w-xl mx-auto">
             <h2 className="text-xl md:text-2xl font-semibold text-[#1d1d1f] dark:text-white mb-2">
               Dulana Chathurma
             </h2>
