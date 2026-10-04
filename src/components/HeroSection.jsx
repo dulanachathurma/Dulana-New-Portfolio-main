@@ -9,7 +9,7 @@ export const HeroSection = () => {
     setAnimate(true);
   }, []);
 
-  // --- INTERACTIVE GRAPH CANVAS + SUBTLE GRID LOGIC ---
+  // --- INTERACTIVE GRAPH CANVAS WITH VISIBLE GRID LOGIC ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -42,7 +42,7 @@ export const HeroSection = () => {
     parent.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("resize", handleResize);
 
-    // Graph node configuration
+    // Nodes (Particles) Creation
     const particleCount = Math.floor((width * height) / 9500);
     const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
@@ -54,14 +54,14 @@ export const HeroSection = () => {
 
     let animationFrameId;
 
-    // Draw Subtle Grid Pattern (ලාවට කොටු රටාව ඇඳීම)
+    // Draw Graph Paper Grid Lines (කොටු රටාව)
     const drawGrid = (isDark) => {
-      const gridSize = 40; // කොටුවක ප්‍රමාණය pixels වලින්
+      const gridSize = 45;
       ctx.beginPath();
-      ctx.lineWidth = 0.5;
+      ctx.lineWidth = 0.6;
       ctx.strokeStyle = isDark
-        ? "rgba(255, 255, 255, 0.035)" // Dark Mode ලා කොටු ඉරි
-        : "rgba(0, 0, 0, 0.035)";      // Light Mode ලා කොටු ඉරි
+        ? "rgba(255, 255, 255, 0.075)" // Dark Mode Grid Line Color
+        : "rgba(0, 0, 0, 0.065)";      // Light Mode Grid Line Color
 
       for (let x = 0; x <= width; x += gridSize) {
         ctx.moveTo(x, 0);
@@ -76,13 +76,12 @@ export const HeroSection = () => {
 
     const animateParticles = () => {
       ctx.clearRect(0, 0, width, height);
-
       const isDark = document.documentElement.classList.contains("dark");
 
-      // 1. පසුබිමින් කොටු රටාව ඇඳීම
+      // 1. Grid Background එක ඇඳීම
       drawGrid(isDark);
 
-      // 2. චලනය වන Nodes සහ Lines ඇඳීම
+      // 2. Interactive Graph Nodes සහ Connected Lines ඇඳීම
       particles.forEach((p, i) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -90,7 +89,7 @@ export const HeroSection = () => {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Mouse push effect
+        // Mouse Interactivity Push Effect
         if (mouse.x !== null && mouse.y !== null) {
           let dx = mouse.x - p.x;
           let dy = mouse.y - p.y;
@@ -102,15 +101,15 @@ export const HeroSection = () => {
           }
         }
 
-        // Draw Nodes
+        // Nodes (තිත්) ඇඳීම
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = isDark
-          ? "rgba(180, 205, 235, 0.6)"
-          : "rgba(51, 65, 85, 0.45)";
+          ? "rgba(180, 205, 235, 0.65)"
+          : "rgba(51, 65, 85, 0.5)";
         ctx.fill();
 
-        // Connecting Lines
+        // Connecting Lines (සම්බන්ධ කරන ඉරි) ඇඳීම
         for (let j = i + 1; j < particles.length; j++) {
           let p2 = particles[j];
           let dx = p.x - p2.x;
@@ -124,8 +123,8 @@ export const HeroSection = () => {
 
             const alpha = 1 - dist / 130;
             ctx.strokeStyle = isDark
-              ? `rgba(148, 163, 184, ${0.25 * alpha})`
-              : `rgba(71, 85, 105, ${0.22 * alpha})`;
+              ? `rgba(148, 163, 184, ${0.28 * alpha})`
+              : `rgba(71, 85, 105, ${0.25 * alpha})`;
             ctx.lineWidth = 0.85;
             ctx.stroke();
           }
@@ -166,15 +165,19 @@ export const HeroSection = () => {
       {/* Main Impact Copy Area */}
       <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-20 flex flex-col items-center">
         
-        {/* PROFILE IMAGE */}
+        {/* 2. PREMIUM APPLE PROFILE IMAGE */}
         <div 
           className={`mb-10 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
+          {/* Running Border Wrapper */}
           <div className="relative rounded-full p-[3px] overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            
+            {/* Spinning Gradient Border */}
             <div className="absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#0071e3_100%)] dark:bg-[conic-gradient(from_0deg,transparent_75%,#38bdf8_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
             
+            {/* Inner Mask */}
             <div className="relative z-10 bg-[#f5f5f7] dark:bg-[#0a101d] p-1.5 rounded-full transition-colors duration-500">
               <div className="relative w-44 h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden">
                 <img 
@@ -186,13 +189,14 @@ export const HeroSection = () => {
             </div>
           </div>
 
+          {/* Online Indicator */}
           <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-5 md:right-5 z-20 flex h-5 w-5 md:h-6 md:w-6 items-center justify-center">
              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
              <span className="relative inline-flex h-4 w-4 md:h-5 md:w-5 rounded-full bg-emerald-500 border-[2.5px] border-[#f5f5f7] dark:border-[#0a101d]"></span>
           </div>
         </div>
 
-        {/* Campaign Style Kicker */}
+        {/* Campaign Kicker */}
         <div className="mb-6 overflow-visible inline-block">
           <p 
             className={`text-[#86868b] dark:text-[#94a3b8] text-sm sm:text-base font-semibold tracking-wider uppercase transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
@@ -203,6 +207,7 @@ export const HeroSection = () => {
           </p>
         </div>
 
+        {/* Headline */}
         <h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.03em] leading-[1.15] pb-6 mb-4 overflow-visible">
           <span 
             className={`block text-[#86868b] dark:text-[#94a3b8] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
@@ -220,7 +225,7 @@ export const HeroSection = () => {
           </span>
         </h1>
 
-        {/* Pitch */}
+        {/* Pitch Text */}
         <div className="overflow-visible max-w-3xl mx-auto mb-12">
           <p 
             className={`text-[#86868b] dark:text-[#94a3b8] text-base sm:text-lg md:text-xl font-normal tracking-tight leading-relaxed transition-all duration-[1400ms] delay-500 cubic-bezier(0.25, 1, 0.5, 1) ${
@@ -231,7 +236,7 @@ export const HeroSection = () => {
           </p>
         </div>
 
-        {/* Buttons Group */}
+        {/* Buttons */}
         <div 
           className={`flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-[1400ms] delay-700 cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
