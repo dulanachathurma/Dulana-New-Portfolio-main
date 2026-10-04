@@ -23,8 +23,17 @@ export const Footer = () => {
     <footer className="relative z-10 bg-[#f5f5f7] dark:bg-black text-[#86868b] py-16 border-t-2 border-black/50 dark:border-white/50">
       <div className="container mx-auto max-w-6xl px-6">
         
-        {/* Profile Header */}
-        <div className="mb-12 text-center">
+        {/* Profile Header with Logo */}
+        <div className="mb-12 flex flex-col items-center text-center">
+          {/* Logo Container */}
+          <div className="mb-4 inline-block p-2 rounded-xl bg-black shadow-md border border-white/10">
+            <img 
+              src="/nav-logo.jpg" 
+              alt="Dulana Chathurma Logo" 
+              className="h-12 md:h-16 w-auto object-contain"
+            />
+          </div>
+
           <h2 className="text-xl md:text-2xl font-semibold text-[#1d1d1f] dark:text-white mb-2">
             Dulana Chathurma
           </h2>
@@ -95,7 +104,7 @@ export const Footer = () => {
           ))}
         </div>
 
-        {/* Bottom Bar - කලින් තිබූ සිහින් රේඛාව (1px) */}
+        {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/20 dark:border-white/20 gap-6">
           <p className="text-[14px] md:text-[15px]">
             &copy; {currentYear} Dulana Chathurma. All rights reserved.
