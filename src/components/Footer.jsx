@@ -20,14 +20,15 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="relative z-10 bg-[#f5f5f7] dark:bg-[#161617] text-[#86868b] py-16 border-t border-black/10 dark:border-white/10">
+    <footer className="relative z-10 bg-[#f5f5f7] dark:bg-black text-[#86868b] py-16 border-t border-gray-300 dark:border-neutral-800">
       <div className="container mx-auto max-w-6xl px-6">
         
+        {/* Profile Header */}
         <div className="mb-12 text-center">
-          <h2 className="text-xl font-semibold text-[#1d1d1f] dark:text-white mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold text-[#1d1d1f] dark:text-white mb-2">
             Dulana Chathurma
           </h2>
-          <p className="text-sm max-w-lg leading-relaxed mx-auto">
+          <p className="text-sm md:text-base max-w-lg leading-relaxed mx-auto">
             Second year Software Engineering undergraduate at University of Kelaniya. 
             Passionate about building scalable web applications and exploring modern technologies. 
             Actively seeking internship opportunities to contribute and grow.
@@ -59,10 +60,10 @@ export const Footer = () => {
             { title: "Location", links: ["Beliatta, Sri Lanka"] }
           ].map((section, idx) => (
             <div key={idx}>
-              <h4 className="text-[12px] font-semibold text-[#1d1d1f] dark:text-white mb-4 uppercase tracking-widest">
+              <h4 className="text-[12px] md:text-[14px] font-semibold text-[#1d1d1f] dark:text-white mb-4 uppercase tracking-widest">
                 {section.title}
               </h4>
-              <ul className="space-y-3 text-[13px]">
+              <ul className="space-y-3 text-[13px] md:text-[15px]">
                 {section.links.map((link, i) => (
                   <li key={i}>
                     {typeof link === 'string' ? (
@@ -97,8 +98,8 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/10 dark:border-white/10 gap-6">
-          <p className="text-[14px]">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-300 dark:border-neutral-800 gap-6">
+          <p className="text-[14px] md:text-[15px]">
             &copy; {currentYear} Dulana Chathurma. Built with excellence.
           </p>
           
