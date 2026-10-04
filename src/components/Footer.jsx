@@ -20,7 +20,6 @@ export const Footer = () => {
   };
 
   return (
-    /* Ahịrị elu (Top Border) - border-t-2 na opacity 50% maka ịdị arọ na nkọwa */
     <footer className="relative z-10 bg-[#f5f5f7] dark:bg-black text-[#86868b] py-16 border-t-2 border-black/50 dark:border-white/50">
       <div className="container mx-auto max-w-6xl px-6">
         
@@ -96,10 +95,10 @@ export const Footer = () => {
           ))}
         </div>
 
-        {/* Ahịrị ala (Bottom Border) - border-t-2 na opacity 50% */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t-2 border-black/50 dark:border-white/50 gap-6">
+        {/* Bottom Bar - කලින් තිබූ සිහින් රේඛාව (1px) */}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/20 dark:border-white/20 gap-6">
           <p className="text-[14px] md:text-[15px]">
-            &copy; {currentYear} Dulana Chathurma. Built with excellence.
+            &copy; {currentYear} Dulana Chathurma. All rights reserved.
           </p>
           
           <div className="flex items-center gap-5">
@@ -116,7 +115,7 @@ export const Footer = () => {
               <FileText size={20} />
             </a>
             
-            {/* Scroll-to-top button */}
+            {/* Scroll to top */}
             <a 
               href="#home" 
               onClick={(e) => handleScroll(e, "#home")}
