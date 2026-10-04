@@ -10,8 +10,17 @@ const XIcon = ({ size = 20 }) => (
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  // Smooth scroll handler function
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <footer className="bg-[#f5f5f7] dark:bg-[#161617] text-[#86868b] py-16 border-t border-black/10 dark:border-white/10">
+    <footer className="relative z-10 bg-[#f5f5f7] dark:bg-[#161617] text-[#86868b] py-16 border-t border-black/10 dark:border-white/10">
       <div className="container mx-auto max-w-6xl px-6">
         
         <div className="mb-12 text-center">
@@ -31,10 +40,10 @@ export const Footer = () => {
             { 
               title: "Navigation", 
               links: [
-                { name: "About", href: "#about" },
-                { name: "Projects", href: "#projects" },
-                { name: "Skills", href: "#skills" },
-                { name: "Contact", href: "#contact" }
+                { name: "About", href: "#about", isInternal: true },
+                { name: "Projects", href: "#projects", isInternal: true },
+                { name: "Skills", href: "#skills", isInternal: true },
+                { name: "Contact", href: "#contact", isInternal: true }
               ] 
             },
             { 
@@ -43,10 +52,10 @@ export const Footer = () => {
                 { name: "GitHub", href: "https://github.com/dulanachathurma" },
                 { name: "LinkedIn", href: "https://linkedin.com/in/dulana-chathurma" },
                 { name: "X (Twitter)", href: "https://x.com/DulanaChathurma" },
-                { name: "Resume", href: "/Dulana-Chathurma-CV.pdf" }
+                { name: "Resume", href: "/Dulana_Chathurma_Resume.pdf" }
               ] 
             },
-            { title: "Contact", links: [ "+94 76 757 4844"] },
+            { title: "Contact", links: ["+94 76 757 4844"] },
             { title: "Location", links: ["Beliatta, Sri Lanka"] }
           ].map((section, idx) => (
             <div key={idx}>
@@ -57,10 +66,20 @@ export const Footer = () => {
                 {section.links.map((link, i) => (
                   <li key={i}>
                     {typeof link === 'string' ? (
-                      <span className="hover:text-black dark:hover:text-white cursor-pointer transition-colors duration-200">
+                      <span className="hover:text-black dark:hover:text-white transition-colors duration-200">
                         {link}
                       </span>
+                    ) : link.isInternal ? (
+                      /* Navigation links - Smooth scroll in SAME tab */
+                      <a 
+                        href={link.href} 
+                        onClick={(e) => handleScroll(e, link.href)}
+                        className="hover:text-black dark:hover:text-white transition-colors duration-200 cursor-pointer"
+                      >
+                        {link.name}
+                      </a>
                     ) : (
+                      /* External links - Open in NEW tab */
                       <a 
                         href={link.href} 
                         target="_blank" 
@@ -93,19 +112,18 @@ export const Footer = () => {
             <a href="https://x.com/DulanaChathurma" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200 hover:scale-110">
               <XIcon size={20} />
             </a>
-            <a href="/Dulana-Chathurma-CV.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200 hover:scale-110">
+            <a href="/Dulana_Chathurma_Resume.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black dark:hover:text-white transition-all duration-200 hover:scale-110">
               <FileText size={20} />
             </a>
             
-            {/* Beautified scroll-to-top arrow */}
+            {/* Smooth scroll-to-top arrow button */}
             <a 
               href="#home" 
-              className="group relative p-2.5 rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,113,227,0.5)]"
+              onClick={(e) => handleScroll(e, "#home")}
+              className="group relative p-2.5 rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,113,227,0.5)] cursor-pointer"
               aria-label="Back to top"
             >
-              {/* Animated gradient background */}
               <span className="absolute inset-0 bg-gradient-to-br from-[#0071e3] via-[#5e5ce6] to-[#bf5af2] opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Spinning glow ring */}
               <span className="absolute inset-[-2px] rounded-full bg-[conic-gradient(from_0deg,#0071e3,#5e5ce6,#bf5af2,#0071e3)] animate-[spin_3s_linear_infinite] opacity-0 group-hover:opacity-60 transition-opacity duration-300 blur-[2px]" />
               <ArrowUp size={16} className="relative z-10 text-white" />
             </a>
