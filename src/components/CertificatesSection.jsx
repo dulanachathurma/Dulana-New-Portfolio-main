@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { ExternalLink, Calendar, MapPin, Award } from "lucide-react";
 
 const certificates = [
@@ -157,28 +158,28 @@ const certificates = [
     tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
   },
   {
-  id: 41,
-  title: "GitHub Dev Day Sri Lanka",
-  organization: "GitHub",
-  location: "University of Kelaniya · Hybrid",
-  date: "Apr 2026",
-  description: "Successfully completed the GitHub for Beginners program and participated in GitHub Dev Day Sri Lanka. Learned Git fundamentals, branching, collaboration, pull requests, and GitHub workflow.",
-  image: "/certificate-github-dev-day.jpg",
-  logoImg: "/github-logo.png",
-  logoText: "GH",
-  logoBg: "bg-gray-900",
-  skills: [
-    "Git",
-    "GitHub",
-    "Version Control",
-    "Branching",
-    "Pull Requests",
-    "Collaboration",
-    "Open Source"
-  ],
-  viewCertificateUrl: "https://nisalgunawardhana.com/github-dev-day/badge/nt6smxx1nvpxmnlk2tw8",
-  tagColor: "bg-gray-100 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300"
-},
+    id: 41,
+    title: "GitHub Dev Day Sri Lanka",
+    organization: "GitHub",
+    location: "University of Kelaniya · Hybrid",
+    date: "Apr 2026",
+    description: "Successfully completed the GitHub for Beginners program and participated in GitHub Dev Day Sri Lanka. Learned Git fundamentals, branching, collaboration, pull requests, and GitHub workflow.",
+    image: "/certificate-github-dev-day.jpg",
+    logoImg: "/github-logo.png",
+    logoText: "GH",
+    logoBg: "bg-gray-900",
+    skills: [
+      "Git",
+      "GitHub",
+      "Version Control",
+      "Branching",
+      "Pull Requests",
+      "Collaboration",
+      "Open Source"
+    ],
+    viewCertificateUrl: "https://nisalgunawardhana.com/github-dev-day/badge/nt6smxx1nvpxmnlk2tw8",
+    tagColor: "bg-gray-100 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300"
+  },
 
   // HackerRank
   {
@@ -355,122 +356,278 @@ const certificates = [
 ];
 
 export const CertificatesSection = () => {
+  const canvasRef = useRef(null);
+
+  // --- MOBILE OPTIMIZED INTERACTIVE GRAPH CANVAS ---
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width = (canvas.width = canvas.parentElement.offsetWidth);
+    let height = (canvas.height = canvas.parentElement.offsetHeight);
+
+    let mouse = { x: null, y: null, radius: 150 };
+
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
+
+    const handleResize = () => {
+      if (!canvas.parentElement) return;
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    };
+
+    const parent = canvas.parentElement;
+    parent.addEventListener("mousemove", handleMouseMove, { passive: true });
+    parent.addEventListener("mouseleave", handleMouseLeave, { passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    // Dynamic density factor for smooth mobile performance
+    const isMobile = window.innerWidth < 768;
+    const densityDivider = isMobile ? 14000 : 9500;
+    const particleCount = Math.floor((width * height) / densityDivider);
+
+    const particles = Array.from({ length: particleCount }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: Math.random() * 1.5 + 1.2,
+    }));
+
+    let animationFrameId;
+
+    // Draw Subtle Grid Pattern
+    const drawGrid = (isDark) => {
+      const gridSize = 45;
+      ctx.beginPath();
+      ctx.lineWidth = 0.6;
+      ctx.strokeStyle = isDark
+        ? "rgba(255, 255, 255, 0.075)"
+        : "rgba(0, 0, 0, 0.065)";
+
+      for (let x = 0; x <= width; x += gridSize) {
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+      }
+      for (let y = 0; y <= height; y += gridSize) {
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+      }
+      ctx.stroke();
+    };
+
+    const animateParticles = () => {
+      ctx.clearRect(0, 0, width, height);
+      const isDark = document.documentElement.classList.contains("dark");
+
+      // 1. Grid Background
+      drawGrid(isDark);
+
+      // 2. Nodes & Lines
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        if (mouse.x !== null && mouse.y !== null) {
+          let dx = mouse.x - p.x;
+          let dy = mouse.y - p.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            let force = (mouse.radius - dist) / mouse.radius;
+            p.x -= (dx / dist) * force * 3;
+            p.y -= (dy / dist) * force * 3;
+          }
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = isDark
+          ? "rgba(180, 205, 235, 0.65)"
+          : "rgba(51, 65, 85, 0.5)";
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          let p2 = particles[j];
+          let dx = p.x - p2.x;
+          let dy = p.y - p2.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+
+            const alpha = 1 - dist / 120;
+            ctx.strokeStyle = isDark
+              ? `rgba(148, 163, 184, ${0.28 * alpha})`
+              : `rgba(71, 85, 105, ${0.25 * alpha})`;
+            ctx.lineWidth = 0.85;
+            ctx.stroke();
+          }
+        }
+      });
+
+      animationFrameId = requestAnimationFrame(animateParticles);
+    };
+
+    animateParticles();
+
+    return () => {
+      parent.removeEventListener("mousemove", handleMouseMove);
+      parent.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
   return (
-    <section id="certificates" className="py-24 px-4 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-      <div className="container mx-auto max-w-6xl">
+    <section id="certificates" className="py-24 px-4 relative bg-[#f5f5f7] dark:bg-[#0a101d] overflow-hidden transition-colors duration-500">
+      {/* 0. HIGH PERFORMANCE CANVAS BACKGROUND */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 transform-gpu"
+        style={{ willChange: "transform" }}
+      />
+
+      {/* Dynamic Ambient Background Glow */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-cyan-500/5 dark:from-blue-600/10 dark:via-cyan-500/10 dark:to-blue-600/10 rounded-full blur-[150px] opacity-70" />
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1 rounded-full bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
             Professional Credentials
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1d1d1f] dark:text-[#f5f5f7]">
             My Certificates
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6"></div>
-          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          <p className="text-[#86868b] dark:text-[#94a3b8] max-w-2xl mx-auto text-sm sm:text-base">
             Professional certifications and courses I've completed to enhance my skills.
           </p>
         </div>
 
-        {/* Certificates Grid with Apple 2026 Layout */}
+        {/* Certificates Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="group relative rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-2 border-white dark:border-slate-800/80 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.02),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15),0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out flex flex-col h-full"
+              className="group relative rounded-2xl transition-all duration-500 flex flex-col h-full"
             >
-              {/* Image Container */}
-              <div className="relative h-44 overflow-hidden bg-slate-100 dark:bg-slate-800">
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-3 right-3">
-                  <div className="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Award className="h-4 w-4 text-white" />
+              {/* Permanent Dark Mode Glowing Background Aura */}
+              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 dark:group-hover:opacity-100 dark:group-hover:blur-xl transition-all duration-500 pointer-events-none" />
+
+              {/* Main Card Container */}
+              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border-2 border-gray-200/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col h-full">
+                
+                {/* Image Container */}
+                <div className="relative h-44 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-3 right-3">
+                    <div className="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Award className="h-4 w-4 text-white" />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Content Box */}
-              <div className="p-5 flex flex-col flex-grow">
-                {/* Organization Logo + Name Row */}
-                <div className="flex items-center gap-2.5 mb-3.5">
-                  <div className={`w-8 h-8 rounded-full flex-shrink-0 shadow-sm overflow-hidden ${cert.logoImg ? "bg-white border border-slate-200 dark:border-slate-700 p-1" : `${cert.logoBg} flex items-center justify-center`}`}>
-                    {cert.logoImg ? (
-                      <img
-                        src={cert.logoImg}
-                        alt={cert.organization}
-                        className="w-full h-full object-contain"
-                        onError={(e) => {
-                          e.target.style.display = "none";
-                          e.target.parentElement.classList.remove("bg-white", "border", "border-slate-200", "dark:border-slate-700", "p-1");
-                          e.target.parentElement.classList.add(cert.logoBg, "flex", "items-center", "justify-center");
-                          const span = document.createElement("span");
-                          span.className = "text-white text-[10px] font-bold tracking-wide";
-                          span.textContent = cert.logoText;
-                          e.target.parentElement.appendChild(span);
-                        }}
-                      />
-                    ) : (
-                      <span className="text-white text-[10px] font-bold tracking-wide">
-                        {cert.logoText}
+                {/* Content Box */}
+                <div className="p-5 flex flex-col flex-grow">
+                  {/* Organization Logo + Name Row */}
+                  <div className="flex items-center gap-2.5 mb-3.5">
+                    <div className={`w-8 h-8 rounded-full flex-shrink-0 shadow-sm overflow-hidden ${cert.logoImg ? "bg-white border border-slate-200 dark:border-slate-700 p-1" : `${cert.logoBg} flex items-center justify-center`}`}>
+                      {cert.logoImg ? (
+                        <img
+                          src={cert.logoImg}
+                          alt={cert.organization}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            e.target.style.display = "none";
+                            e.target.parentElement.classList.remove("bg-white", "border", "border-slate-200", "dark:border-slate-700", "p-1");
+                            e.target.parentElement.classList.add(cert.logoBg, "flex", "items-center", "justify-center");
+                            const span = document.createElement("span");
+                            span.className = "text-white text-[10px] font-bold tracking-wide";
+                            span.textContent = cert.logoText;
+                            e.target.parentElement.appendChild(span);
+                          }}
+                        />
+                      ) : (
+                        <span className="text-white text-[10px] font-bold tracking-wide">
+                          {cert.logoText}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs font-semibold text-[#86868b] dark:text-[#94a3b8] leading-tight line-clamp-1">{cert.organization}</p>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-base font-bold mb-2 text-slate-800 dark:text-white line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    {cert.title}
+                  </h3>
+
+                  {/* Location & Date */}
+                  <div className="flex flex-wrap gap-3 text-[11px] text-[#86868b] dark:text-[#94a3b8] mb-3 font-medium">
+                    <span className="flex items-center gap-1">
+                      <MapPin size={11} className="text-blue-600 dark:text-blue-400" /> {cert.location}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Calendar size={11} className="text-blue-600 dark:text-blue-400" /> {cert.date}
+                    </span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-slate-600 dark:text-slate-300 text-xs mb-4 leading-relaxed line-clamp-2 flex-grow">
+                    {cert.description}
+                  </p>
+
+                  {/* Skills Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
+                    {cert.skills.slice(0, 2).map((skill, idx) => (
+                      <span key={idx} className={`px-2.5 py-0.5 text-[11px] rounded-full ${cert.tagColor} font-semibold shadow-sm border border-black/5 dark:border-white/5`}>
+                        {skill}
+                      </span>
+                    ))}
+                    {cert.skills.length > 2 && (
+                      <span className="px-2.5 py-0.5 text-[11px] rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-black/5 dark:border-white/5 font-semibold">
+                        +{cert.skills.length - 2}
                       </span>
                     )}
                   </div>
-                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 leading-tight line-clamp-1">{cert.organization}</p>
+
+                  {/* View Certificate Button */}
+                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-auto">
+                    <a
+                      href={cert.viewCertificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center justify-center gap-1.5 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                    >
+                      View Certificate <ExternalLink size={13} />
+                    </a>
+                  </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-base font-bold mb-2 text-slate-800 dark:text-white line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                  {cert.title}
-                </h3>
-
-                {/* Location & Date */}
-                <div className="flex flex-wrap gap-3 text-[11px] text-slate-400 dark:text-slate-500 mb-3 font-medium">
-                  <span className="flex items-center gap-1">
-                    <MapPin size={11} /> {cert.location}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Calendar size={11} /> {cert.date}
-                  </span>
-                </div>
-
-                {/* Description */}
-                <p className="text-slate-600 dark:text-slate-300 text-xs mb-4 leading-relaxed line-clamp-2 flex-grow">
-                  {cert.description}
-                </p>
-
-                {/* Skills Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
-                  {cert.skills.slice(0, 2).map((skill, idx) => (
-                    <span key={idx} className={`px-2.5 py-0.5 text-[11px] rounded-full ${cert.tagColor} font-semibold shadow-sm border border-black/5 dark:border-white/5`}>
-                      {skill}
-                    </span>
-                  ))}
-                  {cert.skills.length > 2 && (
-                    <span className="px-2.5 py-0.5 text-[11px] rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-black/5 dark:border-white/5 font-semibold">
-                      +{cert.skills.length - 2}
-                    </span>
-                  )}
-                </div>
-
-                {/* View Certificate Button (Clean Action at Bottom) */}
-                <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60">
-                  <a
-                    href={cert.viewCertificateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-1.5 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
-                  >
-                    View Certificate <ExternalLink size={13} />
-                  </a>
-                </div>
               </div>
-
             </div>
           ))}
         </div>
