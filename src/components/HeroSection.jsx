@@ -9,7 +9,7 @@ export const HeroSection = () => {
     setAnimate(true);
   }, []);
 
-  // --- INTERACTIVE PARTICLES CANVAS LOGIC ---
+  // --- INTERACTIVE GRAPH CANVAS LOGIC (PERFECT FOR LIGHT & DARK MODES) ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -18,7 +18,7 @@ export const HeroSection = () => {
     let width = (canvas.width = canvas.parentElement.offsetWidth);
     let height = (canvas.height = canvas.parentElement.offsetHeight);
 
-    let mouse = { x: null, y: null, radius: 150 };
+    let mouse = { x: null, y: null, radius: 170 };
 
     const handleMouseMove = (e) => {
       const rect = canvas.getBoundingClientRect();
@@ -42,13 +42,14 @@ export const HeroSection = () => {
     parent.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("resize", handleResize);
 
-    const particleCount = Math.floor((width * height) / 10000);
+    // Graph node configuration
+    const particleCount = Math.floor((width * height) / 9000);
     const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.7,
-      vy: (Math.random() - 0.5) * 0.7,
-      radius: Math.random() * 1.5 + 1,
+      vx: (Math.random() - 0.5) * 0.65,
+      vy: (Math.random() - 0.5) * 0.65,
+      radius: Math.random() * 1.8 + 1.2,
     }));
 
     let animationFrameId;
@@ -56,7 +57,6 @@ export const HeroSection = () => {
     const animateParticles = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Light/Dark mode detection
       const isDark = document.documentElement.classList.contains("dark");
 
       particles.forEach((p, i) => {
@@ -66,39 +66,43 @@ export const HeroSection = () => {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Mouse Interactivity Movement
+        // Mouse Interactivity (Dynamic Push Effect)
         if (mouse.x !== null && mouse.y !== null) {
           let dx = mouse.x - p.x;
           let dy = mouse.y - p.y;
           let dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < mouse.radius) {
             let force = (mouse.radius - dist) / mouse.radius;
-            p.x -= (dx / dist) * force * 3;
-            p.y -= (dy / dist) * force * 3;
+            p.x -= (dx / dist) * force * 3.5;
+            p.y -= (dy / dist) * force * 3.5;
           }
         }
 
-        // Draw Dot
+        // Draw Nodes
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.4)" : "rgba(0, 0, 0, 0.25)";
+        ctx.fillStyle = isDark
+          ? "rgba(180, 205, 235, 0.7)"  // Dark Mode: Soft Cyan-White Nodes
+          : "rgba(51, 65, 85, 0.55)";    // Light Mode: Clear Slate Grey Nodes
         ctx.fill();
 
-        // Draw Lines
+        // Draw Connecting Graph Lines
         for (let j = i + 1; j < particles.length; j++) {
           let p2 = particles[j];
           let dx = p.x - p2.x;
           let dy = p.y - p2.y;
           let dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 120) {
+          if (dist < 140) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
+            
+            const alpha = 1 - dist / 140;
             ctx.strokeStyle = isDark
-              ? `rgba(255, 255, 255, ${0.18 * (1 - dist / 120)})`
-              : `rgba(0, 0, 0, ${0.12 * (1 - dist / 120)})`;
-            ctx.lineWidth = 0.7;
+              ? `rgba(148, 163, 184, ${0.3 * alpha})`  // Dark Mode Lines
+              : `rgba(71, 85, 105, ${0.28 * alpha})`;  // Light Mode Lines (Clear & Visually Balanced)
+            ctx.lineWidth = 1.0;
             ctx.stroke();
           }
         }
@@ -120,40 +124,34 @@ export const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex flex-col justify-between items-center px-6 pt-26 pb-8 bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-[#f5f5f7] relative overflow-hidden select-none transition-colors duration-500"
+      className="min-h-screen flex flex-col justify-between items-center px-6 pt-26 pb-8 bg-[#f5f5f7] dark:bg-[#0a101d] text-[#1d1d1f] dark:text-[#f5f5f7] relative overflow-hidden select-none transition-colors duration-500"
       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}
     >
-      {/* 0. INTERACTIVE NETWORK CANVAS BACKGROUND */}
+      {/* 0. INTERACTIVE GRAPH CANVAS BACKGROUND */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80"
+        className="absolute inset-0 w-full h-full pointer-events-none z-0"
       />
 
       {/* 1. DYNAMIC LIGHT/DARK AMBIENT GLOW */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[145%] max-w-[1600px] h-[550px] bg-[radial-gradient(ellipse_at_top,_rgba(0,0,0,0.01),_transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.06),_transparent_55%)]" />
-        <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 dark:from-blue-500/10 dark:via-indigo-500/5 dark:to-purple-500/10 rounded-full blur-[150px] opacity-80" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[145%] max-w-[1600px] h-[550px] bg-[radial-gradient(ellipse_at_top,_rgba(0,113,227,0.03),_transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(30,58,138,0.15),_transparent_60%)]" />
+        <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 dark:from-blue-600/15 dark:via-indigo-500/10 dark:to-cyan-500/10 rounded-full blur-[150px] opacity-80" />
       </div>
 
       {/* Main Impact Copy Area */}
       <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-20 flex flex-col items-center">
         
-        {/* 2. PREMIUM APPLE PROFILE IMAGE (RUNNING BORDER ANIMATION) */}
+        {/* 2. PREMIUM APPLE PROFILE IMAGE */}
         <div 
           className={`mb-10 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
-          {/* Running Border Wrapper */}
-          <div className="relative rounded-full p-[3px] overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+          <div className="relative rounded-full p-[3px] overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#0071e3_100%)] dark:bg-[conic-gradient(from_0deg,transparent_75%,#38bdf8_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
             
-            {/* The Spinning Animated Gradient */}
-            <div className="absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#0071e3_100%)] dark:bg-[conic-gradient(from_0deg,transparent_75%,#2997ff_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            {/* Inner Mask */}
-            <div className="relative z-10 bg-[#f5f5f7] dark:bg-[#000000] p-1.5 rounded-full transition-colors duration-500">
-              
-              {/* Image Container */}
+            <div className="relative z-10 bg-[#f5f5f7] dark:bg-[#0a101d] p-1.5 rounded-full transition-colors duration-500">
               <div className="relative w-44 h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden">
                 <img 
                   src="/dulana-profile-circle1.jpg" 
@@ -164,17 +162,16 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Online Indicator */}
           <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-5 md:right-5 z-20 flex h-5 w-5 md:h-6 md:w-6 items-center justify-center">
              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-             <span className="relative inline-flex h-4 w-4 md:h-5 md:w-5 rounded-full bg-emerald-500 border-[2.5px] border-[#f5f5f7] dark:border-[#000000]"></span>
+             <span className="relative inline-flex h-4 w-4 md:h-5 md:w-5 rounded-full bg-emerald-500 border-[2.5px] border-[#f5f5f7] dark:border-[#0a101d]"></span>
           </div>
         </div>
 
-        {/* Apple Product Campaign Style Kicker */}
+        {/* Campaign Style Kicker */}
         <div className="mb-6 overflow-visible inline-block">
           <p 
-            className={`text-[#86868b] text-sm sm:text-base font-semibold tracking-wider uppercase transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
+            className={`text-[#86868b] dark:text-[#94a3b8] text-sm sm:text-base font-semibold tracking-wider uppercase transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
@@ -184,14 +181,14 @@ export const HeroSection = () => {
 
         <h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.03em] leading-[1.15] pb-6 mb-4 overflow-visible">
           <span 
-            className={`block text-[#86868b] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
+            className={`block text-[#86868b] dark:text-[#94a3b8] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             }`}
           >
             Dulana Chathurma.
           </span>
           <span 
-            className={`block bg-clip-text text-transparent bg-gradient-to-r from-[#1d1d1f] via-[#6e6e73] to-[#1d1d1f] dark:from-[#ffffff] dark:via-[#a1a1a6] dark:to-[#ffffff] bg-[length:200%_auto] animate-shimmer transition-all duration-[1400ms] delay-300 cubic-bezier(0.25, 1, 0.5, 1) py-2 ${
+            className={`block bg-clip-text text-transparent bg-gradient-to-r from-[#1d1d1f] via-[#6e6e73] to-[#1d1d1f] dark:from-[#ffffff] dark:via-[#cbd5e1] dark:to-[#ffffff] bg-[length:200%_auto] animate-shimmer transition-all duration-[1400ms] delay-300 cubic-bezier(0.25, 1, 0.5, 1) py-2 ${
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             }`}
           >
@@ -199,36 +196,34 @@ export const HeroSection = () => {
           </span>
         </h1>
 
-        {/* High-Value Pitch */}
+        {/* Pitch */}
         <div className="overflow-visible max-w-3xl mx-auto mb-12">
           <p 
-            className={`text-[#86868b] text-base sm:text-lg md:text-xl font-normal tracking-tight leading-relaxed transition-all duration-[1400ms] delay-500 cubic-bezier(0.25, 1, 0.5, 1) ${
+            className={`text-[#86868b] dark:text-[#94a3b8] text-base sm:text-lg md:text-xl font-normal tracking-tight leading-relaxed transition-all duration-[1400ms] delay-500 cubic-bezier(0.25, 1, 0.5, 1) ${
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Building production-ready solutions with <span className="text-[#1d1d1f] dark:text-[#f5f5f7] font-medium">Spring Boot</span> robust architectures, seamless <span className="text-[#1d1d1f] dark:text-[#f5f5f7] font-medium">AI/ML integrations</span>, and high-performance full-stack ecosystems that scale.
+            Building production-ready solutions with <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-medium">Spring Boot</span> robust architectures, seamless <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-medium">AI/ML integrations</span>, and high-performance full-stack ecosystems that scale.
           </p>
         </div>
 
-        {/* Authentic Apple Interactive Link Group */}
+        {/* Buttons Group */}
         <div 
           className={`flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-[1400ms] delay-700 cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          {/* Main Action Blue Pill Button */}
           <a 
             href="#projects" 
-            className="w-full sm:w-auto bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm font-medium py-3 px-7 rounded-full tracking-tight transition-all duration-300 shadow-[0_4px_12px_rgba(0,113,227,0.15)] hover:shadow-[0_6px_20px_rgba(0,113,227,0.3)] active:scale-98"
+            className="w-full sm:w-auto bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm font-medium py-3 px-7 rounded-full tracking-tight transition-all duration-300 shadow-[0_4px_12px_rgba(0,113,227,0.2)] hover:shadow-[0_6px_20px_rgba(0,113,227,0.4)] active:scale-98"
           >
             Explore Productions
           </a>
           
-          {/* Executive Action Link */}
           <a 
             href="/Dulana_Chathurma_Resume.pdf" 
             download
-            className="group flex items-center gap-1 text-[#0066cc] dark:text-[#2997ff] hover:underline text-sm font-medium tracking-tight"
+            className="group flex items-center gap-1 text-[#0066cc] dark:text-[#38bdf8] hover:underline text-sm font-medium tracking-tight"
           >
             Review Executive CV 
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -237,42 +232,39 @@ export const HeroSection = () => {
 
       </div>
 
-      {/* 4. HORIZONTAL LINE & COMPETENCY GRID */}
+      {/* 4. COMPETENCY GRID */}
       <div 
-        className={`w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-slate-200 dark:border-[#1d1d1f] pt-6 pb-2 text-[#6e6e73] transition-all duration-[1600ms] delay-900 mt-auto ${
+        className={`w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-slate-200 dark:border-[#1e293b] pt-6 pb-2 text-[#6e6e73] transition-all duration-[1600ms] delay-900 mt-auto ${
           animate ? "opacity-100" : "opacity-0"
         }`}
       >
-        {/* Core Pillar 1: Architecture */}
         <div className="flex items-start gap-3.5 text-left group">
-          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1d1d1f]/40 border border-slate-300/40 dark:border-[#2d2d30] text-[#1d1d1f] dark:text-[#f5f5f7] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
-            <Shield className="h-4 w-4 text-[#0066cc] dark:text-[#2997ff] group-hover:text-white" />
+          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
+            <Shield className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
           </div>
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f5f5f7] mb-1.5">Robust Core</h3>
-            <p className="text-xs leading-relaxed text-[#86868b]">Spring Boot backend models, clean architecture, and highly secure RESTful APIs.</p>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Robust Core</h3>
+            <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Spring Boot backend models, clean architecture, and highly secure RESTful APIs.</p>
           </div>
         </div>
 
-        {/* Core Pillar 2: AI / Intelligent Systems */}
         <div className="flex items-start gap-3.5 text-left group">
-          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1d1d1f]/40 border border-slate-300/40 dark:border-[#2d2d30] text-[#1d1d1f] dark:text-[#f5f5f7] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
-            <Cpu className="h-4 w-4 text-[#0066cc] dark:text-[#2997ff] group-hover:text-white" />
+          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
+            <Cpu className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
           </div>
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f5f5f7] mb-1.5">Intelligent Logic</h3>
-            <p className="text-xs leading-relaxed text-[#86868b]">Seamless integration of LLMs and machine learning pipelines into standard workflows.</p>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Intelligent Logic</h3>
+            <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Seamless integration of LLMs and machine learning pipelines into standard workflows.</p>
           </div>
         </div>
 
-        {/* Core Pillar 3: Interactive Experiences */}
         <div className="flex items-start gap-3.5 text-left group">
-          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1d1d1f]/40 border border-slate-300/40 dark:border-[#2d2d30] text-[#1d1d1f] dark:text-[#f5f5f7] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
-            <Terminal className="h-4 w-4 text-[#0066cc] dark:text-[#2997ff] group-hover:text-white" />
+          <div className="p-2.5 rounded-xl bg-slate-200/50 dark:bg-[#1e293b]/60 border border-slate-300/40 dark:border-[#334155] text-[#1d1d1f] dark:text-[#f8fafc] transition-colors duration-300 group-hover:bg-[#0071e3] group-hover:border-[#0071e3]">
+            <Terminal className="h-4 w-4 text-[#0066cc] dark:text-[#38bdf8] group-hover:text-white" />
           </div>
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f5f5f7] mb-1.5">Advanced UX</h3>
-            <p className="text-xs leading-relaxed text-[#86868b]">Next.js & React ecosystems optimized for fluid interactivity and Core Web Vitals.</p>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Advanced UX</h3>
+            <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Next.js & React ecosystems optimized for fluid interactivity and Core Web Vitals.</p>
           </div>
         </div>
       </div>
@@ -284,7 +276,6 @@ export const HeroSection = () => {
         </a>
       </div>
 
-      {/* MICRO-INTERACTION ANIMATION KEYFRAMES */}
       <style>{`
         @keyframes bounce-subtle {
           0%, 100% { transform: translateY(0); }
