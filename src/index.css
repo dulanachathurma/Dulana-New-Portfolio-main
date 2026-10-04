@@ -35,7 +35,7 @@
 
 @layer base {
   :root {
-    --background: 220 14% 96%; /* Apple Soft Off-White Background */
+    --background: 220 14% 96%; /* Soft Apple Off-White Background */
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
     --primary: 250 47% 60%;
@@ -44,7 +44,7 @@
   }
 
   .dark {
-    --background: 240 10% 4%; /* Deep Linear/Raycast Dark Background */
+    --background: 240 10% 4%; /* Pure Dark Obsidian Background */
     --foreground: 213 31% 91%;
     --card: 240 6% 10%;
     --primary: 250 65% 65%;
@@ -75,6 +75,28 @@
   @media (width >= 1024px) { max-width: 1024px; }
   @media (width >= 1280px) { max-width: 1280px; }
   @media (width >= 1400px) { max-width: 1400px; }
+}
+
+@utility text-glow {
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+@utility card-hover {
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+}
+
+@utility gradient-border {
+  @apply relative rounded-md;
+  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+@utility cosmic-button {
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+         hover:scale-105 active:scale-95;
 }
 
 #root {
@@ -134,7 +156,7 @@ section .section-subtitle {
 }
 
 /* ========================================================
-    WORLD-CLASS PROFESSIONAL ELEVATED CARDS
+    HIGH-CONTRAST ELEVATED CARDS (LIGHT & DARK MODES)
    ======================================================== */
 
 .card, 
@@ -148,16 +170,16 @@ section .section-subtitle {
 .apple-card,
 form {
   position: relative !important;
-  border-radius: 1.25rem !important;
+  border-radius: 1.5rem !important;
   padding: 1.75rem !important;
-  overflow: visible !important;
+  overflow: visible !important; /* Prevents shadow clipping */
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   
-  /* LIGHT MODE: Off-White Page vs Pure White Pure Card */
+  /* LIGHT MODE: Raised Pure White Card against Off-White BG */
   background-color: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 
-              0 2px 6px -1px rgba(15, 23, 42, 0.04) !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 10px 25px -5px rgba(100, 116, 139, 0.18), 
+              0 4px 10px -2px rgba(100, 116, 139, 0.1) !important;
 }
 
 .card:hover, 
@@ -170,28 +192,31 @@ form {
 .contact-card:hover,
 .apple-card:hover,
 form:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.14), 
-              0 4px 10px -2px rgba(15, 23, 42, 0.06) !important;
-  border-color: #cbd5e1 !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 20px 35px -8px rgba(100, 116, 139, 0.28), 
+              0 10px 15px -5px rgba(100, 116, 139, 0.15) !important;
+  border-color: #94a3b8 !important;
 }
 
-/* DARK MODE: Deep Obsidian Page vs Elevated Zinc Card */
+/* DARK MODE: High Contrast Slate Gray Surface against Black BG */
 .dark .card, 
 .dark .project-card, 
 .dark .skill-card, 
 .dark .education-card, 
 .dark .experience-card, 
 .dark .certificate-card, 
-.dark .article-card,
-.dark .contact-card,
+.dark .article-card, 
+.dark .contact-card, 
 .dark .apple-card,
-.dark form {
-  background-color: #18181b !important; /* Zinc Surface - Distinct from Pure Dark Body */
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8),
-              0 0 1px 1px rgba(255, 255, 255, 0.05) !important;
-  color: #ffffff !important;
+.dark form,
+@media (prefers-color-scheme: dark) {
+  .card, .project-card, .skill-card, .education-card, .experience-card, .certificate-card, .article-card, .contact-card {
+    background-color: #1e1e24 !important; /* Lighter Elevated Dark Gray */
+    border: 1px solid rgba(255, 255, 255, 0.22) !important; /* Crisp Light White Border */
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.95), 
+                0 0 20px 2px rgba(59, 130, 246, 0.12) !important; /* Soft Ambient Glow */
+    color: #ffffff !important;
+  }
 }
 
 .dark .card:hover, 
@@ -204,14 +229,17 @@ form:hover {
 .dark .contact-card:hover,
 .dark .apple-card:hover,
 .dark form:hover {
-  transform: translateY(-4px) !important;
-  background-color: #202024 !important;
-  border-color: rgba(255, 255, 255, 0.28) !important;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.95),
-              0 0 20px 0 rgba(99, 102, 241, 0.15) !important;
+  transform: translateY(-5px) !important;
+  background-color: #25252d !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.98), 
+              0 0 25px 4px rgba(59, 130, 246, 0.25) !important;
 }
 
-/* Badges and Tags */
+/* ========================================================
+   TAGS, BADGES & COMPETENCIES
+   ======================================================== */
+
 .tag, 
 .skill-tag, 
 .tool,
@@ -225,19 +253,22 @@ form:hover {
   transition: all 0.2s ease !important;
   background: #f1f5f9 !important;
   color: #0f172a !important;
-  border: 1px solid #e2e8f0 !important;
+  border: 1px solid #cbd5e1 !important;
 }
 
 .dark .tag, 
 .dark .skill-tag, 
 .dark .tool,
-.dark .apple-badge {
-  background: rgba(255, 255, 255, 0.08) !important;
-  color: #f8fafc !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+.dark .apple-badge,
+@media (prefers-color-scheme: dark) {
+  .tag, .skill-tag, .tool {
+    background-color: #2d2d38 !important;
+    color: #f1f5f9 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  }
 }
 
-/* Headings and Paragraphs */
+/* Typography Fixes */
 section h3 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -267,10 +298,10 @@ section h3 {
 .dark .article-card p,
 .dark section p,
 .dark section li {
-  color: #a1a1aa !important;
+  color: #cbd5e1 !important;
 }
 
-/* Fixed Navigation Bar */
+/* Navigation Bar Overlay */
 nav, .navbar, header {
   position: fixed !important;
   top: 0 !important;
@@ -282,5 +313,5 @@ nav, .navbar, header {
 }
 
 .dark nav, .dark .navbar, .dark header {
-  background: rgba(9, 9, 11, 0.85) !important;
+  background: rgba(10, 10, 12, 0.85) !important;
 }
