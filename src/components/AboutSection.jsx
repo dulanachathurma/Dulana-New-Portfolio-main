@@ -32,7 +32,7 @@ export const AboutSection = () => {
 
         {/* Section Header - Apple Minimal Style */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 rounded-full bg-slate-200/60 dark:bg-slate-900/90 text-slate-800 dark:text-cyan-400 text-sm font-medium mb-4 backdrop-blur-sm border border-slate-300/40 dark:border-cyan-500/40 shadow-sm dark:shadow-[0_0_12px_rgba(6,182,212,0.3)]">
+          <span className="inline-block px-4 py-1 rounded-full bg-slate-200/80 dark:bg-slate-900/90 text-slate-800 dark:text-cyan-400 text-sm font-medium mb-4 backdrop-blur-sm border border-slate-300 dark:border-cyan-500/40 shadow-sm dark:shadow-[0_0_12px_rgba(6,182,212,0.3)]">
             Biography
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white tracking-tight">
@@ -44,20 +44,20 @@ export const AboutSection = () => {
           </p>
         </div>
 
-        {/* Stats Cards - Always Glowing Blue/Cyan Outline */}
+        {/* Stats Cards - Light: Gray Glow / Dark: Cyan Glow */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16 max-w-3xl mx-auto">
           {stats.map((stat) => (
             <div 
               key={stat.label} 
-              className="relative group rounded-2xl bg-white dark:bg-[#090d16] p-5 text-center border border-slate-200/80 dark:border-blue-500/40 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_0_20px_rgba(6,182,212,0.2)] transition-all duration-300 hover:-translate-y-1 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_30px_rgba(6,182,212,0.35)]"
+              className="relative group rounded-2xl bg-white dark:bg-[#090d16] p-5 text-center border border-slate-300 dark:border-blue-500/50 shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_0_25px_rgba(6,182,212,0.25)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-400 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_35px_rgba(6,182,212,0.4)]"
             >
               <div className="flex items-center justify-center mb-3">
-                <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-cyan-400 border border-slate-100 dark:border-cyan-500/30">
+                <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30">
                   <stat.icon className="h-5 w-5" />
                 </div>
               </div>
               <div className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">{stat.value}</div>
-              <div className="text-xs font-medium text-slate-400 dark:text-slate-400 mt-1 uppercase tracking-wider">{stat.label}</div>
+              <div className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -70,7 +70,7 @@ export const AboutSection = () => {
             {/* Profile Image Container */}
             <div className="flex justify-center lg:justify-start">
               <div className="relative group">
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-blue-500/40 p-2 bg-white dark:bg-[#090d16] shadow-md dark:shadow-[0_0_25px_rgba(6,182,212,0.25)]">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-blue-500/50 p-2 bg-white dark:bg-[#090d16] shadow-[0_8px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
                   <img
                     src={profileImg}
                     alt="Dulana Chathurma"
@@ -103,31 +103,31 @@ export const AboutSection = () => {
 
               {/* Passion tags */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 pt-2">
-                <span className="px-3 py-1 rounded-lg bg-white dark:bg-[#090d16] border border-slate-200/80 dark:border-blue-500/30 text-slate-700 dark:text-slate-300 text-xs font-medium flex items-center gap-1.5 shadow-sm dark:shadow-[0_0_12px_rgba(6,182,212,0.18)]">
-                  <Heart size={12} className="text-slate-400 dark:text-cyan-400" /> Code with Passion
+                <span className="px-3 py-1 rounded-lg bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/40 text-slate-700 dark:text-slate-300 text-xs font-medium flex items-center gap-1.5 shadow-[0_4px_12px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                  <Heart size={12} className="text-slate-500 dark:text-cyan-400" /> Code with Passion
                 </span>
-                <span className="px-3 py-1 rounded-lg bg-white dark:bg-[#090d16] border border-slate-200/80 dark:border-blue-500/30 text-slate-700 dark:text-slate-300 text-xs font-medium flex items-center gap-1.5 shadow-sm dark:shadow-[0_0_12px_rgba(6,182,212,0.18)]">
-                  <Zap size={12} className="text-slate-400 dark:text-cyan-400" /> Adaptive Learner
+                <span className="px-3 py-1 rounded-lg bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/40 text-slate-700 dark:text-slate-300 text-xs font-medium flex items-center gap-1.5 shadow-[0_4px_12px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                  <Zap size={12} className="text-slate-500 dark:text-cyan-400" /> Adaptive Learner
                 </span>
-                <span className="px-3 py-1 rounded-lg bg-white dark:bg-[#090d16] border border-slate-200/80 dark:border-blue-500/30 text-slate-700 dark:text-slate-300 text-xs font-medium flex items-center gap-1.5 shadow-sm dark:shadow-[0_0_12px_rgba(6,182,212,0.18)]">
-                  <Star size={12} className="text-slate-400 dark:text-cyan-400" /> Problem Solver
+                <span className="px-3 py-1 rounded-lg bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/40 text-slate-700 dark:text-slate-300 text-xs font-medium flex items-center gap-1.5 shadow-[0_4px_12px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                  <Star size={12} className="text-slate-500 dark:text-cyan-400" /> Problem Solver
                 </span>
-                <span className="px-3 py-1 rounded-lg bg-white dark:bg-[#090d16] border border-slate-200/80 dark:border-blue-500/30 text-slate-700 dark:text-slate-300 text-xs font-medium flex items-center gap-1.5 shadow-sm dark:shadow-[0_0_12px_rgba(6,182,212,0.18)]">
-                  <Sparkles size={12} className="text-slate-400 dark:text-cyan-400" /> AI Enthusiast
+                <span className="px-3 py-1 rounded-lg bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/40 text-slate-700 dark:text-slate-300 text-xs font-medium flex items-center gap-1.5 shadow-[0_4px_12px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                  <Sparkles size={12} className="text-slate-500 dark:text-cyan-400" /> AI Enthusiast
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Right: Feature cards (7 cols) - Always Visible Glow */}
+          {/* Right: Feature cards (7 cols) - Always Visible Light Gray Glow / Dark Blue-Cyan Glow */}
           <div className="lg:col-span-7 space-y-4">
             {features.map((feature) => (
               <div 
                 key={feature.title} 
-                className="group relative bg-white dark:bg-[#090d16] rounded-2xl p-6 border border-slate-200/80 dark:border-blue-500/40 shadow-[0_4px_24px_rgba(0,0,0,0.02)] dark:shadow-[0_0_20px_rgba(6,182,212,0.2)] transition-all duration-300 hover:border-slate-400 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_30px_rgba(6,182,212,0.35)]"
+                className="group relative bg-white dark:bg-[#090d16] rounded-2xl p-6 border border-slate-300 dark:border-blue-500/50 shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_0_25px_rgba(6,182,212,0.25)] transition-all duration-300 hover:border-slate-400 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_35px_rgba(6,182,212,0.4)]"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-cyan-400 border border-slate-100 dark:border-cyan-500/30 shrink-0 transition-colors duration-300 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-cyan-500 dark:group-hover:text-black">
+                  <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30 shrink-0 transition-colors duration-300 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-cyan-500 dark:group-hover:text-black">
                     <feature.icon className="h-5 w-5" />
                   </div>
                   <div className="text-left space-y-1.5">
