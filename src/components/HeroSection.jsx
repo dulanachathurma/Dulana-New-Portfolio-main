@@ -9,7 +9,7 @@ export const HeroSection = () => {
     setAnimate(true);
   }, []);
 
-  // --- INTERACTIVE GRAPH CANVAS LOGIC (PERFECT FOR LIGHT & DARK MODES) ---
+  // --- INTERACTIVE GRAPH CANVAS + SUBTLE GRID LOGIC ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -43,22 +43,46 @@ export const HeroSection = () => {
     window.addEventListener("resize", handleResize);
 
     // Graph node configuration
-    const particleCount = Math.floor((width * height) / 9000);
+    const particleCount = Math.floor((width * height) / 9500);
     const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.65,
-      vy: (Math.random() - 0.5) * 0.65,
-      radius: Math.random() * 1.8 + 1.2,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: (Math.random() - 0.5) * 0.6,
+      radius: Math.random() * 1.5 + 1.2,
     }));
 
     let animationFrameId;
+
+    // Draw Subtle Grid Pattern (ලාවට කොටු රටාව ඇඳීම)
+    const drawGrid = (isDark) => {
+      const gridSize = 40; // කොටුවක ප්‍රමාණය pixels වලින්
+      ctx.beginPath();
+      ctx.lineWidth = 0.5;
+      ctx.strokeStyle = isDark
+        ? "rgba(255, 255, 255, 0.035)" // Dark Mode ලා කොටු ඉරි
+        : "rgba(0, 0, 0, 0.035)";      // Light Mode ලා කොටු ඉරි
+
+      for (let x = 0; x <= width; x += gridSize) {
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+      }
+      for (let y = 0; y <= height; y += gridSize) {
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+      }
+      ctx.stroke();
+    };
 
     const animateParticles = () => {
       ctx.clearRect(0, 0, width, height);
 
       const isDark = document.documentElement.classList.contains("dark");
 
+      // 1. පසුබිමින් කොටු රටාව ඇඳීම
+      drawGrid(isDark);
+
+      // 2. චලනය වන Nodes සහ Lines ඇඳීම
       particles.forEach((p, i) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -66,7 +90,7 @@ export const HeroSection = () => {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Mouse Interactivity (Dynamic Push Effect)
+        // Mouse push effect
         if (mouse.x !== null && mouse.y !== null) {
           let dx = mouse.x - p.x;
           let dy = mouse.y - p.y;
@@ -82,27 +106,27 @@ export const HeroSection = () => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = isDark
-          ? "rgba(180, 205, 235, 0.7)"  // Dark Mode: Soft Cyan-White Nodes
-          : "rgba(51, 65, 85, 0.55)";    // Light Mode: Clear Slate Grey Nodes
+          ? "rgba(180, 205, 235, 0.6)"
+          : "rgba(51, 65, 85, 0.45)";
         ctx.fill();
 
-        // Draw Connecting Graph Lines
+        // Connecting Lines
         for (let j = i + 1; j < particles.length; j++) {
           let p2 = particles[j];
           let dx = p.x - p2.x;
           let dy = p.y - p2.y;
           let dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 140) {
+          if (dist < 130) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            
-            const alpha = 1 - dist / 140;
+
+            const alpha = 1 - dist / 130;
             ctx.strokeStyle = isDark
-              ? `rgba(148, 163, 184, ${0.3 * alpha})`  // Dark Mode Lines
-              : `rgba(71, 85, 105, ${0.28 * alpha})`;  // Light Mode Lines (Clear & Visually Balanced)
-            ctx.lineWidth = 1.0;
+              ? `rgba(148, 163, 184, ${0.25 * alpha})`
+              : `rgba(71, 85, 105, ${0.22 * alpha})`;
+            ctx.lineWidth = 0.85;
             ctx.stroke();
           }
         }
@@ -127,7 +151,7 @@ export const HeroSection = () => {
       className="min-h-screen flex flex-col justify-between items-center px-6 pt-26 pb-8 bg-[#f5f5f7] dark:bg-[#0a101d] text-[#1d1d1f] dark:text-[#f5f5f7] relative overflow-hidden select-none transition-colors duration-500"
       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}
     >
-      {/* 0. INTERACTIVE GRAPH CANVAS BACKGROUND */}
+      {/* 0. INTERACTIVE GRAPH + GRID CANVAS BACKGROUND */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -142,7 +166,7 @@ export const HeroSection = () => {
       {/* Main Impact Copy Area */}
       <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-20 flex flex-col items-center">
         
-        {/* 2. PREMIUM APPLE PROFILE IMAGE */}
+        {/* PROFILE IMAGE */}
         <div 
           className={`mb-10 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
@@ -269,7 +293,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Subtle Scroll Cue */}
+      {/* Scroll Cue */}
       <div className="absolute bottom-2 right-6 hidden md:block">
         <a href="#about" aria-label="Scroll down" className="text-[#6e6e73] hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7] transition-colors block animate-bounce-subtle">
           <ChevronDown className="h-4 w-4" />
