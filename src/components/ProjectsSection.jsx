@@ -545,6 +545,7 @@ export const ProjectsSection = () => {
             <ArrowRight size={16} />
           </a>
         </div>
+          <div></div>
 {/* HIGH DISTANCE: BUTTON & GLOWING LINE */}
 <div className="relative w-full max-w-5xl mx-auto my-12 flex flex-col items-center justify-center">
   
