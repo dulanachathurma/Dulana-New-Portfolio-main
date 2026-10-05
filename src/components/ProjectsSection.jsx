@@ -545,6 +545,7 @@ export const ProjectsSection = () => {
             <ArrowRight size={16} />
           </a>
         </div>
+        <br><br>
 {/* HIGH-GLOW HIGH-VISIBILITY SECTION DIVIDER */}
         <div className="relative w-full max-w-5xl mx-auto pt-6 pb-2 flex items-center justify-center">
           {/* Base border line with gradient */}
