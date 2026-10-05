@@ -62,7 +62,7 @@ export const AboutSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
 
           {/* Left: Profile Image & Bio Text (5 cols) */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-8">
@@ -144,22 +144,20 @@ export const AboutSection = () => {
           </div>
 
         </div>
+
+        {/* Section Bottom Glowing Divider Line */}
+        <div className="relative w-full max-w-5xl mx-auto pt-8 flex items-center justify-center">
+          {/* Main border line */}
+          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-slate-300 dark:via-cyan-500/40 to-transparent" />
+          
+          {/* Outer blur glowing layer */}
+          <div className="absolute w-2/3 h-[2px] bg-gradient-to-r from-transparent via-sky-400/50 dark:via-cyan-400 to-transparent blur-[2px] opacity-70 dark:opacity-90" />
+          
+          {/* Bright center core highlight */}
+          <div className="absolute w-28 h-[2px] bg-gradient-to-r from-transparent via-blue-500 dark:via-cyan-300 to-transparent blur-[1px]" />
+        </div>
+
       </div>
     </section>
   );
 };
-
-{/* GLOW STREAK DIVIDER LINE */}
-<div className="relative w-full max-w-5xl mx-auto h-[1px] my-12">
-  {/* Base Fading Line */}
-  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0071e3]/40 dark:via-slate-200/80 to-transparent h-full" />
-
-  {/* Center Bright Core Beam */}
-  <div className="absolute inset-y-0 left-10 right-10 bg-gradient-to-r from-transparent via-[#0071e3] dark:via-cyan-100 to-transparent h-full" />
-
-  {/* Backglow Aura */}
-  <div className="absolute -inset-y-2 left-1/6 right-1/6 bg-gradient-to-r from-transparent via-[#0071e3]/25 dark:via-cyan-300/60 to-transparent blur-md dark:blur-sm" />
-
-  {/* Inner Subtle Highlight */}
-  <div className="absolute -inset-y-1 left-1/3 right-1/3 bg-gradient-to-r from-transparent via-[#38bdf8]/40 dark:via-cyan-200/80 to-transparent blur-xs" />
-</div>
