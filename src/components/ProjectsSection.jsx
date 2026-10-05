@@ -310,7 +310,7 @@ export const ProjectsSection = () => {
       // 1. Grid Background
       drawGrid(isDark);
 
-      // Mobile devices නම් heavy particle logic run නොකර නතර කරයි
+      // Mobile devices
       if (isMobile) return;
 
       // 2. Nodes & Lines
@@ -533,8 +533,10 @@ export const ProjectsSection = () => {
           </div>
         )}
 
-        {/* GitHub Central Button */}
-        <div className="text-center mt-16">
+        {/* PERFECTLY CENTERED BUTTON & GLOWING LINE SECTION */}
+        <div className="relative w-full max-w-5xl mx-auto mt-16 flex flex-col items-center justify-center">
+          
+          {/* GitHub Button */}
           <a
             href="https://github.com/dulanachathurma"
             target="_blank"
@@ -544,21 +546,15 @@ export const ProjectsSection = () => {
             Check My GitHub
             <ArrowRight size={16} />
           </a>
+
+          {/* Glowing Divider Line with Symmetric Spacing (py-12) */}
+          <div className="relative w-full flex items-center justify-center py-12">
+            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
+            <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
+            <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
+          </div>
+
         </div>
-          <div></div>
-{/* HIGH DISTANCE: BUTTON & GLOWING LINE */}
-<div className="relative w-full max-w-5xl mx-auto my-12 flex flex-col items-center justify-center">
-  
- 
-
-  {/* Glowing Divider Line (Far Below) */}
-  <div className="relative w-full flex items-center justify-center">
-    <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
-    <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
-    <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
-  </div>
-
-</div>
 
       </div>
     </section>
