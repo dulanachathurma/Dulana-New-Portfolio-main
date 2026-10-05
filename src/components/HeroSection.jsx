@@ -163,7 +163,7 @@ export const HeroSection = () => {
       {/* MAIN CONTENT AREA */}
       <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-16 flex flex-col items-center pt-8">
 
-        {/* TERMINAL HEADER BADGE (Inspired by Screenshot) */}
+        {/* TERMINAL HEADER BADGE */}
         <div 
           className={`mb-6 transition-all duration-[1000ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
@@ -182,14 +182,16 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* PROFILE IMAGE CARD */}
+        {/* PROFILE IMAGE CARD WITH LIGHT & DARK MODE SPINNING GLOW BORDER */}
         <div 
           className={`mb-8 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
           <div className="relative rounded-full p-[3px] overflow-hidden group cursor-pointer border border-slate-300/80 dark:border-transparent shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            <div className="hidden dark:block absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#38bdf8_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+            
+            {/* Spinning Gradient Border (Active in both Light & Dark Mode) */}
+            <div className="absolute inset-[-50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_75%,#0071e3_100%)] dark:bg-[conic-gradient(from_0deg,transparent_75%,#38bdf8_100%)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
 
             <div className="relative z-10 bg-[#f5f5f7] dark:bg-[#0a101d] p-1.5 rounded-full transition-colors duration-500">
               <div className="relative w-40 h-40 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full overflow-hidden">
@@ -208,7 +210,7 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* 1. TOP BADGE */}
+        {/* TOP BADGE */}
         <div className="mb-4 overflow-visible inline-block">
           <p 
             className={`text-[#0066cc] dark:text-[#38bdf8] text-xs sm:text-sm font-bold tracking-widest uppercase transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-sky-950/40 border border-blue-200/60 dark:border-sky-800/40 backdrop-blur-sm ${
@@ -219,7 +221,7 @@ export const HeroSection = () => {
           </p>
         </div>
 
-        {/* 2. MAIN HEADLINE */}
+        {/* MAIN HEADLINE */}
         <h1 className="text-4xl sm:text-6xl md:text-7.5xl font-bold tracking-[-0.03em] leading-[1.12] pb-6 mb-2 overflow-visible">
           <span 
             className={`block text-[#1d1d1f] dark:text-[#f8fafc] transition-all duration-[1400ms] delay-100 cubic-bezier(0.25, 1, 0.5, 1) ${
@@ -237,7 +239,7 @@ export const HeroSection = () => {
           </span>
         </h1>
 
-        {/* 3. SUB-HEADING / DESCRIPTION */}
+        {/* SUB-HEADING / DESCRIPTION */}
         <div className="overflow-visible max-w-3xl mx-auto mb-10">
           <p 
             className={`text-[#6e6e73] dark:text-[#94a3b8] text-base sm:text-lg md:text-xl font-normal tracking-tight leading-relaxed transition-all duration-[1400ms] delay-500 cubic-bezier(0.25, 1, 0.5, 1) ${
@@ -248,7 +250,7 @@ export const HeroSection = () => {
           </p>
         </div>
 
-        {/* 4. ACTION BUTTONS */}
+        {/* ACTION BUTTONS */}
         <div 
           className={`flex flex-col sm:flex-row gap-5 justify-center items-center transition-all duration-[1400ms] delay-700 cubic-bezier(0.25, 1, 0.5, 1) ${
             animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
