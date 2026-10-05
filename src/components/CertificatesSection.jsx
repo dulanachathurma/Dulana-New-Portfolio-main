@@ -434,7 +434,7 @@ export const CertificatesSection = () => {
       // 1. Grid Background
       drawGrid(isDark);
 
-      // Mobile devices නම් heavy particle logic run නොකර නතර කරයි
+      // Mobile devices
       if (isMobile) return;
 
       // 2. Nodes & Lines
@@ -636,8 +636,10 @@ export const CertificatesSection = () => {
           ))}
         </div>
 
-        {/* View All LinkedIn Button */}
-        <div className="text-center mt-16">
+        {/* BUTTON & GLOWING LINE CONTAINER */}
+        <div className="relative w-full max-w-5xl mx-auto mt-16 flex flex-col items-center justify-center">
+          
+          {/* View All LinkedIn Button */}
           <a
             href="https://www.linkedin.com/in/dulana-chathurma/details/certifications/"
             target="_blank"
@@ -646,7 +648,16 @@ export const CertificatesSection = () => {
           >
             View All on LinkedIn <ExternalLink size={16} />
           </a>
+
+          {/* Glowing Divider Line (Button එකට පහලින් pt-28 සමඟ) */}
+          <div className="relative w-full flex items-center justify-center pt-28 pb-8">
+            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
+            <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
+            <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
+          </div>
+
         </div>
+
       </div>
     </section>
   );
