@@ -148,3 +148,18 @@ export const AboutSection = () => {
     </section>
   );
 };
+
+{/* GLOW STREAK DIVIDER LINE */}
+<div className="relative w-full max-w-5xl mx-auto h-[1px] my-12">
+  {/* Base Fading Line */}
+  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0071e3]/40 dark:via-slate-200/80 to-transparent h-full" />
+
+  {/* Center Bright Core Beam */}
+  <div className="absolute inset-y-0 left-10 right-10 bg-gradient-to-r from-transparent via-[#0071e3] dark:via-cyan-100 to-transparent h-full" />
+
+  {/* Backglow Aura */}
+  <div className="absolute -inset-y-2 left-1/6 right-1/6 bg-gradient-to-r from-transparent via-[#0071e3]/25 dark:via-cyan-300/60 to-transparent blur-md dark:blur-sm" />
+
+  {/* Inner Subtle Highlight */}
+  <div className="absolute -inset-y-1 left-1/3 right-1/3 bg-gradient-to-r from-transparent via-[#38bdf8]/40 dark:via-cyan-200/80 to-transparent blur-xs" />
+</div>
