@@ -205,7 +205,7 @@ export const EducationSection = () => {
         </div>
 
         {/* Timeline */}
-        <div className="relative">
+        <div className="relative mb-20">
           <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600/40 via-blue-600/10 to-transparent -translate-x-1/2 hidden md:block" />
 
           <div className="space-y-12">
@@ -281,6 +281,19 @@ export const EducationSection = () => {
             })}
           </div>
         </div>
+
+        {/* HIGH-GLOW HIGH-VISIBILITY SECTION DIVIDER */}
+        <div className="relative w-full max-w-5xl mx-auto pt-6 pb-2 flex items-center justify-center">
+          {/* Base border line with gradient */}
+          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
+
+          {/* Wide Soft Glow Layer */}
+          <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
+
+          {/* Intense Center Core Highlight */}
+          <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
+        </div>
+
       </div>
     </section>
   );
