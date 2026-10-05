@@ -545,16 +545,28 @@ export const ProjectsSection = () => {
             <ArrowRight size={16} />
           </a>
         </div>
-     {/* HIGH-GLOW HIGH-VISIBILITY SECTION DIVIDER */}
-<div className="relative w-full max-w-5xl mx-auto pt-0 pb-2 flex items-center justify-center">
-  {/* Base border line with gradient */}
-  <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
+{/* HIGH DISTANCE: BUTTON & GLOWING LINE */}
+<div className="relative w-full max-w-5xl mx-auto my-12 flex flex-col items-center justify-center">
+  
+  {/* Centered Button with Large Bottom Margin */}
+  <div className="z-10 mb-28">
+    <a
+      href="https://github.com/dulanachathurma"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm shadow-[0_0_20px_rgba(37,99,235,0.6)] transition-all duration-300 hover:scale-105"
+    >
+      Check My GitHub &rarr;
+    </a>
+  </div>
 
-  {/* Wide Soft Glow Layer */}
-  <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
+  {/* Glowing Divider Line (Far Below) */}
+  <div className="relative w-full flex items-center justify-center">
+    <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
+    <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
+    <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
+  </div>
 
-  {/* Intense Center Core Highlight */}
-  <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
 </div>
 
       </div>
