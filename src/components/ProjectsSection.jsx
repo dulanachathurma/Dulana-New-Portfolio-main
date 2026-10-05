@@ -545,18 +545,18 @@ export const ProjectsSection = () => {
             <ArrowRight size={16} />
           </a>
         </div>
-        <br><br>
-{/* HIGH-GLOW HIGH-VISIBILITY SECTION DIVIDER */}
-        <div className="relative w-full max-w-5xl mx-auto pt-6 pb-2 flex items-center justify-center">
-          {/* Base border line with gradient */}
-          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
+     {/* HIGH-GLOW HIGH-VISIBILITY SECTION DIVIDER */}
+<div className="relative w-full max-w-5xl mx-auto pt-0 pb-2 flex items-center justify-center">
+  {/* Base border line with gradient */}
+  <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
 
-          {/* Wide Soft Glow Layer */}
-          <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
+  {/* Wide Soft Glow Layer */}
+  <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
 
-          {/* Intense Center Core Highlight */}
-          <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
-        </div>
+  {/* Intense Center Core Highlight */}
+  <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
+</div>
+
       </div>
     </section>
   );
