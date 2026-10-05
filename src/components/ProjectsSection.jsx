@@ -548,17 +548,7 @@ export const ProjectsSection = () => {
 {/* HIGH DISTANCE: BUTTON & GLOWING LINE */}
 <div className="relative w-full max-w-5xl mx-auto my-12 flex flex-col items-center justify-center">
   
-  {/* Centered Button with Large Bottom Margin */}
-  <div className="z-10 mb-28">
-    <a
-      href="https://github.com/dulanachathurma"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm shadow-[0_0_20px_rgba(37,99,235,0.6)] transition-all duration-300 hover:scale-105"
-    >
-      Check My GitHub &rarr;
-    </a>
-  </div>
+ 
 
   {/* Glowing Divider Line (Far Below) */}
   <div className="relative w-full flex items-center justify-center">
