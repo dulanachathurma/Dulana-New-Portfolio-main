@@ -148,7 +148,7 @@ const projects = [
   title: "AI Touchless Gesture Controller - Computer Vision Mouse Interface",
   category: "major",
   description: "An AI-powered computer vision system enabling touchless desktop navigation and mouse control via real-time hand gesture tracking. Features cursor motion tracking, pinch-to-click, and smooth gesture recognition built over real-time camera streams.",
-  image: "/project-gesture-mouse.jpg",
+  image: "/gesture-mouse.jpg",
   tags: ["Python", "OpenCV", "MediaPipe", "PyAutoGUI", "Computer Vision"],
   githubUrl: "https://github.com/dulanachathurma/AI-Gesture-Mouse.git",
   date: "Oct 2026",
