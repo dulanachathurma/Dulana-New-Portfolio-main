@@ -100,7 +100,19 @@ const articles = [
     readTime: "6 min read",
     tagColor: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200/50 dark:border-emerald-800/40",
     tag: "Full-Stack & HealthTech"
-  }
+  },
+  {
+  id: 10,
+  title: "We Built a Mouse You Control With Your Bare Hand Using Just a Webcam",
+  description: "A deep dive into developing an AI touchless computer vision interface. Explores real-time hand landmark tracking, gesture mapping for click and scroll actions, and optimizing framerate performance using Python, OpenCV, and MediaPipe.",
+  image: "/mouse.jpg",
+  date: "Oct 2026",
+  link: "https://medium.com/@dulanachathurma99/we-built-a-mouse-you-control-with-your-bare-hand-using-just-a-webcam-e2835773284f?postPublishedType=repub",
+  readTime: "5 min read",
+  tagColor: "bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border-indigo-200/50 dark:border-indigo-800/40",
+  tag: "Computer Vision & AI"
+}
+
 ];
 
 export const ArticlesSection = () => {
