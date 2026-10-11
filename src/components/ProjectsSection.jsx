@@ -144,6 +144,17 @@ const projects = [
     tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
   },
   {
+  id: 23,
+  title: "AI Touchless Gesture Controller - Computer Vision Mouse Interface",
+  category: "major",
+  description: "An AI-powered computer vision system enabling touchless desktop navigation and mouse control via real-time hand gesture tracking. Features cursor motion tracking, pinch-to-click, and smooth gesture recognition built over real-time camera streams.",
+  image: "/project-gesture-mouse.jpg",
+  tags: ["Python", "OpenCV", "MediaPipe", "PyAutoGUI", "Computer Vision"],
+  githubUrl: "https://github.com/dulanachathurma/AI-Gesture-Mouse.git",
+  date: "Oct 2026",
+  tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
+},
+  {
     id: 2,
     title: "GPA Calculator App",
     category: "mini",
