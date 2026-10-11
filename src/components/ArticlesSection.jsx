@@ -92,7 +92,7 @@ const articles = [
   },
   {
     id: 9,
-    title: "Touchless Gesture & Voice Interactive System",
+    title: " Multilingual Health Tracker ",
     description: "An in-depth exploration of building a modern full-stack healthcare mobile web app with Node.js, React, Chart.js, dynamic trilingual (EN/SI/TA) support, and intelligent symptom-based doctor recommendation engines.",
     image: "/project-healthpulse1.jpg",
     date: "Oct 2026",
@@ -103,7 +103,7 @@ const articles = [
   },
   {
   id: 10,
-  title: "We Built a Mouse You Control With Your Bare Hand Using Just a Webcam",
+  title: "Touchless Gesture & Voice Interactive System",
   description: "A deep dive into developing an AI touchless computer vision interface. Explores real-time hand landmark tracking, gesture mapping for click and scroll actions, and optimizing framerate performance using Python, OpenCV, and MediaPipe.",
   image: "/mouse.jpg",
   date: "Oct 2026",
