@@ -155,6 +155,17 @@ const projects = [
   tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
 },
   {
+  id: 24, 
+  title: "VoxBridge AI System",
+  category: "major",
+  description: "An advanced, low-latency, real-time speech-to-speech interpreter that captures system audio from live streams (YouTube) and meetings (Zoom, Meet, Teams). Powered by Google Gemini 2.5 Flash, it seamlessly translates spoken speech into Sinhala, English, or Tamil with dynamic VAD chunking and auto-ducking audio control.",
+  image: "/voxbridge-ai.jpg", 
+  tags: ["React", "Node.js", "Socket.IO", "WebRTC", "Google Gemini API", "Web Audio API"],
+  githubUrl: "https://github.com/dulanachathurma/Realtime-Live-Videos-Translator.git", 
+  date: "Oct 2026",
+  tagColor: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300"
+},
+  {
     id: 2,
     title: "GPA Calculator App",
     category: "mini",
