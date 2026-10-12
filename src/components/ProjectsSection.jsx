@@ -1,6 +1,9 @@
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, ExternalLink, Github, Users, Layers, Cpu, Code2 } from "lucide-react";
+
 const projects = [
   // ==========================================
-  // 1. FEATURED SYSTEMS & ADVANCED WORK (Chronological: Most Recent First)
+  // 1. FEATURED SYSTEMS & ADVANCED WORK (Chronological: Latest First)
   // ==========================================
   {
     id: 24, 
@@ -244,3 +247,355 @@ const projects = [
     tagColor: "bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300"
   }
 ];
+
+export const ProjectsSection = () => {
+  const [activeTab, setActiveTab] = useState("all");
+  const canvasRef = useRef(null);
+
+  const filteredProjects = activeTab === "all" 
+    ? projects 
+    : projects.filter(project => project.category === activeTab);
+
+  // --- INTERACTIVE GRAPH CANVAS ---
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width = (canvas.width = canvas.parentElement.offsetWidth);
+    let height = (canvas.height = canvas.parentElement.offsetHeight);
+    let mouse = { x: null, y: null, radius: 150 };
+
+    const isMobile = window.innerWidth < 768;
+
+    const handleMouseMove = (e) => {
+      if (isMobile) return;
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
+
+    const handleResize = () => {
+      if (!canvas.parentElement) return;
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    };
+
+    const parent = canvas.parentElement;
+    parent.addEventListener("mousemove", handleMouseMove, { passive: true });
+    parent.addEventListener("mouseleave", handleMouseLeave, { passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    const particleCount = Math.floor((width * height) / 9500);
+    const particles = Array.from({ length: particleCount }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: Math.random() * 1.5 + 1.2,
+    }));
+
+    let animationFrameId;
+
+    const drawGrid = (isDark) => {
+      const gridSize = 45;
+      ctx.beginPath();
+      ctx.lineWidth = 0.6;
+      ctx.strokeStyle = isDark ? "rgba(255, 255, 255, 0.075)" : "rgba(0, 0, 0, 0.065)";
+
+      for (let x = 0; x <= width; x += gridSize) {
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+      }
+      for (let y = 0; y <= height; y += gridSize) {
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+      }
+      ctx.stroke();
+    };
+
+    const animateParticles = () => {
+      ctx.clearRect(0, 0, width, height);
+      const isDark = document.documentElement.classList.contains("dark");
+
+      drawGrid(isDark);
+      if (isMobile) return;
+
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        if (mouse.x !== null && mouse.y !== null) {
+          let dx = mouse.x - p.x;
+          let dy = mouse.y - p.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            let force = (mouse.radius - dist) / mouse.radius;
+            p.x -= (dx / dist) * force * 3;
+            p.y -= (dy / dist) * force * 3;
+          }
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = isDark ? "rgba(180, 205, 235, 0.65)" : "rgba(51, 65, 85, 0.5)";
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          let p2 = particles[j];
+          let dx = p.x - p2.x;
+          let dy = p.y - p2.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            const alpha = 1 - dist / 120;
+            ctx.strokeStyle = isDark
+              ? `rgba(148, 163, 184, ${0.28 * alpha})`
+              : `rgba(71, 85, 105, ${0.25 * alpha})`;
+            ctx.lineWidth = 0.85;
+            ctx.stroke();
+          }
+        }
+      });
+
+      animationFrameId = requestAnimationFrame(animateParticles);
+    };
+
+    animateParticles();
+
+    return () => {
+      parent.removeEventListener("mousemove", handleMouseMove);
+      parent.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <section id="projects" className="py-24 px-4 relative bg-[#f5f5f7] dark:bg-[#0a101d] overflow-hidden transition-colors duration-500">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 transform-gpu"
+        style={{ willChange: "transform" }}
+      />
+
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-cyan-500/5 dark:from-blue-600/10 dark:via-cyan-500/10 dark:to-blue-600/10 rounded-full blur-[150px] opacity-70" />
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1 rounded-full bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
+            My Portfolio
+          </span>
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1d1d1f] dark:text-[#f5f5f7]">
+            Featured Projects & Engineering Work
+          </h2>
+
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6" />
+
+          <p className="text-[#86868b] dark:text-[#94a3b8] max-w-2xl mx-auto text-sm sm:text-base">
+            Architected and built scalable systems, AI algorithms, low-level software, and collaborative team applications.
+          </p>
+        </div>
+
+        {/* Navigation Filter Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="flex flex-wrap justify-center gap-1.5 bg-slate-200/60 dark:bg-[#1e293b]/60 p-1.5 rounded-2xl backdrop-blur-sm border border-slate-300/50 dark:border-blue-500/20">
+            
+            <button
+              onClick={() => setActiveTab("all")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                activeTab === "all"
+                  ? "bg-blue-600 text-white shadow-md scale-105"
+                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              }`}
+            >
+              <Layers size={15} /> All Projects
+            </button>
+
+            <button
+              onClick={() => setActiveTab("featured")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                activeTab === "featured"
+                  ? "bg-blue-600 text-white shadow-md scale-105"
+                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              }`}
+            >
+              <Cpu size={15} /> Featured Systems & AI
+            </button>
+
+            <button
+              onClick={() => setActiveTab("group")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                activeTab === "group"
+                  ? "bg-blue-600 text-white shadow-md scale-105"
+                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              }`}
+            >
+              <Users size={15} /> Group & Academic Projects
+            </button>
+
+            <button
+              onClick={() => setActiveTab("mini")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                activeTab === "mini"
+                  ? "bg-blue-600 text-white shadow-md scale-105"
+                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              }`}
+            >
+              <Code2 size={15} /> Personal Apps & Utilities
+            </button>
+
+          </div>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project) => (
+            <div key={project.id} className="group relative rounded-2xl transition-all duration-500 flex flex-col h-full">
+              
+              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 dark:group-hover:opacity-100 dark:group-hover:blur-xl transition-all duration-500 pointer-events-none" />
+
+              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border border-slate-300/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col h-full">
+                
+                {/* Image Box */}
+                <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  {/* Group Project Tag */}
+                  {project.isGroup && (
+                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-indigo-600/90 text-white text-[10px] font-bold tracking-wider uppercase backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                      <Users size={12} /> Team Project
+                    </div>
+                  )}
+
+                  {project.date && (
+                    <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-[11px] font-medium tracking-wide">
+                      📅 {project.date}
+                    </div>
+                  )}
+                </div>
+
+                {/* Content Box */}
+                <div className="p-5 flex flex-col flex-grow">
+                  
+                  {/* Tech Stack Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-3.5">
+                    {project.tags.slice(0, 3).map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className={`px-2.5 py-0.5 text-[11px] font-semibold rounded-full ${project.tagColor} shadow-sm border border-black/5 dark:border-white/5`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+
+                    {project.tags.length > 3 && (
+                      <span className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-black/5 dark:border-white/5">
+                        +{project.tags.length - 3}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-bold mb-1.5 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
+                    {project.title}
+                  </h3>
+
+                  {/* Group Role Mention */}
+                  {project.myRole && (
+                    <div className="mb-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400 flex items-center gap-1">
+                      <span className="opacity-75">My Role:</span> {project.myRole}
+                    </div>
+                  )}
+
+                  {/* Description */}
+                  <p className="text-slate-600 dark:text-slate-300 text-sm mb-5 leading-relaxed line-clamp-3 flex-grow">
+                    {project.description}
+                  </p>
+
+                  {/* Actions Footer */}
+                  <div className="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-auto">
+                    <div className="flex gap-3 w-full">
+                      {project.demoUrl && project.demoUrl !== "#" && (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                        >
+                          <ExternalLink size={13} /> Live Demo
+                        </a>
+                      )}
+
+                      {project.githubUrl && project.githubUrl !== "#" && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                        >
+                          <Github size={14} /> Code Base
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Empty Fallback */}
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-12 text-slate-500 dark:text-slate-400">
+            No projects found in this category.
+          </div>
+        )}
+
+        {/* GitHub Button & Divider */}
+        <div className="relative w-full max-w-5xl mx-auto mt-16 flex flex-col items-center justify-center">
+          <a
+            href="https://github.com/dulanachathurma"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+          >
+            Check My GitHub
+            <ArrowRight size={16} />
+          </a>
+
+          <div className="relative w-full flex items-center justify-center pt-28 pb-8">
+            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
+            <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
+            <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
