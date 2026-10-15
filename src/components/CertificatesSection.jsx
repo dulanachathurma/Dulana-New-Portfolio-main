@@ -352,7 +352,30 @@ const certificates = [
     skills: ["Kotlin", "Jetpack Compose", "Android UI", "State Management"],
     viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/589904754/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
     tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
-  }
+  },
+ 
+// LinkedIn Learning
+{
+  id: 22,
+  title: "Agentic AI: Build Your First Agentic AI System",
+  organization: "LinkedIn Learning",
+  location: "Online",
+  date: "Oct 2026",
+  description: "Learn the fundamentals of Agentic AI and how to build an AI agent system that can reason, make decisions, and perform tasks autonomously.",
+  image: "/certificate-agentic-ai.jpg",
+  logoImg: "linkedin-logo.png",
+  logoText: "in",
+  logoBg: "bg-blue-600",
+  skills: [
+    "Agentic AI",
+    "Artificial Intelligence",
+    "AI Agents",
+    "AI System Development"
+  ],
+  viewCertificateUrl: "https://www.linkedin.com/learning/certificates/a77437ce2a0cc8a4b3f05d287e6444a1e0f37b16ff68fd10c036db93d1e6afb2",
+  tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+}
+
 ];
 
 export const CertificatesSection = () => {
