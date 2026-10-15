@@ -374,6 +374,25 @@ const certificates = [
   ],
   viewCertificateUrl: "https://www.linkedin.com/learning/certificates/a77437ce2a0cc8a4b3f05d287e6444a1e0f37b16ff68fd10c036db93d1e6afb2",
   tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+},
+  {
+  id: 23,
+  title: "IEEE Day 2026 – Certificate of Participation",
+  organization: "IEEE Student Branch, University of Kelaniya",
+  location: "University of Kelaniya, Sri Lanka",
+  date: "Oct 2026",
+  description: "Certificate of participation in IEEE Day 2026.",
+  image: "/certificate-ieee-day-2026.jpg",
+  logoText: "IEEE",
+  logoBg: "bg-blue-600",
+  skills: [
+    "Networking",
+    "Collaboration",
+    "Technology",
+    "Innovation"
+  ],
+  viewCertificateUrl: "/certificate-ieee-day-2026.jpg",
+  tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
 }
 
 ];
