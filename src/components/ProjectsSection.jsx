@@ -12,7 +12,7 @@ const projects = [
   title: "Sriseta Official Website",
   category: "featured", // Updated
   description: "Full-stack AI-driven astrology platform with live horoscopes, Gemini AI prediction engine, secure JWT authentication, auto-updating web scraper, and WhatsApp booking integration.", // Enhanced description
-  image: "/project-astrology-website.jpg",
+  image: "/project-astrology-website1.jpg",
   tags: ["React 19", "Node.js", "MongoDB", "Google Gemini AI", "Tailwind CSS"], // Updated to reflect real tech stack
   demoUrl: "https://sriseta.vercel.app",
   githubUrl: "https://github.com/dulanachathurma/sriseta-astrology-platform",
