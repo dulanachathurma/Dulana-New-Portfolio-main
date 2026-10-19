@@ -18,7 +18,7 @@ const projects = [
   githubUrl: "https://github.com/dulanachathurma/sriseta-astrology-platform",
   date: "Dec 2025",
   tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
-}
+},
   
   {
     id: 24, 
