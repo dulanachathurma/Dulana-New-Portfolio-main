@@ -5,6 +5,21 @@ const projects = [
   // ==========================================
   // 1. FEATURED SYSTEMS & ADVANCED WORK (Chronological: Latest First)
   // ==========================================
+
+  
+  {
+  id: 6,
+  title: "Sriseta Official Website",
+  category: "featured", // Updated
+  description: "Full-stack AI-driven astrology platform with live horoscopes, Gemini AI prediction engine, secure JWT authentication, auto-updating web scraper, and WhatsApp booking integration.", // Enhanced description
+  image: "/project-astrology-website.jpg",
+  tags: ["React 19", "Node.js", "MongoDB", "Google Gemini AI", "Tailwind CSS"], // Updated to reflect real tech stack
+  demoUrl: "https://sriseta.vercel.app",
+  githubUrl: "https://github.com/dulanachathurma/sriseta-astrology-platform",
+  date: "Dec 2025",
+  tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
+}
+  
   {
     id: 24, 
     title: "VoxBridge AI System",
@@ -198,18 +213,7 @@ const projects = [
     date: "Jan 2026",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
-  {
-    id: 6,
-    title: "Sriseta Official Website",
-    category: "mini",
-    description: "Modern astrology website with live horoscopes, service booking, WhatsApp integration, auto-updating predictions, and interactive sliders.",
-    image: "/project-astrology-website.jpg",
-    tags: ["React.js", "HTML5", "CSS3", "JavaScript"],
-    demoUrl: "https://sriseta.vercel.app",
-    githubUrl: "https://github.com/dulanachathurma/sriseta-astrology-platform",
-    date: "Dec 2025",
-    tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
-  },
+
   {
     id: 8,
     title: "WeatherSphere Pro App",
