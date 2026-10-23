@@ -5,7 +5,7 @@ const articles = [
   {
     id: 1,
     title: "CIA Triad: Safeguarding Our Information",
-    description: "An exploration of the fundamental principles of information security - Confidentiality, Integrity, and Availability.",
+    description: "An exploration of the fundamental principles of information security - Confidentiality, Integrity and Availability.",
     image: "/article-cia-triad.jpg",
     date: "2025",
     link: "https://medium.com/@dulanachathurma99/cia-triad-safeguarding-our-inforation-576563e3dbd3",
@@ -16,7 +16,7 @@ const articles = [
   {
     id: 2,
     title: "The Importance of Diagrams",
-    description: "Discover how diagrams simplify complex ideas, improve understanding, and play a vital role in communication, learning, and software development.",
+    description: "Discover how diagrams simplify complex ideas, improve understanding and play a vital role in communication, learning and software development.",
     image: "/article-diagrams.jpg",
     date: "2025",
     link: "https://medium.com/@dulanachathurma99/the-importance-of-diagrams-868b1fb153ee",
@@ -60,7 +60,7 @@ const articles = [
   {
     id: 6,
     title: "Building an AI-Based Career & University Recommendation System",
-    description: "How I built an AI system that analyzes academic profiles, interests, and market trends to predict optimal career paths and recommend matching universities for students.",
+    description: "How I built an AI system that analyzes academic profiles, interests and market trends to predict optimal career paths and recommend matching universities for students.",
     image: "/project-ai-career.jpg",
     date: "2026",
     link: "https://medium.com/@dulanachathurma99/ai-career-university-recommendation-system-2cfafe7d9842",
@@ -71,7 +71,7 @@ const articles = [
   {
     id: 7,
     title: "Building a Bare-Metal x86 Operating System from Scratch",
-    description: "A comprehensive journey into low-level systems engineering, exploring how to build a custom OS kernel, memory manager, and file system.",
+    description: "A comprehensive journey into low-level systems engineering, exploring how to build a custom OS kernel, memory manager and file system.",
     image: "/project-os.jpg",
     date: "Sep 2026",
     link: "https://medium.com/@dulanachathurma99/i-built-an-operating-system-from-scratch-and-it-broke-every-assumption-i-had-3f6ea673d228",
@@ -82,7 +82,7 @@ const articles = [
   {
     id: 8,
     title: "Building a Cloud-Native Integration Gateway with AI-Driven Observability & System Health Analytics",
-    description: "An advanced cloud-native architecture combining integration services with intelligent observability, leveraging JavaScript, Python, and Ballerina for real-time system health analytics.",
+    description: "An advanced cloud-native architecture combining integration services with intelligent observability, leveraging JavaScript, Python and Ballerina for real-time system health analytics.",
     image: "/project-gateway.jpg",
     date: "Sep 2026",
     link: "https://medium.com/@dulanachathurma99/building-a-cloud-native-integration-gateway-with-ai-driven-observability-system-health-analytics-53269835dadf?postPublishedType=repub",
@@ -93,7 +93,7 @@ const articles = [
   {
     id: 9,
     title: " Multilingual Health Tracker ",
-    description: "An in-depth exploration of building a modern full-stack healthcare mobile web app with Node.js, React, Chart.js, dynamic trilingual (EN/SI/TA) support, and intelligent symptom-based doctor recommendation engines.",
+    description: "An in-depth exploration of building a modern full-stack healthcare mobile web app with Node.js, React, Chart.js, dynamic trilingual (EN/SI/TA) support and intelligent symptom-based doctor recommendation engines.",
     image: "/Health.jpg",
     date: "Oct 2026",
     link: "https://medium.com/@dulanachathurma99/i-built-a-multilingual-health-tracker-with-a-built-in-doctor-finder-afacdc7783d4",
@@ -104,7 +104,7 @@ const articles = [
   {
   id: 10,
   title: "Touchless Gesture & Voice Interactive System",
-  description: "A deep dive into developing an AI touchless computer vision interface. Explores real-time hand landmark tracking, gesture mapping for click and scroll actions, and optimizing framerate performance using Python, OpenCV, and MediaPipe.",
+  description: "A deep dive into developing an AI touchless computer vision interface. Explores real-time hand landmark tracking, gesture mapping for click and scroll actions and optimizing framerate performance using Python, OpenCV and MediaPipe.",
   image: "/project-healthpulse1.jpg",
   date: "Oct 2026",
   link: "https://medium.com/@dulanachathurma99/we-built-a-mouse-you-control-with-your-bare-hand-using-just-a-webcam-e2835773284f?postPublishedType=repub",
@@ -283,7 +283,7 @@ export const ArticlesSection = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6"></div>
           <p className="text-[#86868b] dark:text-[#94a3b8] text-base md:text-lg max-w-xl mx-auto font-normal leading-relaxed">
-            Sharing insights and technical deep-dives on software engineering, AI, and system design.
+            Sharing insights and technical deep-dives on software engineering, AI and system design.
           </p>
         </div>
 

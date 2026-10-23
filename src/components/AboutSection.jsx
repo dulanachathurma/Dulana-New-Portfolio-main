@@ -35,7 +35,7 @@ export const AboutSection = () => {
 
       title: "Full-Stack Development", 
 
-      description: "Creating complete web applications with Spring Boot, React.js, and MySQL.",
+      description: "Creating complete web applications with Spring Boot, React.js and MySQL.",
 
       icon: Code, 
 
@@ -45,7 +45,7 @@ export const AboutSection = () => {
 
       title: "Cloud & Systems Architecture", 
 
-      description: "Building scalable backends, RESTful APIs, and deploying modern web applications using Node.js, Express, Git, and Cloud platforms.",
+      description: "Building scalable backends, RESTful APIs and deploying modern web applications using Node.js, Express, Git and Cloud platforms.",
 
       icon: Server, 
 
@@ -189,7 +189,7 @@ export const AboutSection = () => {
 
                 <p>
 
-                  Currently diving deep into <span className="text-slate-900 dark:text-cyan-400 font-medium">AI, Machine Learning</span>, and <span className="text-slate-900 dark:text-cyan-400 font-medium">Full-Stack Development</span>, I'm constantly pushing boundaries to learn and build impactful systems driven by continuous learning and excellence.
+                  Currently diving deep into <span className="text-slate-900 dark:text-cyan-400 font-medium">AI, Machine Learning</span> and <span className="text-slate-900 dark:text-cyan-400 font-medium">Full-Stack Development</span>, I'm constantly pushing boundaries to learn and build impactful systems driven by continuous learning and excellence.
 
                 </p>
 

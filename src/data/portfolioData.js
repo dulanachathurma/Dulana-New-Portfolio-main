@@ -20,7 +20,7 @@ export const portfolioData = {
   // About Section
   about: {
     journey: "I'm Dulana Chathurma, a passionate Software Engineering (UG) student at the University of Kelaniya. My passion lies in creating innovative solutions that bridge complex technical challenges with user-friendly experiences.",
-    focus: "Currently diving deep into AI, Machine Learning, and Full-Stack Development, I'm constantly pushing boundaries to learn and build impactful systems. My journey started with curiosity and has evolved into a career driven by continuous learning and excellence.",
+    focus: "Currently diving deep into AI, Machine Learning and Full-Stack Development, I'm constantly pushing boundaries to learn and build impactful systems. My journey started with curiosity and has evolved into a career driven by continuous learning and excellence.",
     passion: "When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, writing technical articles on Medium, or sharing knowledge with the developer community. I believe in writing clean, maintainable code that makes a real difference.",
     stats: [
       { value: "100+", label: "Projects Completed", icon: "Award" },
@@ -30,7 +30,7 @@ export const portfolioData = {
     ],
     features: [
       { title: "AI & Machine Learning", description: "Building intelligent systems and prediction models using Python and ML algorithms.", icon: "Brain" },
-      { title: "Full-Stack Development", description: "Creating complete web applications with Spring Boot, React.js, and MySQL.", icon: "Code" },
+      { title: "Full-Stack Development", description: "Creating complete web applications with Spring Boot, React.js and MySQL.", icon: "Code" },
       { title: "Database Management", description: "Designing and implementing efficient database solutions with MySQL and PostgreSQL.", icon: "Database" }
     ]
   },
@@ -91,7 +91,7 @@ export const portfolioData = {
       title: "GitHub Dev Day",
       location: "University of Kelaniya · Hybrid",
       date: "Apr 2026 - Present · 1 mo",
-      description: "Successfully completed the GitHub for Beginners program and participated in GitHub Dev Day Sri Lanka, led by Nisal Gunawardhana. Gained hands-on experience in Git fundamentals, branching, collaboration, and modern development workflows using GitHub.",
+      description: "Successfully completed the GitHub for Beginners program and participated in GitHub Dev Day Sri Lanka, led by Nisal Gunawardhana. Gained hands-on experience in Git fundamentals, branching, collaboration and modern development workflows using GitHub.",
       image: "/github-logo.png",
       link: "https://nisalgunawardhana.com/github-dev-day/badge/nt6smxx1nvpxmnlk2tw8",
       linkText: "View Badge"
@@ -109,7 +109,7 @@ export const portfolioData = {
       title: "Traveling Experiences",
       location: "Sri Lanka",
       date: "Aug 2024 - Present · 1 yr 9 mos",
-      description: "Managing a travel and lifestyle YouTube page focused on exploring Sri Lanka 🇱🇰✈️. Developed skills in video editing, AI tools usage, and Canva-based photo editing to create engaging digital content.",
+      description: "Managing a travel and lifestyle YouTube page focused on exploring Sri Lanka 🇱🇰✈️. Developed skills in video editing, AI tools usage and Canva-based photo editing to create engaging digital content.",
       image: "/youtube-logo.png",
       link: "https://www.linkedin.com/in/dulana-chathurma/overlay/Position/2741267109/treasury/",
       linkText: "View Work"
@@ -130,7 +130,7 @@ export const portfolioData = {
     {
       id: 1,
       title: "CarePoint Medical Center",
-      description: "Modern healthcare web application designed for easy doctor search, appointment booking, and seamless patient experience. Features doctor search, online appointment booking, secure payment simulation, ambulance contact access, and a fully responsive user interface.",
+      description: "Modern healthcare web application designed for easy doctor search, appointment booking and seamless patient experience. Features doctor search, online appointment booking, secure payment simulation, ambulance contact access and a fully responsive user interface.",
       image: "/project-medical-center.jpg",
       tags: ["HTML5", "CSS3", "JavaScript"],
       demoUrl: "https://dulanamedical.netlify.app",
@@ -150,7 +150,7 @@ export const portfolioData = {
     {
       id: 3,
       title: "User Management Application",
-      description: "Full-stack CRUD web application developed using Spring Boot, React.js, JavaScript, and MySQL. The system allows efficient user data management with a structured backend and a responsive front-end interface.",
+      description: "Full-stack CRUD web application developed using Spring Boot, React.js, JavaScript and MySQL. The system allows efficient user data management with a structured backend and a responsive front-end interface.",
       image: "/project-user-management.jpg",
       tags: ["Java", "JavaScript", "Spring Boot", "React.js", "MySQL", "Full-Stack"],
       demoUrl: "https://github.com/dulanachathurma/User-Management-Application",
@@ -160,7 +160,7 @@ export const portfolioData = {
     {
       id: 4,
       title: "Sriseta Official Website",
-      description: "Modern astrology website with live horoscopes, service booking, WhatsApp integration, and mobile-friendly design. Features auto-updating predictions, interactive zodiac slider, and contact forms.",
+      description: "Modern astrology website with live horoscopes, service booking, WhatsApp integration and mobile-friendly design. Features auto-updating predictions, interactive zodiac slider and contact forms.",
       image: "/project-astrology-website.jpg",
       tags: ["React.js", "HTML5", "CSS3", "JavaScript"],
       demoUrl: "https://dulanachathurma.github.io/Astrology-Services-App/",
@@ -180,7 +180,7 @@ export const portfolioData = {
     {
       id: 6,
       title: "WeatherSphere Pro App",
-      description: "Responsive weather web application providing real-time weather updates with a clean interface. Built using React.js, HTML, CSS, and JavaScript.",
+      description: "Responsive weather web application providing real-time weather updates with a clean interface. Built using React.js, HTML, CSS and JavaScript.",
       image: "/project-weather-app.jpg",
       tags: ["React.js", "HTML5", "CSS3", "JavaScript", "Weather API"],
       demoUrl: "https://dulanachathurma.github.io/WeatherSphere-Pro/",
@@ -200,7 +200,7 @@ export const portfolioData = {
     {
       id: 8,
       title: "ATM Mini Project",
-      description: "ATM simulation program using C, functions, switch cases, and complete banking logic.",
+      description: "ATM simulation program using C, functions, switch cases and complete banking logic.",
       image: "/project-atm-system.jpg",
       tags: ["C", "Banking Logic"],
       demoUrl: "https://github.com/dulanachathurma/ATM-Bank-Project-System",
@@ -230,7 +230,7 @@ export const portfolioData = {
     {
       id: 11,
       title: "Intelligent Career Skill Analysis Platform (NexGenAI)",
-      description: "AI-powered career platform that analyzes CVs, maps skills intelligently, and provides career recommendations along with ATS scores.",
+      description: "AI-powered career platform that analyzes CVs, maps skills intelligently and provides career recommendations along with ATS scores.",
       image: "/project-nexgenai.jpg",
       tags: ["React", "TailwindCSS", "HTML5", "CSS3", "AI Resume Analysis"],
       demoUrl: "https://dulanachathurma.github.io/Intelligent-Career-Skill-Analysis-Platform/",

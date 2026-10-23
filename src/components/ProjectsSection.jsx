@@ -11,7 +11,7 @@ const projects = [
   id: 6,
   title: "Sriseta Official Website",
   category: "featured", // Updated
-  description: "Full-stack AI-driven astrology platform with live horoscopes, Gemini AI prediction engine, secure JWT authentication, auto-updating web scraper, and WhatsApp booking integration.", // Enhanced description
+  description: "Full-stack AI-driven astrology platform with live horoscopes, Gemini AI prediction engine, secure JWT authentication, auto-updating web scraper and WhatsApp booking integration.", // Enhanced description
   image: "/project-astrology-website1.jpg",
   tags: ["React 19", "Node.js", "MongoDB", "Google Gemini AI", "Tailwind CSS"], // Updated to reflect real tech stack
   demoUrl: "https://sriseta.vercel.app",
@@ -35,7 +35,7 @@ const projects = [
     id: 22,
     title: "HealthPulse AI - Full-Stack Mobile & Web Companion",
     category: "featured",
-    description: "Cloud-Native Trilingual Health Platform featuring real-time BMI tracking analytics, symptom-driven smart doctor recommendations, and health vitals logging.",
+    description: "Cloud-Native Trilingual Health Platform featuring real-time BMI tracking analytics, symptom-driven smart doctor recommendations and health vitals logging.",
     image: "/project-health.jpg",
     tags: ["React", "Node.js", "Express", "MongoDB", "Chart.js", "TailwindCSS"],
     githubUrl: "https://github.com/dulanachathurma/Vitacare-mobile-fullstack",
@@ -57,7 +57,7 @@ const projects = [
     id: 18,
     title: "Bare-Metal x86 Operating System",
     category: "featured",
-    description: "A custom-built, bare-metal x86 operating system featuring a bootloader, round-robin process scheduler, multithreading, memory management (PMM & Heap), and a RAM disk file system.",
+    description: "A custom-built, bare-metal x86 operating system featuring a bootloader, round-robin process scheduler, multithreading, memory management (PMM & Heap) and a RAM disk file system.",
     image: "/project-os.jpg", 
     tags: ["C", "Assembly", "OS Development", "QEMU", "Systems Programming"],
     githubUrl: "https://github.com/dulanachathurma/seng21213-os",
@@ -68,7 +68,7 @@ const projects = [
     id: 17,
     title: "NexaTask – Modern Task Management Platform",
     category: "featured",
-    description: "Modern full-stack task management web app featuring JWT authentication, real-time search, priority-based sorting, dynamic dashboard analytics, and schedule tracking.",
+    description: "Modern full-stack task management web app featuring JWT authentication, real-time search, priority-based sorting, dynamic dashboard analytics and schedule tracking.",
     image: "/project-nexatask.jpg",
     tags: ["Full-Stack", "React", "Node.js", "JWT", "TailwindCSS", "Express"],
     githubUrl: "https://github.com/dulanachathurma/NexaTask",
@@ -79,7 +79,7 @@ const projects = [
     id: 1,
     title: "VisionScope AI",
     category: "featured",
-    description: "AI-powered real-time human feature detection system with webcam analysis, face & eye tracking, image upload processing, and drowsiness detection alerts for driver safety.",
+    description: "AI-powered real-time human feature detection system with webcam analysis, face & eye tracking, image upload processing and drowsiness detection alerts for driver safety.",
     image: "/project-visionscope-ai.jpg",
     tags: ["Python", "Flask", "OpenCV", "MediaPipe", "React.js", "Machine Learning"],
     githubUrl: "https://github.com/dulanachathurma/VisionScope-AI",
@@ -109,7 +109,7 @@ const projects = [
     category: "group",
     isGroup: true,
     myRole: "Core Java Logic & Unit Testing (JUnit 5)",
-    description: "A Java command-line application that parses CSV sales data, performs calculations, and generates formatted output using Strategy design pattern and JUnit 5 testing.",
+    description: "A Java command-line application that parses CSV sales data, performs calculations and generates formatted output using Strategy design pattern and JUnit 5 testing.",
     image: "/project-sales-reporter.jpg",
     tags: ["Java", "OOP", "Strategy Pattern", "JUnit 5", "CLI"],
     githubUrl: "https://github.com/dulanachathurma/SENG-21222-Sales-Report-Generator",
@@ -141,7 +141,7 @@ const projects = [
     category: "group",
     isGroup: true,
     myRole: "Full-Stack Developer & Database Architecture",
-    description: "A collaborative full-stack web application built to streamline inventory, product cataloging, AJAX live filtering, and order management processes with real-time tracking.",
+    description: "A collaborative full-stack web application built to streamline inventory, product cataloging, AJAX live filtering and order management processes with real-time tracking.",
     image: "/project-spareparts.jpg", 
     tags: ["PHP", "MySQL", "JavaScript", "AJAX", "E-Commerce", "Team Collaboration"],
     demoUrl: "http://spareparts.kesug.com",
@@ -169,7 +169,7 @@ const projects = [
     id: 9,
     title: "React Stopwatch",
     category: "mini",
-    description: "Simple stopwatch application built with React allowing users to start, pause, and reset the timer.",
+    description: "Simple stopwatch application built with React allowing users to start, pause and reset the timer.",
     image: "/stopwatch-app.jpg",
     tags: ["React.js", "JavaScript"],
     demoUrl: "https://dulanawatch.netlify.app/",
@@ -181,7 +181,7 @@ const projects = [
     id: 12,
     title: "Intelligent Skill Analysis Platform (NexGenAI)",
     category: "mini",
-    description: "AI-powered career platform that analyzes CVs, maps skills intelligently, and provides career recommendations along with ATS scores in seconds.",
+    description: "AI-powered career platform that analyzes CVs, maps skills intelligently and provides career recommendations along with ATS scores in seconds.",
     image: "/project-nexgenai.jpg",
     tags: ["React", "TailwindCSS", "AI Resume Analysis"],
     demoUrl: "https://dulanachathurma.github.io/Intelligent-Career-Skill-Analysis-Platform/",
@@ -193,7 +193,7 @@ const projects = [
     id: 2,
     title: "GPA Calculator App",
     category: "mini",
-    description: "Academic GPA tracking web application that allows students to calculate Semester GPA, Year GPA, and Cumulative GPA across multiple academic years.",
+    description: "Academic GPA tracking web application that allows students to calculate Semester GPA, Year GPA and Cumulative GPA across multiple academic years.",
     image: "/project-gpa-calculator.jpg",
     tags: ["React 19", "Vite", "Tailwind CSS", "JavaScript"],
     demoUrl: "https://dcgpa.vercel.app/",
@@ -205,7 +205,7 @@ const projects = [
     id: 3,
     title: "CarePoint Medical Center",
     category: "mini",
-    description: "Healthcare web application designed for doctor search, appointment booking, payment simulation, and ambulance access.",
+    description: "Healthcare web application designed for doctor search, appointment booking, payment simulation and ambulance access.",
     image: "/project-medical-center.jpg",
     tags: ["HTML5", "CSS3", "JavaScript"],
     demoUrl: "https://dulanamedical.netlify.app",
@@ -413,7 +413,7 @@ export const ProjectsSection = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6" />
 
           <p className="text-[#86868b] dark:text-[#94a3b8] max-w-2xl mx-auto text-sm sm:text-base">
-            Architected and built scalable systems, AI algorithms, low-level software, and collaborative team applications.
+            Architected and built scalable systems, AI algorithms, low-level software and collaborative team applications.
           </p>
         </div>
 

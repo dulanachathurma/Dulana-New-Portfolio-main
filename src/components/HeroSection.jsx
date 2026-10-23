@@ -246,7 +246,7 @@ export const HeroSection = () => {
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Building production-ready systems with <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-semibold">Spring Boot</span>, <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-semibold">Node.js</span>, and <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-semibold">React</span>, seamlessly integrated with <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-semibold">AI/ML capabilities</span>, UI/UX excellence, and scalable cloud architectures.
+            Building production-ready systems with <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-semibold">Spring Boot</span>, <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-semibold">Node.js</span> and <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-semibold">React</span>, seamlessly integrated with <span className="text-[#1d1d1f] dark:text-[#f8fafc] font-semibold">AI/ML capabilities</span>, UI/UX excellence and scalable cloud architectures.
           </p>
         </div>
 
@@ -301,7 +301,7 @@ export const HeroSection = () => {
             </div>
             <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-[#f8fafc] mb-1.5">Robust Core</h3>
-              <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Spring Boot backend architectures, clean design patterns, and enterprise RESTful APIs.</p>
+              <p className="text-xs leading-relaxed text-[#86868b] dark:text-[#94a3b8]">Spring Boot backend architectures, clean design patterns and enterprise RESTful APIs.</p>
             </div>
           </div>
 

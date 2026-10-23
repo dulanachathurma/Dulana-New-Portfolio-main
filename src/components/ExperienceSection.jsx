@@ -19,7 +19,7 @@ const experiences = [
     title: "LED KLN",
     location: "University of Kelaniya, Sri Lanka",
     date: "Jun 2026 - Present",
-    description: "Member of LED KLN, contributing to leadership development activities, teamwork, communication, and student engagement initiatives.",
+    description: "Member of LED KLN, contributing to leadership development activities, teamwork, communication and student engagement initiatives.",
     images: ["/education-software-engineering1.jpg", "/experience-led-kln-logo.jpg"],
     iconBg: "from-blue-500 to-indigo-500",
     tags: ["Leadership", "Communication", "Team Leadership", "ID : 263092"],

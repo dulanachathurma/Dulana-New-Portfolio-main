@@ -26,13 +26,13 @@ const portfolioKnowledge = {
     "YouTube Frontend UI Clone - HTML5 & CSS3",
     "NexGenAI - AI-powered career platform with CV analysis",
   ],
-  articles: "Technical articles on Medium covering AI, ML, cybersecurity, and software engineering topics.",
+  articles: "Technical articles on Medium covering AI, ML, cybersecurity and software engineering topics.",
 };
 
 function getBotReply(userMsg) {
   const msg = userMsg.toLowerCase().trim();
   if (msg.match(/\b(hi|hello|hey|good morning|good afternoon|good evening|hola|ayubowan)\b/)) {
-    return `👋 Hello! I'm Dulana's AI Assistant. I can answer questions about Education and background, Projects and skills, Contact and social links, and Articles and experience. What would you like to know?`;
+    return `👋 Hello! I'm Dulana's AI Assistant. I can answer questions about Education and background, Projects and skills, Contact and social links and Articles and experience. What would you like to know?`;
   }
   if (msg.match(/name|who/)) {
     return `I'm the AI assistant for ${portfolioKnowledge.name} — an aspiring ${portfolioKnowledge.title} from Sri Lanka!`;
@@ -41,16 +41,16 @@ function getBotReply(userMsg) {
     return `Education: ${portfolioKnowledge.education}. Previously studied Combined Mathematics, Physics and Chemistry at H Rajapaksa National College. Results: Maths A, Physics B, Chemistry B.`;
   }
   if (msg.match(/skill|tech|language|stack|know|expertise|proficiency/)) {
-    return `Technical Skills: ${portfolioKnowledge.skills.join(", ")}. Specializing in AI and ML, Full-Stack Development, and Mobile-friendly UIs.`;
+    return `Technical Skills: ${portfolioKnowledge.skills.join(", ")}. Specializing in AI and ML, Full-Stack Development and Mobile-friendly UIs.`;
   }
   if (msg.match(/project|build|make|create|work/)) {
     return `Featured Projects: ${portfolioKnowledge.projects.join(". ")}. Scroll to the Projects section to explore them all with live demos!`;
   }
   if (msg.match(/contact|email|phone|reach|message|hire/)) {
-    return `Contact Dulana: Email is ${portfolioKnowledge.email}. Phone is ${portfolioKnowledge.phone}. Also available on LinkedIn, GitHub, and X Twitter.`;
+    return `Contact Dulana: Email is ${portfolioKnowledge.email}. Phone is ${portfolioKnowledge.phone}. Also available on LinkedIn, GitHub and X Twitter.`;
   }
   if (msg.match(/github|code|repo|repository/)) {
-    return `GitHub: github.com/dulanachathurma. Check out 11 plus open-source projects including Spring Boot apps, React frontends, and AI systems!`;
+    return `GitHub: github.com/dulanachathurma. Check out 11 plus open-source projects including Spring Boot apps, React frontends and AI systems!`;
   }
   if (msg.match(/linkedin/)) {
     return `LinkedIn: linkedin.com/in/dulana-chathurma. Connect on LinkedIn to see professional experience and certificates!`;
@@ -71,13 +71,13 @@ function getBotReply(userMsg) {
     return `You can download Dulana's CV using the button on the Home page — just click Review Executive CV!`;
   }
   if (msg.match(/internship|job|opportunity|hire|recruit/)) {
-    return `Yes! Dulana is actively seeking internship opportunities in AI and ML Engineering, Full-Stack Development with Spring Boot and React, and Mobile App Development. Feel free to reach out at ${portfolioKnowledge.email}!`;
+    return `Yes! Dulana is actively seeking internship opportunities in AI and ML Engineering, Full-Stack Development with Spring Boot and React and Mobile App Development. Feel free to reach out at ${portfolioKnowledge.email}!`;
   }
   if (msg.match(/spring boot|java|backend/)) {
-    return `Spring Boot Expertise: Dulana built a full-stack User Management Application using Spring Boot, React.js, and MySQL, featuring clean REST APIs, CRUD operations, and a responsive frontend!`;
+    return `Spring Boot Expertise: Dulana built a full-stack User Management Application using Spring Boot, React.js and MySQL, featuring clean REST APIs, CRUD operations and a responsive frontend!`;
   }
   if (msg.match(/react|frontend|ui|interface/)) {
-    return `React.js Projects include: Sriseta Astrology Website, TravelScope Travel Platform, WeatherSphere Pro App, NexGenAI Career Platform, and User Management App. All built with React.js, hooks, and responsive design!`;
+    return `React.js Projects include: Sriseta Astrology Website, TravelScope Travel Platform, WeatherSphere Pro App, NexGenAI Career Platform and User Management App. All built with React.js, hooks and responsive design!`;
   }
   if (msg.match(/thank|thanks|bye|goodbye|see you/)) {
     return `You're welcome! Feel free to come back if you have more questions. Have a great day!`;
