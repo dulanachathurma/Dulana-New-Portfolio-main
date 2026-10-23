@@ -8,7 +8,7 @@ const contributions = [
     id: "wso2",
     title: "WSO2 API Manager (wso2/apim-apps)",
     description:
-      "Contributed to enterprise API Manager web portals codebase. Refactored scope pagination in Publisher Portal, enhanced shared utility safety, and authored comprehensive Jest unit test suites.",
+      "Contributed to enterprise API Manager web portals codebase. Refactored scope pagination in Publisher Portal, enhanced shared utility safety and authored comprehensive Jest unit test suites.",
     image: wso2Img,
     fallbackImage: "/wso2-contrib.png",
     tags: [
@@ -224,7 +224,7 @@ export const OpenSourceSection = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-6" />
 
           <p className="text-[#86868b] dark:text-[#94a3b8] max-w-2xl mx-auto text-sm sm:text-base">
-            Actively contributing to enterprise software suites, global developer tools, and renowned open-source repositories.
+            Actively contributing to enterprise software suites, global developer tools and renowned open-source repositories.
           </p>
         </div>
 
