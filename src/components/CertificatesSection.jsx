@@ -47,7 +47,7 @@ const certificates = [
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["Front-End Development", "Web Design", "JavaScript", "HTML/CSS"],
-    viewCertificateUrl: "https://open.uom.lk/verify",
+    viewCertificateUrl: "certificate-uom-frontend.jpg",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
   {
@@ -63,7 +63,7 @@ const certificates = [
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["Python Programming", "Introduction to Programming", "Software Development"],
-    viewCertificateUrl: "https://open.uom.lk/lms/mod/customcert/view.php?id=675&downloadown=1",
+    viewCertificateUrl: "certificate-online-courses.jpg",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
   {
@@ -79,7 +79,7 @@ const certificates = [
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["HTML", "Cascading Style Sheets (CSS)", "Web Design", "UI Basics"],
-    viewCertificateUrl: "https://open.uom.lk/lms/mod/customcert/view.php?id=697&downloadown=1",
+    viewCertificateUrl: "certificate-online-courses1.jpg",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
   {
@@ -95,7 +95,7 @@ const certificates = [
     logoText: "UoM",
     logoBg: "bg-indigo-600",
     skills: ["Python Programming", "AI", "Machine Learning"],
-    viewCertificateUrl: "https://open.uom.lk/lms/mod/customcert/view.php?id=838&downloadown=1",
+    viewCertificateUrl: "certificate-online-courses2.jpg",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
 
@@ -115,7 +115,7 @@ const certificates = [
     logoText: "in",
     logoBg: "bg-blue-600",
     skills: ["Spring Boot", "Spring Framework", "Java", "Backend Development"],
-    viewCertificateUrl: "https://www.linkedin.com/learning/certificates/4c0b1bea7cb286171729474f23ee5fd5920f8fd9dbb21856e69a7bc7d59d9f2a",
+    viewCertificateUrl: "certificate-springboot.jpg",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
   {
@@ -131,7 +131,7 @@ const certificates = [
     logoText: "in",
     logoBg: "bg-blue-600",
     skills: ["SOLID Principles", "Java", "System Design", "Software Architecture"],
-    viewCertificateUrl: "https://www.linkedin.com/learning/certificates/6856dbb91f1006366d59e71de0b708246d46662cbba9d7a1d3d23c295ca14603",
+    viewCertificateUrl: "certificate-solid.jpg",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
   {
@@ -147,7 +147,7 @@ const certificates = [
     logoText: "in",
     logoBg: "bg-blue-600",
     skills: ["Machine Learning", "Python", "Artificial Intelligence (AI)", "Data Science"],
-    viewCertificateUrl: "https://www.linkedin.com/learning/certificates/4bdb17c490ad32121733797abe7eda1060bad698965a3dc77433ef2ed8987f98",
+    viewCertificateUrl: "certificate-ml-python.jpg",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
   {
@@ -163,7 +163,7 @@ const certificates = [
     logoText: "in",
     logoBg: "bg-blue-600",
     skills: ["Agentic AI", "Artificial Intelligence", "AI Agents", "Autonomous Systems"],
-    viewCertificateUrl: "https://www.linkedin.com/learning/certificates/a77437ce2a0cc8a4b3f05d287e6444a1e0f37b16ff68fd10c036db93d1e6afb2",
+    viewCertificateUrl: "certificate-agentic-ai.jpg",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
   },
 
@@ -267,7 +267,7 @@ const certificates = [
     logoText: "AWS",
     logoBg: "bg-amber-500",
     skills: ["Cloud Architecture", "AWS", "Well-Architected", "Security"],
-    viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/447340418/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
+    viewCertificateUrl: "certificate-aws1.jpg",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
   {
@@ -283,7 +283,7 @@ const certificates = [
     logoText: "AWS",
     logoBg: "bg-amber-500",
     skills: ["VPC", "Networking", "TCP/IP", "AWS Cloud"],
-    viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/324286717/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
+    viewCertificateUrl: "certificate-aws3.jpg",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
   {
@@ -299,7 +299,7 @@ const certificates = [
     logoText: "AWS",
     logoBg: "bg-amber-500",
     skills: ["Computer Architecture", "Operating Systems", "AWS", "Cloud Compute"],
-    viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/1912525953/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
+    viewCertificateUrl: "certificate-aws2.jpg",
     tagColor: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
   },
 
@@ -435,7 +435,7 @@ const certificates = [
     logoText: "HR",
     logoBg: "bg-green-600",
     skills: ["SQL", "MySQL", "Database Management"],
-    viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/b36c14090ce1",
+    viewCertificateUrl: "certificate-hackerrank1.jpg",
     tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
   },
   {
@@ -451,7 +451,7 @@ const certificates = [
     logoText: "HR",
     logoBg: "bg-green-600",
     skills: ["CSS", "Web Styling", "Layouts"],
-    viewCertificateUrl: "https://www.hackerrank.com/certificates/iframe/26a32f7f5087",
+    viewCertificateUrl: "certificate-hackerrank2.jpg",
     tagColor: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
   },
   {
@@ -467,7 +467,7 @@ const certificates = [
     logoText: "DI",
     logoBg: "bg-emerald-600",
     skills: ["Communication", "Writing English", "Spoken English", "CERF B1"],
-    viewCertificateUrl: "https://www.linkedin.com/in/dulana-chathurma/overlay/Certifications/765265356/treasury/?profileId=ACoAAFDfMasBoGUec8AKadGJzB74e0K0BTBPegE",
+    viewCertificateUrl: "certificate-english-diploma.jpg",
     tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
   },
   {
