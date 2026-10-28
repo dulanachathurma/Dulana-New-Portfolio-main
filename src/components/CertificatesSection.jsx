@@ -27,7 +27,7 @@ const certificates = [
     logoText: "CS50",
     logoBg: "bg-red-700",
     skills: ["Computer Science", "Algorithms", "Data Structures", "C", "Python", "SQL"],
-    viewCertificateUrl: "https://cs50.harvard.edu/certificates/87a1555a-8309-4d27-b21c-8bb26f881e10",
+    viewCertificateUrl: "certificate-cs50x.jpg",
     tagColor: "bg-red-100 dark:bg-red-950/50 text-red-700 dark:text-red-300"
   },
 
