@@ -269,21 +269,21 @@ const Navbar = () => {
           </div>
         </nav>
 
-        {/* Mobile Dropdown Menu Card (SESA Style: Visible Gap, No Scrollbar, Complete Visibility) */}
+        {/* Mobile Dropdown Menu Card (Sriseta Style: Transparent Backdrop, Visible Gap, Clean Typography) */}
         {isMenuOpen && (
           <>
-            {/* Tap-outside Backdrop */}
+            {/* Tap-outside Backdrop - 100% Transparent so portfolio background is fully visible */}
             <div
-              className="fixed inset-0 z-[-1] bg-black/60 backdrop-blur-sm lg:hidden pointer-events-auto"
+              className="fixed inset-0 z-[-1] bg-transparent lg:hidden pointer-events-auto"
               onClick={() => setIsMenuOpen(false)}
             />
 
-            {/* Dropdown Card with distinct vertical gap (20px) completely separated from navbar capsule */}
+            {/* Dropdown Card with distinct vertical gap (mt-4 sm:mt-5) matching sriseta.lk style */}
             <div
-              style={{ marginTop: "20px" }}
-              className="lg:hidden mt-5 sm:mt-6 bg-white/98 dark:bg-[#13172b] backdrop-blur-2xl rounded-[26px] border border-gray-200/90 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden pointer-events-auto transition-all duration-300"
+              style={{ marginTop: "18px" }}
+              className="lg:hidden mt-4 sm:mt-5 bg-white/95 dark:bg-[#121626]/95 backdrop-blur-xl rounded-[28px] border border-gray-100 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden pointer-events-auto transition-all duration-300"
             >
-              <div className="flex flex-col p-4 sm:p-5 gap-0.5 sm:gap-1 overflow-hidden">
+              <div className="flex flex-col p-4 sm:p-5 gap-1 overflow-hidden">
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.substring(1);
                   return (
@@ -292,35 +292,28 @@ const Navbar = () => {
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
                       className={cn(
-                        "flex items-center justify-between py-2 sm:py-2.5 px-3.5 rounded-xl text-sm font-semibold transition-all duration-200 group",
+                        "flex items-center py-2.5 sm:py-3 px-4 rounded-2xl text-[15px] font-semibold transition-all duration-200",
                         isActive
-                          ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
-                          : "text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60"
+                          ? "bg-blue-50/90 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
+                          : "text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/50"
                       )}
                     >
                       <span>{item.name}</span>
-                      <ChevronRight
-                        className={cn(
-                          "w-4 h-4 transition-transform duration-200 group-hover:translate-x-1",
-                          isActive
-                            ? "text-blue-600 dark:text-blue-400 opacity-100"
-                            : "text-slate-400 dark:text-slate-500 opacity-60 group-hover:opacity-100"
-                        )}
-                      />
                     </a>
                   );
                 })}
 
-                {/* Mobile Contact Action with Smooth Subtle Ring Animation */}
-                <div className="pt-2.5 px-1 mt-1">
-                  <a
-                    href="#contact"
-                    onClick={(e) => handleNavClick(e, "#contact")}
-                    className="relative group flex items-center justify-center w-full py-2.5 sm:py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_0_20px_rgba(37,99,235,0.45)] transition-all active:scale-95 focus:outline-none"
-                  >
-                    <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
-                    <span className="relative z-10">Contact Me</span>
-                  </a>
+                {/* Mobile Contact Action (Sriseta Double-Ring Style) */}
+                <div className="pt-2 px-1 mt-1">
+                  <div className="p-1 rounded-full border border-blue-200 dark:border-blue-900/60 bg-blue-50/40 dark:bg-blue-950/20">
+                    <a
+                      href="#contact"
+                      onClick={(e) => handleNavClick(e, "#contact")}
+                      className="flex items-center justify-center w-full py-2.5 sm:py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
+                    >
+                      <span>Contact Me</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
