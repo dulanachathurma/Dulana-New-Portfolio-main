@@ -254,7 +254,7 @@ export default function Navbar() {
               className="fixed z-50 left-0 right-0 lg:hidden pointer-events-auto"
               style={{ top: "72px" }}
             >
-              <div className="w-[92%] sm:w-[90%] mx-auto bg-white/70 dark:bg-[#121626]/70 backdrop-blur-2xl rounded-[28px] border border-white/40 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+              <div className="w-[92%] sm:w-[90%] mx-auto bg-white dark:bg-[#121626] backdrop-blur-2xl rounded-[28px] border border-white/40 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
                 <div className="flex flex-col p-4 gap-0.5">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.href.substring(1);
