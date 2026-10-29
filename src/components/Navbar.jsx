@@ -138,12 +138,12 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-3 sm:px-4 lg:px-6 pt-3 sm:pt-4 pointer-events-none transition-all duration-300">
-      <div className="w-[98%] sm:w-[96%] max-w-7xl mx-auto pointer-events-auto">
+    <header className="fixed top-0 left-0 w-full z-50 px-3.5 sm:px-6 lg:px-8 pt-4 sm:pt-5 pointer-events-none transition-all duration-300">
+      <div className="w-[94%] sm:w-[92%] max-w-7xl mx-auto pointer-events-auto">
         {/* Floating Capsule Navbar (SESA Style) */}
         <nav
           className={cn(
-            "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full px-3 sm:px-4 lg:px-5 xl:px-6 py-2 xl:py-2.5 border border-gray-100 dark:border-gray-800 flex items-center justify-between transition-all duration-300",
+            "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full px-3.5 sm:px-5 lg:px-6 xl:px-7 py-2.5 xl:py-3 border border-gray-100 dark:border-gray-800 flex items-center justify-between transition-all duration-300",
             scrolled
               ? "shadow-[0_12px_35px_rgba(0,0,0,0.18)] dark:shadow-[0_12px_35px_rgba(0,0,0,0.5)]"
               : "shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
@@ -274,12 +274,12 @@ const Navbar = () => {
           <>
             {/* Tap-outside Backdrop */}
             <div
-              className="fixed inset-0 z-[-1] bg-black/60 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[-1] bg-black/60 backdrop-blur-sm lg:hidden pointer-events-auto"
               onClick={() => setIsMenuOpen(false)}
             />
 
-            {/* Dropdown Card with distinct vertical gap (mt-3.5) and ZERO scrolling (overflow-hidden) */}
-            <div className="lg:hidden mt-3.5 bg-white/98 dark:bg-[#13172b] backdrop-blur-2xl rounded-[28px] border border-gray-200/80 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.35)] overflow-hidden pointer-events-auto transition-all animate-in fade-in slide-in-from-top-3 duration-200">
+            {/* Dropdown Card with distinct vertical gap (mt-4 sm:mt-5) and ZERO scrolling (overflow-hidden) */}
+            <div className="lg:hidden mt-4 sm:mt-5 bg-white/98 dark:bg-[#13172b] backdrop-blur-2xl rounded-[26px] border border-gray-200/80 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden pointer-events-auto transition-all animate-in fade-in slide-in-from-top-3 duration-200">
               <div className="flex flex-col p-4 sm:p-5 gap-0.5 sm:gap-1 overflow-hidden">
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.substring(1);
