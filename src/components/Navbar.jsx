@@ -157,7 +157,10 @@ export default function Navbar() {
   );
 
   return (
-    <header className="fixed top-6 sm:top-8 left-0 right-0 z-50 p-2 sm:p-3 transition-all duration-300">
+    <header
+      style={{ top: "40px" }}
+      className="fixed left-0 right-0 z-50 p-2 sm:p-3 transition-all duration-300"
+    >
       <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col">
         {/* Main Navbar */}
         <nav
