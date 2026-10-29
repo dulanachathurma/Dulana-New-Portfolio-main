@@ -119,10 +119,10 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Inverted Navbar Styles
+  // Dark Mode එකේදී Uda Navbar එක සුදු පැහැවන අතර Text කළු පැහැවේ
   const navbarStyle = {
     backgroundColor: isDarkMode
-      ? `rgba(255, 255, 255, ${scrolled ? 0.96 : 0.90})`
+      ? `rgba(255, 255, 255, ${scrolled ? 0.98 : 0.92})`
       : `rgba(0, 0, 0, ${scrolled ? 0.90 : 0.70})`,
 
     borderColor: isDarkMode
@@ -132,7 +132,7 @@ export default function Navbar() {
     color: isDarkMode ? "#000000" : "#ffffff",
 
     boxShadow: isDarkMode
-      ? "0 6px 20px rgba(0, 0, 0, 0.10)"
+      ? "0 6px 20px rgba(0, 0, 0, 0.15)"
       : "0 6px 20px rgba(0, 0, 0, 0.50)",
   };
 
@@ -169,7 +169,7 @@ export default function Navbar() {
                 />
               </div>
 
-              <span className="font-extrabold text-base lg:text-lg bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-base lg:text-lg bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
@@ -262,9 +262,9 @@ export default function Navbar() {
               }
             >
               {isDarkMode ? (
-                <Sun size={16} />
+                <Sun size={16} className="text-black" />
               ) : (
-                <Moon size={16} />
+                <Moon size={16} className="text-white" />
               )}
             </button>
           </div>
@@ -284,9 +284,9 @@ export default function Navbar() {
               }
             >
               {isMenuOpen ? (
-                <X size={18} />
+                <X size={18} className={isDarkMode ? "text-black" : "text-white"} />
               ) : (
-                <Menu size={18} />
+                <Menu size={18} className={isDarkMode ? "text-black" : "text-white"} />
               )}
             </button>
           </div>
@@ -313,7 +313,7 @@ export default function Navbar() {
                 />
               </div>
 
-              <span className="font-extrabold text-base bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-base bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
@@ -336,9 +336,9 @@ export default function Navbar() {
               }
             >
               {isDarkMode ? (
-                <Sun size={16} />
+                <Sun size={16} className="text-black" />
               ) : (
-                <Moon size={16} />
+                <Moon size={16} className="text-white" />
               )}
             </button>
           </div>
