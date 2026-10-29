@@ -116,11 +116,12 @@ export default function Navbar() {
         <nav
           className={cn(
             "flex items-center justify-between px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border backdrop-blur-md transition-all duration-300",
-            // Direct conditional check with isDarkMode state
+            // Light Mode: Black Transparent (`bg-black/70`) + White Text
+            // Dark Mode: White Transparent (`bg-white/70`) + Black Text
             isDarkMode
-              ? "bg-white/40 border-white/40 text-black shadow-[0_6px_20px_rgba(255,255,255,0.15)]"
-              : "bg-black/40 border-black/30 text-white shadow-[0_6px_20px_rgba(0,0,0,0.25)]",
-            scrolled && (isDarkMode ? "bg-white/60 shadow-lg" : "bg-black/60 shadow-lg")
+              ? "bg-white/70 border-white/40 text-black shadow-[0_6px_20px_rgba(255,255,255,0.15)]"
+              : "bg-black/70 border-black/40 text-white shadow-[0_6px_20px_rgba(0,0,0,0.3)]",
+            scrolled && (isDarkMode ? "bg-white/90 shadow-lg" : "bg-black/90 shadow-lg")
           )}
         >
           {/* Desktop Logo */}
@@ -130,14 +131,14 @@ export default function Navbar() {
               onClick={(e) => handleNavClick(e, "#home")}
               className="flex items-center gap-2.5 group focus:outline-none"
             >
-              <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden shadow-sm shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden shadow-sm shrink-0 transition-transform duration-300 group-hover:scale-105 border border-white/20">
                 <img
                   src={dulanaLogo}
                   alt="Dulana Chathurma"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="font-extrabold text-base lg:text-lg bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-base lg:text-lg bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-300 dark:from-blue-600 dark:to-cyan-600 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
@@ -156,11 +157,11 @@ export default function Navbar() {
                     "px-2.5 xl:px-3 py-1 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
                     isActive
                       ? isDarkMode
-                        ? "text-blue-700 font-bold bg-black/10"
+                        ? "text-blue-600 font-bold bg-black/10"
                         : "text-blue-400 font-bold bg-white/20"
                       : isDarkMode
-                      ? "text-black hover:text-blue-700 hover:bg-black/5"
-                      : "text-white hover:text-blue-300 hover:bg-white/10"
+                      ? "text-black hover:text-blue-600 hover:bg-black/5"
+                      : "text-white/90 hover:text-white hover:bg-white/10"
                   )}
                 >
                   {item.name}
@@ -168,7 +169,7 @@ export default function Navbar() {
                     <span
                       className={cn(
                         "absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] rounded-full",
-                        isDarkMode ? "bg-blue-700" : "bg-blue-400"
+                        isDarkMode ? "bg-blue-600" : "bg-blue-400"
                       )}
                     />
                   )}
@@ -230,14 +231,14 @@ export default function Navbar() {
               onClick={(e) => handleNavClick(e, "#home")}
               className="flex items-center gap-2 group focus:outline-none"
             >
-              <div className="w-8 h-8 rounded-full overflow-hidden shadow-sm shrink-0">
+              <div className="w-8 h-8 rounded-full overflow-hidden shadow-sm shrink-0 border border-white/20">
                 <img
                   src={dulanaLogo}
                   alt="Dulana Chathurma"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="font-extrabold text-base bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-base bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-300 dark:from-blue-600 dark:to-cyan-600 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
