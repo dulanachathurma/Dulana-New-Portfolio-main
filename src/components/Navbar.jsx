@@ -110,15 +110,17 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-3 pointer-events-none transition-all duration-300">
-      <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-3 transition-all duration-300">
+      <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col">
         {/* Main Top Navbar Capsule */}
         <nav
           className={cn(
-            "pointer-events-auto flex items-center justify-between bg-white dark:bg-slate-900 px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border border-slate-200 dark:border-slate-800 transition-all duration-300",
+            "flex items-center justify-between px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border backdrop-blur-md transition-all duration-300",
+            // Light Mode: Transparent Black / Dark Mode: Transparent White
+            "bg-black/40 dark:bg-white/40 border-black/20 dark:border-white/30 text-white dark:text-black",
             scrolled
-              ? "shadow-[0_10px_25px_rgba(0,0,0,0.15)] dark:shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
-              : "shadow-[0_6px_20px_rgba(0,0,0,0.08)]"
+              ? "shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
+              : "shadow-[0_6px_20px_rgba(0,0,0,0.15)]"
           )}
         >
           {/* Desktop Logo */}
@@ -135,7 +137,7 @@ export default function Navbar() {
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="font-extrabold text-base lg:text-lg bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-base lg:text-lg bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
@@ -153,13 +155,13 @@ export default function Navbar() {
                   className={cn(
                     "px-2.5 xl:px-3 py-1 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
                     isActive
-                      ? "text-blue-600 dark:text-blue-400 font-bold bg-blue-50 dark:bg-blue-950/60"
-                      : "text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+                      ? "text-blue-400 dark:text-blue-600 font-bold bg-white/20 dark:bg-black/10"
+                      : "hover:text-blue-400 dark:hover:text-blue-600 hover:bg-white/10 dark:hover:bg-black/5"
                   )}
                 >
                   {item.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-blue-600 dark:bg-blue-400 rounded-full" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-blue-500 dark:bg-blue-600 rounded-full" />
                   )}
                 </a>
               );
@@ -185,7 +187,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleDarkMode}
-              className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-200 transition-colors focus:outline-none shrink-0 shadow-sm"
+              className="w-8 h-8 rounded-full border border-white/20 dark:border-black/20 bg-white/10 dark:bg-black/10 hover:bg-white/20 dark:hover:bg-black/20 flex items-center justify-center text-white dark:text-black transition-colors focus:outline-none shrink-0 shadow-sm"
               aria-label="Toggle Dark Mode"
             >
               {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
@@ -196,7 +198,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center justify-start w-9">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-200 transition-all active:scale-90 shadow-sm focus:outline-none"
+              className="w-9 h-9 rounded-full border border-white/20 dark:border-black/20 bg-white/10 dark:bg-black/10 hover:bg-white/20 dark:hover:bg-black/20 flex items-center justify-center text-white dark:text-black transition-all active:scale-90 shadow-sm focus:outline-none"
               aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
             >
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -216,7 +218,7 @@ export default function Navbar() {
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="font-extrabold text-base bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-base bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
@@ -225,7 +227,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center justify-end w-9">
             <button
               onClick={toggleDarkMode}
-              className="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-200 transition-colors focus:outline-none shadow-sm"
+              className="w-9 h-9 rounded-full border border-white/20 dark:border-black/20 bg-white/10 dark:bg-black/10 hover:bg-white/20 dark:hover:bg-black/20 flex items-center justify-center text-white dark:text-black transition-colors focus:outline-none shadow-sm"
               aria-label="Toggle Dark Mode"
             >
               {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
@@ -234,7 +236,7 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Card */}
       <AnimatePresence>
         {isMenuOpen && (
           <>
@@ -242,7 +244,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 lg:hidden pointer-events-auto bg-black/40"
+              className="fixed inset-0 z-40 lg:hidden pointer-events-auto bg-black/50"
               onClick={() => setIsMenuOpen(false)}
             />
 
@@ -254,7 +256,8 @@ export default function Navbar() {
               className="fixed z-50 left-0 right-0 lg:hidden pointer-events-auto"
               style={{ top: "72px" }}
             >
-              <div className="w-[92%] sm:w-[90%] mx-auto bg-white dark:bg-slate-900 rounded-[28px] border border-gray-200 dark:border-slate-800 shadow-2xl">
+              {/* Light Mode: Solid Black Card / Dark Mode: Solid White Card */}
+              <div className="w-[92%] sm:w-[90%] mx-auto bg-black dark:bg-white text-white dark:text-black rounded-[28px] border border-white/10 dark:border-black/10 shadow-2xl">
                 <div className="flex flex-col p-4 gap-0.5">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.href.substring(1);
@@ -266,8 +269,8 @@ export default function Navbar() {
                         className={cn(
                           "flex items-center text-left text-[15px] font-semibold py-2.5 px-4 rounded-2xl transition-all",
                           isActive
-                            ? "bg-blue-100/80 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
-                            : "text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+                            ? "bg-blue-600/30 dark:bg-blue-100 text-blue-400 dark:text-blue-600 font-bold border-l-4 border-blue-500"
+                            : "text-white dark:text-black hover:bg-white/10 dark:hover:bg-black/5"
                         )}
                       >
                         <span>{item.name}</span>
@@ -276,7 +279,7 @@ export default function Navbar() {
                   })}
 
                   <div className="pt-2.5">
-                    <div className="p-1 rounded-full border border-blue-200 dark:border-blue-900 bg-blue-50/50 dark:bg-blue-950/30">
+                    <div className="p-1 rounded-full border border-blue-500/30 dark:border-blue-200 bg-blue-500/10 dark:bg-blue-50">
                       <a
                         href="#contact"
                         onClick={(e) => handleNavClick(e, "#contact")}
