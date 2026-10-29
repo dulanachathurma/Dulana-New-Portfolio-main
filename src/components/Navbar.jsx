@@ -117,9 +117,9 @@ export default function Navbar() {
           className={cn(
             "flex items-center justify-between px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border backdrop-blur-md transition-all duration-300",
             // Light Mode: Transparent Black / Dark Mode: Transparent White
-            "bg-black/40 dark:bg-white/40 border-black/20 dark:border-white/30 text-white dark:text-black",
+            "bg-black/50 dark:bg-white/50 border-black/20 dark:border-white/30 text-white dark:text-black",
             scrolled
-              ? "shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
+              ? "shadow-[0_10px_25px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_25px_rgba(255,255,255,0.2)]"
               : "shadow-[0_6px_20px_rgba(0,0,0,0.15)]"
           )}
         >
@@ -137,7 +137,7 @@ export default function Navbar() {
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="font-extrabold text-base lg:text-lg bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-base lg:text-lg bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-300 dark:from-blue-600 dark:to-cyan-600 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
@@ -156,12 +156,12 @@ export default function Navbar() {
                     "px-2.5 xl:px-3 py-1 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
                     isActive
                       ? "text-blue-400 dark:text-blue-600 font-bold bg-white/20 dark:bg-black/10"
-                      : "hover:text-blue-400 dark:hover:text-blue-600 hover:bg-white/10 dark:hover:bg-black/5"
+                      : "text-white dark:text-black hover:text-blue-400 dark:hover:text-blue-600 hover:bg-white/10 dark:hover:bg-black/5"
                   )}
                 >
                   {item.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-blue-500 dark:bg-blue-600 rounded-full" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-blue-400 dark:bg-blue-600 rounded-full" />
                   )}
                 </a>
               );
@@ -218,7 +218,7 @@ export default function Navbar() {
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="font-extrabold text-base bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-base bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-300 dark:from-blue-600 dark:to-cyan-600 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
