@@ -278,8 +278,11 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             />
 
-            {/* Dropdown Card with distinct vertical gap (mt-4 sm:mt-5) and ZERO scrolling (overflow-hidden) */}
-            <div className="lg:hidden mt-4 sm:mt-5 bg-white/98 dark:bg-[#13172b] backdrop-blur-2xl rounded-[26px] border border-gray-200/80 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden pointer-events-auto transition-all animate-in fade-in slide-in-from-top-3 duration-200">
+            {/* Dropdown Card with distinct vertical gap (20px) completely separated from navbar capsule */}
+            <div
+              style={{ marginTop: "20px" }}
+              className="lg:hidden mt-5 sm:mt-6 bg-white/98 dark:bg-[#13172b] backdrop-blur-2xl rounded-[26px] border border-gray-200/90 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden pointer-events-auto transition-all duration-300"
+            >
               <div className="flex flex-col p-4 sm:p-5 gap-0.5 sm:gap-1 overflow-hidden">
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.substring(1);
