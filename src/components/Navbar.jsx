@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, ChevronRight } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 import profileImg from "../assets/dulana.jpeg";
 
@@ -174,7 +174,7 @@ const Navbar = () => {
           </div>
 
           {/* 2. Desktop Navigation Links (Center) */}
-          <div className="hidden md:flex items-center gap-1 lg:gap-2">
+          <div className="hidden md:flex items-center gap-1 lg:gap-1.5">
             {navItems.map((item, index) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -183,7 +183,7 @@ const Navbar = () => {
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={cn(
-                    "px-2.5 lg:px-3 py-1.5 rounded-full text-xs lg:text-[13.5px] font-medium transition-all duration-200 relative whitespace-nowrap",
+                    "px-2.5 py-1.5 rounded-full text-xs lg:text-[13px] font-medium transition-all duration-200 relative whitespace-nowrap",
                     isActive
                       ? "text-blue-600 dark:text-blue-400 font-bold bg-blue-50/80 dark:bg-blue-950/40"
                       : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/70 dark:hover:bg-gray-800/60"
@@ -198,16 +198,16 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* 3. Desktop Actions: Contact Button with Animated Wave Ring + Theme Toggle (Right side) */}
+          {/* 3. Desktop Actions: Contact Button with Smooth Ring Animation + Theme Toggle (Right side) */}
           <div className="hidden md:flex items-center gap-2.5 shrink-0">
-            {/* Contact CTA Button (Pulsating SESA style) */}
+            {/* Contact CTA Button (Smooth single ring SESA style) */}
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "#contact")}
               className="relative group flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none"
             >
-              <span className="absolute inset-0 rounded-full border-2 border-blue-500 animate-ping opacity-40 pointer-events-none" />
-              <span className="relative z-10 px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs lg:text-sm shadow-[0_0_15px_rgba(37,99,235,0.45)] whitespace-nowrap transition-colors">
+              <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
+              <span className="relative z-10 px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs lg:text-sm shadow-[0_0_15px_rgba(37,99,235,0.4)] whitespace-nowrap transition-colors">
                 Contact
               </span>
             </a>
@@ -226,7 +226,7 @@ const Navbar = () => {
               MOBILE VIEW (md:hidden - SESA Style)
              ========================================= */}
 
-          {/* 1. Mobile Hamburger Button (Left side - Circular SESA style) */}
+          {/* 1. Mobile Hamburger / Close Button (Left side - Circular SESA style) */}
           <div className="flex md:hidden items-center justify-start w-10">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -238,7 +238,7 @@ const Navbar = () => {
           </div>
 
           {/* 2. Mobile Logo & Branding (Center - SESA style) */}
-          <div className="flex md:hidden items-center justify-center flex-1">
+          <div className="flex md:hidden items-center justify-center flex-1 px-1">
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, "#home")}
@@ -251,7 +251,7 @@ const Navbar = () => {
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="font-extrabold text-base bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight">
+              <span className="font-extrabold text-base bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
@@ -269,17 +269,17 @@ const Navbar = () => {
           </div>
         </nav>
 
-        {/* Mobile Dropdown Menu Card (Smooth slide-down) */}
+        {/* Mobile Dropdown Menu Card (SESA Style without scrollbar and with complete visibility) */}
         {isMenuOpen && (
           <>
             {/* Tap-outside Backdrop */}
             <div
-              className="fixed inset-0 z-[-1] bg-black/40 backdrop-blur-[2px] md:hidden"
+              className="fixed inset-0 z-[-1] bg-black/60 backdrop-blur-sm md:hidden"
               onClick={() => setIsMenuOpen(false)}
             />
 
-            <div className="md:hidden mt-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-3xl border border-gray-100 dark:border-gray-800 shadow-[0_15px_35px_rgba(0,0,0,0.2)] overflow-hidden pointer-events-auto transition-all animate-in fade-in slide-in-from-top-2 duration-200">
-              <div className="flex flex-col p-4 gap-1.5 max-h-[75vh] overflow-y-auto">
+            <div className="md:hidden mt-3 bg-white/98 dark:bg-[#13172b] backdrop-blur-2xl rounded-3xl border border-gray-200/80 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.35)] overflow-hidden pointer-events-auto transition-all animate-in fade-in slide-in-from-top-3 duration-200">
+              <div className="flex flex-col p-5 gap-1 max-h-[80vh] overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.substring(1);
                   return (
@@ -288,28 +288,34 @@ const Navbar = () => {
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
                       className={cn(
-                        "text-left text-sm font-semibold py-2.5 px-4 rounded-xl transition-all",
+                        "flex items-center justify-between py-3 px-4 rounded-2xl text-[15px] font-semibold transition-all duration-200 group",
                         isActive
-                          ? "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
-                          : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                          ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
+                          : "text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60"
                       )}
                     >
-                      {item.name}
+                      <span>{item.name}</span>
+                      <ChevronRight
+                        className={cn(
+                          "w-4 h-4 transition-transform duration-200 group-hover:translate-x-1",
+                          isActive
+                            ? "text-blue-600 dark:text-blue-400 opacity-100"
+                            : "text-slate-400 dark:text-slate-500 opacity-60 group-hover:opacity-100"
+                        )}
+                      />
                     </a>
                   );
                 })}
 
-                {/* Mobile Contact Action with Animated Rings */}
-                <div className="pt-3 px-1">
+                {/* Mobile Contact Action with Smooth Subtle Ring Animation */}
+                <div className="pt-3 px-1 mt-1">
                   <a
                     href="#contact"
                     onClick={(e) => handleNavClick(e, "#contact")}
-                    className="relative flex items-center justify-center w-full py-3 group transition-all duration-300 active:scale-95 focus:outline-none"
+                    className="relative group flex items-center justify-center w-full py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_0_20px_rgba(37,99,235,0.45)] transition-all active:scale-95 focus:outline-none"
                   >
-                    <span className="absolute inset-0 rounded-full border-2 border-blue-500 animate-ping opacity-30 pointer-events-none" />
-                    <span className="relative z-10 w-full py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_0_15px_rgba(37,99,235,0.45)]">
-                      Contact Me
-                    </span>
+                    <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
+                    <span className="relative z-10">Contact Me</span>
                   </a>
                 </div>
               </div>
