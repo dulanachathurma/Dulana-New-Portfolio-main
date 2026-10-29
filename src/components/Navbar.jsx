@@ -110,15 +110,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-3 pointer-events-none transition-all duration-300">
-      <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col pointer-events-none">
-        {/* Main Top Navbar Capsule */}
+    <header className="relative z-50 pt-3 sm:pt-4 pb-1 sm:pb-2 transition-all duration-300">
+      <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col">
+        {/* Main Top Navbar Capsule - White Glass in both light & dark mode */}
         <nav
           className={cn(
-            "pointer-events-auto flex items-center justify-between bg-white/95 dark:bg-white/90 backdrop-blur-md px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border border-slate-100 dark:border-slate-200/50 transition-all duration-300",
-            scrolled
-              ? "shadow-[0_10px_25px_rgba(0,0,0,0.15)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
-              : "shadow-[0_6px_20px_rgba(0,0,0,0.08)]"
+            "flex items-center justify-between bg-white/80 dark:bg-white/75 backdrop-blur-xl px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border border-white/60 dark:border-white/40 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]",
+            scrolled && "shadow-[0_12px_35px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_35px_rgba(0,0,0,0.4)]"
           )}
         >
           {/* Desktop Logo */}
@@ -141,7 +139,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Desktop Links */}
+          {/* Desktop Links (Optimized for White Glass bar in both light & dark mode) */}
           <div className="hidden lg:flex items-center gap-1 xl:gap-2 justify-center flex-1 mx-2">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
@@ -153,13 +151,13 @@ export default function Navbar() {
                   className={cn(
                     "px-2.5 xl:px-3 py-1 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
                     isActive
-                      ? "text-blue-600 dark:text-blue-400 font-bold bg-blue-50/90 dark:bg-blue-950/40"
-                      : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/70 dark:hover:bg-gray-800/60"
+                      ? "text-blue-600 dark:text-blue-600 font-bold bg-blue-50/90 dark:bg-blue-50/90 shadow-xs"
+                      : "text-slate-700 dark:text-slate-700 hover:text-blue-600 dark:hover:text-blue-600 hover:bg-slate-100/70 dark:hover:bg-slate-100/70"
                   )}
                 >
                   {item.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-blue-600 dark:bg-blue-400 rounded-full" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-blue-600 rounded-full" />
                   )}
                 </a>
               );
@@ -185,7 +183,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleDarkMode}
-              className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 transition-colors focus:outline-none shrink-0 shadow-sm"
+              className="w-8 h-8 rounded-full border border-slate-200/80 dark:border-slate-200/80 bg-slate-50/80 dark:bg-slate-50/80 hover:bg-slate-100 dark:hover:bg-slate-100 flex items-center justify-center text-slate-700 dark:text-slate-700 transition-colors focus:outline-none shrink-0 shadow-xs"
               aria-label="Toggle Dark Mode"
             >
               {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
@@ -196,7 +194,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center justify-start w-9">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-200 bg-gray-50/80 dark:bg-gray-50/80 hover:bg-gray-100 dark:hover:bg-gray-100 flex items-center justify-center text-gray-800 dark:text-gray-800 transition-all active:scale-90 shadow-sm focus:outline-none"
+              className="w-9 h-9 rounded-full border border-slate-200/80 dark:border-slate-200/80 bg-slate-50/80 dark:bg-slate-50/80 hover:bg-slate-100 dark:hover:bg-slate-100 flex items-center justify-center text-slate-800 dark:text-slate-800 transition-all active:scale-90 shadow-xs focus:outline-none"
               aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
             >
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -225,7 +223,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center justify-end w-9">
             <button
               onClick={toggleDarkMode}
-              className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-200 bg-gray-50/80 dark:bg-gray-50/80 hover:bg-gray-100 dark:hover:bg-gray-100 flex items-center justify-center text-gray-700 dark:text-gray-700 transition-colors focus:outline-none shadow-sm"
+              className="w-9 h-9 rounded-full border border-slate-200/80 dark:border-slate-200/80 bg-slate-50/80 dark:bg-slate-50/80 hover:bg-slate-100 dark:hover:bg-slate-100 flex items-center justify-center text-slate-700 dark:text-slate-700 transition-colors focus:outline-none shadow-xs"
               aria-label="Toggle Dark Mode"
             >
               {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
@@ -251,8 +249,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.96 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="fixed z-50 left-0 right-0 lg:hidden pointer-events-auto"
-              style={{ top: "72px" }}
+              className="relative z-50 mt-4 lg:hidden pointer-events-auto"
             >
               <div className="w-[92%] sm:w-[90%] mx-auto bg-white dark:bg-[#121626] backdrop-blur-2xl rounded-[28px] border border-white/40 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
                 <div className="flex flex-col p-4 gap-0.5">
