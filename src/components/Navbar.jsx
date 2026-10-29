@@ -250,7 +250,8 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -8, scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="pointer-events-auto mt-3 w-full bg-white/95 dark:bg-[#121626]/95 backdrop-blur-xl rounded-[28px] border border-gray-100 dark:border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.18)] overflow-hidden lg:hidden"
+                style={{ marginTop: "16px" }}
+                className="pointer-events-auto mt-4 w-full bg-white/95 dark:bg-[#121626]/95 backdrop-blur-xl rounded-[28px] border border-gray-100 dark:border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.18)] overflow-hidden lg:hidden"
               >
                 <div className="flex flex-col p-3.5 sm:p-4 gap-1.5 max-h-[75vh] overflow-y-auto">
                   {navItems.map((item) => {
@@ -277,9 +278,10 @@ export default function Navbar() {
                       <a
                         href="#contact"
                         onClick={(e) => handleNavClick(e, "#contact")}
-                        className="relative flex items-center justify-center w-full py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
+                        className="relative group flex items-center justify-center w-full py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
                       >
-                        <span>Contact Me</span>
+                        <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
+                        <span className="relative z-10">Contact Me</span>
                       </a>
                     </div>
                   </div>
