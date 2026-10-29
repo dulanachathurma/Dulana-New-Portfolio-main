@@ -157,7 +157,7 @@ export default function Navbar() {
   );
 
   return (
-    <header className="absolute top-8 sm:top-12 left-0 right-0 z-50 p-2 sm:p-3 transition-all duration-300">
+    <header className="fixed top-6 sm:top-8 left-0 right-0 z-50 p-2 sm:p-3 transition-all duration-300">
       <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col">
         {/* Main Navbar */}
         <nav
@@ -354,7 +354,7 @@ export default function Navbar() {
               exit={{ opacity: 0, y: -12, scale: 0.96 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="absolute z-50 left-0 right-0 lg:hidden pointer-events-auto"
-              style={{ top: "88px" }}
+              style={{ top: "80px" }}
             >
               <div
                 className={cn(
