@@ -31,30 +31,34 @@ export default function Navbar() {
       (!savedTheme &&
         window.matchMedia("(prefers-color-scheme: dark)").matches);
 
-    setIsDarkMode(isDark);
     document.documentElement.classList.toggle("dark", isDark);
+    setIsDarkMode(isDark);
+
+    // Keep state in sync with the real <html> class
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   // Toggle theme
   const toggleDarkMode = () => {
-    setIsDarkMode((prev) => {
-      const nextTheme = !prev;
-      document.documentElement.classList.toggle("dark", nextTheme);
-      localStorage.setItem("theme", nextTheme ? "dark" : "light");
-      return nextTheme;
-    });
+    const nextTheme = !document.documentElement.classList.contains("dark");
+    document.documentElement.classList.toggle("dark", nextTheme);
+    localStorage.setItem("theme", nextTheme ? "dark" : "light");
+    setIsDarkMode(nextTheme);
   };
 
   // Scroll detection
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-
+    const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Smooth scrolling
@@ -89,10 +93,7 @@ export default function Navbar() {
         let bestRatio = 0;
 
         entries.forEach((entry) => {
-          if (
-            entry.isIntersecting &&
-            entry.intersectionRatio > bestRatio
-          ) {
+          if (entry.isIntersecting && entry.intersectionRatio > bestRatio) {
             bestRatio = entry.intersectionRatio;
             bestSection = entry.target.id;
           }
@@ -110,42 +111,40 @@ export default function Navbar() {
 
     allSections.forEach((section) => {
       const element = document.getElementById(section);
-
-      if (element) {
-        observer.observe(element);
-      }
+      if (element) observer.observe(element);
     });
 
     return () => observer.disconnect();
   }, []);
 
+  // Dark mode  -> WHITE navbar + BLACK text
+  // Light mode -> BLACK navbar + WHITE text
   const navbarStyle = {
     backgroundColor: isDarkMode
       ? `rgba(255, 255, 255, ${scrolled ? 0.98 : 0.92})`
-      : `rgba(0, 0, 0, ${scrolled ? 0.90 : 0.70})`,
+      : `rgba(0, 0, 0, ${scrolled ? 0.9 : 0.7})`,
 
     borderColor: isDarkMode
       ? "rgba(0, 0, 0, 0.15)"
-      : "rgba(255, 255, 255, 0.20)",
+      : "rgba(255, 255, 255, 0.2)",
 
     color: isDarkMode ? "#000000" : "#ffffff",
 
     boxShadow: isDarkMode
       ? "0 6px 20px rgba(0, 0, 0, 0.15)"
-      : "0 6px 20px rgba(0, 0, 0, 0.50)",
+      : "0 6px 20px rgba(0, 0, 0, 0.5)",
   };
 
+  const baseTextColor = isDarkMode ? "#000000" : "rgba(255,255,255,0.9)";
+  const activeTextColor = isDarkMode ? "#2563eb" : "#60a5fa";
+
   return (
-    /* `fixed` soriye `absolute` kora hoyeche jeno page scroll korle opore chole jay */
     <header className="absolute top-0 left-0 right-0 z-50 p-2 sm:p-3 transition-all duration-300">
       <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col">
-
         {/* Main Navbar */}
         <nav
           style={navbarStyle}
-          className={cn(
-            "flex items-center justify-between px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border backdrop-blur-md transition-all duration-300"
-          )}
+          className="flex items-center justify-between px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border backdrop-blur-md transition-all duration-300"
         >
           {/* Desktop Logo */}
           <div className="hidden lg:flex items-center shrink-0">
@@ -157,9 +156,7 @@ export default function Navbar() {
               <div
                 className={cn(
                   "w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden shadow-sm shrink-0 transition-transform duration-300 group-hover:scale-105 border",
-                  isDarkMode
-                    ? "border-black/20"
-                    : "border-white/30"
+                  isDarkMode ? "border-black/20" : "border-white/30"
                 )}
               >
                 <img
@@ -178,23 +175,24 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-1 xl:gap-2 justify-center flex-1 mx-2">
             {navItems.map((item) => {
-              const isActive =
-                activeSection === item.href.substring(1);
+              const isActive = activeSection === item.href.substring(1);
 
               return (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
+                  style={{ color: isActive ? activeTextColor : baseTextColor }}
                   className={cn(
                     "px-2.5 xl:px-3 py-1 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
+                    isActive && "font-bold",
                     isActive
                       ? isDarkMode
-                        ? "text-blue-600 font-bold bg-black/10"
-                        : "text-blue-400 font-bold bg-white/10"
+                        ? "bg-black/10"
+                        : "bg-white/10"
                       : isDarkMode
-                        ? "text-black hover:text-blue-600 hover:bg-black/5"
-                        : "text-white/90 hover:text-white hover:bg-white/10"
+                        ? "hover:bg-black/5"
+                        : "hover:bg-white/10"
                   )}
                 >
                   {item.name}
@@ -203,9 +201,7 @@ export default function Navbar() {
                     <span
                       className={cn(
                         "absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] rounded-full",
-                        isDarkMode
-                          ? "bg-blue-600"
-                          : "bg-blue-400"
+                        isDarkMode ? "bg-blue-600" : "bg-blue-400"
                       )}
                     />
                   )}
@@ -216,7 +212,6 @@ export default function Navbar() {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-2 shrink-0">
-
             {/* Contact Button */}
             <a
               href="#contact"
@@ -236,7 +231,10 @@ export default function Navbar() {
                 className="absolute inset-0 rounded-full border-2 border-blue-500"
               />
 
-              <span className="relative z-10 px-4 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs lg:text-sm shadow-[0_0_12px_rgba(37,99,235,0.4)] whitespace-nowrap transition-colors">
+              <span
+                style={{ color: "#ffffff" }}
+                className="relative z-10 px-4 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 font-bold text-xs lg:text-sm shadow-[0_0_12px_rgba(37,99,235,0.4)] whitespace-nowrap transition-colors"
+              >
                 Contact
               </span>
             </a>
@@ -247,24 +245,20 @@ export default function Navbar() {
               className={cn(
                 "w-8 h-8 rounded-full border flex items-center justify-center transition-colors focus:outline-none shrink-0 shadow-sm",
                 isDarkMode
-                  ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
-                  : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                  ? "border-black/20 bg-black/10 hover:bg-black/20"
+                  : "border-white/20 bg-white/10 hover:bg-white/20"
               )}
               aria-label={
-                isDarkMode
-                  ? "Switch to Light Mode"
-                  : "Switch to Dark Mode"
+                isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
               }
               title={
-                isDarkMode
-                  ? "Switch to Light Mode"
-                  : "Switch to Dark Mode"
+                isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
               }
             >
               {isDarkMode ? (
-                <Sun size={16} className="text-black" />
+                <Sun size={16} color="#000000" />
               ) : (
-                <Moon size={16} className="text-white" />
+                <Moon size={16} color="#ffffff" />
               )}
             </button>
           </div>
@@ -276,17 +270,15 @@ export default function Navbar() {
               className={cn(
                 "w-9 h-9 rounded-full border flex items-center justify-center transition-all active:scale-90 shadow-sm focus:outline-none",
                 isDarkMode
-                  ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
-                  : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                  ? "border-black/20 bg-black/10 hover:bg-black/20"
+                  : "border-white/20 bg-white/10 hover:bg-white/20"
               )}
-              aria-label={
-                isMenuOpen ? "Close Menu" : "Open Menu"
-              }
+              aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
             >
               {isMenuOpen ? (
-                <X size={18} className={isDarkMode ? "text-black" : "text-white"} />
+                <X size={18} color={isDarkMode ? "#000000" : "#ffffff"} />
               ) : (
-                <Menu size={18} className={isDarkMode ? "text-black" : "text-white"} />
+                <Menu size={18} color={isDarkMode ? "#000000" : "#ffffff"} />
               )}
             </button>
           </div>
@@ -301,9 +293,7 @@ export default function Navbar() {
               <div
                 className={cn(
                   "w-8 h-8 rounded-full overflow-hidden shadow-sm shrink-0 border",
-                  isDarkMode
-                    ? "border-black/20"
-                    : "border-white/30"
+                  isDarkMode ? "border-black/20" : "border-white/30"
                 )}
               >
                 <img
@@ -326,19 +316,17 @@ export default function Navbar() {
               className={cn(
                 "w-9 h-9 rounded-full border flex items-center justify-center transition-colors focus:outline-none shadow-sm",
                 isDarkMode
-                  ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
-                  : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                  ? "border-black/20 bg-black/10 hover:bg-black/20"
+                  : "border-white/20 bg-white/10 hover:bg-white/20"
               )}
               aria-label={
-                isDarkMode
-                  ? "Switch to Light Mode"
-                  : "Switch to Dark Mode"
+                isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
               }
             >
               {isDarkMode ? (
-                <Sun size={16} className="text-black" />
+                <Sun size={16} color="#000000" />
               ) : (
-                <Moon size={16} className="text-white" />
+                <Moon size={16} color="#ffffff" />
               )}
             </button>
           </div>
@@ -360,59 +348,48 @@ export default function Navbar() {
 
             {/* Dropdown Card */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: -12,
-                scale: 0.96,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-              }}
-              exit={{
-                opacity: 0,
-                y: -12,
-                scale: 0.96,
-              }}
-              transition={{
-                duration: 0.25,
-                ease: "easeOut",
-              }}
+              initial={{ opacity: 0, y: -12, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.96 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
               className="absolute z-50 left-0 right-0 lg:hidden pointer-events-auto"
               style={{ top: "72px" }}
             >
               <div
+                style={{ color: isDarkMode ? "#000000" : "#ffffff" }}
                 className={cn(
                   "w-[92%] sm:w-[90%] mx-auto rounded-[28px] border shadow-2xl transition-colors",
                   isDarkMode
-                    ? "bg-white text-black border-black/10"
-                    : "bg-zinc-900 text-white border-white/10"
+                    ? "bg-white border-black/10"
+                    : "bg-zinc-900 border-white/10"
                 )}
               >
                 <div className="flex flex-col p-4 gap-0.5">
-
                   {/* Mobile Navigation Links */}
                   {navItems.map((item) => {
-                    const isActive =
-                      activeSection === item.href.substring(1);
+                    const isActive = activeSection === item.href.substring(1);
 
                     return (
                       <a
                         key={item.name}
                         href={item.href}
-                        onClick={(e) =>
-                          handleNavClick(e, item.href)
-                        }
+                        onClick={(e) => handleNavClick(e, item.href)}
+                        style={{
+                          color: isActive
+                            ? activeTextColor
+                            : isDarkMode
+                              ? "#000000"
+                              : "#ffffff",
+                        }}
                         className={cn(
                           "flex items-center text-left text-[15px] font-semibold py-2.5 px-4 rounded-2xl transition-all",
                           isActive
                             ? isDarkMode
-                              ? "bg-blue-100 text-blue-600 font-bold border-l-4 border-blue-600"
-                              : "bg-blue-600/30 text-blue-400 font-bold border-l-4 border-blue-500"
+                              ? "bg-blue-100 font-bold border-l-4 border-blue-600"
+                              : "bg-blue-600/30 font-bold border-l-4 border-blue-500"
                             : isDarkMode
-                              ? "text-black hover:bg-black/5"
-                              : "text-white hover:bg-white/10"
+                              ? "hover:bg-black/5"
+                              : "hover:bg-white/10"
                         )}
                       >
                         <span>{item.name}</span>
@@ -432,16 +409,12 @@ export default function Navbar() {
                     >
                       <a
                         href="#contact"
-                        onClick={(e) =>
-                          handleNavClick(e, "#contact")
-                        }
-                        className="relative group flex items-center justify-center w-full py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
+                        onClick={(e) => handleNavClick(e, "#contact")}
+                        style={{ color: "#ffffff" }}
+                        className="relative group flex items-center justify-center w-full py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
                       >
                         <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
-
-                        <span className="relative z-10">
-                          Contact Me
-                        </span>
+                        <span className="relative z-10">Contact Me</span>
                       </a>
                     </div>
                   </div>
