@@ -119,21 +119,21 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Corrected theme-dependent navbar styles
+  // Inverted Navbar Styles
   const navbarStyle = {
     backgroundColor: isDarkMode
-      ? `rgba(0, 0, 0, ${scrolled ? 0.90 : 0.70})`
-      : `rgba(255, 255, 255, ${scrolled ? 0.96 : 0.90})`,
+      ? `rgba(255, 255, 255, ${scrolled ? 0.96 : 0.90})`
+      : `rgba(0, 0, 0, ${scrolled ? 0.90 : 0.70})`,
 
     borderColor: isDarkMode
-      ? "rgba(255, 255, 255, 0.20)"
-      : "rgba(0, 0, 0, 0.15)",
+      ? "rgba(0, 0, 0, 0.15)"
+      : "rgba(255, 255, 255, 0.20)",
 
-    color: isDarkMode ? "#ffffff" : "#000000",
+    color: isDarkMode ? "#000000" : "#ffffff",
 
     boxShadow: isDarkMode
-      ? "0 6px 20px rgba(0, 0, 0, 0.50)"
-      : "0 6px 20px rgba(0, 0, 0, 0.10)",
+      ? "0 6px 20px rgba(0, 0, 0, 0.10)"
+      : "0 6px 20px rgba(0, 0, 0, 0.50)",
   };
 
   return (
@@ -158,8 +158,8 @@ export default function Navbar() {
                 className={cn(
                   "w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden shadow-sm shrink-0 transition-transform duration-300 group-hover:scale-105 border",
                   isDarkMode
-                    ? "border-white/30"
-                    : "border-black/20"
+                    ? "border-black/20"
+                    : "border-white/30"
                 )}
               >
                 <img
@@ -190,11 +190,11 @@ export default function Navbar() {
                     "px-2.5 xl:px-3 py-1 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
                     isActive
                       ? isDarkMode
-                        ? "text-blue-400 font-bold bg-white/10"
-                        : "text-blue-600 font-bold bg-black/10"
+                        ? "text-blue-600 font-bold bg-black/10"
+                        : "text-blue-400 font-bold bg-white/10"
                       : isDarkMode
-                        ? "text-white/90 hover:text-white hover:bg-white/10"
-                        : "text-black hover:text-blue-600 hover:bg-black/5"
+                        ? "text-black hover:text-blue-600 hover:bg-black/5"
+                        : "text-white/90 hover:text-white hover:bg-white/10"
                   )}
                 >
                   {item.name}
@@ -204,8 +204,8 @@ export default function Navbar() {
                       className={cn(
                         "absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] rounded-full",
                         isDarkMode
-                          ? "bg-blue-400"
-                          : "bg-blue-600"
+                          ? "bg-blue-600"
+                          : "bg-blue-400"
                       )}
                     />
                   )}
@@ -247,8 +247,8 @@ export default function Navbar() {
               className={cn(
                 "w-8 h-8 rounded-full border flex items-center justify-center transition-colors focus:outline-none shrink-0 shadow-sm",
                 isDarkMode
-                  ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
-                  : "border-black/20 bg-black/10 text-black hover:bg-black/20"
+                  ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
+                  : "border-white/20 bg-white/10 text-white hover:bg-white/20"
               )}
               aria-label={
                 isDarkMode
@@ -276,8 +276,8 @@ export default function Navbar() {
               className={cn(
                 "w-9 h-9 rounded-full border flex items-center justify-center transition-all active:scale-90 shadow-sm focus:outline-none",
                 isDarkMode
-                  ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
-                  : "border-black/20 bg-black/10 text-black hover:bg-black/20"
+                  ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
+                  : "border-white/20 bg-white/10 text-white hover:bg-white/20"
               )}
               aria-label={
                 isMenuOpen ? "Close Menu" : "Open Menu"
@@ -302,8 +302,8 @@ export default function Navbar() {
                 className={cn(
                   "w-8 h-8 rounded-full overflow-hidden shadow-sm shrink-0 border",
                   isDarkMode
-                    ? "border-white/30"
-                    : "border-black/20"
+                    ? "border-black/20"
+                    : "border-white/30"
                 )}
               >
                 <img
@@ -326,8 +326,8 @@ export default function Navbar() {
               className={cn(
                 "w-9 h-9 rounded-full border flex items-center justify-center transition-colors focus:outline-none shadow-sm",
                 isDarkMode
-                  ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
-                  : "border-black/20 bg-black/10 text-black hover:bg-black/20"
+                  ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
+                  : "border-white/20 bg-white/10 text-white hover:bg-white/20"
               )}
               aria-label={
                 isDarkMode
@@ -386,8 +386,8 @@ export default function Navbar() {
                 className={cn(
                   "w-[92%] sm:w-[90%] mx-auto rounded-[28px] border shadow-2xl transition-colors",
                   isDarkMode
-                    ? "bg-zinc-900 text-white border-white/10"
-                    : "bg-white text-black border-black/10"
+                    ? "bg-white text-black border-black/10"
+                    : "bg-zinc-900 text-white border-white/10"
                 )}
               >
                 <div className="flex flex-col p-4 gap-0.5">
@@ -408,11 +408,11 @@ export default function Navbar() {
                           "flex items-center text-left text-[15px] font-semibold py-2.5 px-4 rounded-2xl transition-all",
                           isActive
                             ? isDarkMode
-                              ? "bg-blue-600/30 text-blue-400 font-bold border-l-4 border-blue-500"
-                              : "bg-blue-100 text-blue-600 font-bold border-l-4 border-blue-600"
+                              ? "bg-blue-100 text-blue-600 font-bold border-l-4 border-blue-600"
+                              : "bg-blue-600/30 text-blue-400 font-bold border-l-4 border-blue-500"
                             : isDarkMode
-                              ? "text-white hover:bg-white/10"
-                              : "text-black hover:bg-black/5"
+                              ? "text-black hover:bg-black/5"
+                              : "text-white hover:bg-white/10"
                         )}
                       >
                         <span>{item.name}</span>
@@ -426,8 +426,8 @@ export default function Navbar() {
                       className={cn(
                         "p-1 rounded-full border",
                         isDarkMode
-                          ? "border-blue-500/30 bg-blue-500/10"
-                          : "border-blue-200 bg-blue-50"
+                          ? "border-blue-200 bg-blue-50"
+                          : "border-blue-500/30 bg-blue-500/10"
                       )}
                     >
                       <a
