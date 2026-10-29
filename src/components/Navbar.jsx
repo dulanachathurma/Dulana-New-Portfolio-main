@@ -112,13 +112,13 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-3 pointer-events-none transition-all duration-300">
       <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col pointer-events-none">
-        {/* Main Top Navbar Capsule - Completely White Glass for both Light & Dark themes */}
+        {/* Main Top Navbar Capsule */}
         <nav
           className={cn(
-            "pointer-events-auto flex items-center justify-between bg-white/80 backdrop-blur-xl px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border border-white/60 transition-all duration-300",
+            "pointer-events-auto flex items-center justify-between bg-white dark:bg-slate-900 px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border border-slate-200 dark:border-slate-800 transition-all duration-300",
             scrolled
-              ? "shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-white/90"
-              : "shadow-[0_8px_25px_rgba(0,0,0,0.12)]"
+              ? "shadow-[0_10px_25px_rgba(0,0,0,0.15)] dark:shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
+              : "shadow-[0_6px_20px_rgba(0,0,0,0.08)]"
           )}
         >
           {/* Desktop Logo */}
@@ -128,7 +128,7 @@ export default function Navbar() {
               onClick={(e) => handleNavClick(e, "#home")}
               className="flex items-center gap-2.5 group focus:outline-none"
             >
-              <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden shadow-sm shrink-0 transition-transform duration-300 group-hover:scale-105 border border-slate-200">
+              <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden shadow-sm shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <img
                   src={dulanaLogo}
                   alt="Dulana Chathurma"
@@ -141,7 +141,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Desktop Links - Solid Black Text with Blue Active Highlight */}
+          {/* Desktop Links */}
           <div className="hidden lg:flex items-center gap-1 xl:gap-2 justify-center flex-1 mx-2">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
@@ -153,13 +153,13 @@ export default function Navbar() {
                   className={cn(
                     "px-2.5 xl:px-3 py-1 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
                     isActive
-                      ? "text-blue-600 font-bold bg-blue-100/80 shadow-sm"
-                      : "text-slate-900 hover:text-blue-600 hover:bg-slate-200/50"
+                      ? "text-blue-600 dark:text-blue-400 font-bold bg-blue-50 dark:bg-blue-950/60"
+                      : "text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800"
                   )}
                 >
                   {item.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-blue-600 rounded-full" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-blue-600 dark:bg-blue-400 rounded-full" />
                   )}
                 </a>
               );
@@ -185,7 +185,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleDarkMode}
-              className="w-8 h-8 rounded-full border border-slate-300/80 bg-slate-100/80 hover:bg-slate-200/80 flex items-center justify-center text-slate-800 transition-colors focus:outline-none shrink-0 shadow-sm"
+              className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-200 transition-colors focus:outline-none shrink-0 shadow-sm"
               aria-label="Toggle Dark Mode"
             >
               {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
@@ -196,7 +196,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center justify-start w-9">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="w-9 h-9 rounded-full border border-slate-300/80 bg-slate-100/80 hover:bg-slate-200/80 flex items-center justify-center text-slate-800 transition-all active:scale-90 shadow-sm focus:outline-none"
+              className="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-200 transition-all active:scale-90 shadow-sm focus:outline-none"
               aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
             >
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -209,7 +209,7 @@ export default function Navbar() {
               onClick={(e) => handleNavClick(e, "#home")}
               className="flex items-center gap-2 group focus:outline-none"
             >
-              <div className="w-8 h-8 rounded-full overflow-hidden shadow-sm shrink-0 border border-slate-200">
+              <div className="w-8 h-8 rounded-full overflow-hidden shadow-sm shrink-0">
                 <img
                   src={dulanaLogo}
                   alt="Dulana Chathurma"
@@ -225,7 +225,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center justify-end w-9">
             <button
               onClick={toggleDarkMode}
-              className="w-9 h-9 rounded-full border border-slate-300/80 bg-slate-100/80 hover:bg-slate-200/80 flex items-center justify-center text-slate-800 transition-colors focus:outline-none shadow-sm"
+              className="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-200 transition-colors focus:outline-none shadow-sm"
               aria-label="Toggle Dark Mode"
             >
               {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
@@ -234,7 +234,7 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile Dropdown Menu - White Glass Backdrop */}
+      {/* Mobile Dropdown Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <>
@@ -242,7 +242,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 lg:hidden pointer-events-auto"
+              className="fixed inset-0 z-40 lg:hidden pointer-events-auto bg-black/40"
               onClick={() => setIsMenuOpen(false)}
             />
 
@@ -254,7 +254,7 @@ export default function Navbar() {
               className="fixed z-50 left-0 right-0 lg:hidden pointer-events-auto"
               style={{ top: "72px" }}
             >
-              <div className="w-[92%] sm:w-[90%] mx-auto bg-white/90 backdrop-blur-2xl rounded-[28px] border border-white/60 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+              <div className="w-[92%] sm:w-[90%] mx-auto bg-white dark:bg-slate-900 rounded-[28px] border border-gray-200 dark:border-slate-800 shadow-2xl">
                 <div className="flex flex-col p-4 gap-0.5">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.href.substring(1);
@@ -266,8 +266,8 @@ export default function Navbar() {
                         className={cn(
                           "flex items-center text-left text-[15px] font-semibold py-2.5 px-4 rounded-2xl transition-all",
                           isActive
-                            ? "bg-blue-100/80 text-blue-600 font-bold border-l-4 border-blue-600"
-                            : "text-slate-900 hover:text-blue-600 hover:bg-slate-100/60"
+                            ? "bg-blue-100/80 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
+                            : "text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800"
                         )}
                       >
                         <span>{item.name}</span>
@@ -276,7 +276,7 @@ export default function Navbar() {
                   })}
 
                   <div className="pt-2.5">
-                    <div className="p-1 rounded-full border border-blue-200 bg-blue-50/50">
+                    <div className="p-1 rounded-full border border-blue-200 dark:border-blue-900 bg-blue-50/50 dark:bg-blue-950/30">
                       <a
                         href="#contact"
                         onClick={(e) => handleNavClick(e, "#contact")}
