@@ -232,28 +232,30 @@ export default function Navbar() {
             </button>
           </div>
         </nav>
+      </div>
 
-        {/* Mobile Dropdown Card */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 z-[-1] lg:hidden pointer-events-auto"
-                onClick={() => setIsMenuOpen(false)}
-              />
+      {/* Mobile Dropdown Card - Separate floating element */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-40 lg:hidden pointer-events-auto"
+              onClick={() => setIsMenuOpen(false)}
+            />
 
-              <motion.div
-                initial={{ opacity: 0, y: -8, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -8, scale: 0.98 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                style={{ marginTop: "20px" }}
-                className="pointer-events-auto mt-5 w-full bg-white/95 dark:bg-[#121626]/95 backdrop-blur-xl rounded-[28px] border border-gray-100 dark:border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.18)] overflow-hidden lg:hidden"
-              >
-                <div className="flex flex-col p-3.5 sm:p-4 gap-1">
+            <motion.div
+              initial={{ opacity: 0, y: -12, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.96 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="fixed z-50 left-0 right-0 lg:hidden pointer-events-auto"
+              style={{ top: "72px" }}
+            >
+              <div className="w-[92%] sm:w-[90%] mx-auto bg-white/70 dark:bg-[#121626]/70 backdrop-blur-2xl rounded-[28px] border border-white/40 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+                <div className="flex flex-col p-4 gap-0.5">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.href.substring(1);
                     return (
@@ -264,8 +266,8 @@ export default function Navbar() {
                         className={cn(
                           "flex items-center text-left text-[15px] font-semibold py-2.5 px-4 rounded-2xl transition-all",
                           isActive
-                            ? "bg-blue-50/90 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
-                            : "text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-white/5"
+                            ? "bg-blue-100/60 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
+                            : "text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/40 dark:hover:bg-white/5"
                         )}
                       >
                         <span>{item.name}</span>
@@ -273,8 +275,8 @@ export default function Navbar() {
                     );
                   })}
 
-                  <div className="pt-2">
-                    <div className="p-1 rounded-full border border-blue-200 dark:border-blue-900/60 bg-blue-50/30 dark:bg-blue-950/20">
+                  <div className="pt-2.5">
+                    <div className="p-1 rounded-full border border-blue-200/50 dark:border-blue-900/60 bg-blue-50/30 dark:bg-blue-950/20">
                       <a
                         href="#contact"
                         onClick={(e) => handleNavClick(e, "#contact")}
@@ -286,11 +288,11 @@ export default function Navbar() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
-      </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
