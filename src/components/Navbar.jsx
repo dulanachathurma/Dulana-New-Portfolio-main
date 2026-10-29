@@ -253,7 +253,7 @@ export default function Navbar() {
                 style={{ marginTop: "16px" }}
                 className="pointer-events-auto mt-4 w-full bg-white/95 dark:bg-[#121626]/95 backdrop-blur-xl rounded-[28px] border border-gray-100 dark:border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.18)] overflow-hidden lg:hidden"
               >
-                <div className="flex flex-col p-3.5 sm:p-4 gap-1.5 max-h-[75vh] overflow-y-auto">
+                <div className="flex flex-col p-3.5 sm:p-4 gap-1">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.href.substring(1);
                     return (
