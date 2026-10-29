@@ -157,7 +157,9 @@ export default function Navbar() {
   );
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 px-2 sm:px-3 pt-5 sm:pt-6 pb-2 sm:pb-3 transition-all duration-300">
+    // Extra top padding (pt-5 / sm:pt-6) creates the space above the navbar.
+    // Change to pt-7 / pt-8 etc. for more space.
+    <header className="absolute top-0 left-0 right-0 z-50 px-2 sm:px-3 pb-2 sm:pb-3 pt-5 sm:pt-6 transition-all duration-300">
       <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col">
         {/* Main Navbar */}
         <nav
@@ -347,7 +349,7 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             />
 
-            {/* Dropdown Card */}
+            {/* Dropdown Card (top moved from 72px to 92px to match the new header spacing) */}
             <motion.div
               initial={{ opacity: 0, y: -12, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
