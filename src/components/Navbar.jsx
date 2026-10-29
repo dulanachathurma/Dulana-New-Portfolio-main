@@ -115,7 +115,7 @@ export default function Navbar() {
         {/* Main Top Navbar Capsule */}
         <nav
           className={cn(
-            "pointer-events-auto flex items-center justify-between bg-white/95 dark:bg-gray-900/95 backdrop-blur-md px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border border-slate-100 dark:border-white/10 transition-all duration-300",
+            "pointer-events-auto flex items-center justify-between bg-white/95 dark:bg-white/90 backdrop-blur-md px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border border-slate-100 dark:border-slate-200/50 transition-all duration-300",
             scrolled
               ? "shadow-[0_10px_25px_rgba(0,0,0,0.15)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
               : "shadow-[0_6px_20px_rgba(0,0,0,0.08)]"
@@ -196,7 +196,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center justify-start w-9">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-800 dark:text-gray-200 transition-all active:scale-90 shadow-sm focus:outline-none"
+              className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-200 bg-gray-50/80 dark:bg-gray-50/80 hover:bg-gray-100 dark:hover:bg-gray-100 flex items-center justify-center text-gray-800 dark:text-gray-800 transition-all active:scale-90 shadow-sm focus:outline-none"
               aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
             >
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -225,7 +225,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center justify-end w-9">
             <button
               onClick={toggleDarkMode}
-              className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 transition-colors focus:outline-none shadow-sm"
+              className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-200 bg-gray-50/80 dark:bg-gray-50/80 hover:bg-gray-100 dark:hover:bg-gray-100 flex items-center justify-center text-gray-700 dark:text-gray-700 transition-colors focus:outline-none shadow-sm"
               aria-label="Toggle Dark Mode"
             >
               {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
