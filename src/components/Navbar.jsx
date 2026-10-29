@@ -174,7 +174,7 @@ const Navbar = () => {
           </div>
 
           {/* 2. Desktop Navigation Links (Center - Responsive across all laptop/desktop screens) */}
-          <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 justify-center flex-1 mx-2">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2 justify-center flex-1 mx-2">
             {navItems.map((item, index) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -183,7 +183,7 @@ const Navbar = () => {
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={cn(
-                    "px-2 xl:px-2.5 py-1 xl:py-1.5 rounded-full text-xs xl:text-[13px] font-medium transition-all duration-200 relative whitespace-nowrap",
+                    "px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-full text-[13.5px] xl:text-[15px] font-semibold transition-all duration-200 relative whitespace-nowrap",
                     isActive
                       ? "text-blue-600 dark:text-blue-400 font-bold bg-blue-50/90 dark:bg-blue-950/40"
                       : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/70 dark:hover:bg-gray-800/60"

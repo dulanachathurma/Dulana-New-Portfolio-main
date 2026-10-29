@@ -3,86 +3,173 @@ import { X, Send, Bot, User, Sparkles, ChevronDown, Volume2, VolumeX, Mic, MicOf
 
 const portfolioKnowledge = {
   name: "Dulana Chathurma",
-  title: "AI/ML Software Engineer",
-  education: "BSc (Honours) in Software Engineering at University of Kelaniya (2025–2029)",
-  location: "Beliatta, Hambantota District, Sri Lanka",
+  title: "AI/ML Software Engineer & Full-Stack Developer",
+  shortName: "Dulana",
+  university: "University of Kelaniya",
+  degree: "BSc (Honours) in Software Engineering (2025–2029)",
+  school: "H/ Rajapaksa National College, Weeraketiya",
+  alResults: "Combined Mathematics: A, Physics: B, Chemistry: B (Physical Science Stream)",
+  location: "Kopiwatta, Getamanna, Beliatta, Hambantota District, Southern Province, Sri Lanka",
   email: "dulanachathurma99@gmail.com",
   phone: "+94 76 75 74 844",
+  whatsapp: "+94767574844",
   linkedin: "https://linkedin.com/in/dulana-chathurma",
   github: "https://github.com/dulanachathurma",
   twitter: "https://x.com/DulanaChathurma",
   medium: "https://medium.com/@dulanachathurma99",
-  skills: ["Java", "Python", "C", "JavaScript", "PHP", "HTML5", "CSS3", "React.js", "Spring Boot", "MySQL", "PostgreSQL", "AI/ML", "Flask"],
-  projects: [
-    "CarePoint Medical Center - Healthcare web app with appointment booking",
-    "Amazon Clone Website - E-commerce frontend",
-    "User Management Application - Full-stack CRUD with Spring Boot + React.js",
-    "Sriseta Astrology Website - Horoscopes & booking system",
-    "TravelScope - Sri Lanka travel platform",
-    "WeatherSphere Pro - Real-time weather app",
-    "Todo App - Java + PostgreSQL task manager",
-    "ATM Mini Project - C language banking simulation",
-    "AI Career & University Recommendation System - ML-based with Flask",
-    "YouTube Frontend UI Clone - HTML5 & CSS3",
-    "NexGenAI - AI-powered career platform with CV analysis",
+  languages: ["Java", "Python", "C", "JavaScript (ES6+)", "PHP", "SQL"],
+  frontend: ["React.js", "HTML5", "CSS3", "TailwindCSS", "Responsive UI"],
+  backend: ["Spring Boot", "Flask", "RESTful APIs", "Microservices"],
+  databases: ["MySQL", "PostgreSQL"],
+  aiml: ["Machine Learning", "Scikit-Learn", "Recommendation Algorithms", "CV/ATS Parsing"],
+  openSource: [
+    {
+      name: "WSO2 API Manager (wso2/apim-apps)",
+      pr: "Pull Request #1437",
+      details: "Enhanced Publisher Portal scope pagination, strengthened shared utility functions, authored Jest unit tests. CodeRabbit Approved & SonarCloud Quality Gate Passed."
+    },
+    {
+      name: "LeetCode Solutions (doocs/leetcode - 36k+ ⭐)",
+      pr: "Pull Request #6231 (Merged)",
+      details: "Authored optimized JavaScript Dynamic Programming solution for Problem 0042 (Trapping Rain Water). Ranked #22 contributor in the official repository."
+    }
   ],
-  articles: "Technical articles on Medium covering AI, ML, cybersecurity and software engineering topics.",
+  certifications: [
+    "Harvard University CS50x: Introduction to Computer Science (C, Python, SQL, Algorithms)",
+    "University of Moratuwa (CODL): Front-End Web Development",
+    "University of Moratuwa (Open Learning): Python for Beginners",
+    "GitHub Dev Day Sri Lanka: GitHub for Beginners badge",
+    "Udemy: Multiple certificates in Java, AI/ML, and Full-Stack Development"
+  ],
+  articles: [
+    "CIA Triad: Safeguarding Our Information (Cybersecurity)",
+    "A Developer's Leap into Machine Learning (AI & Algorithms)",
+    "Elephant Early Warning System in Railway Transport (AI in Wildlife Conservation)",
+    "Understanding the Importance of a Banking System Use Case Diagram (System Design)",
+    "The Importance of Diagrams (Software Architecture)"
+  ]
 };
 
 function getBotReply(userMsg) {
   const msg = userMsg.toLowerCase().trim();
-  if (msg.match(/\b(hi|hello|hey|good morning|good afternoon|good evening|hola|ayubowan)\b/)) {
-    return `👋 Hello! I'm Dulana's AI Assistant. I can answer questions about Education and background, Projects and skills, Contact and social links and Articles and experience. What would you like to know?`;
+
+  // 1. Greetings & Pleasantries
+  if (msg.match(/\b(hi|hello|hey|good morning|good afternoon|good evening|hola|ayubowan|kohomada|halo|wassup)\b/)) {
+    return `👋 Ayubowan! I'm Dulana's AI Assistant. I know everything about Dulana's projects, open-source work, technical skills, education at University of Kelaniya, certificates, articles, and contact details. How can I help you today?`;
   }
-  if (msg.match(/name|who/)) {
-    return `I'm the AI assistant for ${portfolioKnowledge.name} — an aspiring ${portfolioKnowledge.title} from Sri Lanka!`;
+
+  // 2. Who is Dulana / About / Overview
+  if (msg.match(/\b(who are you|who is dulana|about dulana|tell me about|kauruda|introduce|background|bio|profile)\b/)) {
+    return `Dulana Chathurma is an aspiring AI/ML Software Engineer and Full-Stack Developer from Sri Lanka. He is currently pursuing a BSc (Honours) in Software Engineering at the University of Kelaniya (2025–2029). He has completed 100+ projects, contributed to enterprise open-source projects like WSO2 and LeetCode, and writes technical articles on Medium!`;
   }
-  if (msg.match(/education|university|degree|study|student/)) {
-    return `Education: ${portfolioKnowledge.education}. Previously studied Combined Mathematics, Physics and Chemistry at H Rajapaksa National College. Results: Maths A, Physics B, Chemistry B.`;
+
+  // 3. Open Source & Contributions (WSO2, LeetCode)
+  if (msg.match(/\b(open source|opensource|contribution|contributions|wso2|leetcode|pr|pull request|doocs)\b/)) {
+    return `Dulana is an active open-source contributor! Highlights include:\n• WSO2 API Manager (wso2/apim-apps): PR #1437 — improved Publisher Portal scope pagination, added utility safety, and wrote Jest unit tests (CodeRabbit approved & SonarCloud passed).\n• LeetCode (doocs/leetcode, 36k+ ⭐): PR #6231 (Merged) — wrote an optimized JavaScript DP solution for Problem 0042 (Trapping Rain Water), ranking as #22 contributor in the repository!`;
   }
-  if (msg.match(/skill|tech|language|stack|know|expertise|proficiency/)) {
-    return `Technical Skills: ${portfolioKnowledge.skills.join(", ")}. Specializing in AI and ML, Full-Stack Development and Mobile-friendly UIs.`;
+
+  // 4. Education & Academic Background
+  if (msg.match(/\b(education|university|degree|kelaniya|study|college|school|a\/l|al|advanced level|results|marks|exam)\b/)) {
+    return `Dulana's Academic Background:\n🎓 Higher Education: BSc (Honours) in Software Engineering at University of Kelaniya (2025–2029).\n🏫 Secondary Education: H/ Rajapaksa National College, Weeraketiya.\n📊 G.C.E. Advanced Level Results: Combined Mathematics: A, Physics: B, Chemistry: B (Physical Science Stream).`;
   }
-  if (msg.match(/project|build|make|create|work/)) {
-    return `Featured Projects: ${portfolioKnowledge.projects.join(". ")}. Scroll to the Projects section to explore them all with live demos!`;
+
+  // 5. Specific Projects Inquiry
+  if (msg.match(/\b(nexgenai|ats|resume parser|career skill)\b/)) {
+    return `NexGenAI (Intelligent Career Skill Analysis Platform) is an AI-powered web app built with React.js and TailwindCSS. It parses resumes/CVs, maps skills intelligently, calculates ATS compatibility scores, and recommends personalized career paths!`;
   }
-  if (msg.match(/contact|email|phone|reach|message|hire/)) {
-    return `Contact Dulana: Email is ${portfolioKnowledge.email}. Phone is ${portfolioKnowledge.phone}. Also available on LinkedIn, GitHub and X Twitter.`;
+  if (msg.match(/\b(ai career|university recommendation|recommendation system)\b/)) {
+    return `AI Career & University Recommendation System is an intelligent machine learning project built with Python, ML algorithms, and Flask. It guides students to optimal university degrees and career paths based on their interests and skills. Read Dulana's article about it on Medium!`;
   }
-  if (msg.match(/github|code|repo|repository/)) {
-    return `GitHub: github.com/dulanachathurma. Check out 11 plus open-source projects including Spring Boot apps, React frontends and AI systems!`;
+  if (msg.match(/\b(sriseta|astrology|horoscope|zodiac)\b/)) {
+    return `Sriseta Official Website is a modern astrology platform built with React.js. It features daily/weekly horoscopes, an interactive zodiac slider, automated predictions, astrology consultation booking, and direct WhatsApp integration!`;
   }
-  if (msg.match(/linkedin/)) {
-    return `LinkedIn: linkedin.com/in/dulana-chathurma. Connect on LinkedIn to see professional experience and certificates!`;
+  if (msg.match(/\b(carepoint|medical|doctor|hospital|healthcare|appointment)\b/)) {
+    return `CarePoint Medical Center is a healthcare web platform built with HTML5, CSS3, and JavaScript. It provides online doctor search, appointment scheduling, a secure payment simulation, and emergency ambulance access!`;
   }
-  if (msg.match(/twitter|x\.com|tweet/)) {
-    return `X Twitter: x.com/DulanaChathurma. Follow on X for tech updates and insights!`;
+  if (msg.match(/\b(user management|crud|spring boot app)\b/)) {
+    return `User Management Application is a full-stack CRUD application developed with Spring Boot, React.js, JavaScript, and MySQL. It features clean REST APIs, structured state management, and a responsive UI.`;
   }
-  if (msg.match(/article|blog|medium|write|post/)) {
-    return `Articles on Medium at medium.com/@dulanachathurma99. ${portfolioKnowledge.articles}`;
+  if (msg.match(/\b(travelscope|travel|sri lanka travel|maps)\b/)) {
+    return `TravelScope is a travel exploration platform showcasing the beauty of Sri Lanka. Built with React.js and Google Maps API, it helps travelers discover destinations and plan itineraries.`;
   }
-  if (msg.match(/ai|ml|machine learning|artificial intelligence/)) {
-    return `AI and ML Expertise: Dulana is building an AI Career and University Recommendation System using Python, Machine Learning and Flask. Also developed NexGenAI — an AI-powered platform that analyzes CVs and provides career path recommendations with ATS scores!`;
+  if (msg.match(/\b(weathersphere|weather app|weather)\b/)) {
+    return `WeatherSphere Pro is a real-time weather web application built with React.js and live meteorological APIs, providing dynamic city forecasts and sleek UI cards.`;
   }
-  if (msg.match(/location|where|country|sri lanka|live|based/)) {
-    return `Location: ${portfolioKnowledge.location}. Available for remote opportunities worldwide!`;
+  if (msg.match(/\b(todo|atm|banking project|c language|amazon|youtube)\b/)) {
+    return `Additional Projects include:\n• Todo App: Task manager built with Java and PostgreSQL.\n• ATM Banking System: Full banking logic simulation in C language.\n• Amazon Clone: Modern e-commerce UI built with HTML5, CSS3, JS.\n• YouTube Clone: Responsive video platform homepage interface.`;
   }
-  if (msg.match(/cv|resume|download/)) {
-    return `You can download Dulana's CV using the button on the Home page — just click Review Executive CV!`;
+
+  // 6. All Projects Overview
+  if (msg.match(/\b(project|projects|portfolio|what did he build|build|apps|system|wada|hadapu)\b/)) {
+    return `Dulana has built 100+ projects across AI/ML, Full-Stack, and Frontend:\n1. NexGenAI (AI CV Skill & ATS Analyzer)\n2. AI Career & University Recommendation System (Python + ML + Flask)\n3. User Management System (Spring Boot + React + MySQL)\n4. Sriseta Astrology Platform (React.js)\n5. CarePoint Medical Center (HTML/CSS/JS)\n6. TravelScope & WeatherSphere Pro\n7. Todo App (Java + PostgreSQL) & ATM Simulator (C)\nScroll to the Projects section to test live demos and view source code!`;
   }
-  if (msg.match(/internship|job|opportunity|hire|recruit/)) {
-    return `Yes! Dulana is actively seeking internship opportunities in AI and ML Engineering, Full-Stack Development with Spring Boot and React and Mobile App Development. Feel free to reach out at ${portfolioKnowledge.email}!`;
+
+  // 7. Technical Skills & Languages
+  if (msg.match(/\b(skill|skills|technologies|tech stack|languages|language|know|tools|frameworks)\b/)) {
+    return `Dulana's Technical Skills:\n💻 Languages: Java, Python, C, JavaScript (ES6+), PHP, SQL\n🎨 Frontend: React.js, HTML5, CSS3, TailwindCSS\n⚙️ Backend: Spring Boot, Flask, RESTful APIs\n🗄️ Databases: MySQL, PostgreSQL\n🤖 AI/ML: Scikit-learn, Machine Learning, Recommendation Systems, ATS Parsing\n🛠️ Tools: Git, GitHub, Jest Unit Testing, VS Code, Postman, Vite`;
   }
-  if (msg.match(/spring boot|java|backend/)) {
-    return `Spring Boot Expertise: Dulana built a full-stack User Management Application using Spring Boot, React.js and MySQL, featuring clean REST APIs, CRUD operations and a responsive frontend!`;
+
+  // 8. Specific Tech Check (Java, Python, React, Spring Boot, C, etc.)
+  if (msg.match(/\b(java|spring boot)\b/)) {
+    return `Java & Spring Boot: Dulana develops enterprise-ready full-stack applications using Spring Boot, REST APIs, Hibernate/JPA, and Java OOP. He built the full-stack User Management Application with Spring Boot and React!`;
   }
-  if (msg.match(/react|frontend|ui|interface/)) {
-    return `React.js Projects include: Sriseta Astrology Website, TravelScope Travel Platform, WeatherSphere Pro App, NexGenAI Career Platform and User Management App. All built with React.js, hooks and responsive design!`;
+  if (msg.match(/\b(python|ai|machine learning|ml|flask)\b/)) {
+    return `Python & AI/ML: Dulana specializes in Machine Learning algorithms, predictive modeling, Flask backends, and data science. He built the AI Career & University Recommendation System and NexGenAI ATS analyzer using ML models!`;
   }
-  if (msg.match(/thank|thanks|bye|goodbye|see you/)) {
-    return `You're welcome! Feel free to come back if you have more questions. Have a great day!`;
+  if (msg.match(/\b(react|javascript|js|frontend|tailwind|css)\b/)) {
+    return `React.js & Frontend: Dulana creates fast, responsive, and aesthetic web applications with React.js, TailwindCSS, modern component state, and sleek animations (including Sriseta, NexGenAI, TravelScope, and this portfolio).`;
   }
-  return `I'm not sure about that specific query. Try asking about Skills and technologies, Projects and demos, Contact information, Education background, or Internship availability. Or just say hi to start fresh!`;
+  if (msg.match(/\b(c language|c programming|c)\b/) && !msg.match(/\b(cv|resume)\b/)) {
+    return `C Programming: Dulana studied C at Harvard CS50x and University of Kelaniya, developing algorithms, data structures, and projects like the ATM banking system.`;
+  }
+
+  // 9. Certifications & Badges
+  if (msg.match(/\b(certificate|certificates|certification|certifications|cs50|harvard|moratuwa|course|courses|badge)\b/)) {
+    return `Dulana's Certifications:\n🏆 Harvard University: CS50x - Introduction to Computer Science (C, Python, SQL, Data Structures)\n🎓 University of Moratuwa: Front-End Web Development (CODL)\n🐍 University of Moratuwa: Python for Beginners\n🎖️ GitHub Dev Day Sri Lanka: GitHub for Beginners Verified Badge\n📜 Multiple Udemy certificates in Java, AI/ML, and Web Engineering. Check out the Certificates section!`;
+  }
+
+  // 10. Medium Articles & Writing
+  if (msg.match(/\b(article|articles|medium|blog|blogs|write|writing|post|publications)\b/)) {
+    return `Dulana regularly publishes technical articles on Medium (@dulanachathurma99):\n📝 "CIA Triad: Safeguarding Our Information" (Cybersecurity)\n📝 "A Developer's Leap into Machine Learning" (AI/ML)\n📝 "Elephant Early Warning System in Railway Transport" (AI & Wildlife)\n📝 "Understanding the Importance of a Banking System Use Case Diagram"\n📝 "The Importance of Diagrams in Software Engineering"\nRead them directly in the Articles section!`;
+  }
+
+  // 11. Experience & Extracurriculars
+  if (msg.match(/\b(experience|experiences|gavel|rotaract|iom|youtube|volunteering|activities|leader|leadership)\b/)) {
+    return `Dulana's Experience & Leadership:\n🎤 Gavel Club (University of Kelaniya): Faculty Coordinator for Social Services, organizing community initiatives.\n🌐 GitHub Dev Day: Active participant in Git fundamentals and collaboration workflows.\n🤝 Safe Migration Program: Student participant with Rotaract Club & IOM.\n🎥 Travel & Lifestyle YouTube Channel: Content creator exploring Sri Lanka with video editing and AI storytelling tools.\n🌱 Central Environmental Authority: School Environmental Pioneer member with 3 ranking awards.`;
+  }
+
+  // 12. Contact Details & Social Links
+  if (msg.match(/\b(contact|email|phone|whatsapp|linkedin|github|twitter|reach|message|call|talk)\b/)) {
+    return `You can reach Dulana directly:\n📧 Email: ${portfolioKnowledge.email}\n📞 Phone: ${portfolioKnowledge.phone}\n💬 WhatsApp: https://wa.me/94767574844\n💼 LinkedIn: linkedin.com/in/dulana-chathurma\n🐙 GitHub: github.com/dulanachathurma\n✍️ Medium: medium.com/@dulanachathurma99\n🐦 X/Twitter: x.com/DulanaChathurma`;
+  }
+
+  // 13. Location / Residence
+  if (msg.match(/\b(location|where|country|city|town|sri lanka|address|live|based)\b/)) {
+    return `Dulana is based in Beliatta, Hambantota District, Southern Province, Sri Lanka. He is open to remote work worldwide as well as on-site positions in Sri Lanka!`;
+  }
+
+  // 14. CV / Resume Download
+  if (msg.match(/\b(cv|resume|download cv|download resume|pdf|curriculum)\b/)) {
+    return `You can download or review Dulana's CV right from this portfolio! Click the "Review Executive CV" button in the Home section at the top of the page.`;
+  }
+
+  // 15. Hiring, Jobs, & Internship Opportunities
+  if (msg.match(/\b(hire|hiring|intern|internship|job|opportunity|work with|available|freelance|recruit|full time|part time)\b/)) {
+    return `Yes! Dulana is actively seeking Internship and Junior Software Engineering opportunities in:\n• AI / Machine Learning Engineering\n• Full-Stack Development (Spring Boot + React.js)\n• Frontend / Mobile Web App Development\nHe is ready to contribute to impactful software teams. Reach him at ${portfolioKnowledge.email} or +94 76 75 74 844!`;
+  }
+
+  // 16. Singlish & Sinhala Inquiries
+  if (msg.match(/\b(kauruda|mokakda|monawada|karana|karala|kiyanna|visthara|thiyenne|oyage|oyata|puluwanda|uththara|danna)\b/)) {
+    return `දුලාන චතුර්ම කියන්නේ කැළණිය විශ්වවිද්‍යාලයේ මෘදුකාංග ඉංජිනේරු (BSc Honours in Software Engineering) උපාධිය හදාරන දක්ෂ AI/ML Software Engineer කෙනෙක්.\n• Projects: NexGenAI, AI Career Recommender, User Management App (Spring Boot + React), Sriseta Astrology, CarePoint\n• Open Source: WSO2 API Manager (PR #1437) සහ LeetCode #22 contributor\n• Skills: Java, Python, C, JavaScript, React, Spring Boot, MySQL, AI/ML\n• Contact: dulanachathurma99@gmail.com / 076 75 74 844`;
+  }
+
+  // 17. Thank you & Goodbye
+  if (msg.match(/\b(thank|thanks|great|awesome|good job|bye|goodbye|see you|tc|take care)\b/)) {
+    return `You're very welcome! If you have any more questions about Dulana's work, experience, or want to collaborate, feel free to ask anytime. Have a wonderful day! 🚀`;
+  }
+
+  // Default fallback with helpful prompt buttons
+  return `I can tell you anything about Dulana! You can ask about:\n• 🚀 "Featured Projects" (NexGenAI, Sriseta, User Management, AI Recommender)\n• 🐙 "Open Source Work" (WSO2 PR #1437, LeetCode rank #22)\n• 💻 "Technical Skills" (Java, Python, React, Spring Boot, AI/ML)\n• 🎓 "Education & A/L Results" (University of Kelaniya, Rajapaksa National College)\n• 📜 "Certificates" (Harvard CS50x, Moratuwa, GitHub Dev Day)\n• 📬 "Contact & Hire" (Email, Phone, WhatsApp, CV)\nWhat would you like to explore?`;
 }
 
 function stripMarkdown(text) {
