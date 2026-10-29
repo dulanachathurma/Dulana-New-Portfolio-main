@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X, Moon, Sun, ChevronRight } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
-import profileImg from "../assets/dulana.jpeg";
+import dulanaLogo from "../assets/dulana_logo.jpg";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -138,43 +138,43 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-3 sm:px-6 pt-3 sm:pt-4 pointer-events-none transition-all duration-300">
-      <div className="max-w-6xl mx-auto pointer-events-auto">
+    <header className="fixed top-0 left-0 w-full z-50 px-3 sm:px-4 lg:px-6 pt-3 sm:pt-4 pointer-events-none transition-all duration-300">
+      <div className="w-[98%] sm:w-[96%] max-w-7xl mx-auto pointer-events-auto">
         {/* Floating Capsule Navbar (SESA Style) */}
         <nav
           className={cn(
-            "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full px-4 sm:px-6 py-2 md:py-2.5 border border-gray-100 dark:border-gray-800 flex items-center justify-between transition-all duration-300",
+            "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full px-3 sm:px-4 lg:px-5 xl:px-6 py-2 xl:py-2.5 border border-gray-100 dark:border-gray-800 flex items-center justify-between transition-all duration-300",
             scrolled
               ? "shadow-[0_12px_35px_rgba(0,0,0,0.18)] dark:shadow-[0_12px_35px_rgba(0,0,0,0.5)]"
               : "shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
           )}
         >
           {/* =========================================
-              DESKTOP VIEW (md:flex)
+              DESKTOP VIEW (lg:flex)
              ========================================= */}
 
           {/* 1. Desktop Logo & Branding (Left side) */}
-          <div className="hidden md:flex items-center shrink-0">
+          <div className="hidden lg:flex items-center shrink-0">
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, "#home")}
-              className="flex items-center gap-2.5 group focus:outline-none"
+              className="flex items-center gap-2 xl:gap-2.5 group focus:outline-none"
             >
-              <div className="w-9 h-9 lg:w-10 lg:h-10 rounded-full overflow-hidden p-[2px] bg-gradient-to-r from-blue-600 to-cyan-500 shadow-sm shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-full overflow-hidden shadow-sm shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <img
-                  src={profileImg}
+                  src={dulanaLogo}
                   alt="Dulana Chathurma"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="font-extrabold text-base lg:text-lg bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-sm xl:text-base bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
           </div>
 
-          {/* 2. Desktop Navigation Links (Center) */}
-          <div className="hidden md:flex items-center gap-1 lg:gap-1.5">
+          {/* 2. Desktop Navigation Links (Center - Responsive across all laptop/desktop screens) */}
+          <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 justify-center flex-1 mx-2">
             {navItems.map((item, index) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -183,9 +183,9 @@ const Navbar = () => {
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={cn(
-                    "px-2.5 py-1.5 rounded-full text-xs lg:text-[13px] font-medium transition-all duration-200 relative whitespace-nowrap",
+                    "px-2 xl:px-2.5 py-1 xl:py-1.5 rounded-full text-xs xl:text-[13px] font-medium transition-all duration-200 relative whitespace-nowrap",
                     isActive
-                      ? "text-blue-600 dark:text-blue-400 font-bold bg-blue-50/80 dark:bg-blue-950/40"
+                      ? "text-blue-600 dark:text-blue-400 font-bold bg-blue-50/90 dark:bg-blue-950/40"
                       : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/70 dark:hover:bg-gray-800/60"
                   )}
                 >
@@ -199,7 +199,7 @@ const Navbar = () => {
           </div>
 
           {/* 3. Desktop Actions: Contact Button with Smooth Ring Animation + Theme Toggle (Right side) */}
-          <div className="hidden md:flex items-center gap-2.5 shrink-0">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0">
             {/* Contact CTA Button (Smooth single ring SESA style) */}
             <a
               href="#contact"
@@ -207,7 +207,7 @@ const Navbar = () => {
               className="relative group flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none"
             >
               <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
-              <span className="relative z-10 px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs lg:text-sm shadow-[0_0_15px_rgba(37,99,235,0.4)] whitespace-nowrap transition-colors">
+              <span className="relative z-10 px-3.5 xl:px-5 py-1.5 xl:py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs xl:text-sm shadow-[0_0_15px_rgba(37,99,235,0.4)] whitespace-nowrap transition-colors">
                 Contact
               </span>
             </a>
@@ -215,19 +215,19 @@ const Navbar = () => {
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 transition-colors focus:outline-none shrink-0 shadow-sm"
+              className="w-8 h-8 xl:w-9 xl:h-9 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 transition-colors focus:outline-none shrink-0 shadow-sm"
               aria-label="Toggle Dark Mode"
             >
-              {isDarkMode ? <Sun size={17} /> : <Moon size={17} />}
+              {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
             </button>
           </div>
 
           {/* =========================================
-              MOBILE VIEW (md:hidden - SESA Style)
+              MOBILE / TABLET VIEW (lg:hidden - SESA Style)
              ========================================= */}
 
           {/* 1. Mobile Hamburger / Close Button (Left side - Circular SESA style) */}
-          <div className="flex md:hidden items-center justify-start w-10">
+          <div className="flex lg:hidden items-center justify-start w-10">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-800 dark:text-gray-200 transition-all active:scale-90 shadow-sm focus:outline-none"
@@ -237,28 +237,28 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* 2. Mobile Logo & Branding (Center - SESA style) */}
-          <div className="flex md:hidden items-center justify-center flex-1 px-1">
+          {/* 2. Mobile Logo & Branding (Center - SESA style with new profile photo) */}
+          <div className="flex lg:hidden items-center justify-center flex-1 px-1">
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, "#home")}
               className="flex items-center gap-2 group focus:outline-none"
             >
-              <div className="w-8 h-8 rounded-full overflow-hidden p-[1.5px] bg-gradient-to-r from-blue-600 to-cyan-500 shadow-sm shrink-0">
+              <div className="w-8 h-8 rounded-full overflow-hidden shadow-sm shrink-0">
                 <img
-                  src={profileImg}
+                  src={dulanaLogo}
                   alt="Dulana Chathurma"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="font-extrabold text-base bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
+              <span className="font-extrabold text-sm sm:text-base bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent tracking-tight whitespace-nowrap">
                 Dulana Chathurma
               </span>
             </a>
           </div>
 
           {/* 3. Mobile Dark Mode Toggle (Right side - Symmetrical balance) */}
-          <div className="flex md:hidden items-center justify-end w-10">
+          <div className="flex lg:hidden items-center justify-end w-10">
             <button
               onClick={toggleDarkMode}
               className="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 transition-colors focus:outline-none shadow-sm"
@@ -269,17 +269,18 @@ const Navbar = () => {
           </div>
         </nav>
 
-        {/* Mobile Dropdown Menu Card (SESA Style without scrollbar and with complete visibility) */}
+        {/* Mobile Dropdown Menu Card (SESA Style: Visible Gap, No Scrollbar, Complete Visibility) */}
         {isMenuOpen && (
           <>
             {/* Tap-outside Backdrop */}
             <div
-              className="fixed inset-0 z-[-1] bg-black/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[-1] bg-black/60 backdrop-blur-sm lg:hidden"
               onClick={() => setIsMenuOpen(false)}
             />
 
-            <div className="md:hidden mt-3 bg-white/98 dark:bg-[#13172b] backdrop-blur-2xl rounded-3xl border border-gray-200/80 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.35)] overflow-hidden pointer-events-auto transition-all animate-in fade-in slide-in-from-top-3 duration-200">
-              <div className="flex flex-col p-5 gap-1 max-h-[80vh] overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            {/* Dropdown Card with distinct vertical gap (mt-3.5) and ZERO scrolling (overflow-hidden) */}
+            <div className="lg:hidden mt-3.5 bg-white/98 dark:bg-[#13172b] backdrop-blur-2xl rounded-[28px] border border-gray-200/80 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.35)] overflow-hidden pointer-events-auto transition-all animate-in fade-in slide-in-from-top-3 duration-200">
+              <div className="flex flex-col p-4 sm:p-5 gap-0.5 sm:gap-1 overflow-hidden">
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.substring(1);
                   return (
@@ -288,7 +289,7 @@ const Navbar = () => {
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
                       className={cn(
-                        "flex items-center justify-between py-3 px-4 rounded-2xl text-[15px] font-semibold transition-all duration-200 group",
+                        "flex items-center justify-between py-2 sm:py-2.5 px-3.5 rounded-xl text-sm font-semibold transition-all duration-200 group",
                         isActive
                           ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
                           : "text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60"
@@ -308,11 +309,11 @@ const Navbar = () => {
                 })}
 
                 {/* Mobile Contact Action with Smooth Subtle Ring Animation */}
-                <div className="pt-3 px-1 mt-1">
+                <div className="pt-2.5 px-1 mt-1">
                   <a
                     href="#contact"
                     onClick={(e) => handleNavClick(e, "#contact")}
-                    className="relative group flex items-center justify-center w-full py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_0_20px_rgba(37,99,235,0.45)] transition-all active:scale-95 focus:outline-none"
+                    className="relative group flex items-center justify-center w-full py-2.5 sm:py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_0_20px_rgba(37,99,235,0.45)] transition-all active:scale-95 focus:outline-none"
                   >
                     <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
                     <span className="relative z-10">Contact Me</span>
