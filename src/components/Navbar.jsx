@@ -278,10 +278,10 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             />
 
-            {/* Dropdown Card with distinct vertical gap (mt-4 sm:mt-5) matching sriseta.lk style */}
+            {/* Dropdown Card with distinct vertical gap (24px) matching sriseta.lk style */}
             <div
-              style={{ marginTop: "18px" }}
-              className="lg:hidden mt-4 sm:mt-5 bg-white/95 dark:bg-[#121626]/95 backdrop-blur-xl rounded-[28px] border border-gray-100 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden pointer-events-auto transition-all duration-300"
+              style={{ marginTop: "24px" }}
+              className="lg:hidden mt-6 bg-white/95 dark:bg-[#121626]/95 backdrop-blur-xl rounded-[28px] border border-gray-100 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden pointer-events-auto transition-all duration-300"
             >
               <div className="flex flex-col p-4 sm:p-5 gap-1 overflow-hidden">
                 {navItems.map((item, index) => {
@@ -303,15 +303,16 @@ const Navbar = () => {
                   );
                 })}
 
-                {/* Mobile Contact Action (Sriseta Double-Ring Style) */}
+                {/* Mobile Contact Action (Sriseta Double-Ring Style with Smooth Ring Animation) */}
                 <div className="pt-2 px-1 mt-1">
                   <div className="p-1 rounded-full border border-blue-200 dark:border-blue-900/60 bg-blue-50/40 dark:bg-blue-950/20">
                     <a
                       href="#contact"
                       onClick={(e) => handleNavClick(e, "#contact")}
-                      className="flex items-center justify-center w-full py-2.5 sm:py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
+                      className="relative group flex items-center justify-center w-full py-2.5 sm:py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
                     >
-                      <span>Contact Me</span>
+                      <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
+                      <span className="relative z-10">Contact Me</span>
                     </a>
                   </div>
                 </div>
