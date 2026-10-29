@@ -94,7 +94,8 @@ export default function Navbar() {
     const element = document.querySelector(href);
 
     if (element) {
-      const offset = 80;
+      // Offset = top spacing (24px) + navbar height (~52px) + small gap
+      const offset = 100;
       const elementPosition = element.offsetTop - offset;
 
       window.scrollTo({
@@ -157,9 +158,9 @@ export default function Navbar() {
   );
 
   return (
-    // Extra top padding (pt-5 / sm:pt-6) creates the space above the navbar.
-    // Change to pt-7 / pt-8 etc. for more space.
-    <header className="absolute top-0 left-0 right-0 z-50 px-2 sm:px-3 pb-2 sm:pb-3 pt-5 sm:pt-6 transition-all duration-300">
+    // CHANGED: p-2 sm:p-3  ->  px-2 sm:px-3 pt-4 sm:pt-6 pb-2  (extra space on top)
+    // Use `fixed` instead of `absolute` if you want the navbar to stay while scrolling.
+    <header className="absolute top-0 left-0 right-0 z-50 px-2 sm:px-3 pt-4 sm:pt-6 pb-2 transition-all duration-300">
       <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col">
         {/* Main Navbar */}
         <nav
@@ -349,14 +350,14 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             />
 
-            {/* Dropdown Card (top moved from 72px to 92px to match the new header spacing) */}
+            {/* Dropdown Card */}
+            {/* CHANGED: inline top:72px -> top-[84px] sm:top-[96px] to match the new top spacing */}
             <motion.div
               initial={{ opacity: 0, y: -12, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.96 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="absolute z-50 left-0 right-0 lg:hidden pointer-events-auto"
-              style={{ top: "92px" }}
+              className="absolute z-50 left-0 right-0 lg:hidden pointer-events-auto top-[84px] sm:top-[96px]"
             >
               <div
                 className={cn(
