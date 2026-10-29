@@ -279,7 +279,10 @@ const Navbar = () => {
 
           {/* Dropdown Menu Card (Floating Glassmorphic Card matching sriseta.lk) */}
           {isMenuOpen && (
-            <div className="pointer-events-auto mt-3 sm:mt-4 w-full bg-white/80 dark:bg-[#121626]/85 backdrop-blur-xl border border-white/30 dark:border-white/10 shadow-2xl rounded-3xl p-4 sm:p-5 transition-all duration-300 lg:hidden">
+            <div
+              style={{ marginTop: "16px" }}
+              className="pointer-events-auto mt-4 w-full bg-white/85 dark:bg-[#121626]/90 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-2xl rounded-[32px] p-4 sm:p-5 transition-all duration-300 lg:hidden"
+            >
               <nav className="flex flex-col space-y-1">
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.substring(1);
@@ -289,7 +292,7 @@ const Navbar = () => {
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
                       className={cn(
-                        "flex items-center py-2.5 sm:py-3 px-4 rounded-2xl text-[15px] font-semibold transition-all duration-200",
+                        "flex items-center py-2.5 sm:py-3 px-4 rounded-2xl text-[15px] sm:text-[16px] font-semibold transition-all duration-200",
                         isActive
                           ? "bg-blue-50/90 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 font-bold border-l-4 border-blue-600"
                           : "text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-black/5 dark:hover:bg-white/5"
@@ -301,15 +304,18 @@ const Navbar = () => {
                 })}
               </nav>
 
+              {/* Contact Button Container with sriseta.lk Double Ring Styling */}
               <div className="pt-3">
-                <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, "#contact")}
-                  className="relative group flex items-center justify-center w-full py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
-                >
-                  <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
-                  <span className="relative z-10">Contact Me</span>
-                </a>
+                <div className="p-1 rounded-full border border-blue-200/80 dark:border-blue-900/60 bg-blue-50/40 dark:bg-blue-950/20">
+                  <a
+                    href="#contact"
+                    onClick={(e) => handleNavClick(e, "#contact")}
+                    className="relative group flex items-center justify-center w-full py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
+                  >
+                    <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
+                    <span className="relative z-10">Contact Me</span>
+                  </a>
+                </div>
               </div>
             </div>
           )}
