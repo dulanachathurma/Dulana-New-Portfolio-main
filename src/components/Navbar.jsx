@@ -1,3 +1,4 @@
+```jsx
 import { useEffect, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X, Moon, Sun } from "lucide-react";
@@ -22,7 +23,7 @@ export default function Navbar() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Initialize theme
+  // Initialize saved theme
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
 
@@ -32,7 +33,6 @@ export default function Navbar() {
         window.matchMedia("(prefers-color-scheme: dark)").matches);
 
     setIsDarkMode(isDark);
-
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
@@ -42,7 +42,6 @@ export default function Navbar() {
       const nextTheme = !prev;
 
       document.documentElement.classList.toggle("dark", nextTheme);
-
       localStorage.setItem("theme", nextTheme ? "dark" : "light");
 
       return nextTheme;
@@ -57,9 +56,9 @@ export default function Navbar() {
 
     window.addEventListener("scroll", onScroll);
 
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Smooth scrolling
@@ -70,7 +69,8 @@ export default function Navbar() {
 
     if (element) {
       const offset = 80;
-      const elementPosition = element.offsetTop - offset;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY - offset;
 
       window.scrollTo({
         top: elementPosition,
@@ -90,21 +90,14 @@ export default function Navbar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        let bestSection = null;
-        let bestRatio = 0;
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) => b.intersectionRatio - a.intersectionRatio
+          );
 
-        entries.forEach((entry) => {
-          if (
-            entry.isIntersecting &&
-            entry.intersectionRatio > bestRatio
-          ) {
-            bestRatio = entry.intersectionRatio;
-            bestSection = entry.target.id;
-          }
-        });
-
-        if (bestSection) {
-          setActiveSection(bestSection);
+        if (visibleSections.length > 0) {
+          setActiveSection(visibleSections[0].target.id);
         }
       },
       {
@@ -116,19 +109,22 @@ export default function Navbar() {
     allSections.forEach((section) => {
       const element = document.getElementById(section);
 
-      if (element) {
-        observer.observe(element);
-      }
+      if (element) observer.observe(element);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  // Theme-dependent navbar styles
+  // Navbar colors are controlled directly by inline styles.
+  // This avoids Tailwind dark-mode background conflicts.
   const navbarStyle = {
     backgroundColor: isDarkMode
-      ? `rgba(255, 255, 255, ${scrolled ? 0.96 : 0.90})`
-      : `rgba(0, 0, 0, ${scrolled ? 0.90 : 0.70})`,
+      ? scrolled
+        ? "#ffffff"
+        : "rgba(255, 255, 255, 0.90)"
+      : scrolled
+        ? "rgba(0, 0, 0, 0.90)"
+        : "rgba(0, 0, 0, 0.70)",
 
     borderColor: isDarkMode
       ? "rgba(0, 0, 0, 0.20)"
@@ -137,8 +133,26 @@ export default function Navbar() {
     color: isDarkMode ? "#000000" : "#ffffff",
 
     boxShadow: isDarkMode
-      ? "0 6px 20px rgba(255, 255, 255, 0.15)"
+      ? "0 6px 20px rgba(0, 0, 0, 0.15)"
       : "0 6px 20px rgba(0, 0, 0, 0.30)",
+  };
+
+  // Theme-dependent icon styles
+  const themeButtonClass = isDarkMode
+    ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
+    : "border-white/20 bg-white/10 text-white hover:bg-white/20";
+
+  // Theme-dependent navigation link styles
+  const getNavLinkClass = (isActive) => {
+    if (isActive) {
+      return isDarkMode
+        ? "text-blue-600 font-bold bg-black/10"
+        : "text-blue-400 font-bold bg-white/20";
+    }
+
+    return isDarkMode
+      ? "text-black hover:text-blue-600 hover:bg-black/5"
+      : "text-white hover:text-white hover:bg-white/10";
   };
 
   return (
@@ -148,9 +162,7 @@ export default function Navbar() {
         {/* Main Navbar */}
         <nav
           style={navbarStyle}
-          className={cn(
-            "flex items-center justify-between px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border backdrop-blur-md transition-all duration-300"
-          )}
+          className="flex items-center justify-between px-3.5 sm:px-5 py-1.5 md:py-2 rounded-full border backdrop-blur-md transition-all duration-300"
         >
           {/* Desktop Logo */}
           <div className="hidden lg:flex items-center shrink-0">
@@ -162,9 +174,7 @@ export default function Navbar() {
               <div
                 className={cn(
                   "w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden shadow-sm shrink-0 transition-transform duration-300 group-hover:scale-105 border",
-                  isDarkMode
-                    ? "border-black/20"
-                    : "border-white/30"
+                  isDarkMode ? "border-black/20" : "border-white/30"
                 )}
               >
                 <img
@@ -193,13 +203,7 @@ export default function Navbar() {
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={cn(
                     "px-2.5 xl:px-3 py-1 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
-                    isActive
-                      ? isDarkMode
-                        ? "text-blue-600 font-bold bg-black/10"
-                        : "text-blue-400 font-bold bg-white/20"
-                      : isDarkMode
-                        ? "text-black hover:text-blue-600 hover:bg-black/5"
-                        : "text-white/90 hover:text-white hover:bg-white/10"
+                    getNavLinkClass(isActive)
                   )}
                 >
                   {item.name}
@@ -208,9 +212,7 @@ export default function Navbar() {
                     <span
                       className={cn(
                         "absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] rounded-full",
-                        isDarkMode
-                          ? "bg-blue-600"
-                          : "bg-blue-400"
+                        isDarkMode ? "bg-blue-600" : "bg-blue-400"
                       )}
                     />
                   )}
@@ -248,51 +250,35 @@ export default function Navbar() {
 
             {/* Desktop Theme Toggle */}
             <button
+              type="button"
               onClick={toggleDarkMode}
               className={cn(
                 "w-8 h-8 rounded-full border flex items-center justify-center transition-colors focus:outline-none shrink-0 shadow-sm",
-                isDarkMode
-                  ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
-                  : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                themeButtonClass
               )}
               aria-label={
-                isDarkMode
-                  ? "Switch to Light Mode"
-                  : "Switch to Dark Mode"
+                isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
               }
               title={
-                isDarkMode
-                  ? "Switch to Light Mode"
-                  : "Switch to Dark Mode"
+                isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
               }
             >
-              {isDarkMode ? (
-                <Sun size={16} />
-              ) : (
-                <Moon size={16} />
-              )}
+              {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center justify-start w-9">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              type="button"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
               className={cn(
                 "w-9 h-9 rounded-full border flex items-center justify-center transition-all active:scale-90 shadow-sm focus:outline-none",
-                isDarkMode
-                  ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
-                  : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                themeButtonClass
               )}
-              aria-label={
-                isMenuOpen ? "Close Menu" : "Open Menu"
-              }
+              aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
             >
-              {isMenuOpen ? (
-                <X size={18} />
-              ) : (
-                <Menu size={18} />
-              )}
+              {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
 
@@ -306,9 +292,7 @@ export default function Navbar() {
               <div
                 className={cn(
                   "w-8 h-8 rounded-full overflow-hidden shadow-sm shrink-0 border",
-                  isDarkMode
-                    ? "border-black/20"
-                    : "border-white/30"
+                  isDarkMode ? "border-black/20" : "border-white/30"
                 )}
               >
                 <img
@@ -327,30 +311,23 @@ export default function Navbar() {
           {/* Mobile Theme Toggle */}
           <div className="flex lg:hidden items-center justify-end w-9">
             <button
+              type="button"
               onClick={toggleDarkMode}
               className={cn(
                 "w-9 h-9 rounded-full border flex items-center justify-center transition-colors focus:outline-none shadow-sm",
-                isDarkMode
-                  ? "border-black/20 bg-black/10 text-black hover:bg-black/20"
-                  : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                themeButtonClass
               )}
               aria-label={
-                isDarkMode
-                  ? "Switch to Light Mode"
-                  : "Switch to Dark Mode"
+                isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
               }
             >
-              {isDarkMode ? (
-                <Sun size={16} />
-              ) : (
-                <Moon size={16} />
-              )}
+              {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
             </button>
           </div>
         </nav>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown */}
       <AnimatePresence>
         {isMenuOpen && (
           <>
@@ -365,35 +342,22 @@ export default function Navbar() {
 
             {/* Dropdown Card */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: -12,
-                scale: 0.96,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-              }}
-              exit={{
-                opacity: 0,
-                y: -12,
-                scale: 0.96,
-              }}
-              transition={{
-                duration: 0.25,
-                ease: "easeOut",
-              }}
+              initial={{ opacity: 0, y: -12, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.96 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
               className="fixed z-50 left-0 right-0 lg:hidden pointer-events-auto"
               style={{ top: "72px" }}
             >
               <div
-                className={cn(
-                  "w-[92%] sm:w-[90%] mx-auto rounded-[28px] border shadow-2xl transition-colors",
-                  isDarkMode
-                    ? "bg-white text-black border-black/10"
-                    : "bg-black text-white border-white/10"
-                )}
+                className="w-[92%] sm:w-[90%] mx-auto rounded-[28px] border shadow-2xl transition-colors"
+                style={{
+                  backgroundColor: isDarkMode ? "#ffffff" : "#000000",
+                  color: isDarkMode ? "#000000" : "#ffffff",
+                  borderColor: isDarkMode
+                    ? "rgba(0, 0, 0, 0.10)"
+                    : "rgba(255, 255, 255, 0.10)",
+                }}
               >
                 <div className="flex flex-col p-4 gap-0.5">
 
@@ -406,9 +370,7 @@ export default function Navbar() {
                       <a
                         key={item.name}
                         href={item.href}
-                        onClick={(e) =>
-                          handleNavClick(e, item.href)
-                        }
+                        onClick={(e) => handleNavClick(e, item.href)}
                         className={cn(
                           "flex items-center text-left text-[15px] font-semibold py-2.5 px-4 rounded-2xl transition-all",
                           isActive
@@ -437,9 +399,7 @@ export default function Navbar() {
                     >
                       <a
                         href="#contact"
-                        onClick={(e) =>
-                          handleNavClick(e, "#contact")
-                        }
+                        onClick={(e) => handleNavClick(e, "#contact")}
                         className="relative group flex items-center justify-center w-full py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
                       >
                         <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
@@ -459,3 +419,4 @@ export default function Navbar() {
     </header>
   );
 }
+```
