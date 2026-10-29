@@ -119,7 +119,6 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Dark Mode එකේදී Uda Navbar එක සුදු පැහැවන අතර Text කළු පැහැවේ
   const navbarStyle = {
     backgroundColor: isDarkMode
       ? `rgba(255, 255, 255, ${scrolled ? 0.98 : 0.92})`
@@ -137,7 +136,8 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-3 transition-all duration-300">
+    /* `fixed` soriye `absolute` kora hoyeche jeno page scroll korle opore chole jay */
+    <header className="absolute top-0 left-0 right-0 z-50 p-2 sm:p-3 transition-all duration-300">
       <div className="w-[96%] sm:w-[94%] max-w-7xl mx-auto flex flex-col">
 
         {/* Main Navbar */}
@@ -379,7 +379,7 @@ export default function Navbar() {
                 duration: 0.25,
                 ease: "easeOut",
               }}
-              className="fixed z-50 left-0 right-0 lg:hidden pointer-events-auto"
+              className="absolute z-50 left-0 right-0 lg:hidden pointer-events-auto"
               style={{ top: "72px" }}
             >
               <div
