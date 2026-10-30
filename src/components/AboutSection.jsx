@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+
 import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
 
 import profileImg1 from "../assets/dulana.jpeg";
