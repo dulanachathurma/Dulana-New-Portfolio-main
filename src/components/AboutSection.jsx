@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
 
 import profileImg from "../assets/dulana.jpeg";
-import profileImg2 from "../assets/Profile.jpeg";
+import profileImg2 from "../assets/Profile.jpg";
 
 const images = [profileImg, profileImg2];
 
