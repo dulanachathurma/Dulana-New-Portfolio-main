@@ -236,15 +236,15 @@ export default function Navbar() {
             >
               <motion.span
                 animate={{
-                  scale: [1, 1.2, 1.35],
+                  scale: [1, 1.12, 1.2],
                   opacity: [0.6, 0.3, 0],
                 }}
                 transition={{
                   repeat: Infinity,
                   duration: 2,
-                  ease: "easeOut",
+                  ease: "easeInOut",
                 }}
-                className="absolute inset-0 rounded-full border-2 border-blue-500"
+                className="absolute inset-0 rounded-full border border-blue-500"
               />
 
               <span className="relative z-10 px-4 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 !text-white font-bold text-xs lg:text-sm shadow-[0_0_12px_rgba(37,99,235,0.4)] whitespace-nowrap transition-colors">
@@ -353,8 +353,8 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.96 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="absolute z-50 left-0 right-0 lg:hidden pointer-events-auto"
-              style={{ top: "60px" }}
+              className="absolute z-50 left-0 right-0 lg:hidden pointer-events-auto mt-3"
+              style={{ top: "100%" }}
             >
               <div
                 className={cn(
@@ -405,7 +405,18 @@ export default function Navbar() {
                         onClick={(e) => handleNavClick(e, "#contact")}
                         className="relative group flex items-center justify-center w-full py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 !text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
                       >
-                        <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
+                        <motion.span
+                          animate={{
+                            scale: [1, 1.05, 1.1],
+                            opacity: [0.5, 0.25, 0],
+                          }}
+                          transition={{
+                            repeat: Infinity,
+                            duration: 2,
+                            ease: "easeInOut",
+                          }}
+                          className="absolute inset-0 rounded-full border border-blue-400 pointer-events-none"
+                        />
                         <span className="relative z-10">Contact Me</span>
                       </a>
                     </div>
