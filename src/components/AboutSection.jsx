@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server, Github, Building2 } from "lucide-react";
+import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server, Github, Building2, Award } from "lucide-react";
 import GitHubCalendar from "react-github-calendar";
 
 import profileImg from "../assets/dulana.jpeg";
@@ -42,13 +42,21 @@ export const AboutSection = () => {
     },
   ];
 
-  // Contributed Organizations List (WSO2, Ballerina, LeetCode/doocs first)
+  // Contributed Organizations List
   const organizations = [
     { name: "@wso2", url: "https://github.com/wso2", avatar: "https://github.com/wso2.png" },
     { name: "@ballerina-platform", url: "https://github.com/ballerina-platform", avatar: "https://github.com/ballerina-platform.png" },
     { name: "@doocs (LeetCode)", url: "https://github.com/doocs", avatar: "https://github.com/doocs.png" },
     { name: "@code50", url: "https://github.com/code50", avatar: "https://github.com/code50.png" },
     { name: "@me50", url: "https://github.com/me50", avatar: "https://github.com/me50.png" },
+  ];
+
+  // GitHub Achievements List
+  const achievements = [
+    { name: "Pull Shark x2", desc: "Merged PRs", img: "https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" },
+    { name: "Pair Extraordinaire", desc: "Co-authored code", img: "https://github.githubassets.com/assets/pair-extraordinaire-default-4122822a43b3.png" },
+    { name: "YOLO", desc: "Merged without review", img: "https://github.githubassets.com/assets/yolo-default-be282f10d051.png" },
+    { name: "Quickdraw", desc: "Closed issue/PR quickly", img: "https://github.githubassets.com/assets/quickdraw-default-39c6eefef397.png" },
   ];
 
   // Official GitHub light and dark color schemes
@@ -93,7 +101,7 @@ export const AboutSection = () => {
           ))}
         </div>
 
-        {/* Top Grid: Profile Card (Left) & Enhanced My Journey (Right) */}
+        {/* Top Grid: Profile Card & Enhanced My Journey */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
 
           {/* Left: Profile Image Slider */}
@@ -201,8 +209,10 @@ export const AboutSection = () => {
         </div>
 
         {/* Live GitHub Contribution Graph Card */}
-        <div className="rounded-2xl bg-white dark:bg-[#090d16] p-6 md:p-8 border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)]">
-          <div className="flex items-center gap-3 mb-6">
+        <div className="rounded-2xl bg-white dark:bg-[#090d16] p-6 md:p-8 border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)] space-y-8">
+          
+          {/* Header */}
+          <div className="flex items-center gap-3">
             <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30">
               <Github className="h-6 w-6" />
             </div>
@@ -216,7 +226,8 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          <div className="flex justify-center overflow-x-auto py-2 text-slate-800 dark:text-slate-200 mb-6">
+          {/* Activity Graph */}
+          <div className="flex justify-center overflow-x-auto py-2 text-slate-800 dark:text-slate-200">
             <GitHubCalendar 
               username="dulanachathurma"
               blockSize={13}
@@ -226,34 +237,63 @@ export const AboutSection = () => {
             />
           </div>
 
-          {/* Organizations / Open Source Contributions Section */}
-          <div className="pt-6 border-t border-slate-200 dark:border-slate-800/80">
-            <div className="flex items-center gap-2 mb-4">
-              <Building2 className="h-4 w-4 text-slate-500 dark:text-cyan-400" />
-              <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                Contributed Organizations & Repositories
-              </span>
+          {/* Bottom Grid: Organizations & Achievements */}
+          <div className="pt-6 border-t border-slate-200 dark:border-slate-800/80 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            
+            {/* Contributed Organizations */}
+            <div className="lg:col-span-7 space-y-3">
+              <div className="flex items-center gap-2">
+                <Building2 className="h-4 w-4 text-slate-500 dark:text-cyan-400" />
+                <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                  Contributed Organizations
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-2.5">
+                {organizations.map((org) => (
+                  <a
+                    key={org.name}
+                    href={org.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-slate-400 dark:hover:border-cyan-400/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200 shadow-sm"
+                  >
+                    <img
+                      src={org.avatar}
+                      alt={org.name}
+                      className="w-5 h-5 rounded-md object-cover bg-slate-200 dark:bg-slate-800"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    />
+                    <span className="text-xs font-medium">{org.name}</span>
+                  </a>
+                ))}
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
-              {organizations.map((org) => (
-                <a
-                  key={org.name}
-                  href={org.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-slate-400 dark:hover:border-cyan-400/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200 shadow-sm"
-                >
-                  <img
-                    src={org.avatar}
-                    alt={org.name}
-                    className="w-5 h-5 rounded-md object-cover bg-slate-200 dark:bg-slate-800"
-                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                  />
-                  <span className="text-xs md:text-sm font-medium">{org.name}</span>
-                </a>
-              ))}
+            {/* GitHub Achievements Badges */}
+            <div className="lg:col-span-5 space-y-3">
+              <div className="flex items-center gap-2">
+                <Award className="h-4 w-4 text-slate-500 dark:text-cyan-400" />
+                <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                  GitHub Achievements
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-3">
+                {achievements.map((item) => (
+                  <div
+                    key={item.name}
+                    title={`${item.name} - ${item.desc}`}
+                    className="group/badge relative flex items-center justify-center p-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-all duration-200 shadow-sm hover:scale-105"
+                  >
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      className="w-8 h-8 object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
+
           </div>
 
         </div>
