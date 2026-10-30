@@ -42,6 +42,12 @@ export const AboutSection = () => {
     },
   ];
 
+  // Official GitHub light and dark color schemes
+  const githubTheme = {
+    light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+    dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+  };
+
   return (
     <section id="about" className="py-24 px-4 relative bg-slate-50 dark:bg-black transition-colors duration-300">
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -207,7 +213,7 @@ export const AboutSection = () => {
               blockSize={13}
               blockMargin={4}
               fontSize={14}
-              colorScheme="dark"
+              theme={githubTheme}
             />
           </div>
         </div>
