@@ -484,6 +484,24 @@ const certificates = [
     skills: ["Networking", "Collaboration", "Technology", "Innovation"],
     viewCertificateUrl: "/certificate-ieee-day-2026.jpg",
     tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+  },
+  // ==========================================
+  // IEEE MEMBERSHIP
+  // ==========================================
+  {
+    id: 24,
+    category: "foundations",
+    title: "Certificate of IEEE Membership",
+    organization: "IEEE (Institute of Electrical and Electronics Engineers)",
+    location: "Global · Student Member",
+    date: "2026",
+    description: "Official certificate recognizing Student Membership in good standing through December 2026, denoting personal and professional commitment to the advancement of technology.",
+    image: "/IEEE Membership_page-0001.jpg",
+    logoText: "IEEE",
+    logoBg: "bg-sky-600",
+    skills: ["Professional Membership", "Technology Advancement", "Networking", "IEEE"],
+    viewCertificateUrl: "/IEEE Membership_page-0001.jpg",
+    tagColor: "bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300"
   }
 ];
 
