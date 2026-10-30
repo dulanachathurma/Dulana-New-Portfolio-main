@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server, Github } from "lucide-react";
+import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server, Github, Building2 } from "lucide-react";
 import GitHubCalendar from "react-github-calendar";
 
 import profileImg from "../assets/dulana.jpeg";
@@ -40,6 +40,15 @@ export const AboutSection = () => {
       description: "Building scalable backends, RESTful APIs and deploying modern web applications using Node.js, Express, Git and Cloud platforms.",
       icon: Server,
     },
+  ];
+
+  // Contributed Organizations List (WSO2, Ballerina, LeetCode/doocs first)
+  const organizations = [
+    { name: "@wso2", url: "https://github.com/wso2", avatar: "https://github.com/wso2.png" },
+    { name: "@ballerina-platform", url: "https://github.com/ballerina-platform", avatar: "https://github.com/ballerina-platform.png" },
+    { name: "@doocs (LeetCode)", url: "https://github.com/doocs", avatar: "https://github.com/doocs.png" },
+    { name: "@code50", url: "https://github.com/code50", avatar: "https://github.com/code50.png" },
+    { name: "@me50", url: "https://github.com/me50", avatar: "https://github.com/me50.png" },
   ];
 
   // Official GitHub light and dark color schemes
@@ -87,7 +96,7 @@ export const AboutSection = () => {
         {/* Top Grid: Profile Card (Left) & Enhanced My Journey (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
 
-          {/* Left: Profile Image Slider (4 cols on lg) */}
+          {/* Left: Profile Image Slider */}
           <div className="lg:col-span-4 flex justify-center">
             <div className="relative group w-full max-w-[320px] lg:max-w-none">
               <div className="relative rounded-3xl p-2 bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/60 shadow-[0_15px_45px_rgba(0,0,0,0.14)] dark:shadow-[0_0_50px_rgba(6,182,212,0.45)] transition-all duration-500 group-hover:shadow-[0_20px_55px_rgba(0,0,0,0.2)] dark:group-hover:shadow-[0_0_65px_rgba(6,182,212,0.65)]">
@@ -128,7 +137,7 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right: Expanded My Journey Text (8 cols on lg) */}
+          {/* Right: Expanded My Journey Text */}
           <div className="lg:col-span-8 space-y-6 text-center lg:text-left">
             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
               My Journey
@@ -167,7 +176,7 @@ export const AboutSection = () => {
 
         </div>
 
-        {/* Feature Cards Grid - 3 Columns on Large Displays */}
+        {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {features.map((feature) => (
             <div
@@ -207,7 +216,7 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          <div className="flex justify-center overflow-x-auto py-2 text-slate-800 dark:text-slate-200">
+          <div className="flex justify-center overflow-x-auto py-2 text-slate-800 dark:text-slate-200 mb-6">
             <GitHubCalendar 
               username="dulanachathurma"
               blockSize={13}
@@ -216,6 +225,37 @@ export const AboutSection = () => {
               theme={githubTheme}
             />
           </div>
+
+          {/* Organizations / Open Source Contributions Section */}
+          <div className="pt-6 border-t border-slate-200 dark:border-slate-800/80">
+            <div className="flex items-center gap-2 mb-4">
+              <Building2 className="h-4 w-4 text-slate-500 dark:text-cyan-400" />
+              <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                Contributed Organizations & Repositories
+              </span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              {organizations.map((org) => (
+                <a
+                  key={org.name}
+                  href={org.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-slate-400 dark:hover:border-cyan-400/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200 shadow-sm"
+                >
+                  <img
+                    src={org.avatar}
+                    alt={org.name}
+                    className="w-5 h-5 rounded-md object-cover bg-slate-200 dark:bg-slate-800"
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
+                  <span className="text-xs md:text-sm font-medium">{org.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
         </div>
 
       </div>
