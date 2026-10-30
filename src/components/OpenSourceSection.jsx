@@ -68,7 +68,7 @@ export const OpenSourceSection = () => {
     };
   }, [selectedImage]);
 
-  // --- INTERACTIVE GRAPH CANVAS (Matching ProjectsSection exactly) ---
+  // --- INTERACTIVE GRAPH CANVAS ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -205,7 +205,7 @@ export const OpenSourceSection = () => {
         style={{ willChange: "transform" }}
       />
 
-      {/* Dynamic Ambient Background Glow */}
+      {/* Ambient Glow */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-cyan-500/5 dark:from-blue-600/10 dark:via-cyan-500/10 dark:to-blue-600/10 rounded-full blur-[150px] opacity-70" />
       </div>
@@ -228,8 +228,8 @@ export const OpenSourceSection = () => {
           </p>
         </div>
 
-        {/* Contributions Grid - 2 Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* --- CHANGED: max-w-5xl -> max-w-3xl, gap-8 -> gap-6 --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {contributions.map((contrib) => (
             <div
               key={contrib.id}
@@ -241,7 +241,7 @@ export const OpenSourceSection = () => {
               {/* Main Card Container */}
               <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border border-slate-300/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col h-full">
                 
-                {/* Image Box with Full Preview Support */}
+                {/* --- CHANGED: h-56 sm:h-64 -> h-48 sm:h-52 (Compact Height) --- */}
                 <div
                   onClick={() =>
                     setSelectedImage({
@@ -252,7 +252,7 @@ export const OpenSourceSection = () => {
                       prUrl: contrib.prUrl,
                     })
                   }
-                  className="relative h-56 sm:h-64 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 cursor-pointer group/img"
+                  className="relative h-48 sm:h-52 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 cursor-pointer group/img"
                   title="Click to view full preview"
                 >
                   <img
@@ -269,26 +269,26 @@ export const OpenSourceSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
 
                   {/* Top-Right Badge: Click Preview Hint */}
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white text-[11px] font-medium flex items-center gap-1.5 transition-all duration-300 shadow-md">
-                    <Maximize2 size={12} /> Preview
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white text-[10px] font-medium flex items-center gap-1 transition-all duration-300 shadow-md">
+                    <Maximize2 size={11} /> Preview
                   </div>
 
                   {/* Top-Left Tag: Category Highlight */}
                   <div
-                    className={`absolute top-3 left-3 px-2.5 py-1 rounded-full ${contrib.highlightColor} text-white text-[10px] font-bold tracking-wider uppercase backdrop-blur-md flex items-center gap-1.5 shadow-md`}
+                    className={`absolute top-3 left-3 px-2.5 py-1 rounded-full ${contrib.highlightColor} text-white text-[10px] font-bold tracking-wider uppercase backdrop-blur-md flex items-center gap-1 shadow-md`}
                   >
-                    <CheckCircle2 size={12} /> {contrib.highlight}
+                    <CheckCircle2 size={11} /> {contrib.highlight}
                   </div>
                 </div>
 
                 {/* Content Box */}
-                <div className="p-5 flex flex-col flex-grow">
+                <div className="p-4 flex flex-col flex-grow">
                   {/* Tech Stack & Status Badges */}
-                  <div className="flex flex-wrap gap-1.5 mb-3.5">
+                  <div className="flex flex-wrap gap-1.5 mb-3">
                     {contrib.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className={`px-2.5 py-0.5 text-[11px] font-semibold rounded-full ${tag.color} shadow-sm border border-black/5 dark:border-white/5`}
+                        className={`px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold rounded-full ${tag.color} shadow-sm border border-black/5 dark:border-white/5`}
                       >
                         {tag.name}
                       </span>
@@ -296,45 +296,45 @@ export const OpenSourceSection = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold mb-2 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
+                  <h3 className="text-base sm:text-lg font-bold mb-1.5 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
                     {contrib.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-slate-600 dark:text-slate-300 text-sm mb-5 leading-relaxed flex-grow">
+                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mb-4 leading-relaxed flex-grow">
                     {contrib.description}
                   </p>
 
                   {/* Actions Footer */}
-                  <div className="flex flex-col gap-2.5 pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-auto">
-                    {/* Pull Request Link (Primary CTA) */}
+                  <div className="flex flex-col gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/60 mt-auto">
+                    {/* Pull Request Link */}
                     <a
                       href={contrib.prUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                      className="w-full flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                     >
-                      <GitPullRequest size={15} /> Pull Request
+                      <GitPullRequest size={14} /> Pull Request
                     </a>
 
-                    {/* Main Repo & Forked Repo (Secondary Actions) */}
+                    {/* Main Repo & Forked Repo */}
                     <div className="flex gap-2">
                       <a
                         href={contrib.mainRepoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                        className="flex-1 flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                       >
-                        <Github size={14} /> Main Repo
+                        <Github size={13} /> Main Repo
                       </a>
 
                       <a
                         href={contrib.forkUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-300/70 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                        className="flex-1 flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-300/70 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                       >
-                        <GitFork size={14} /> Forked Repo
+                        <GitFork size={13} /> Forked Repo
                       </a>
                     </div>
                   </div>
@@ -346,8 +346,8 @@ export const OpenSourceSection = () => {
           ))}
         </div>
 
-        {/* Bottom Section Divider */}
-        <div className="relative w-full max-w-5xl mx-auto mt-16 flex flex-col items-center justify-center">
+        {/* Bottom Divider */}
+        <div className="relative w-full max-w-3xl mx-auto mt-16 flex flex-col items-center justify-center">
           <div className="relative w-full flex items-center justify-center pt-16 pb-4">
             <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
             <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
@@ -356,7 +356,7 @@ export const OpenSourceSection = () => {
         </div>
       </div>
 
-      {/* Full Image Preview Modal */}
+      {/* Image Preview Modal */}
       {selectedImage && (
         <div
           role="dialog"
@@ -368,7 +368,6 @@ export const OpenSourceSection = () => {
             className="relative max-w-4xl w-full bg-white dark:bg-[#111827] rounded-2xl overflow-hidden shadow-2xl border border-slate-300 dark:border-blue-500/40"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
             <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800">
               <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white line-clamp-1">
                 {selectedImage.title}
@@ -393,7 +392,6 @@ export const OpenSourceSection = () => {
               </div>
             </div>
 
-            {/* Modal Image Box */}
             <div className="p-3 bg-slate-950 flex items-center justify-center max-h-[75vh] overflow-auto">
               <img
                 src={selectedImage.image}
@@ -407,7 +405,6 @@ export const OpenSourceSection = () => {
               />
             </div>
 
-            {/* Modal Footer */}
             <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0f172a]">
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                 {selectedImage.description}
