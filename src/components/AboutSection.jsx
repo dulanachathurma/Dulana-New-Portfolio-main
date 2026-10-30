@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
+import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server, Github } from "lucide-react";
+import GitHubCalendar from "react-github-calendar";
 
 import profileImg from "../assets/dulana.jpeg";
 import profileImg2 from "../assets/Profile.jpg";
@@ -77,7 +78,7 @@ export const AboutSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
 
           {/* Left: Profile Image & Bio Text (5 cols) */}
           <div className="lg:col-span-5 space-y-8">
@@ -195,6 +196,34 @@ export const AboutSection = () => {
           </div>
 
         </div>
+
+        {/* Live GitHub Contribution Graph Card */}
+        <div className="rounded-2xl bg-white dark:bg-[#090d16] p-6 border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)]">
+          <div className="flex items-center gap-2 mb-6">
+            <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30">
+              <Github className="h-5 w-5" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-slate-900 dark:text-white tracking-tight">
+                GitHub Contributions
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                My live activity grid from GitHub (@dulanachathurma)
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-center overflow-x-auto py-2 text-slate-800 dark:text-slate-200">
+            <GitHubCalendar 
+              username="dulanachathurma"
+              blockSize={12}
+              blockMargin={4}
+              fontSize={14}
+              colorScheme="dark"
+            />
+          </div>
+        </div>
+
       </div>
     </section>
   );
