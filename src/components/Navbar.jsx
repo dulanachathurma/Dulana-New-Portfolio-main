@@ -87,9 +87,12 @@ export default function Navbar() {
     });
   }, [isDarkMode, scrolled]);
 
-  // Smooth scrolling
+  // Smooth scrolling + Immediate Active Highlight Update
   const handleNavClick = useCallback((e, href) => {
     if (e) e.preventDefault();
+
+    const targetId = href.substring(1);
+    setActiveSection(targetId);
 
     const element = document.querySelector(href);
 
@@ -106,7 +109,7 @@ export default function Navbar() {
     setIsMenuOpen(false);
   }, []);
 
-  // Active section observer
+  // Improved Active section observer
   useEffect(() => {
     const allSections = [
       ...navItems.map((item) => item.href.substring(1)),
@@ -115,23 +118,15 @@ export default function Navbar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        let bestSection = null;
-        let bestRatio = 0;
-
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > bestRatio) {
-            bestRatio = entry.intersectionRatio;
-            bestSection = entry.target.id;
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
           }
         });
-
-        if (bestSection) {
-          setActiveSection(bestSection);
-        }
       },
       {
-        threshold: [0.1, 0.2, 0.3, 0.4, 0.5],
-        rootMargin: "-80px 0px 0px 0px",
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: 0,
       }
     );
 
