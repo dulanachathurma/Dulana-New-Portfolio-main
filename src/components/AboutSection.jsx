@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server, Github, Building2, Award } from "lucide-react";
+import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server, Github, Building2, Award, Trophy, ExternalLink } from "lucide-react";
 import GitHubCalendar from "react-github-calendar";
 
 import profileImg from "../assets/dulana.jpeg";
 import profileImg2 from "../assets/Profile.jpg";
 
-// Import Local Achievement Images
 import pullSharkImg from "../assets/pull-shark.png";
 import pairImg from "../assets/pair-extraordinaire.png";
 import yoloImg from "../assets/yolo.png";
@@ -55,7 +54,6 @@ export const AboutSection = () => {
     { name: "@me50", url: "https://github.com/me50", avatar: "https://github.com/me50.png" },
   ];
 
-  // Local Achievement Badges Data
   const achievements = [
     { name: "Pull Shark", count: "x2", badgeUrl: pullSharkImg },
     { name: "Pair Extraordinaire", count: null, badgeUrl: pairImg },
@@ -203,20 +201,43 @@ export const AboutSection = () => {
         {/* Live GitHub Contribution Graph Card */}
         <div className="rounded-2xl bg-white dark:bg-[#090d16] p-6 md:p-8 border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)] space-y-8">
           
-          <div className="flex items-center gap-3">
-            <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30">
-              <Github className="h-6 w-6" />
+          {/* Header with Sri Lanka Rank Badge */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30">
+                <Github className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-xl text-slate-900 dark:text-white tracking-tight">
+                  GitHub Contributions
+                </h3>
+                <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+                  My live activity grid from GitHub (@dulanachathurma)
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-bold text-xl text-slate-900 dark:text-white tracking-tight">
-                GitHub Contributions
-              </h3>
-              <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400">
-                My live activity grid from GitHub (@dulanachathurma)
-              </p>
-            </div>
+
+            {/* Official committers.top Rank Highlight Badge */}
+            <a
+              href="https://committers.top/sri_lanka"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/rank flex items-center gap-3 px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 hover:border-amber-500/60 text-amber-600 dark:text-amber-400 transition-all duration-200 shadow-sm"
+            >
+              <Trophy className="h-5 w-5 text-amber-500 shrink-0 group-hover/rank:scale-110 transition-transform" />
+              <div className="text-left">
+                <p className="text-xs font-bold leading-tight flex items-center gap-1">
+                  Ranked #54 in Sri Lanka
+                  <ExternalLink className="h-3 w-3 opacity-70" />
+                </p>
+                <p className="text-[10px] opacity-80 leading-tight">
+                  Most Active GitHub Users (1.3K+ Commits)
+                </p>
+              </div>
+            </a>
           </div>
 
+          {/* Activity Graph */}
           <div className="flex justify-center overflow-x-auto py-2 text-slate-800 dark:text-slate-200">
             <GitHubCalendar 
               username="dulanachathurma"
