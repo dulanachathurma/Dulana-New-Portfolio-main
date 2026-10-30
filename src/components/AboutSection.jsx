@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server, Github, Building2, Award, Trophy, ExternalLink } from "lucide-react";
+import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server, Github, Building2, Award, Trophy, ExternalLink, Flame } from "lucide-react";
 import GitHubCalendar from "react-github-calendar";
 
 import profileImg from "../assets/dulana.jpeg";
@@ -201,7 +201,7 @@ export const AboutSection = () => {
         {/* Live GitHub Contribution Graph Card */}
         <div className="rounded-2xl bg-white dark:bg-[#090d16] p-6 md:p-8 border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)] space-y-8">
           
-          {/* Header with Sri Lanka Rank Badge */}
+          {/* Header with High-Impact Highlight Rank Badge */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30">
@@ -217,20 +217,26 @@ export const AboutSection = () => {
               </div>
             </div>
 
-            {/* Official committers.top Rank Highlight Badge */}
+            {/* Glowing Golden Rank Banner Badge */}
             <a
               href="https://committers.top/sri_lanka"
               target="_blank"
               rel="noopener noreferrer"
-              className="group/rank flex items-center gap-3 px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 hover:border-amber-500/60 text-amber-600 dark:text-amber-400 transition-all duration-200 shadow-sm"
+              className="group/rank relative overflow-hidden flex items-center gap-3.5 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-yellow-500/15 to-amber-500/20 border-2 border-amber-500/50 hover:border-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:shadow-[0_0_35px_rgba(245,158,11,0.5)] transition-all duration-300 hover:-translate-y-0.5"
             >
-              <Trophy className="h-5 w-5 text-amber-500 shrink-0 group-hover/rank:scale-110 transition-transform" />
+              <div className="p-2 rounded-xl bg-amber-500 text-black shadow-md shrink-0 group-hover/rank:scale-110 transition-transform">
+                <Trophy className="h-5 w-5 fill-black" />
+              </div>
+
               <div className="text-left">
-                <p className="text-xs font-bold leading-tight flex items-center gap-1">
-                  Ranked #54 in Sri Lanka
-                  <ExternalLink className="h-3 w-3 opacity-70" />
-                </p>
-                <p className="text-[10px] opacity-80 leading-tight">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm font-extrabold text-amber-600 dark:text-amber-300 tracking-tight">
+                    Ranked #54 in Sri Lanka
+                  </span>
+                  <ExternalLink className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400 opacity-80 group-hover/rank:translate-x-0.5 transition-transform" />
+                </div>
+                <p className="text-[11px] font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1 mt-0.5">
+                  <Flame className="h-3 w-3 text-orange-500 fill-orange-500 inline" />
                   Most Active GitHub Users (1.3K+ Commits)
                 </p>
               </div>
