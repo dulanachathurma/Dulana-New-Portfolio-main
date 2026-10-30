@@ -2,19 +2,20 @@ import { useState, useEffect } from "react";
 import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
 
 import profileImg from "../assets/dulana.jpeg";
-import profileImg2 from "../assets/Profile.jpg";
+import profileImg2 from "../assets/Profile.jpeg";
 
 const images = [profileImg, profileImg2];
 
 export const AboutSection = () => {
   const [current, setCurrent] = useState(0);
 
+  // Auto slide every 4 seconds (restarts whenever the user clicks a dot)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 2000); // 2 seconds
+    }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [current]);
 
   const stats = [
     { value: "17+", label: "Projects Completed", icon: FolderGit2 },
@@ -79,27 +80,56 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
           {/* Left: Profile Image & Bio Text (5 cols) */}
-          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-8">
+          <div className="lg:col-span-5 space-y-8">
 
-            {/* Profile Image Container - auto slider */}
+            {/* Profile Image - large portrait card with auto slider */}
             <div className="flex justify-center lg:justify-start">
-              <div className="relative group">
-                <div className="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-blue-500/60 p-2 bg-white dark:bg-[#090d16] shadow-[0_10px_35px_rgba(0,0,0,0.12)] dark:shadow-[0_0_40px_rgba(6,182,212,0.45)]">
-                  <div className="relative w-48 h-48 lg:w-full max-w-[240px] aspect-square rounded-xl overflow-hidden">
+              <div className="relative group w-full max-w-[320px] sm:max-w-sm lg:max-w-none">
+
+                <div className="relative rounded-3xl p-2 bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/60 shadow-[0_15px_45px_rgba(0,0,0,0.14)] dark:shadow-[0_0_50px_rgba(6,182,212,0.45)] transition-all duration-500 group-hover:shadow-[0_20px_55px_rgba(0,0,0,0.2)] dark:group-hover:shadow-[0_0_65px_rgba(6,182,212,0.65)]">
+
+                  <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-900">
+
+                    {/* Slides */}
                     {images.map((src, i) => (
                       <img
                         key={i}
                         src={src}
                         alt="Dulana Chathurma"
-                        className={`absolute inset-0 w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-105 ${
-                          i === current ? "opacity-100" : "opacity-0"
+                        className={`absolute inset-0 w-full h-full object-cover object-top transition-all duration-1000 ease-out ${
+                          i === current ? "opacity-100 scale-100" : "opacity-0 scale-105"
                         }`}
                       />
                     ))}
+
+                    {/* Bottom gradient for readability */}
+                    <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+
+                    {/* Glass name tag */}
+                    <div className="absolute left-3 right-3 bottom-10 px-4 py-2.5 rounded-xl bg-white/15 backdrop-blur-md border border-white/25 text-white pointer-events-none">
+                      <p className="text-sm font-semibold tracking-tight leading-tight">Dulana Chathurma</p>
+                      <p className="text-[11px] text-white/80 leading-tight mt-0.5">Software Engineering Undergraduate</p>
+                    </div>
+
+                    {/* Dot indicators */}
+                    <div className="absolute bottom-3 inset-x-0 flex justify-center gap-2">
+                      {images.map((_, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          aria-label={`Show photo ${i + 1}`}
+                          onClick={() => setCurrent(i)}
+                          className={`h-1.5 rounded-full transition-all duration-300 ${
+                            i === current ? "w-6 bg-white" : "w-1.5 bg-white/50 hover:bg-white/80"
+                          }`}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
+
                 {/* Minimal Online Status Dot */}
-                <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-4 border-slate-50 dark:border-black rounded-full shadow-sm"></span>
+                <span className="absolute -bottom-1.5 -right-1.5 w-5 h-5 bg-emerald-500 border-4 border-slate-50 dark:border-black rounded-full shadow-sm"></span>
               </div>
             </div>
 
@@ -140,12 +170,12 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right: Feature cards (7 cols) - Wide Spreading Glow */}
-          <div className="lg:col-span-7 space-y-4">
+          {/* Right: Feature cards (7 cols) - sticky so it follows while scrolling */}
+          <div className="lg:col-span-7 space-y-4 lg:sticky lg:top-24">
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="group relative bg-white dark:bg-[#090d16] rounded-2xl p-6 border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)] transition-all duration-300 hover:border-slate-400 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_45px_rgba(6,182,212,0.65)]"
+                className="group relative bg-white dark:bg-[#090d16] rounded-2xl p-6 border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-400 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_45px_rgba(6,182,212,0.65)]"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30 shrink-0 transition-colors duration-300 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-cyan-500 dark:group-hover:text-black">
