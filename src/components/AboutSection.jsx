@@ -198,122 +198,140 @@ export const AboutSection = () => {
           ))}
         </div>
 
-        {/* Live GitHub Contribution Graph Card */}
-        <div className="rounded-2xl bg-white dark:bg-[#090d16] p-6 md:p-8 border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)] space-y-8">
+        {/* Live GitHub Contribution Graph Card with Mac Terminal Bar */}
+        <div className="overflow-hidden rounded-2xl bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)]">
           
-          {/* Header with High-Impact Highlight Rank Badge */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30">
-                <Github className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="font-bold text-xl text-slate-900 dark:text-white tracking-tight">
-                  GitHub Contributions
-                </h3>
-                <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400">
-                  My live activity grid from GitHub (@dulanachathurma)
-                </p>
-              </div>
+          {/* Mac Terminal Header Bar */}
+          <div className="flex items-center gap-3 px-4 py-3 bg-slate-100 dark:bg-[#030712] border-b border-slate-200 dark:border-slate-800/80 font-mono text-xs">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
+              <span className="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
+              <span className="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
             </div>
-
-            {/* Glowing Golden Rank Banner Badge */}
-            <a
-              href="https://committers.top/sri_lanka"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/rank relative overflow-hidden flex items-center gap-3.5 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-yellow-500/15 to-amber-500/20 border-2 border-amber-500/50 hover:border-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:shadow-[0_0_35px_rgba(245,158,11,0.5)] transition-all duration-300 hover:-translate-y-0.5"
-            >
-              <div className="p-2 rounded-xl bg-amber-500 text-black shadow-md shrink-0 group-hover/rank:scale-110 transition-transform">
-                <Trophy className="h-5 w-5 fill-black" />
-              </div>
-
-              <div className="text-left">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm font-extrabold text-amber-600 dark:text-amber-300 tracking-tight">
-                    Ranked #54 in Sri Lanka
-                  </span>
-                  <ExternalLink className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400 opacity-80 group-hover/rank:translate-x-0.5 transition-transform" />
-                </div>
-                <p className="text-[11px] font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1 mt-0.5">
-                  <Flame className="h-3 w-3 text-orange-500 fill-orange-500 inline" />
-                  Most Active GitHub Users (1.3K+ Commits)
-                </p>
-              </div>
-            </a>
+            <div className="ml-2 flex items-center gap-1 font-semibold">
+              <span className="text-emerald-600 dark:text-emerald-400 font-bold">dulana@macbook-air-m1</span>
+              <span className="text-slate-400 dark:text-slate-500">:</span>
+              <span className="text-sky-600 dark:text-sky-400 font-bold">~/github-contributions</span>
+            </div>
           </div>
 
-          {/* Activity Graph */}
-          <div className="flex justify-center overflow-x-auto py-2 text-slate-800 dark:text-slate-200">
-            <GitHubCalendar 
-              username="dulanachathurma"
-              blockSize={13}
-              blockMargin={4}
-              fontSize={14}
-              theme={githubTheme}
-            />
-          </div>
-
-          {/* Organizations & Achievements */}
-          <div className="pt-6 border-t border-slate-200 dark:border-slate-800/80 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="p-6 md:p-8 space-y-8">
             
-            {/* Contributed Organizations */}
-            <div className="lg:col-span-7 space-y-3">
-              <div className="flex items-center gap-2">
-                <Building2 className="h-4 w-4 text-slate-500 dark:text-cyan-400" />
-                <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                  Contributed Organizations
-                </span>
+            {/* Header with High-Impact Highlight Rank Badge */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-cyan-400 border border-slate-200 dark:border-cyan-500/30">
+                  <Github className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl text-slate-900 dark:text-white tracking-tight">
+                    GitHub Contributions
+                  </h3>
+                  <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+                    My live activity grid from GitHub (@dulanachathurma)
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-wrap items-center gap-2.5">
-                {organizations.map((org) => (
-                  <a
-                    key={org.name}
-                    href={org.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-slate-400 dark:hover:border-cyan-400/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200 shadow-sm"
-                  >
-                    <img
-                      src={org.avatar}
-                      alt={org.name}
-                      className="w-5 h-5 rounded-md object-cover bg-slate-200 dark:bg-slate-800"
-                    />
-                    <span className="text-xs font-medium">{org.name}</span>
-                  </a>
-                ))}
-              </div>
+
+              {/* Glowing Golden Rank Banner Badge */}
+              <a
+                href="https://committers.top/sri_lanka"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/rank relative overflow-hidden flex items-center gap-3.5 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-yellow-500/15 to-amber-500/20 border-2 border-amber-500/50 hover:border-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:shadow-[0_0_35px_rgba(245,158,11,0.5)] transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <div className="p-2 rounded-xl bg-amber-500 text-black shadow-md shrink-0 group-hover/rank:scale-110 transition-transform">
+                  <Trophy className="h-5 w-5 fill-black" />
+                </div>
+
+                <div className="text-left">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-sm font-extrabold text-amber-600 dark:text-amber-300 tracking-tight">
+                      Ranked #54 in Sri Lanka
+                    </span>
+                    <ExternalLink className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400 opacity-80 group-hover/rank:translate-x-0.5 transition-transform" />
+                  </div>
+                  <p className="text-[11px] font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1 mt-0.5">
+                    <Flame className="h-3 w-3 text-orange-500 fill-orange-500 inline" />
+                    Most Active GitHub Users (1.3K+ Commits)
+                  </p>
+                </div>
+              </a>
             </div>
 
-            {/* GitHub Achievements Badges */}
-            <div className="lg:col-span-5 space-y-3">
-              <div className="flex items-center gap-2">
-                <Award className="h-4 w-4 text-slate-500 dark:text-cyan-400" />
-                <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                  GitHub Achievements
-                </span>
-              </div>
-              
-              <div className="flex items-center gap-4 pt-1">
-                {achievements.map((item) => (
-                  <div key={item.name} className="relative group/achievement flex flex-col items-center">
-                    <div className="relative w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-200 hover:scale-110">
-                      <img
-                        src={item.badgeUrl}
-                        alt={item.name}
-                        className="w-13 h-13 object-contain drop-shadow-md"
-                      />
+            {/* Activity Graph */}
+            <div className="flex justify-center overflow-x-auto py-2 text-slate-800 dark:text-slate-200">
+              <GitHubCalendar 
+                username="dulanachathurma"
+                blockSize={13}
+                blockMargin={4}
+                fontSize={14}
+                theme={githubTheme}
+              />
+            </div>
 
-                      {/* x2 Badge indicator */}
-                      {item.count && (
-                        <span className="absolute -bottom-0.5 -right-0.5 px-2 py-0.5 text-[11px] font-extrabold rounded-full bg-[#f78166] text-slate-900 border-2 border-white dark:border-[#090d16] shadow-md">
-                          {item.count}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                ))}
+            {/* Organizations & Achievements */}
+            <div className="pt-6 border-t border-slate-200 dark:border-slate-800/80 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              {/* Contributed Organizations */}
+              <div className="lg:col-span-7 space-y-3">
+                <div className="flex items-center gap-2">
+                  <Building2 className="h-4 w-4 text-slate-500 dark:text-cyan-400" />
+                  <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                    Contributed Organizations
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-2.5">
+                  {organizations.map((org) => (
+                    <a
+                      key={org.name}
+                      href={org.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-slate-400 dark:hover:border-cyan-400/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200 shadow-sm"
+                    >
+                      <img
+                        src={org.avatar}
+                        alt={org.name}
+                        className="w-5 h-5 rounded-md object-cover bg-slate-200 dark:bg-slate-800"
+                      />
+                      <span className="text-xs font-medium">{org.name}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
+
+              {/* GitHub Achievements Badges */}
+              <div className="lg:col-span-5 space-y-3">
+                <div className="flex items-center gap-2">
+                  <Award className="h-4 w-4 text-slate-500 dark:text-cyan-400" />
+                  <span className="text-xs md:text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                    GitHub Achievements
+                  </span>
+                </div>
+                
+                <div className="flex items-center gap-4 pt-1">
+                  {achievements.map((item) => (
+                    <div key={item.name} className="relative group/achievement flex flex-col items-center">
+                      <div className="relative w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-200 hover:scale-110">
+                        <img
+                          src={item.badgeUrl}
+                          alt={item.name}
+                          className="w-13 h-13 object-contain drop-shadow-md"
+                        />
+
+                        {/* x2 Badge indicator */}
+                        {item.count && (
+                          <span className="absolute -bottom-0.5 -right-0.5 px-2 py-0.5 text-[11px] font-extrabold rounded-full bg-[#f78166] text-slate-900 border-2 border-white dark:border-[#090d16] shadow-md">
+                            {item.count}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
 
           </div>
