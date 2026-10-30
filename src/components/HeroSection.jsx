@@ -5,8 +5,24 @@ export const HeroSection = () => {
   const [animate, setAnimate] = useState(false);
   const canvasRef = useRef(null);
 
+  // --- TYPING EFFECT FOR TERMINAL BADGE ---
+  const fullText = "SOFTWARE ENGINEERING UNDERGRADUATE · UNIVERSITY OF KELANIYA";
+  const [typedText, setTypedText] = useState("");
+
   useEffect(() => {
     setAnimate(true);
+
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setTypedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 40);
+
+    return () => clearInterval(typingInterval);
   }, []);
 
   // --- INTERACTIVE GRAPH CANVAS WITH MOBILE PERFORMANCE OPTIMIZATION ---
@@ -163,25 +179,6 @@ export const HeroSection = () => {
       {/* MAIN CONTENT AREA */}
       <div className="w-full max-w-5xl mx-auto text-center relative z-10 mt-auto mb-16 flex flex-col items-center pt-8">
 
-        {/* TERMINAL HEADER BADGE */}
-        <div 
-          className={`mb-6 transition-all duration-[1000ms] cubic-bezier(0.25, 1, 0.5, 1) ${
-            animate ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-          }`}
-        >
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-[#0f172a]/90 dark:bg-[#090d16]/90 border border-slate-700/60 dark:border-slate-800/80 shadow-lg backdrop-blur-md font-mono text-xs text-slate-200">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] inline-block border border-[#e0443e]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] inline-block border border-[#dea123]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] inline-block border border-[#1aab29]" />
-            </div>
-            <span className="text-slate-400 pl-1 border-l border-slate-700/80">
-              dulana@macbook-air-m1: <span className="text-cyan-400">~/portfolio</span>
-            </span>
-            <span className="w-2 h-4 bg-emerald-400 animate-pulse inline-block rounded-xs" />
-          </div>
-        </div>
-
         {/* PROFILE IMAGE CARD WITH LIGHT & DARK MODE SPINNING GLOW BORDER */}
         <div 
           className={`mb-8 relative transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
@@ -210,15 +207,26 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* TOP BADGE */}
-        <div className="mb-4 overflow-visible inline-block">
-          <p 
-            className={`text-[#0066cc] dark:text-[#38bdf8] text-xs sm:text-sm font-bold tracking-widest uppercase transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-sky-950/40 border border-blue-200/60 dark:border-sky-800/40 backdrop-blur-sm ${
+        {/* LIVE TERMINAL BADGE IN ORIGINAL LOCATION (BELOW PHOTO) */}
+        <div className="mb-6 overflow-visible inline-block">
+          <div 
+            className={`transition-all duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) ${
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            SOFTWARE ENGINEERING UNDERGRADUATE · UNIVERSITY OF KELANIYA
-          </p>
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#0b1329]/80 dark:bg-[#060a12]/90 border border-[#0071e3]/30 dark:border-sky-500/30 shadow-[0_0_20px_rgba(0,113,227,0.15)] backdrop-blur-md font-mono text-xs text-slate-200">
+              <div className="flex items-center gap-1.5 pr-2 border-r border-slate-700/80">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] inline-block border border-[#e0443e]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] inline-block border border-[#dea123]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] inline-block border border-[#1aab29]" />
+              </div>
+              
+              <div className="flex items-center gap-1.5 font-bold tracking-wider text-[#38bdf8]">
+                <span>{typedText}</span>
+                <span className="w-2 h-4 bg-emerald-400 animate-pulse inline-block rounded-xs ml-0.5" />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* MAIN HEADLINE */}
