@@ -2,20 +2,19 @@ import { useState, useEffect } from "react";
 import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
 
 import profileImg1 from "../assets/dulana.jpeg";
-import profileImg2 from "../assets/Profile.jpeg"; // නව ඡායාරූපය
+import profileImg2 from "../assets/Profile.jpeg";
 
 export const AboutSection = () => {
-
   const images = [profileImg1, profileImg2];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    if (isHovered) return; // Mouse එක Hover කර ඇති විට Auto slide නවතී
+    if (isHovered) return;
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 2000); // තත්පර 2න් 2ට මාරු වේ
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [isHovered, images.length]);
