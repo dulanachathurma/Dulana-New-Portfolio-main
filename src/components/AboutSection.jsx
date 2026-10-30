@@ -51,31 +51,27 @@ export const AboutSection = () => {
     { name: "@me50", url: "https://github.com/me50", avatar: "https://github.com/me50.png" },
   ];
 
-  // GitHub Achievements List with badges and count
+  // Direct GitHub Achievement Badges (High Quality Official GitHub Badges)
   const achievements = [
     {
       name: "Pull Shark",
       count: "x2",
       badgeUrl: "https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png",
-      fallback: "🦈",
     },
     {
       name: "Pair Extraordinaire",
       count: null,
       badgeUrl: "https://github.githubassets.com/assets/pair-extraordinaire-default-4122822a43b3.png",
-      fallback: "🫛",
     },
     {
       name: "YOLO",
       count: null,
       badgeUrl: "https://github.githubassets.com/assets/yolo-default-be282f10d051.png",
-      fallback: "🚀",
     },
     {
       name: "Quickdraw",
       count: null,
       badgeUrl: "https://github.githubassets.com/assets/quickdraw-default-39c6eefef397.png",
-      fallback: "🤠",
     },
   ];
 
@@ -121,8 +117,10 @@ export const AboutSection = () => {
           ))}
         </div>
 
-        {/* Top Grid: Profile & My Journey */}
+        {/* Top Grid: Profile Card & Enhanced My Journey */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
+
+          {/* Left: Profile Image Slider */}
           <div className="lg:col-span-4 flex justify-center">
             <div className="relative group w-full max-w-[320px] lg:max-w-none">
               <div className="relative rounded-3xl p-2 bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/60 shadow-[0_15px_45px_rgba(0,0,0,0.14)] dark:shadow-[0_0_50px_rgba(6,182,212,0.45)] transition-all duration-500 group-hover:shadow-[0_20px_55px_rgba(0,0,0,0.2)] dark:group-hover:shadow-[0_0_65px_rgba(6,182,212,0.65)]">
@@ -138,10 +136,12 @@ export const AboutSection = () => {
                     />
                   ))}
                   <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+                  
                   <div className="absolute left-3 right-3 bottom-10 px-4 py-2.5 rounded-xl bg-white/15 backdrop-blur-md border border-white/25 text-white pointer-events-none">
                     <p className="text-sm font-semibold tracking-tight leading-tight">Dulana Chathurma</p>
                     <p className="text-[11px] text-white/80 leading-tight mt-0.5">Software Engineering Undergraduate</p>
                   </div>
+
                   <div className="absolute bottom-3 inset-x-0 flex justify-center gap-2">
                     {images.map((_, i) => (
                       <button
@@ -161,21 +161,27 @@ export const AboutSection = () => {
             </div>
           </div>
 
+          {/* Right: Expanded My Journey Text */}
           <div className="lg:col-span-8 space-y-6 text-center lg:text-left">
             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
               My Journey
             </h3>
+
             <div className="space-y-5 text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-300 font-normal max-w-3xl">
               <p>
                 I'm <strong className="text-slate-900 dark:text-white font-semibold">Dulana Chathurma</strong>, a Software Engineering undergraduate at the University of Kelaniya. My passion lies in creating innovative solutions that bridge complex technical challenges with user-friendly experiences.
               </p>
+
               <p>
                 Currently diving deep into <span className="text-slate-900 dark:text-cyan-400 font-semibold">AI, Machine Learning</span> and <span className="text-slate-900 dark:text-cyan-400 font-semibold">Full-Stack Development</span>, I'm constantly pushing boundaries to learn and build impactful systems driven by continuous learning and excellence.
               </p>
+
               <p>
                 When I'm not coding, you'll find me exploring emerging AI tech, writing technical articles on Medium, or building impactful full-stack and machine learning solutions.
               </p>
             </div>
+
+            {/* Glowing Badges */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 pt-3">
               <span className="px-3.5 py-1.5 rounded-xl bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/50 text-slate-700 dark:text-slate-200 text-xs md:text-sm font-medium flex items-center gap-2 shadow-[0_4px_16px_rgba(0,0,0,0.08)] dark:shadow-[0_0_20px_rgba(6,182,212,0.35)]">
                 <Heart size={14} className="text-slate-500 dark:text-cyan-400" /> Code with Passion
@@ -191,6 +197,7 @@ export const AboutSection = () => {
               </span>
             </div>
           </div>
+
         </div>
 
         {/* Feature Cards Grid */}
@@ -247,7 +254,7 @@ export const AboutSection = () => {
           </div>
 
           {/* Bottom Grid: Organizations & Achievements */}
-          <div className="pt-6 border-t border-slate-200 dark:border-slate-800/80 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div className="pt-6 border-t border-slate-200 dark:border-slate-800/80 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Contributed Organizations */}
             <div className="lg:col-span-7 space-y-3">
@@ -270,7 +277,6 @@ export const AboutSection = () => {
                       src={org.avatar}
                       alt={org.name}
                       className="w-5 h-5 rounded-md object-cover bg-slate-200 dark:bg-slate-800"
-                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
                     <span className="text-xs font-medium">{org.name}</span>
                   </a>
@@ -287,35 +293,23 @@ export const AboutSection = () => {
                 </span>
               </div>
               
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex items-center gap-4 pt-1">
                 {achievements.map((item) => (
                   <div key={item.name} className="relative group/achievement flex flex-col items-center">
-                    <div className="relative w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-cyan-500/20 via-blue-500/20 to-purple-500/20 border border-slate-200 dark:border-slate-800 flex items-center justify-center shadow-sm transition-transform duration-200 hover:scale-110">
+                    <div className="relative w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-200 hover:scale-110">
                       <img
                         src={item.badgeUrl}
                         alt={item.name}
-                        className="w-10 h-10 object-contain rounded-full"
-                        onError={(e) => {
-                          e.currentTarget.style.display = "none";
-                          if (e.currentTarget.nextSibling) {
-                            e.currentTarget.nextSibling.style.display = "flex";
-                          }
-                        }}
+                        className="w-13 h-13 object-contain drop-shadow-md"
                       />
-                      <span className="hidden w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-lg items-center justify-center">
-                        {item.fallback}
-                      </span>
 
                       {/* x2 Badge indicator */}
                       {item.count && (
-                        <span className="absolute -bottom-1 -right-1 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-orange-500 text-white border border-white dark:border-slate-900 shadow-sm">
+                        <span className="absolute -bottom-0.5 -right-0.5 px-2 py-0.5 text-[11px] font-extrabold rounded-full bg-[#f78166] text-slate-900 border-2 border-white dark:border-[#090d16] shadow-md">
                           {item.count}
                         </span>
                       )}
                     </div>
-                    <span className="mt-1 text-[11px] font-medium text-slate-600 dark:text-slate-400">
-                      {item.name}
-                    </span>
                   </div>
                 ))}
               </div>
