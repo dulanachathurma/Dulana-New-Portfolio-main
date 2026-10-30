@@ -496,7 +496,7 @@ const certificates = [
     location: "Global · Student Member",
     date: "2026",
     description: "Official certificate recognizing Student Membership in good standing through December 2026, denoting personal and professional commitment to the advancement of technology.",
-    image: "/IEEE Membership_page-0001.jpg",
+    image: "/IEEE Membership_page-00011.jpg",
     logoText: "IEEE",
     logoBg: "bg-sky-600",
     skills: ["Professional Membership", "Technology Advancement", "Networking", "IEEE"],
