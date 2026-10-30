@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
 
 import profileImg1 from "../assets/dulana.jpeg";
-import profileImg2 from "../assets/Profile.jpeg";
+import profileImg2 from "../assets/Profile.jpeg"; // Photo එකේ Capital 'P' අකුර නිවැරදිව තියෙනවාද බලන්න
 
 export const AboutSection = () => {
   // Photos 2කම එකතු කරපු array එක
