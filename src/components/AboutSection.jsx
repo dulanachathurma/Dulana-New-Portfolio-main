@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Brain, Code, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
 
 import profileImg1 from "../assets/dulana.jpeg";
-import profileImg2 from "../assets/Profile.jpeg"; // අලුත් photo එක මෙතැනින් import කරගන්න
+import profileImg2 from "../assets/Profile.jpeg"; // නව ඡායාරූපය
 
 export const AboutSection = () => {
+
   const images = [profileImg1, profileImg2];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // තත්පර 2න් 2ට ඡායාරූපය ස්වයංක්‍රීයව මාරු කිරීම
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 2000); // 2000ms = තත්පර 2
+    if (isHovered) return; // Mouse එක Hover කර ඇති විට Auto slide නවතී
 
-    return () => clearInterval(timer);
-  }, [images.length]);
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2000); // තත්පර 2න් 2ට මාරු වේ
+
+    return () => clearInterval(interval);
+  }, [isHovered, images.length]);
 
   const stats = [
     { value: "17+", label: "Projects Completed", icon: FolderGit2 },
@@ -79,34 +82,43 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-          {/* Left: Profile Image Slider & Bio Text (5 cols) */}
+          {/* Left: Profile Image & Bio Text (5 cols) */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-8">
 
             {/* Profile Image Slider Container */}
             <div className="flex justify-center lg:justify-start">
-              <div className="relative group w-48 h-48 lg:w-full lg:h-[280px] max-w-[240px]">
-                <div className="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-blue-500/60 p-2 bg-white dark:bg-[#090d16] shadow-[0_10px_35px_rgba(0,0,0,0.12)] dark:shadow-[0_0_40px_rgba(6,182,212,0.45)] w-full h-full">
+              <div 
+                className="relative group cursor-pointer"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <div className="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-blue-500/60 p-2 bg-white dark:bg-[#090d16] shadow-[0_10px_35px_rgba(0,0,0,0.12)] dark:shadow-[0_0_40px_rgba(6,182,212,0.45)] w-48 h-48 lg:w-[240px] lg:h-[240px] aspect-square">
                   {images.map((img, index) => (
                     <img
                       key={index}
                       src={img}
                       alt={`Dulana Chathurma ${index + 1}`}
-                      className={`absolute inset-0 w-full h-full object-cover object-top p-2 rounded-2xl transition-opacity duration-1000 ease-in-out ${
-                        index === currentImageIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                      className={`absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-xl object-cover object-top transition-all duration-700 ease-in-out ${
+                        index === currentImageIndex 
+                          ? "opacity-100 scale-100 z-10" 
+                          : "opacity-0 scale-95 z-0"
                       }`}
                     />
                   ))}
                 </div>
 
-                {/* Bottom Slide Indicators (Dots) */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 bg-black/40 px-2 py-1 rounded-full backdrop-blur-md">
+                {/* Minimal Dots Indicator */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 px-2 py-1 rounded-full bg-slate-900/60 dark:bg-black/60 backdrop-blur-md">
                   {images.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === currentImageIndex ? "bg-cyan-400 w-4" : "bg-white/60"
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex 
+                          ? "w-4 bg-cyan-400" 
+                          : "w-1.5 bg-white/50 hover:bg-white/80"
                       }`}
+                      aria-label={`Go to slide ${index + 1}`}
                     />
                   ))}
                 </div>
