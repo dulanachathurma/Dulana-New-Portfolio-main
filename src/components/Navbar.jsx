@@ -61,7 +61,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Navbar colors with inline !important
+  // Navbar colors with inline !important (beats any stylesheet override)
   useEffect(() => {
     const nav = navRef.current;
     if (!nav) return;
@@ -72,14 +72,14 @@ export default function Navbar() {
           "background-image": "none",
           "border-color": "rgba(0, 0, 0, 0.15)",
           color: "#000000",
-          "box-shadow": scrolled ? "0 4px 20px rgba(0, 0, 0, 0.1)" : "none",
+          "box-shadow": "0 6px 20px rgba(0, 0, 0, 0.15)",
         }
       : {
-          "background-color": `rgba(0, 0, 0, ${scrolled ? 0.9 : 0.75})`,
+          "background-color": `rgba(0, 0, 0, ${scrolled ? 0.9 : 0.7})`,
           "background-image": "none",
-          "border-color": "rgba(255, 255, 255, 0.15)",
+          "border-color": "rgba(255, 255, 255, 0.2)",
           color: "#ffffff",
-          "box-shadow": scrolled ? "0 4px 20px rgba(0, 0, 0, 0.4)" : "none",
+          "box-shadow": "0 6px 20px rgba(0, 0, 0, 0.5)",
         };
 
     Object.entries(styles).forEach(([prop, value]) => {
@@ -157,13 +157,13 @@ export default function Navbar() {
   );
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
-      {/* Full Width Navbar Container */}
-      <nav
-        ref={navRef}
-        className="w-full border-b backdrop-blur-md transition-all duration-300 px-4 sm:px-8 py-2.5"
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="sticky top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+      <div className="w-full mx-auto flex flex-col">
+        {/* Main Navbar */}
+        <nav
+          ref={navRef}
+          className="flex items-center justify-between px-4 sm:px-8 py-2.5 sm:py-3 w-full border-b backdrop-blur-md transition-all duration-300"
+        >
           {/* Desktop Logo */}
           <div className="hidden lg:flex items-center shrink-0">
             <a
@@ -191,7 +191,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2 justify-center flex-1 mx-4">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2 justify-center flex-1 mx-2">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
 
@@ -201,7 +201,7 @@ export default function Navbar() {
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={cn(
-                    "px-3 py-1.5 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
+                    "px-2.5 xl:px-3 py-1 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 relative whitespace-nowrap",
                     isActive
                       ? isDarkMode
                         ? "!text-blue-600 font-bold bg-black/10"
@@ -227,7 +227,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0">
+          <div className="hidden lg:flex items-center gap-2 shrink-0">
             {/* Contact Button */}
             <a
               href="#contact"
@@ -268,7 +268,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center justify-start">
+          <div className="flex lg:hidden items-center justify-start w-9">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={cn(
@@ -294,7 +294,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Logo */}
-          <div className="flex lg:hidden items-center justify-center flex-1 px-2">
+          <div className="flex lg:hidden items-center justify-center flex-1 px-1">
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, "#home")}
@@ -320,7 +320,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Theme Toggle */}
-          <div className="flex lg:hidden items-center justify-end">
+          <div className="flex lg:hidden items-center justify-end w-9">
             <button
               onClick={toggleDarkMode}
               className={cn(toggleBtnClass, "w-9 h-9")}
@@ -331,8 +331,8 @@ export default function Navbar() {
               {themeIcon}
             </button>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
       {/* Mobile Dropdown Menu */}
       <AnimatePresence>
@@ -349,21 +349,22 @@ export default function Navbar() {
 
             {/* Dropdown Card */}
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute z-50 left-0 right-0 top-full lg:hidden pointer-events-auto w-full"
+              initial={{ opacity: 0, y: -12, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.96 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="absolute z-50 left-0 right-0 lg:hidden pointer-events-auto"
+              style={{ top: "60px" }}
             >
               <div
                 className={cn(
-                  "w-full border-b shadow-2xl transition-colors",
+                  "w-[92%] sm:w-[90%] mx-auto rounded-[28px] border shadow-2xl transition-colors",
                   isDarkMode
                     ? "bg-white text-black border-black/10"
                     : "bg-zinc-900 text-white border-white/10"
                 )}
               >
-                <div className="flex flex-col p-4 gap-1 max-w-7xl mx-auto">
+                <div className="flex flex-col p-4 gap-0.5">
                   {/* Mobile Navigation Links */}
                   {navItems.map((item) => {
                     const isActive = activeSection === item.href.substring(1);
@@ -374,7 +375,7 @@ export default function Navbar() {
                         href={item.href}
                         onClick={(e) => handleNavClick(e, item.href)}
                         className={cn(
-                          "flex items-center text-left text-[15px] font-semibold py-2.5 px-4 rounded-xl transition-all",
+                          "flex items-center text-left text-[15px] font-semibold py-2.5 px-4 rounded-2xl transition-all",
                           isActive
                             ? isDarkMode
                               ? "bg-blue-100 text-blue-600 font-bold border-l-4 border-blue-600"
@@ -390,14 +391,24 @@ export default function Navbar() {
                   })}
 
                   {/* Mobile Contact Button */}
-                  <div className="pt-2">
-                    <a
-                      href="#contact"
-                      onClick={(e) => handleNavClick(e, "#contact")}
-                      className="relative group flex items-center justify-center w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 !text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
+                  <div className="pt-2.5">
+                    <div
+                      className={cn(
+                        "p-1 rounded-full border",
+                        isDarkMode
+                          ? "border-blue-200 bg-blue-50"
+                          : "border-blue-500/30 bg-blue-500/10"
+                      )}
                     >
-                      <span>Contact Me</span>
-                    </a>
+                      <a
+                        href="#contact"
+                        onClick={(e) => handleNavClick(e, "#contact")}
+                        className="relative group flex items-center justify-center w-full py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 !text-white font-bold text-center text-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)] transition-all active:scale-95 focus:outline-none"
+                      >
+                        <span className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-35 pointer-events-none" />
+                        <span className="relative z-10">Contact Me</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
