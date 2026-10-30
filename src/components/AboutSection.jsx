@@ -1,23 +1,21 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
 
 import profileImg1 from "../assets/dulana.jpeg";
-import profileImg2 from "../assets/Profile.jpeg";
-
-// Component එකෙන් පිටත array එක තැබීමෙන් Re-render වලදී අලුතින් හදන්නේ නැත
-const IMAGES = [profileImg1, profileImg2];
+import profileImg2 from "../assets/Profile.jpeg"; // අලුත් photo එක මෙතැනින් import කරගන්න
 
 export const AboutSection = () => {
+  const images = [profileImg1, profileImg2];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // තත්පර 2කට සැරයක් auto-slide වීම
+  // තත්පර 2න් 2ට ඡායාරූපය ස්වයංක්‍රීයව මාරු කිරීම
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
-    }, 2000);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2000); // 2000ms = තත්පර 2
 
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   const stats = [
     { value: "17+", label: "Projects Completed", icon: FolderGit2 },
@@ -47,7 +45,7 @@ export const AboutSection = () => {
     <section id="about" className="py-24 px-4 relative bg-slate-50 dark:bg-black transition-colors duration-300">
       <div className="container mx-auto max-w-5xl relative z-10">
 
-        {/* Section Header */}
+        {/* Section Header - Apple Minimal Style */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1 rounded-full bg-slate-200/80 dark:bg-slate-900/90 text-slate-800 dark:text-cyan-400 text-sm font-medium mb-4 backdrop-blur-sm border border-slate-300 dark:border-cyan-500/50 shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_0_20px_rgba(6,182,212,0.4)]">
             Biography
@@ -61,7 +59,7 @@ export const AboutSection = () => {
           </p>
         </div>
 
-        {/* Stats Cards */}
+        {/* Stats Cards - Wide Spreading Glow */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16 max-w-3xl mx-auto">
           {stats.map((stat) => (
             <div 
@@ -81,44 +79,40 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-          {/* Left: Profile Image Slider & Bio Text */}
+          {/* Left: Profile Image Slider & Bio Text (5 cols) */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-8">
 
             {/* Profile Image Slider Container */}
             <div className="flex justify-center lg:justify-start">
-              <div className="relative group">
-                <div className="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-blue-500/60 p-2 bg-white dark:bg-[#090d16] shadow-[0_10px_35px_rgba(0,0,0,0.12)] dark:shadow-[0_0_40px_rgba(6,182,212,0.45)] w-48 h-48 lg:w-[240px] lg:h-[240px]">
-                  
-                  {IMAGES.map((img, idx) => (
+              <div className="relative group w-48 h-48 lg:w-full lg:h-[280px] max-w-[240px]">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-blue-500/60 p-2 bg-white dark:bg-[#090d16] shadow-[0_10px_35px_rgba(0,0,0,0.12)] dark:shadow-[0_0_40px_rgba(6,182,212,0.45)] w-full h-full">
+                  {images.map((img, index) => (
                     <img
-                      key={idx}
+                      key={index}
                       src={img}
-                      alt={`Dulana Chathurma ${idx + 1}`}
-                      className={`absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-xl object-cover object-top transition-all duration-700 ease-in-out ${
-                        idx === currentImageIndex 
-                          ? "opacity-100 scale-100 z-10" 
-                          : "opacity-0 scale-95 z-0 pointer-events-none"
+                      alt={`Dulana Chathurma ${index + 1}`}
+                      className={`absolute inset-0 w-full h-full object-cover object-top p-2 rounded-2xl transition-opacity duration-1000 ease-in-out ${
+                        index === currentImageIndex ? "opacity-100 z-10" : "opacity-0 z-0"
                       }`}
                     />
                   ))}
-
-                  {/* Indicator Dots */}
-                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
-                    {IMAGES.map((_, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setCurrentImageIndex(idx)}
-                        className={`h-1.5 rounded-full transition-all duration-300 ${
-                          idx === currentImageIndex ? "w-4 bg-cyan-400" : "w-1.5 bg-white/50"
-                        }`}
-                        aria-label={`Go to slide ${idx + 1}`}
-                      />
-                    ))}
-                  </div>
-
                 </div>
 
-                <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-4 border-slate-50 dark:border-black rounded-full shadow-sm z-30"></span>
+                {/* Bottom Slide Indicators (Dots) */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 bg-black/40 px-2 py-1 rounded-full backdrop-blur-md">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex ? "bg-cyan-400 w-4" : "bg-white/60"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                {/* Minimal Online Status Dot */}
+                <span className="absolute -bottom-1 -right-1 z-20 w-4 h-4 bg-emerald-500 border-4 border-slate-50 dark:border-black rounded-full shadow-sm"></span>
               </div>
             </div>
 
@@ -141,7 +135,7 @@ export const AboutSection = () => {
                 </p>
               </div>
 
-              {/* Passion tags */}
+              {/* Passion tags - Glowing Badges */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 pt-2">
                 <span className="px-3 py-1 rounded-lg bg-white dark:bg-[#090d16] border border-slate-300 dark:border-blue-500/50 text-slate-700 dark:text-slate-300 text-xs font-medium flex items-center gap-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.08)] dark:shadow-[0_0_20px_rgba(6,182,212,0.35)]">
                   <Heart size={12} className="text-slate-500 dark:text-cyan-400" /> Code with Passion
@@ -159,7 +153,7 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right: Feature cards */}
+          {/* Right: Feature cards (7 cols) - Wide Spreading Glow */}
           <div className="lg:col-span-7 space-y-4">
             {features.map((feature) => (
               <div 
