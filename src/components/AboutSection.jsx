@@ -1,22 +1,20 @@
-
+import { useState, useEffect } from "react";
 import { Brain, Code, Database, FolderGit2, Briefcase, GraduationCap, Heart, Star, Zap, Sparkles, Server } from "lucide-react";
 
-import profileImg1 from "../assets/dulana.jpeg";
-import profileImg2 from "../assets/Profile.jpeg"; // Photo එකේ Capital 'P' අකුර නිවැරදිව තියෙනවාද බලන්න
+import profileImg from "../assets/dulana.jpeg";
+import profileImg2 from "../assets/dulana2.jpeg";
+
+const images = [profileImg, profileImg2];
 
 export const AboutSection = () => {
-  // Photos 2කම එකතු කරපු array එක
-  const images = [profileImg1, profileImg2];
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [current, setCurrent] = useState(0);
 
-  // තත්පර 2න් 2ට Auto Slide වීම සඳහා
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 2000); // 2000ms = තත්පර 2යි
-
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 2000); // 2 seconds
     return () => clearInterval(timer);
-  }, [images.length]);
+  }, []);
 
   const stats = [
     { value: "17+", label: "Projects Completed", icon: FolderGit2 },
@@ -25,20 +23,20 @@ export const AboutSection = () => {
   ];
 
   const features = [
-    { 
-      title: "AI & Machine Learning", 
+    {
+      title: "AI & Machine Learning",
       description: "Building intelligent systems and prediction models using Python and ML algorithms.",
-      icon: Brain, 
+      icon: Brain,
     },
-    { 
-      title: "Full-Stack Development", 
+    {
+      title: "Full-Stack Development",
       description: "Creating complete web applications with Spring Boot, React.js and MySQL.",
-      icon: Code, 
+      icon: Code,
     },
-    { 
-      title: "Cloud & Systems Architecture", 
+    {
+      title: "Cloud & Systems Architecture",
       description: "Building scalable backends, RESTful APIs and deploying modern web applications using Node.js, Express, Git and Cloud platforms.",
-      icon: Server, 
+      icon: Server,
     },
   ];
 
@@ -63,8 +61,8 @@ export const AboutSection = () => {
         {/* Stats Cards - Wide Spreading Glow */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16 max-w-3xl mx-auto">
           {stats.map((stat) => (
-            <div 
-              key={stat.label} 
+            <div
+              key={stat.label}
               className="relative group rounded-2xl bg-white dark:bg-[#090d16] p-5 text-center border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-400 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_45px_rgba(6,182,212,0.65)]"
             >
               <div className="flex items-center justify-center mb-3">
@@ -83,26 +81,25 @@ export const AboutSection = () => {
           {/* Left: Profile Image & Bio Text (5 cols) */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-8">
 
-            {/* Profile Image Auto Slider Container */}
+            {/* Profile Image Container - auto slider */}
             <div className="flex justify-center lg:justify-start">
               <div className="relative group">
-                <div className="relative w-48 h-48 lg:w-[240px] lg:h-[240px] rounded-2xl overflow-hidden border border-slate-300 dark:border-blue-500/60 p-2 bg-white dark:bg-[#090d16] shadow-[0_10px_35px_rgba(0,0,0,0.12)] dark:shadow-[0_0_40px_rgba(6,182,212,0.45)]">
-                  <div className="relative w-full h-full rounded-xl overflow-hidden">
-                    {images.map((img, index) => (
+                <div className="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-blue-500/60 p-2 bg-white dark:bg-[#090d16] shadow-[0_10px_35px_rgba(0,0,0,0.12)] dark:shadow-[0_0_40px_rgba(6,182,212,0.45)]">
+                  <div className="relative w-48 h-48 lg:w-full max-w-[240px] aspect-square rounded-xl overflow-hidden">
+                    {images.map((src, i) => (
                       <img
-                        key={index}
-                        src={img}
+                        key={i}
+                        src={src}
                         alt="Dulana Chathurma"
-                        className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out group-hover:scale-105 ${
-                          index === currentImageIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                        className={`absolute inset-0 w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-105 ${
+                          i === current ? "opacity-100" : "opacity-0"
                         }`}
                       />
                     ))}
                   </div>
                 </div>
-
                 {/* Minimal Online Status Dot */}
-                <span className="absolute -bottom-1 -right-1 z-20 w-4 h-4 bg-emerald-500 border-4 border-slate-50 dark:border-black rounded-full shadow-sm"></span>
+                <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-4 border-slate-50 dark:border-black rounded-full shadow-sm"></span>
               </div>
             </div>
 
@@ -143,11 +140,11 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right: Feature cards (7 cols) */}
+          {/* Right: Feature cards (7 cols) - Wide Spreading Glow */}
           <div className="lg:col-span-7 space-y-4">
             {features.map((feature) => (
-              <div 
-                key={feature.title} 
+              <div
+                key={feature.title}
                 className="group relative bg-white dark:bg-[#090d16] rounded-2xl p-6 border border-slate-300 dark:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.1)] dark:shadow-[0_0_35px_rgba(6,182,212,0.4)] transition-all duration-300 hover:border-slate-400 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_45px_rgba(6,182,212,0.65)]"
               >
                 <div className="flex items-start gap-4">
