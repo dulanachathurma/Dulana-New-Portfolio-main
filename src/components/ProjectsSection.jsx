@@ -19,6 +19,18 @@ const projects = [
   date: "Dec 2025",
   tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
 },
+  {
+    id: 25,
+    title: "HighWay AI – Automated Toll & Enforcement Network",
+    category: "featured",
+    description: "Cloud-native real-time traffic enforcement system utilizing 5km edge camera nodes, YOLO computer vision for speed and seatbelt detection, instant WebSocket alerts, and automated exit gate fine validation.",
+    image: "/project-highway-ai.jpg", 
+    tags: ["Python", "YOLOv10", "OpenCV", "React 19", "Node.js", "WebSockets"],
+    demoUrl: "https://drive.google.com/file/d/1lZzqqR5poEBughBGj35HN_2v41kh2wqQ/view?usp=sharing",
+    githubUrl: "https://github.com/dulanachathurma/highway-ai",
+    date: "Nov 2026",
+    tagColor: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300"
+  },
   
   {
     id: 24, 
