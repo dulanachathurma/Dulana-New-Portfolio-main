@@ -21,7 +21,7 @@ const projects = [
 },
   {
     id: 25,
-    title: "SmartWay-AI",
+    title: "SmartWay-AI System",
     category: "featured",
     description: "Cloud-native real-time traffic enforcement system utilizing 5km edge camera nodes, YOLO computer vision for speed and seatbelt detection, instant WebSocket alerts, and automated exit gate fine validation.",
     image: "/project-highway-ai.jpg", 
