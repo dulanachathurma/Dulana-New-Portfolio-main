@@ -247,13 +247,13 @@ export const AboutSection = () => {
                 <div className="text-left">
                   <div className="flex items-center gap-1.5">
                     <span className="text-sm font-extrabold text-amber-600 dark:text-amber-300 tracking-tight">
-                      Ranked #54 in Sri Lanka
+                      Ranked #43 in Sri Lanka
                     </span>
                     <ExternalLink className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400 opacity-80 group-hover/rank:translate-x-0.5 transition-transform" />
                   </div>
                   <p className="text-[11px] font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1 mt-0.5">
                     <Flame className="h-3 w-3 text-orange-500 fill-orange-500 inline" />
-                    Most Active GitHub Users (1.3K+ Commits)
+                    Most Active GitHub Users (1.4K+ Commits)
                   </p>
                 </div>
               </a>
