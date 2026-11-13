@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ExternalLink, Github, Users, Layers, Cpu, Code2 } from "lucide-react";
+import { AppShowcaseCarousel } from "./AppShowcaseCarousel";
 
 const projects = [
   // ==========================================
@@ -428,6 +429,9 @@ export const ProjectsSection = () => {
             Architected and built scalable systems, AI algorithms, low-level software and collaborative team applications.
           </p>
         </div>
+
+        {/* ── Flagship Mobile Apps Spotlight Carousel ── */}
+        <AppShowcaseCarousel />
 
         {/* Navigation Filter Tabs */}
         <div className="flex justify-center mb-12">
