@@ -338,12 +338,12 @@ export const AppShowcaseCarousel = () => {
         </div>
 
         {/* 3D Stage Container */}
-        <div className="relative flex items-center justify-center overflow-hidden py-4 select-none min-h-[460px] sm:min-h-[520px]">
+        <div className="relative flex items-center justify-center overflow-hidden py-2 select-none min-h-[420px] sm:min-h-[460px]">
           {/* Left Arrow */}
           <button
             onClick={goPrev}
             aria-label="Previous App"
-            className="absolute left-2 sm:left-4 z-30 p-2.5 sm:p-3 rounded-full text-white/80 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95"
+            className="absolute left-2 sm:left-4 z-30 p-2 sm:p-2.5 rounded-full text-white/80 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95"
             style={{
               background: "rgba(10, 16, 36, 0.85)",
               backdropFilter: "blur(12px)",
@@ -351,14 +351,14 @@ export const AppShowcaseCarousel = () => {
               boxShadow: "0 8px 30px rgba(0, 0, 0, 0.5)",
             }}
           >
-            <ChevronLeft size={20} strokeWidth={2.5} />
+            <ChevronLeft size={18} strokeWidth={2.5} />
           </button>
 
           {/* Right Arrow */}
           <button
             onClick={goNext}
             aria-label="Next App"
-            className="absolute right-2 sm:right-4 z-30 p-2.5 sm:p-3 rounded-full text-white/80 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95"
+            className="absolute right-2 sm:right-4 z-30 p-2 sm:p-2.5 rounded-full text-white/80 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95"
             style={{
               background: "rgba(10, 16, 36, 0.85)",
               backdropFilter: "blur(12px)",
@@ -366,11 +366,11 @@ export const AppShowcaseCarousel = () => {
               boxShadow: "0 8px 30px rgba(0, 0, 0, 0.5)",
             }}
           >
-            <ChevronRight size={20} strokeWidth={2.5} />
+            <ChevronRight size={18} strokeWidth={2.5} />
           </button>
 
-          {/* Cards Stack */}
-          <div className="relative w-full max-w-[840px] flex items-center justify-center px-4 sm:px-6">
+          {/* Cards Stack — Compact Desktop Max Width */}
+          <div className="relative w-full max-w-[690px] flex items-center justify-center px-3 sm:px-6">
             {FLAGSHIP_APPS.map((app, index) => {
               const isActive = index === activeIdx;
               const isPrev =

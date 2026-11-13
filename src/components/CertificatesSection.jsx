@@ -12,6 +12,61 @@ const CATEGORIES = [
 
 const certificates = [
   // ==========================================
+  // NEW: AI & COMPUTER VISION CERTIFICATIONS (NOV 2026)
+  // ==========================================
+  {
+    id: 301,
+    category: "ai-ml",
+    title: "Introduction to Modern AI",
+    organization: "Cisco Networking Academy",
+    location: "Online",
+    date: "Nov 13, 2026",
+    description: "Foundations of modern artificial intelligence, machine learning paradigms, neural networks, ethics, and contemporary AI deployment methodologies.",
+    image: "/certificate-modern-ai.png",
+    logoText: "Cisco",
+    logoBg: "bg-sky-600",
+    skills: ["Artificial Intelligence", "Modern AI", "Machine Learning"],
+    credentialId: "f13b0a2e-a117-4974-bda2-90422d7c6647",
+    viewCertificateUrl: "/Introduction_to_Modern_AI_certificate_dulanachathurma99-gmail-com_f13b0a2e-a117-4974-bda2-90422d7c6647.pdf",
+    tagColor: "bg-sky-100 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300"
+  },
+  {
+    id: 302,
+    category: "ai-ml",
+    title: "Generative AI: From Prompts to Partnership",
+    organization: "LinkedIn Learning",
+    location: "Online",
+    date: "Nov 12, 2026",
+    description: "Strategic prompt engineering, AI literacy, workflow augmentation, and human-AI collaboration frameworks to drive enterprise engineering productivity.",
+    image: "/certificate-generative-ai-prompts.png",
+    logoImg: "linkedin-logo.png",
+    logoText: "in",
+    logoBg: "bg-blue-600",
+    skills: ["Generative AI", "AI Literacy", "Artificial Intelligence (AI)"],
+    credentialId: "039080978975a0e515c3d30b01598d62a253de1234775aee6b1255f89247449c",
+    viewCertificateUrl: "/CertificateOfCompletion_Generative%20AI%20From%20Prompts%20to%20Partnership.pdf",
+    verifyUrl: "https://www.linkedin.com/learning/certificates/039080978975a0e515c3d30b01598d62a253de1234775aee6b1255f89247449c",
+    tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+  },
+  {
+    id: 303,
+    category: "ai-ml",
+    title: "Hands-On AI: Computer Vision Projects with Ultralytics and OpenCV",
+    organization: "LinkedIn Learning",
+    location: "Online",
+    date: "Nov 10, 2026",
+    description: "Applied computer vision engineering using OpenCV and Ultralytics YOLO models for real-time object detection, segmentation, and video stream analytics.",
+    image: "/certificate-ai-computervision-ultralytics.png",
+    logoImg: "linkedin-logo.png",
+    logoText: "in",
+    logoBg: "bg-blue-600",
+    skills: ["Computer Vision", "OpenCV", "Ultralytics", "Artificial Intelligence (AI)"],
+    credentialId: "248bc5afb209cb2508736fe9f82e5443d592466a24ddb7db6e243ae7bc4396ed",
+    viewCertificateUrl: "/CertificateOfCompletion_HandsOn%20AI%20Computer%20Vision%20Projects%20with%20Ultralytics%20and%20OpenCV.pdf",
+    verifyUrl: "https://www.linkedin.com/learning/certificates/248bc5afb209cb2508736fe9f82e5443d592466a24ddb7db6e243ae7bc4396ed",
+    tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+  },
+  // ==========================================
   // 1. HARVARD UNIVERSITY / CS50
   // ==========================================
   {
@@ -785,16 +840,45 @@ export const CertificatesSection = () => {
                     )}
                   </div>
 
-                  {/* View Certificate Button */}
+                  {/* Credential ID */}
+                  {cert.credentialId && (
+                    <div className="mb-3 px-2 py-1 rounded bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 font-mono">
+                      <span className="truncate">ID: {cert.credentialId.slice(0, 16)}...</span>
+                      <CheckCircle2 size={11} className="text-emerald-500 shrink-0 ml-1" />
+                    </div>
+                  )}
+
+                  {/* Action Buttons */}
                   <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-auto">
-                    <a
-                      href={cert.viewCertificateUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex w-full items-center justify-center gap-1.5 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
-                    >
-                      View Certificate <ExternalLink size={13} />
-                    </a>
+                    {cert.verifyUrl ? (
+                      <div className="flex gap-2">
+                        <a
+                          href={cert.viewCertificateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 flex items-center justify-center gap-1 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-xs font-semibold px-2.5 py-2 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                        >
+                          View PDF <ExternalLink size={12} />
+                        </a>
+                        <a
+                          href={cert.verifyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-2.5 py-2 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                        >
+                          Verify <CheckCircle2 size={12} />
+                        </a>
+                      </div>
+                    ) : (
+                      <a
+                        href={cert.viewCertificateUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex w-full items-center justify-center gap-1.5 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                      >
+                        View Certificate <ExternalLink size={13} />
+                      </a>
+                    )}
                   </div>
                 </div>
 
