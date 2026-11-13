@@ -21,6 +21,19 @@ const skillCategories = [
     description: "Core programming languages powering scalable systems, data structures and algorithms.",
     skillsIconUrl:
       "https://skillicons.dev/icons?i=c,python,java,kotlin,js,ts,php,html,css",
+    customIcons: [
+      {
+        name: "Ballerina",
+        icon: "/icon-ballerina.png",
+        role: "Cloud-Native Language",
+        url: "https://ballerina.io",
+      },
+    ],
+    subtext: (
+      <span>
+        Proficient in <b>Ballerina</b> for cloud-native integration and enterprise microservices.
+      </span>
+    ),
   },
   {
     id: "mobile",
@@ -61,6 +74,11 @@ const skillCategories = [
     description: "Distributed microservices, relational & NoSQL databases, caching and messaging queues.",
     skillsIconUrl:
       "https://skillicons.dev/icons?i=postgres,mysql,mongodb,ktor,nodejs,express,php",
+    subtext: (
+      <span>
+        Microservices and cloud integration with <b>Ballerina</b>, <b>Node.js</b>, and <b>Ktor</b>.
+      </span>
+    ),
   },
   {
     id: "ai-vision",
@@ -212,12 +230,12 @@ export const SkillsSection = () => {
                   {/* Icons or Badges Container */}
                   <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-col items-center justify-center">
                     {cat.skillsIconUrl && (
-                      <div className="py-2 w-full flex justify-center overflow-x-auto">
+                      <div className="py-2 w-full flex items-center justify-center gap-2.5 overflow-x-auto flex-wrap">
                         <a
                           href="https://skillicons.dev"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="transition-transform duration-300 hover:scale-105"
+                          className="transition-transform duration-300 hover:scale-105 inline-block"
                         >
                           <img
                             src={cat.skillsIconUrl}
@@ -226,6 +244,28 @@ export const SkillsSection = () => {
                             loading="lazy"
                           />
                         </a>
+
+                        {/* Custom integrated language/platform icon (e.g. Ballerina) */}
+                        {cat.customIcons &&
+                          cat.customIcons.map((ci) => (
+                            <a
+                              key={ci.name}
+                              href={ci.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title={`${ci.name} — ${ci.role}`}
+                              className="group/ci flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 dark:bg-[#1a2333] border border-[#20b2aa]/40 hover:border-[#20b2aa] hover:bg-[#20b2aa]/15 transition-all duration-300 hover:scale-105 shadow-sm"
+                            >
+                              <img
+                                src={ci.icon}
+                                alt={ci.name}
+                                className="w-6 h-6 object-contain drop-shadow"
+                              />
+                              <span className="text-xs font-bold text-teal-400 group-hover/ci:text-teal-300">
+                                {ci.name}
+                              </span>
+                            </a>
+                          ))}
                       </div>
                     )}
 

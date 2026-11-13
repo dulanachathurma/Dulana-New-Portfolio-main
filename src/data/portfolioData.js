@@ -40,6 +40,7 @@ export const portfolioData = {
     // Languages
     { name: "Java", icon: "/icon-java.png", category: "Languages" },
     { name: "Python", icon: "/icon-python.png", category: "Languages" },
+    { name: "Ballerina", icon: "/icon-ballerina.png", category: "Languages" },
     { name: "C", icon: "/icon-c-language.png", category: "Languages" },
     { name: "JavaScript", icon: "/icon-javascript.png", category: "Languages" },
     { name: "PHP", icon: "/icon-php.png", category: "Languages" },
