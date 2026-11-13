@@ -1,15 +1,16 @@
-/**
- * AppShowcaseCarousel — Flagship Mobile Apps Spotlight
- * 3D Barrel / Cylinder rotation carousel
- * Auto-play: 1500 ms  |  Transition: 600 ms cubic-bezier
- */
-
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Play, Github, ChevronLeft, ChevronRight, X, Smartphone, ExternalLink } from "lucide-react";
+import {
+  Play,
+  Github,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Smartphone,
+  ExternalLink,
+  Sparkles,
+} from "lucide-react";
 
-// ─── App Data ─────────────────────────────────────────────────────────────────
-// bannerImage: images placed directly in /public/ — no sub-folder
-// Drop the real files in and update these paths instantly.
+// ─── Flagship Apps Data ───────────────────────────────────────────────────────
 const FLAGSHIP_APPS = [
   {
     id: "suwago",
@@ -17,17 +18,16 @@ const FLAGSHIP_APPS = [
     title: "Suwago",
     tagline: "නීරෝගී ජීවිතයකට — ඔබේ සෞඛ්‍ය සහකරු",
     description:
-      "Modern AI-Powered Healthcare & Medical Navigation Mobile App built with Android Jetpack Compose, Kotlin and Node.js backend. Features trilingual support, smart vitals analytics, provincial medical facility locator, and 1990 emergency dispatch.",
+      "Modern AI-Powered Healthcare & Medical Navigation Mobile App built with Android Jetpack Compose, Kotlin and Node.js backend. Features trilingual support, smart vitals analytics, provincial medical facility locator and 1990 emergency dispatch.",
     tech: ["Kotlin", "Jetpack Compose", "Node.js", "MongoDB", "AI Assistant"],
-    githubUrl: "https://github.com/dulanachathurma/SuwaGo-Mobile",
-    // Real file: /public/home_banner_2.png  — using project-health.jpg as fallback stand-in
+    githubUrl: "https://github.com/dulanachathurma/SuwaGo-Mobile-App.git",
     bannerImage: "/home_banner_2.png",
     fallbackImage: "/project-health.jpg",
     videoUrl: "/videos/suwago-demo.mp4",
     accentFrom: "#10b981",
     accentTo: "#14b8a6",
-    accentGlow: "rgba(16,185,129,0.40)",
-    techBadge: "bg-emerald-500/15 text-emerald-300 border-emerald-500/35",
+    accentGlow: "rgba(16,185,129,0.35)",
+    techBadge: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
   },
   {
     id: "nexthalt",
@@ -35,34 +35,34 @@ const FLAGSHIP_APPS = [
     title: "NextHalt",
     tagline: "වේගවත් ගමනකට — Smart Passenger & Bus Tracking Platform",
     description:
-      "Real-time bus tracking app connecting passengers and bus drivers with live location, accurate ETA, smart halt alerts, and an integrated intercity parcel delivery service.",
+      "Real-time bus tracking app connecting passengers and bus drivers with live location, accurate ETA, smart halt alerts and an integrated intercity parcel delivery service.",
     tech: ["Kotlin", "Jetpack Compose", "Ktor", "PostgreSQL", "Live GPS"],
-    githubUrl: "https://github.com/dulanachathurma/NextHalt",
-    // Real file: /public/nexthalt-banner.png  — using banner6.png as fallback stand-in
+    githubUrl: "https://github.com/dulanachathurma/smart-public-bus-transport-platform.git",
     bannerImage: "/nexthalt-banner.png",
     fallbackImage: "/banner6.png",
     videoUrl: "/videos/nexthalt-demo.mp4",
     accentFrom: "#3b82f6",
     accentTo: "#06b6d4",
-    accentGlow: "rgba(59,130,246,0.40)",
-    techBadge: "bg-blue-500/15 text-blue-300 border-blue-500/35",
+    accentGlow: "rgba(59,130,246,0.35)",
+    techBadge: "bg-blue-500/15 text-blue-300 border-blue-500/30",
   },
 ];
 
-const AUTO_MS   = 1500;   // auto-advance interval
-const TRANS_MS  = 600;    // 3D rotation transition duration
-const PERSP_PX  = 1200;   // CSS perspective depth
+const AUTO_PLAY_MS = 3500;
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 const isYouTube = (url) =>
   url && (url.includes("youtube.com") || url.includes("youtu.be"));
 
-const getYouTubeEmbed = (url) => {
+const getYouTubeEmbedUrl = (url) => {
   try {
-    const u  = new URL(url);
-    const id = u.searchParams.get("v") || u.pathname.split("/").pop().split("?")[0];
+    const u = new URL(url);
+    const id =
+      u.searchParams.get("v") || u.pathname.split("/").pop().split("?")[0];
     return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-  } catch { return url; }
+  } catch {
+    return url;
+  }
 };
 
 // ─── Video Modal ──────────────────────────────────────────────────────────────
@@ -70,78 +70,108 @@ const VideoModal = ({ app, onClose }) => {
   const backdropRef = useRef(null);
 
   useEffect(() => {
-    const h = (e) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", h);
+    const handler = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handler);
     document.body.style.overflow = "hidden";
-    return () => { window.removeEventListener("keydown", h); document.body.style.overflow = ""; };
+    return () => {
+      window.removeEventListener("keydown", handler);
+      document.body.style.overflow = "";
+    };
   }, [onClose]);
+
+  const isYT = isYouTube(app.videoUrl);
 
   return (
     <div
       ref={backdropRef}
-      onClick={(e) => { if (e.target === backdropRef.current) onClose(); }}
+      onClick={(e) => {
+        if (e.target === backdropRef.current) onClose();
+      }}
       className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6"
       style={{
-        background: "rgba(2,6,23,0.90)",
+        background: "rgba(2, 6, 23, 0.88)",
         backdropFilter: "blur(18px)",
         WebkitBackdropFilter: "blur(18px)",
-        animation: "asc-fadein 0.22s ease both",
+        animation: "modalFadeIn 0.25s cubic-bezier(0.16,1,0.3,1) both",
       }}
     >
       <div
         className="relative w-full max-w-3xl rounded-2xl overflow-hidden border border-white/10"
         style={{
-          background: "linear-gradient(145deg,#0d1117,#161b27)",
-          boxShadow: "0 32px 80px rgba(0,0,0,0.75),0 0 0 1px rgba(255,255,255,0.06)",
-          animation: "asc-slideup 0.28s cubic-bezier(0.16,1,0.3,1) both",
+          background: "linear-gradient(135deg, #0d1117 0%, #161b27 100%)",
+          boxShadow: "0 32px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08)",
+          animation: "modalSlideUp 0.3s cubic-bezier(0.16,1,0.3,1) both",
         }}
       >
         {/* Header */}
-        <div className="flex items-start justify-between px-5 py-4 border-b border-white/[0.08]">
+        <div className="flex items-start justify-between px-5 py-4 border-b border-white/10">
           <div className="flex-1 min-w-0 mr-3">
             <div className="flex items-center gap-2 mb-1">
-              <Smartphone size={13} className="text-slate-400 shrink-0" />
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">App Demo Walkthrough</span>
+              <Smartphone size={14} className="text-blue-400 shrink-0" />
+              <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">
+                App Demo Walkthrough
+              </span>
             </div>
-            <h3 className="text-white font-black text-lg leading-tight truncate">{app.title}</h3>
+            <h3 className="text-white font-bold text-lg leading-tight truncate">
+              {app.title}
+            </h3>
             <div className="flex flex-wrap gap-1.5 mt-2">
               {app.tech.slice(0, 4).map((t) => (
-                <span key={t} className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${app.techBadge}`}>{t}</span>
+                <span
+                  key={t}
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border ${app.techBadge}`}
+                >
+                  {t}
+                </span>
               ))}
             </div>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <a
-              href={app.githubUrl} target="_blank" rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white/70 hover:text-white bg-white/[0.07] hover:bg-white/[0.13] border border-white/10 hover:border-white/20 transition-all duration-200"
+              href={app.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white/80 hover:text-white bg-white/10 hover:bg-white/15 border border-white/10 hover:border-white/20 transition-all duration-200"
             >
-              <Github size={12} /> View Source
+              <Github size={13} />
+              <span className="hidden sm:inline">View Source</span>
             </a>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg text-slate-400 hover:text-white bg-white/[0.07] hover:bg-white/[0.13] border border-white/10 hover:border-white/20 transition-all duration-200"
+              aria-label="Close modal"
+              className="p-2 rounded-lg text-slate-400 hover:text-white bg-white/10 hover:bg-white/15 border border-white/10 hover:border-white/20 transition-all duration-200"
             >
               <X size={16} />
             </button>
           </div>
         </div>
 
-        {/* 16:9 player */}
+        {/* Video Player 16:9 */}
         <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
           <div className="absolute inset-0 bg-black">
-            {isYouTube(app.videoUrl) ? (
+            {isYT ? (
               <iframe
-                src={getYouTubeEmbed(app.videoUrl)}
+                src={getYouTubeEmbedUrl(app.videoUrl)}
                 title={`${app.title} Demo`}
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             ) : (
-              <video src={app.videoUrl} controls autoPlay className="w-full h-full object-contain" playsInline>
+              <video
+                src={app.videoUrl}
+                controls
+                autoPlay
+                className="w-full h-full object-contain bg-black"
+                playsInline
+              >
                 <p className="text-slate-400 text-sm text-center p-8">
                   Your browser does not support the video tag.{" "}
-                  <a href={app.videoUrl} className="text-blue-400 underline">Download</a>
+                  <a href={app.videoUrl} className="text-blue-400 underline">
+                    Download the video
+                  </a>
                 </p>
               </video>
             )}
@@ -149,13 +179,16 @@ const VideoModal = ({ app, onClose }) => {
         </div>
 
         {/* Footer */}
-        <div className="px-5 py-3 border-t border-white/[0.08] flex items-center justify-between gap-3">
-          <p className="text-xs text-slate-500 italic truncate">{app.tagline}</p>
+        <div className="px-5 py-3 border-t border-white/10 flex items-center justify-between">
+          <p className="text-xs text-slate-400 italic truncate">{app.tagline}</p>
           <a
-            href={app.githubUrl} target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-1 text-xs text-slate-400 hover:text-white transition-colors duration-200 shrink-0"
+            href={app.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-xs text-slate-300 hover:text-white transition-colors duration-200 ml-3 shrink-0"
           >
-            <ExternalLink size={11} /> GitHub Repo
+            <ExternalLink size={12} />
+            GitHub Repo
           </a>
         </div>
       </div>
@@ -163,279 +196,139 @@ const VideoModal = ({ app, onClose }) => {
   );
 };
 
-// ─── 3D Barrel Slide ──────────────────────────────────────────────────────────
-// Each slide sits on the surface of an imaginary cylinder.
-// totalCards cards → each separated by (360 / totalCards)°.
-// Active card faces forward (rotateY = 0); others rotate around the Y axis.
-
-const BarrelSlide = ({ app, offset, totalCards, onClick, isActive }) => {
-  const angleStep = 360 / totalCards;          // degrees per slot
-  const faceAngle = offset * angleStep;         // this card's Y rotation
-  // radius so cards don't overlap — depends on card width (~720px approx)
-  const radius    = Math.round(720 / (2 * Math.tan(Math.PI / totalCards)));
-
-  const style = {
-    position: "absolute",
-    inset: 0,
-    width: "100%",
-    height: "100%",
-    transform: `rotateY(${faceAngle}deg) translateZ(${radius}px)`,
-    transition: `transform ${TRANS_MS}ms cubic-bezier(0.45,0.05,0.55,0.95),
-                 opacity   ${TRANS_MS}ms ease,
-                 filter    ${TRANS_MS}ms ease`,
-    opacity : isActive ? 1 : 0.38,
-    filter  : isActive ? "blur(0px)" : "blur(2px)",
-    cursor  : isActive ? "default" : "pointer",
-    pointerEvents: "auto",
-    backfaceVisibility: "hidden",
-    WebkitBackfaceVisibility: "hidden",
-  };
-
-  const handleImgError = (e) => {
-    if (app.fallbackImage && e.target.src !== window.location.origin + app.fallbackImage) {
-      e.target.src = app.fallbackImage;
-    } else {
-      e.target.style.display = "none";
-      e.target.parentElement.style.background =
-        "linear-gradient(135deg,#1e3a5f 0%,#0f172a 60%,#1a1030 100%)";
-    }
-  };
-
-  return (
-    <div style={style} onClick={isActive ? undefined : onClick}>
-      <div
-        className="relative w-full h-full rounded-3xl overflow-hidden"
-        style={{
-          boxShadow: isActive
-            ? `0 28px 70px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.08), 0 0 55px ${app.accentGlow}`
-            : "0 10px 30px rgba(0,0,0,0.4)",
-        }}
-      >
-        {/* Banner image — object-cover, vivid & bright */}
-        <img
-          src={app.bannerImage}
-          alt={`${app.title} banner`}
-          className="absolute inset-0 w-full h-full object-cover"
-          onError={handleImgError}
-        />
-
-        {/* Gradient: only bottom 55% fades to dark, top/center stays bright */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(2,6,23,0.96) 0%, rgba(2,6,23,0.70) 32%, rgba(2,6,23,0.12) 58%, transparent 100%)",
-          }}
-        />
-        {/* Subtle left/right vignette */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, rgba(2,6,23,0.35) 0%, transparent 35%, transparent 65%, rgba(2,6,23,0.35) 100%)",
-          }}
-        />
-
-        {/* Top-left badge */}
-        <div className="absolute top-4 left-4 sm:top-5 sm:left-5">
-          <div
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] sm:text-[11px] font-bold text-white uppercase tracking-wider"
-            style={{
-              background: "rgba(10,16,36,0.78)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255,255,255,0.14)",
-            }}
-          >
-            <span
-              className="w-1.5 h-1.5 rounded-full animate-pulse shrink-0"
-              style={{ background: `linear-gradient(135deg,${app.accentFrom},${app.accentTo})` }}
-            />
-            {app.badge}
-          </div>
-        </div>
-
-        {/* Content overlay — anchored to bottom */}
-        {isActive && (
-          <div className="absolute bottom-0 left-0 right-0 px-5 pb-6 sm:px-7 sm:pb-7">
-            {/* Title */}
-            <h3
-              className="text-white font-black leading-tight mb-1"
-              style={{ fontSize: "clamp(1.35rem,3.8vw,2rem)" }}
-            >
-              {app.title}
-            </h3>
-            {/* Tagline */}
-            <p className="text-white/55 text-xs sm:text-sm font-medium mb-2 line-clamp-1">
-              {app.tagline}
-            </p>
-            {/* Description */}
-            <p className="text-white/80 text-[12px] sm:text-sm leading-relaxed mb-3.5 line-clamp-2 sm:line-clamp-3 max-w-[88%]">
-              {app.description}
-            </p>
-            {/* Tech stack */}
-            <div className="flex flex-wrap gap-1.5 mb-4">
-              {app.tech.map((t) => (
-                <span
-                  key={t}
-                  className={`px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold border ${app.techBadge}`}
-                  style={{ backdropFilter: "blur(6px)" }}
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-            {/* Action buttons */}
-            <div className="flex gap-2.5 flex-wrap">
-              {/* Watch Demo */}
-              <button
-                data-action="watch"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white transition-all duration-200 hover:scale-105 active:scale-95 hover:brightness-110"
-                style={{
-                  background: `linear-gradient(135deg,${app.accentFrom},${app.accentTo})`,
-                  boxShadow: `0 6px 22px ${app.accentGlow}`,
-                }}
-              >
-                <Play size={13} className="fill-white" strokeWidth={0} />
-                Watch Demo
-              </button>
-              {/* GitHub */}
-              <a
-                href={app.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-action="github"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white/85 hover:text-white transition-all duration-200 hover:scale-105 active:scale-95"
-                style={{
-                  background: "rgba(10,16,36,0.88)",
-                  backdropFilter: "blur(10px)",
-                  border: "1px solid rgba(255,255,255,0.20)",
-                  boxShadow: "0 4px 16px rgba(0,0,0,0.38)",
-                }}
-              >
-                <Github size={13} />
-                GitHub Repo
-              </a>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-// ─── Main Component ───────────────────────────────────────────────────────────
+// ─── Main Carousel Component ──────────────────────────────────────────────────
 export const AppShowcaseCarousel = () => {
-  const total      = FLAGSHIP_APPS.length;
-  const [rotation, setRotation]   = useState(0);   // cumulative Y° of the cylinder
-  const [modalApp, setModalApp]   = useState(null);
-  const [isPaused, setIsPaused]   = useState(false);
-  const [progress, setProgress]   = useState(0);
-  const [isSpinning, setIsSpinning] = useState(false);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [modalApp, setModalApp] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const intervalRef  = useRef(null);
-  const rafRef       = useRef(null);
-  const progStartRef = useRef(null);
-  const angleStep    = 360 / total;
+  const intervalRef = useRef(null);
+  const progressRef = useRef(null);
+  const progressStartRef = useRef(null);
+  const totalApps = FLAGSHIP_APPS.length;
 
-  // Active index derived from cumulative rotation
-  // We rotate the cylinder so the active slot faces front (rotateY=0 on cylinder = face front)
-  // Spinning forward (next) = cylinder rotates -angleStep (counter-clockwise from viewer)
-  const activeIdx = ((-Math.round(rotation / angleStep) % total) + total) % total;
-
-  // ── spin helper ───────────────────────────────────────────────────────────
-  const spin = useCallback(
-    (direction /* +1 = next, -1 = prev */) => {
-      if (isSpinning) return;
-      setIsSpinning(true);
+  const goTo = useCallback(
+    (idx) => {
+      if (isTransitioning) return;
+      setIsTransitioning(true);
+      setActiveIdx((idx + totalApps) % totalApps);
       setProgress(0);
-      progStartRef.current = performance.now();
-      setRotation((r) => r - direction * angleStep);
-      setTimeout(() => setIsSpinning(false), TRANS_MS + 50);
+      progressStartRef.current = performance.now();
+      setTimeout(() => setIsTransitioning(false), 600);
     },
-    [isSpinning, angleStep]
+    [isTransitioning, totalApps]
   );
 
-  const goNext = useCallback(() => spin(1),  [spin]);
-  const goPrev = useCallback(() => spin(-1), [spin]);
+  const goNext = useCallback(() => goTo(activeIdx + 1), [activeIdx, goTo]);
+  const goPrev = useCallback(() => goTo(activeIdx - 1), [activeIdx, goTo]);
 
-  // ── progress-bar rAF ──────────────────────────────────────────────────────
+  // Animated progress line
   useEffect(() => {
-    const tick = (now) => {
-      if (!progStartRef.current) progStartRef.current = now;
-      const pct = Math.min(((now - progStartRef.current) / AUTO_MS) * 100, 100);
+    const animate = (now) => {
+      if (!progressStartRef.current) progressStartRef.current = now;
+      const elapsed = now - progressStartRef.current;
+      const pct = Math.min((elapsed / AUTO_PLAY_MS) * 100, 100);
       setProgress(pct);
-      if (pct < 100) rafRef.current = requestAnimationFrame(tick);
+      if (pct < 100) {
+        progressRef.current = requestAnimationFrame(animate);
+      }
     };
 
     if (!isPaused && !modalApp) {
-      progStartRef.current = performance.now();
-      rafRef.current = requestAnimationFrame(tick);
+      progressStartRef.current = performance.now();
+      progressRef.current = requestAnimationFrame(animate);
     } else {
-      cancelAnimationFrame(rafRef.current);
+      cancelAnimationFrame(progressRef.current);
     }
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [isPaused, modalApp, rotation]);    // reset bar on each slide change
 
-  // ── auto-advance interval ─────────────────────────────────────────────────
+    return () => cancelAnimationFrame(progressRef.current);
+  }, [isPaused, modalApp, activeIdx]);
+
+  // Auto-advance
   useEffect(() => {
-    if (isPaused || modalApp) { clearInterval(intervalRef.current); return; }
+    if (isPaused || modalApp) return;
     intervalRef.current = setInterval(() => {
-      setIsSpinning(true);
-      setProgress(0);
-      progStartRef.current = performance.now();
-      setRotation((r) => r - angleStep);
-      setTimeout(() => setIsSpinning(false), TRANS_MS + 50);
-    }, AUTO_MS);
+      goNext();
+    }, AUTO_PLAY_MS);
     return () => clearInterval(intervalRef.current);
-  }, [isPaused, modalApp, angleStep]);
+  }, [isPaused, modalApp, goNext]);
 
-  // ── keyboard nav ──────────────────────────────────────────────────────────
+  // Keyboard navigation
   useEffect(() => {
-    const h = (e) => {
+    const handler = (e) => {
       if (modalApp) return;
+      if (e.key === "ArrowLeft") goPrev();
       if (e.key === "ArrowRight") goNext();
-      if (e.key === "ArrowLeft")  goPrev();
     };
-    window.addEventListener("keydown", h);
-    return () => window.removeEventListener("keydown", h);
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
   }, [modalApp, goNext, goPrev]);
-
-  // ── click delegation on active card ──────────────────────────────────────
-  const handleCardClick = useCallback(
-    (e) => {
-      const action = e.target.closest("[data-action]")?.dataset?.action;
-      if (action === "watch") {
-        setIsPaused(true);
-        setModalApp(FLAGSHIP_APPS[activeIdx]);
-      }
-    },
-    [activeIdx]
-  );
-
-  // radius matches BarrelSlide's radius for perspective stage sizing
-  const approxRadius = Math.round(720 / (2 * Math.tan(Math.PI / total)));
-  const stageH = 460; // px — height of the 3D stage div
 
   const activeApp = FLAGSHIP_APPS[activeIdx];
 
+  const handleImgError = (e, fallback) => {
+    if (fallback && e.target.src !== window.location.origin + fallback) {
+      e.target.src = fallback;
+    }
+  };
+
   return (
     <>
-      {/* ── Keyframes ── */}
       <style>{`
-        @keyframes asc-fadein  { from{opacity:0}             to{opacity:1} }
-        @keyframes asc-slideup { from{opacity:0;transform:translateY(28px) scale(0.97)} to{opacity:1;transform:none} }
+        @keyframes modalFadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes modalSlideUp {
+          from { opacity: 0; transform: translateY(24px) scale(0.96); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        /* 3D Depth Zoom Transition */
+        .showcase-card-active {
+          transform: perspective(1200px) translateZ(0px) scale(1);
+          opacity: 1;
+          filter: blur(0px);
+          z-index: 20;
+          pointer-events: auto;
+        }
+        .showcase-card-inactive-left {
+          transform: perspective(1200px) translate3d(-35%, 0, -140px) scale(0.85);
+          opacity: 0.35;
+          filter: blur(1.5px);
+          z-index: 10;
+          pointer-events: auto;
+          cursor: pointer;
+        }
+        .showcase-card-inactive-right {
+          transform: perspective(1200px) translate3d(35%, 0, -140px) scale(0.85);
+          opacity: 0.35;
+          filter: blur(1.5px);
+          z-index: 10;
+          pointer-events: auto;
+          cursor: pointer;
+        }
+        .showcase-card-transition {
+          transition: transform 600ms cubic-bezier(0.34, 1.25, 0.64, 1),
+                      opacity 600ms cubic-bezier(0.34, 1.25, 0.64, 1),
+                      filter 600ms cubic-bezier(0.34, 1.25, 0.64, 1),
+                      box-shadow 600ms ease;
+        }
       `}</style>
 
       <section
         className="relative w-full mb-14"
         onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => { if (!modalApp) setIsPaused(false); }}
+        onMouseLeave={() => {
+          if (!modalApp) setIsPaused(false);
+        }}
         aria-label="Flagship Mobile Apps Showcase"
       >
-        {/* ── Section Label ── */}
-        <div className="flex items-center justify-center gap-3 mb-7">
+        {/* Section Header Accent */}
+        <div className="flex items-center justify-center gap-3 mb-6">
           <div className="h-px flex-1 max-w-[80px] bg-gradient-to-r from-transparent to-blue-500/40" />
-          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 dark:bg-blue-500/15 border border-blue-500/20 dark:border-blue-400/25">
+          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 dark:bg-blue-500/15 border border-blue-500/20 dark:border-blue-400/25 shadow-sm">
             <Smartphone size={13} className="text-blue-500 dark:text-blue-400" />
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
               Flagship Mobile Apps Spotlight
@@ -444,111 +337,199 @@ export const AppShowcaseCarousel = () => {
           <div className="h-px flex-1 max-w-[80px] bg-gradient-to-l from-transparent to-blue-500/40" />
         </div>
 
-        {/* ── 3D Cylinder Stage ── */}
-        <div
-          className="relative mx-auto"
-          style={{
-            maxWidth: "820px",
-            height: `${stageH}px`,
-            perspective: `${PERSP_PX}px`,
-            perspectiveOrigin: "50% 50%",
-            overflow: "visible",
-          }}
-        >
-          {/* Left arrow */}
+        {/* 3D Stage Container */}
+        <div className="relative flex items-center justify-center overflow-hidden py-4 select-none min-h-[460px] sm:min-h-[520px]">
+          {/* Left Arrow */}
           <button
             onClick={goPrev}
-            aria-label="Previous app"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3 rounded-full text-white/70 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95"
+            aria-label="Previous App"
+            className="absolute left-2 sm:left-4 z-30 p-2.5 sm:p-3 rounded-full text-white/80 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95"
             style={{
-              transform: "translateY(-50%) translateX(-50%)",
-              background: "rgba(10,16,36,0.80)",
+              background: "rgba(10, 16, 36, 0.85)",
               backdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.14)",
-              boxShadow: "0 8px 28px rgba(0,0,0,0.5)",
-              zIndex: 30,
+              border: "1px solid rgba(255, 255, 255, 0.16)",
+              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.5)",
             }}
           >
             <ChevronLeft size={20} strokeWidth={2.5} />
           </button>
 
-          {/* Right arrow */}
+          {/* Right Arrow */}
           <button
             onClick={goNext}
-            aria-label="Next app"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3 rounded-full text-white/70 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95"
+            aria-label="Next App"
+            className="absolute right-2 sm:right-4 z-30 p-2.5 sm:p-3 rounded-full text-white/80 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95"
             style={{
-              transform: "translateY(-50%) translateX(50%)",
-              background: "rgba(10,16,36,0.80)",
+              background: "rgba(10, 16, 36, 0.85)",
               backdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.14)",
-              boxShadow: "0 8px 28px rgba(0,0,0,0.5)",
-              zIndex: 30,
+              border: "1px solid rgba(255, 255, 255, 0.16)",
+              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.5)",
             }}
           >
             <ChevronRight size={20} strokeWidth={2.5} />
           </button>
 
-          {/* 3D Cylinder — the rotating drum */}
-          <div
-            onClick={handleCardClick}
-            style={{
-              position: "relative",
-              width: "100%",
-              height: "100%",
-              transformStyle: "preserve-3d",
-              transform: `rotateY(${rotation}deg)`,
-              transition: `transform ${TRANS_MS}ms cubic-bezier(0.45,0.05,0.55,0.95)`,
-            }}
-          >
-            {FLAGSHIP_APPS.map((app, i) => {
-              // offset = how many slots away from the front-facing slot
-              const offset = i;   // slot 0 starts at 0°, slot 1 at angleStep°, …
-              const isActive = i === activeIdx;
+          {/* Cards Stack */}
+          <div className="relative w-full max-w-[840px] flex items-center justify-center px-4 sm:px-6">
+            {FLAGSHIP_APPS.map((app, index) => {
+              const isActive = index === activeIdx;
+              const isPrev =
+                index === (activeIdx - 1 + totalApps) % totalApps && !isActive;
+
+              let cardClass = "showcase-card-active";
+              if (!isActive) {
+                cardClass = isPrev
+                  ? "showcase-card-inactive-left"
+                  : "showcase-card-inactive-right";
+              }
+
               return (
-                <BarrelSlide
+                <div
                   key={app.id}
-                  app={app}
-                  offset={offset}
-                  totalCards={total}
-                  isActive={isActive}
-                  onClick={isActive ? undefined : (e) => {
-                    // clicking a side card advances in the right direction
-                    const dist = ((i - activeIdx + total) % total);
-                    dist <= total / 2 ? goNext() : goPrev();
+                  onClick={isActive ? undefined : () => goTo(index)}
+                  className={`showcase-card-transition ${cardClass} ${
+                    isActive ? "relative w-full" : "absolute w-[92%] sm:w-[85%]"
+                  }`}
+                  style={{
+                    transformOrigin: "center center",
                   }}
-                />
+                >
+                  <div
+                    className="relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800/80 dark:border-white/10"
+                    style={{
+                      boxShadow: isActive
+                        ? `0 25px 60px -12px rgba(0, 0, 0, 0.7), 0 0 45px ${app.accentGlow}`
+                        : "0 10px 30px rgba(0, 0, 0, 0.4)",
+                    }}
+                  >
+                    {/* ── Top Section: Full Crisp Banner Image (No text overlaid over the artwork) ── */}
+                    <div className="relative w-full aspect-[16/9] sm:aspect-[16/8.6] overflow-hidden bg-slate-950">
+                      <img
+                        src={app.bannerImage}
+                        alt={`${app.title} banner artwork`}
+                        className="w-full h-full object-cover transition-transform duration-700"
+                        onError={(e) => handleImgError(e, app.fallbackImage)}
+                      />
+
+                      {/* Top-Left Status & Architecture Badge */}
+                      <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10">
+                        <div
+                          className="flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] sm:text-[11px] font-bold text-white uppercase tracking-wider shadow-md"
+                          style={{
+                            background: "rgba(10, 16, 36, 0.82)",
+                            backdropFilter: "blur(10px)",
+                            border: "1px solid rgba(255, 255, 255, 0.16)",
+                          }}
+                        >
+                          <span
+                            className="w-2 h-2 rounded-full animate-pulse shrink-0"
+                            style={{
+                              background: `linear-gradient(135deg, ${app.accentFrom}, ${app.accentTo})`,
+                            }}
+                          />
+                          {app.badge}
+                        </div>
+                      </div>
+
+                      {/* Subtle Vignette at bottom edge of image to blend cleanly */}
+                      <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-slate-950/90 to-transparent pointer-events-none" />
+                    </div>
+
+                    {/* ── Bottom Section: Crystal Clear Info & Action Panel ── */}
+                    <div className="px-5 py-4 sm:px-6 sm:py-5 bg-slate-950/95 dark:bg-[#0b1120]/95 backdrop-blur-md border-t border-white/[0.08]">
+                      {/* Sinhala Tagline */}
+                      <div className="flex items-center gap-2 mb-2">
+                        <Sparkles
+                          size={14}
+                          className="text-amber-400 shrink-0 animate-pulse"
+                        />
+                        <p className="text-amber-300/90 dark:text-amber-200 text-xs sm:text-sm font-semibold tracking-wide">
+                          {app.tagline}
+                        </p>
+                      </div>
+
+                      {/* Engineering Description (High Contrast & Legible) */}
+                      <p className="text-slate-200 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-3.5 line-clamp-2 sm:line-clamp-3">
+                        {app.description}
+                      </p>
+
+                      {/* Tech Stack Pills & Action Buttons Bar */}
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+                        {/* Tech Stack */}
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          {app.tech.map((techItem) => (
+                            <span
+                              key={techItem}
+                              className={`px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold border ${app.techBadge}`}
+                            >
+                              {techItem}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex items-center gap-2.5 shrink-0">
+                          {/* Watch Demo CTA */}
+                          <button
+                            onClick={() => {
+                              setIsPaused(true);
+                              setModalApp(app);
+                            }}
+                            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+                            style={{
+                              background: `linear-gradient(135deg, ${app.accentFrom}, ${app.accentTo})`,
+                              boxShadow: `0 4px 18px ${app.accentGlow}`,
+                            }}
+                          >
+                            <Play size={13} className="fill-white" strokeWidth={0} />
+                            <span>Watch Demo</span>
+                          </button>
+
+                          {/* GitHub Repo */}
+                          <a
+                            href={app.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-200 hover:text-white bg-slate-800/90 hover:bg-slate-700 border border-white/15 transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+                          >
+                            <Github size={14} />
+                            <span>GitHub Repo</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Progress Bar at bottom of active card */}
+                    {isActive && (
+                      <div className="w-full h-[3px] bg-white/[0.08] overflow-hidden">
+                        <div
+                          className="h-full rounded-full"
+                          style={{
+                            width: `${progress}%`,
+                            background: `linear-gradient(90deg, ${app.accentFrom}, ${app.accentTo})`,
+                            transition:
+                              isPaused || modalApp ? "none" : "width 50ms linear",
+                            boxShadow: `0 0 10px ${app.accentGlow}`,
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
               );
             })}
           </div>
-
-          {/* Progress bar — bottom edge of stage */}
-          <div
-            className="absolute bottom-0 left-0 right-0 h-[3px] rounded-full overflow-hidden"
-            style={{ background: "rgba(255,255,255,0.07)", zIndex: 20 }}
-          >
-            <div
-              className="h-full rounded-full"
-              style={{
-                width: `${progress}%`,
-                background: `linear-gradient(90deg,${activeApp.accentFrom},${activeApp.accentTo})`,
-                transition: isPaused || modalApp ? "none" : "width 60ms linear",
-                boxShadow: `0 0 8px ${activeApp.accentGlow}`,
-              }}
-            />
-          </div>
         </div>
 
-        {/* ── Pagination dots ── */}
-        <div className="flex items-center justify-center gap-2 mt-5" aria-label="Carousel pagination">
+        {/* Pagination Dots */}
+        <div
+          className="flex items-center justify-center gap-2 mt-4"
+          aria-label="Carousel pagination"
+        >
           {FLAGSHIP_APPS.map((app, i) => (
             <button
               key={app.id}
-              onClick={() => {
-                if (i === activeIdx || isSpinning) return;
-                const dist = ((i - activeIdx + total) % total);
-                dist <= total / 2 ? goNext() : goPrev();
-              }}
+              onClick={() => goTo(i)}
               aria-label={`Go to ${app.title}`}
               aria-current={i === activeIdx ? "true" : undefined}
               className="rounded-full transition-all duration-500"
@@ -557,26 +538,38 @@ export const AppShowcaseCarousel = () => {
                 width: i === activeIdx ? "32px" : "7px",
                 background:
                   i === activeIdx
-                    ? `linear-gradient(90deg,${activeApp.accentFrom},${activeApp.accentTo})`
-                    : "rgba(148,163,184,0.32)",
-                border: i === activeIdx ? "none" : "1px solid rgba(148,163,184,0.18)",
-                boxShadow: i === activeIdx ? `0 0 10px ${activeApp.accentGlow}` : "none",
+                    ? `linear-gradient(90deg, ${activeApp.accentFrom}, ${activeApp.accentTo})`
+                    : "rgba(148, 163, 184, 0.35)",
+                border:
+                  i === activeIdx
+                    ? "none"
+                    : "1px solid rgba(148, 163, 184, 0.2)",
+                boxShadow:
+                  i === activeIdx ? `0 0 10px ${activeApp.accentGlow}` : "none",
               }}
             />
           ))}
         </div>
 
-        {/* Pause hint */}
+        {/* Auto-play pause notice */}
         {isPaused && !modalApp && (
-          <div className="flex items-center justify-center mt-3 gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(148,163,184,0.45)" }} />
-            <span className="text-[10px] text-slate-500 font-medium">Auto-play paused</span>
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(148,163,184,0.45)" }} />
+          <div className="flex items-center justify-center mt-2.5 gap-1.5">
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: "rgba(148, 163, 184, 0.5)" }}
+            />
+            <span className="text-[10px] text-slate-500 font-medium">
+              Auto-play paused
+            </span>
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: "rgba(148, 163, 184, 0.5)" }}
+            />
           </div>
         )}
       </section>
 
-      {/* ── Video Modal ── */}
+      {/* Video Walkthrough Modal */}
       {modalApp && (
         <VideoModal
           app={modalApp}
@@ -584,7 +577,7 @@ export const AppShowcaseCarousel = () => {
             setModalApp(null);
             setIsPaused(false);
             setProgress(0);
-            progStartRef.current = performance.now();
+            progressStartRef.current = performance.now();
           }}
         />
       )}
