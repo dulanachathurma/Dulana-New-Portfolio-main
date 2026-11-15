@@ -1,56 +1,54 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, ExternalLink, Github, Users, Layers, Cpu, Code2 } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Users, Layers, Cpu, Code2, PlayCircle } from "lucide-react";
 import { AppShowcaseCarousel } from "./AppShowcaseCarousel";
 
 const projects = [
   // ==========================================
   // 1. FEATURED SYSTEMS & ADVANCED WORK (Chronological: Latest First)
   // ==========================================
-
-  
   {
-  id: 6,
-  title: "Sriseta Official Website",
-  category: "featured", // Updated
-  description: "Full-stack AI-driven astrology platform with live horoscopes, Gemini AI prediction engine, secure JWT authentication, auto-updating web scraper and WhatsApp booking integration.", // Enhanced description
-  image: "/project-astrology-website1.jpg",
-  tags: ["React 19", "Node.js", "MongoDB", "Google Gemini AI", "Tailwind CSS"], // Updated to reflect real tech stack
-  demoUrl: "https://sriseta.vercel.app",
-  githubUrl: "https://github.com/dulanachathurma/sriseta-astrology-platform",
-  date: "Dec 2025",
-  tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
-},
+    id: 6,
+    title: "Sriseta Official Website",
+    category: "featured",
+    description: "Full-stack AI-driven astrology platform with live horoscopes, Gemini AI prediction engine, secure JWT authentication, auto-updating web scraper and WhatsApp booking integration.",
+    image: "/project-astrology-website1.jpg",
+    tags: ["React 19", "Node.js", "MongoDB", "Google Gemini AI", "Tailwind CSS"],
+    demoUrl: "https://sriseta.vercel.app",
+    githubUrl: "https://github.com/dulanachathurma/sriseta-astrology-platform",
+    date: "Dec 2025",
+    tagColor: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
+  },
   {
     id: 25,
     title: "SmartWay-AI System",
     category: "featured",
     description: "Cloud-native real-time traffic enforcement system utilizing 5km edge camera nodes, YOLO computer vision for speed and seatbelt detection, instant WebSocket alerts, and automated exit gate fine validation.",
-    image: "/project-highway-ai.jpg", 
+    image: "/project-highway-ai.jpg",
     tags: ["Python", "YOLOv10", "OpenCV", "React 19", "Node.js", "WebSockets"],
     demoUrl: "https://drive.google.com/file/d/1lZzqqR5poEBughBGj35HN_2v41kh2wqQ/view?usp=sharing",
     githubUrl: "https://github.com/dulanachathurma/highway-ai",
     date: "Nov 2026",
     tagColor: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300"
   },
-  
   {
-    id: 24, 
+    id: 24,
     title: "VoxBridge AI System",
     category: "featured",
     description: "An advanced, low-latency, real-time speech-to-speech interpreter capturing system audio from live streams and meetings. Powered by Google Gemini 2.5 Flash with dynamic VAD chunking and auto-ducking audio control.",
-    image: "/voxbridge-ai.jpg", 
+    image: "/voxbridge-ai.jpg",
     tags: ["React", "Node.js", "Socket.IO", "WebRTC", "Google Gemini API", "Web Audio API"],
-    githubUrl: "https://github.com/dulanachathurma/Realtime-Live-Videos-Translator.git", 
+    githubUrl: "https://github.com/dulanachathurma/Realtime-Live-Videos-Translator.git",
     date: "Oct 2026",
     tagColor: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300"
   },
   {
     id: 22,
-    title: "HealthPulse AI - Full-Stack Mobile & Web Companion",
+    title: "HealthPulse AI (SuwaGo) - Full-Stack Mobile & Web Companion",
     category: "featured",
     description: "Cloud-Native Trilingual Health Platform featuring real-time BMI tracking analytics, symptom-driven smart doctor recommendations and health vitals logging.",
     image: "/project-health.jpg",
     tags: ["React", "Node.js", "Express", "MongoDB", "Chart.js", "TailwindCSS"],
+    demoUrl: "https://drive.google.com/file/d/1fWQO5hEdjNIDelbE2UGX0INCrX0B376P/view?usp=sharing",
     githubUrl: "https://github.com/dulanachathurma/Vitacare-mobile-fullstack",
     date: "Oct 2026",
     tagColor: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300"
@@ -71,7 +69,7 @@ const projects = [
     title: "Bare-Metal x86 Operating System",
     category: "featured",
     description: "A custom-built, bare-metal x86 operating system featuring a bootloader, round-robin process scheduler, multithreading, memory management (PMM & Heap) and a RAM disk file system.",
-    image: "/project-os.jpg", 
+    image: "/project-os.jpg",
     tags: ["C", "Assembly", "OS Development", "QEMU", "Systems Programming"],
     githubUrl: "https://github.com/dulanachathurma/seng21213-os",
     date: "Aug 2026 – Sep 2026",
@@ -155,7 +153,7 @@ const projects = [
     isGroup: true,
     myRole: "Full-Stack Developer & Database Architecture",
     description: "A collaborative full-stack web application built to streamline inventory, product cataloging, AJAX live filtering and order management processes with real-time tracking.",
-    image: "/project-spareparts1.jpg", 
+    image: "/project-spareparts1.jpg",
     tags: ["PHP", "MySQL", "JavaScript", "AJAX", "E-Commerce", "Team Collaboration"],
     demoUrl: "http://spareparts.kesug.com",
     githubUrl: "https://github.com/dulanachathurma/Vehicle-Spare-Parts",
@@ -226,7 +224,6 @@ const projects = [
     date: "Jan 2026",
     tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
   },
-
   {
     id: 8,
     title: "WeatherSphere Pro App",
@@ -269,8 +266,8 @@ export const ProjectsSection = () => {
   const [activeTab, setActiveTab] = useState("all");
   const canvasRef = useRef(null);
 
-  const filteredProjects = activeTab === "all" 
-    ? projects 
+  const filteredProjects = activeTab === "all"
+    ? projects
     : projects.filter(project => project.category === activeTab);
 
   // --- INTERACTIVE GRAPH CANVAS ---
@@ -436,7 +433,6 @@ export const ProjectsSection = () => {
         {/* Navigation Filter Tabs */}
         <div className="flex justify-center mb-12">
           <div className="flex flex-wrap justify-center gap-1.5 bg-slate-200/60 dark:bg-[#1e293b]/60 p-1.5 rounded-2xl backdrop-blur-sm border border-slate-300/50 dark:border-blue-500/20">
-            
             <button
               onClick={() => setActiveTab("all")}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
@@ -480,113 +476,119 @@ export const ProjectsSection = () => {
             >
               <Code2 size={15} /> Personal Apps & Utilities
             </button>
-
           </div>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="group relative rounded-2xl transition-all duration-500 flex flex-col h-full">
-              
-              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 dark:group-hover:opacity-100 dark:group-hover:blur-xl transition-all duration-500 pointer-events-none" />
+          {filteredProjects.map((project) => {
+            const isVideoDemo = project.demoUrl?.includes("drive.google.com");
 
-              <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border border-slate-300/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col h-full">
-                
-                {/* Image Box */}
-                <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+            return (
+              <div key={project.id} className="group relative rounded-2xl transition-all duration-500 flex flex-col h-full">
+                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600/0 via-cyan-500/0 to-blue-600/0 dark:from-blue-600/20 dark:via-cyan-400/15 dark:to-blue-600/20 blur-lg opacity-100 dark:group-hover:opacity-100 dark:group-hover:blur-xl transition-all duration-500 pointer-events-none" />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border border-slate-300/80 dark:border-blue-500/30 dark:group-hover:border-cyan-400/60 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03),0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_0_20px_rgba(30,58,138,0.25)] dark:group-hover:shadow-[0_0_35px_rgba(56,189,248,0.3)] group-hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col h-full">
+                  {/* Image Box */}
+                  <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
 
-                  {/* Group Project Tag */}
-                  {project.isGroup && (
-                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-indigo-600/90 text-white text-[10px] font-bold tracking-wider uppercase backdrop-blur-md flex items-center gap-1.5 shadow-md">
-                      <Users size={12} /> Team Project
-                    </div>
-                  )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
 
-                  {project.date && (
-                    <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-[11px] font-medium tracking-wide">
-                      📅 {project.date}
-                    </div>
-                  )}
-                </div>
+                    {/* Group Project Tag */}
+                    {project.isGroup && (
+                      <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-indigo-600/90 text-white text-[10px] font-bold tracking-wider uppercase backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                        <Users size={12} /> Team Project
+                      </div>
+                    )}
 
-                {/* Content Box */}
-                <div className="p-5 flex flex-col flex-grow">
-                  
-                  {/* Tech Stack Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-3.5">
-                    {project.tags.slice(0, 3).map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className={`px-2.5 py-0.5 text-[11px] font-semibold rounded-full ${project.tagColor} shadow-sm border border-black/5 dark:border-white/5`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-
-                    {project.tags.length > 3 && (
-                      <span className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-black/5 dark:border-white/5">
-                        +{project.tags.length - 3}
-                      </span>
+                    {project.date && (
+                      <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-[11px] font-medium tracking-wide">
+                        📅 {project.date}
+                      </div>
                     )}
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-lg font-bold mb-1.5 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
-                    {project.title}
-                  </h3>
+                  {/* Content Box */}
+                  <div className="p-5 flex flex-col flex-grow">
+                    {/* Tech Stack Tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-3.5">
+                      {project.tags.slice(0, 3).map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className={`px-2.5 py-0.5 text-[11px] font-semibold rounded-full ${project.tagColor} shadow-sm border border-black/5 dark:border-white/5`}
+                        >
+                          {tag}
+                        </span>
+                      ))}
 
-                  {/* Group Role Mention */}
-                  {project.myRole && (
-                    <div className="mb-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400 flex items-center gap-1">
-                      <span className="opacity-75">My Role:</span> {project.myRole}
+                      {project.tags.length > 3 && (
+                        <span className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-black/5 dark:border-white/5">
+                          +{project.tags.length - 3}
+                        </span>
+                      )}
                     </div>
-                  )}
 
-                  {/* Description */}
-                  <p className="text-slate-600 dark:text-slate-300 text-sm mb-5 leading-relaxed line-clamp-3 flex-grow">
-                    {project.description}
-                  </p>
+                    {/* Title */}
+                    <h3 className="text-lg font-bold mb-1.5 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
+                      {project.title}
+                    </h3>
 
-                  {/* Actions Footer */}
-                  <div className="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-auto">
-                    <div className="flex gap-3 w-full">
-                      {project.demoUrl && project.demoUrl !== "#" && (
-                        <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                        >
-                          <ExternalLink size={13} /> Live Demo
-                        </a>
-                      )}
+                    {/* Group Role Mention */}
+                    {project.myRole && (
+                      <div className="mb-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400 flex items-center gap-1">
+                        <span className="opacity-75">My Role:</span> {project.myRole}
+                      </div>
+                    )}
 
-                      {project.githubUrl && project.githubUrl !== "#" && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                        >
-                          <Github size={14} /> Code Base
-                        </a>
-                      )}
+                    {/* Description */}
+                    <p className="text-slate-600 dark:text-slate-300 text-sm mb-5 leading-relaxed line-clamp-3 flex-grow">
+                      {project.description}
+                    </p>
+
+                    {/* Actions Footer */}
+                    <div className="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-auto">
+                      <div className="flex gap-3 w-full">
+                        {project.demoUrl && project.demoUrl !== "#" && (
+                          <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                          >
+                            {isVideoDemo ? (
+                              <>
+                                <PlayCircle size={14} /> Video Demo
+                              </>
+                            ) : (
+                              <>
+                                <ExternalLink size={13} /> Live Demo
+                              </>
+                            )}
+                          </a>
+                        )}
+
+                        {project.githubUrl && project.githubUrl !== "#" && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                          >
+                            <Github size={14} /> Code Base
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
-
                 </div>
-
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Empty Fallback */}
@@ -614,7 +616,6 @@ export const ProjectsSection = () => {
             <div className="absolute w-40 h-[2px] bg-gradient-to-r from-transparent via-sky-400 dark:via-white to-transparent blur-[0.5px] shadow-[0_0_15px_rgba(56,189,248,0.9)]" />
           </div>
         </div>
-
       </div>
     </section>
   );
