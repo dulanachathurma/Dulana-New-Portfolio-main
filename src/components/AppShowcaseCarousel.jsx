@@ -14,7 +14,6 @@ import {
 const FLAGSHIP_APPS = [
   {
     id: "suwago",
-    badge: "Flagship Mobile App • AI & Medical Navigation",
     title: "Suwago",
     tagline: "නීරෝගී ජීවිතයකට — ඔබේ සෞඛ්‍ය සහකරු",
     description:
@@ -31,7 +30,6 @@ const FLAGSHIP_APPS = [
   },
   {
     id: "nexthalt",
-    badge: "Real-Time Distributed Transit System",
     title: "NextHalt",
     tagline: "වේගවත් ගමනකට — Smart Passenger & Bus Tracking Platform",
     description:
@@ -402,7 +400,7 @@ export const AppShowcaseCarousel = () => {
                         : "0 10px 30px rgba(0, 0, 0, 0.4)",
                     }}
                   >
-                    {/* ── Top Section: Full Crisp Banner Image (No text overlaid over the artwork) ── */}
+                    {/* ── Top Section: Full Crisp Banner Image ── */}
                     <div className="relative w-full aspect-[16/9] sm:aspect-[16/8.6] overflow-hidden bg-slate-950">
                       <img
                         src={app.bannerImage}
@@ -410,26 +408,6 @@ export const AppShowcaseCarousel = () => {
                         className="w-full h-full object-cover transition-transform duration-700"
                         onError={(e) => handleImgError(e, app.fallbackImage)}
                       />
-
-                      {/* Top-Left Status & Architecture Badge */}
-                      <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10">
-                        <div
-                          className="flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] sm:text-[11px] font-bold text-white uppercase tracking-wider shadow-md"
-                          style={{
-                            background: "rgba(10, 16, 36, 0.82)",
-                            backdropFilter: "blur(10px)",
-                            border: "1px solid rgba(255, 255, 255, 0.16)",
-                          }}
-                        >
-                          <span
-                            className="w-2 h-2 rounded-full animate-pulse shrink-0"
-                            style={{
-                              background: `linear-gradient(135deg, ${app.accentFrom}, ${app.accentTo})`,
-                            }}
-                          />
-                          {app.badge}
-                        </div>
-                      </div>
 
                       {/* Subtle Vignette at bottom edge of image to blend cleanly */}
                       <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-slate-950/90 to-transparent pointer-events-none" />
