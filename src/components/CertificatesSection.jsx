@@ -15,6 +15,23 @@ const certificates = [
   // NEW: AI & COMPUTER VISION CERTIFICATIONS (NOV 2026)
   // ==========================================
   {
+    id: 300,
+    category: "ai-ml",
+    title: "Claude 101",
+    organization: "Anthropic Education",
+    location: "Online",
+    date: "Nov 2026",
+    description: "Foundational certification on Claude AI architecture, advanced prompt engineering techniques, and generative AI productivity workflows.",
+    image: "/certificate-claude-101.jpg",
+    logoImg: "/anthropic-logo.png",
+    logoText: "A\\",
+    logoBg: "bg-black",
+    skills: ["Generative AI", "Prompt Engineering", "Artificial Intelligence (AI)", "Claude AI", "AI Productivity"],
+    viewCertificateUrl: "/certificate-claude-101.jpg",
+    verifyUrl: "https://verify.skilljar.com/c/rhnwrqrrz9ny",
+    tagColor: "bg-amber-100 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300"
+  },
+  {
     id: 301,
     category: "ai-ml",
     title: "Introduction to Modern AI",
@@ -858,7 +875,7 @@ export const CertificatesSection = () => {
                           rel="noopener noreferrer"
                           className="flex-1 flex items-center justify-center gap-1 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white text-xs font-semibold px-2.5 py-2 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
                         >
-                          View PDF <ExternalLink size={12} />
+                          {cert.viewCertificateUrl?.toLowerCase().includes(".pdf") ? "View PDF" : "View Certificate"} <ExternalLink size={12} />
                         </a>
                         <a
                           href={cert.verifyUrl}
