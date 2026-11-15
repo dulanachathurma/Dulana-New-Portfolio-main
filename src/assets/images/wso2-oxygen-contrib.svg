@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF7300"/>
+      <stop offset="100%" style="stop-color:#FF9F43"/>
+    </linearGradient>
+    <linearGradient id="greenBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#238636"/>
+      <stop offset="100%" style="stop-color:#2ea043"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid pattern -->
+  <g opacity="0.06" stroke="#58a6ff" stroke-width="0.5">
+    <line x1="0" y1="0" x2="0" y2="630"/><line x1="60" y1="0" x2="60" y2="630"/>
+    <line x1="120" y1="0" x2="120" y2="630"/><line x1="180" y1="0" x2="180" y2="630"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="360" y1="0" x2="360" y2="630"/><line x1="420" y1="0" x2="420" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/><line x1="540" y1="0" x2="540" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/><line x1="660" y1="0" x2="660" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="780" y1="0" x2="780" y2="630"/>
+    <line x1="840" y1="0" x2="840" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="960" y1="0" x2="960" y2="630"/><line x1="1020" y1="0" x2="1020" y2="630"/>
+    <line x1="1080" y1="0" x2="1080" y2="630"/><line x1="1140" y1="0" x2="1140" y2="630"/>
+    <line x1="0" y1="60" x2="1200" y2="60"/><line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/><line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/><line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+  </g>
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+  <!-- WSO2 logo area -->
+  <rect x="50" y="40" width="200" height="44" rx="8" fill="#FF7300" opacity="0.15"/>
+  <text x="90" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#FF7300">WSO2</text>
+  <text x="148" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#8b949e"> / oxygen-ui</text>
+  <!-- PR Badge -->
+  <rect x="280" y="45" width="100" height="32" rx="16" fill="#238636" opacity="0.2"/>
+  <text x="295" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#3fb950">PR #704</text>
+  <!-- CLA Badge -->
+  <rect x="395" y="45" width="110" height="32" rx="16" fill="#238636" opacity="0.15"/>
+  <text x="410" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#3fb950">✓ CLA Signed</text>
+  <!-- WCAG Badge -->
+  <rect x="520" y="45" width="140" height="32" rx="16" fill="#58a6ff" opacity="0.15"/>
+  <text x="535" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#58a6ff">♿ WCAG 2.1 AA</text>
+  <!-- Title -->
+  <text x="50" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#f0f6fc">Introduce enterprise AIAssistant</text>
+  <text x="50" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#f0f6fc">and Copilot component suite</text>
+  <!-- Subtitle -->
+  <text x="50" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#8b949e">Compound component architecture · Drawer · Floating · Inline modes</text>
+  <!-- Code block simulation -->
+  <rect x="50" y="230" width="520" height="350" rx="12" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <!-- Code header bar -->
+  <rect x="50" y="230" width="520" height="36" rx="12" fill="#21262d"/>
+  <rect x="50" y="254" width="520" height="12" fill="#21262d"/>
+  <circle cx="72" cy="248" r="6" fill="#ff5f57"/><circle cx="92" cy="248" r="6" fill="#febc2e"/><circle cx="112" cy="248" r="6" fill="#28c840"/>
+  <text x="200" y="253" font-family="monospace" font-size="12" fill="#8b949e">AIAssistant.tsx</text>
+  <!-- Code lines -->
+  <text x="70" y="290" font-family="monospace" font-size="13" fill="#ff7b72">import</text>
+  <text x="125" y="290" font-family="monospace" font-size="13" fill="#c9d1d9"> { useState } </text>
+  <text x="275" y="290" font-family="monospace" font-size="13" fill="#ff7b72">from</text>
+  <text x="320" y="290" font-family="monospace" font-size="13" fill="#a5d6ff"> 'react'</text>
+  <text x="70" y="315" font-family="monospace" font-size="13" fill="#ff7b72">export const</text>
+  <text x="190" y="315" font-family="monospace" font-size="13" fill="#d2a8ff"> AIAssistant</text>
+  <text x="310" y="315" font-family="monospace" font-size="13" fill="#c9d1d9"> = () => {</text>
+  <text x="90" y="345" font-family="monospace" font-size="13" fill="#ff7b72">  return</text>
+  <text x="155" y="345" font-family="monospace" font-size="13" fill="#c9d1d9"> (</text>
+  <text x="90" y="370" font-family="monospace" font-size="13" fill="#c9d1d9">    &lt;</text><text x="105" y="370" font-family="monospace" font-size="13" fill="#7ee787">Assistant.Root</text><text x="240" y="370" font-family="monospace" font-size="13" fill="#79c0ff"> mode=</text><text x="305" y="370" font-family="monospace" font-size="13" fill="#a5d6ff">"drawer"</text><text x="380" y="370" font-family="monospace" font-size="13" fill="#c9d1d9">&gt;</text>
+  <text x="90" y="395" font-family="monospace" font-size="13" fill="#c9d1d9">      &lt;</text><text x="112" y="395" font-family="monospace" font-size="13" fill="#7ee787">Header</text><text x="165" y="395" font-family="monospace" font-size="13" fill="#c9d1d9"> /&gt;</text>
+  <text x="90" y="420" font-family="monospace" font-size="13" fill="#c9d1d9">      &lt;</text><text x="112" y="420" font-family="monospace" font-size="13" fill="#7ee787">Messages</text><text x="185" y="420" font-family="monospace" font-size="13" fill="#c9d1d9"> /&gt;</text>
+  <text x="90" y="445" font-family="monospace" font-size="13" fill="#c9d1d9">      &lt;</text><text x="112" y="445" font-family="monospace" font-size="13" fill="#7ee787">Thought</text><text x="175" y="445" font-family="monospace" font-size="13" fill="#79c0ff"> label=</text><text x="240" y="445" font-family="monospace" font-size="13" fill="#a5d6ff">"Thinking..."</text><text x="350" y="445" font-family="monospace" font-size="13" fill="#c9d1d9"> /&gt;</text>
+  <text x="90" y="470" font-family="monospace" font-size="13" fill="#c9d1d9">      &lt;</text><text x="112" y="470" font-family="monospace" font-size="13" fill="#7ee787">Suggestions</text><text x="215" y="470" font-family="monospace" font-size="13" fill="#c9d1d9"> /&gt;</text>
+  <text x="90" y="495" font-family="monospace" font-size="13" fill="#c9d1d9">      &lt;</text><text x="112" y="495" font-family="monospace" font-size="13" fill="#7ee787">PromptInput</text><text x="212" y="495" font-family="monospace" font-size="13" fill="#c9d1d9"> /&gt;</text>
+  <text x="90" y="520" font-family="monospace" font-size="13" fill="#c9d1d9">    &lt;/</text><text x="118" y="520" font-family="monospace" font-size="13" fill="#7ee787">Assistant.Root</text><text x="253" y="520" font-family="monospace" font-size="13" fill="#c9d1d9">&gt;</text>
+  <!-- Right side: Component cards -->
+  <rect x="620" y="230" width="530" height="100" rx="12" fill="#161b22" stroke="#FF7300" stroke-width="1" opacity="0.9"/>
+  <text x="645" y="265" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#FF9F43">🤖 AIAssistant</text>
+  <text x="645" y="290" font-family="system-ui, sans-serif" font-size="12" fill="#8b949e">Compound component with Header, Messages, Thought,</text>
+  <text x="645" y="308" font-family="system-ui, sans-serif" font-size="12" fill="#8b949e">Suggestions, PromptInput &amp; Trigger sub-components</text>
+  <rect x="620" y="345" width="255" height="85" rx="12" fill="#161b22" stroke="#3fb950" stroke-width="1" opacity="0.9"/>
+  <text x="645" y="377" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#3fb950">♿ Accessibility</text>
+  <text x="645" y="400" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">WCAG 2.1 AA · Screen reader</text>
+  <text x="645" y="416" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">aria-live · Keyboard shortcuts</text>
+  <rect x="895" y="345" width="255" height="85" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="1" opacity="0.9"/>
+  <text x="920" y="377" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#58a6ff">🧪 Testing</text>
+  <text x="920" y="400" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">Vitest unit tests · Storybook</text>
+  <text x="920" y="416" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">Changeset release config</text>
+  <rect x="620" y="445" width="530" height="85" rx="12" fill="#161b22" stroke="#d2a8ff" stroke-width="1" opacity="0.9"/>
+  <text x="645" y="477" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#d2a8ff">💭 Reasoning Transparency</text>
+  <text x="645" y="500" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">Chain-of-thought disclosures · Syntax-highlighted code blocks</text>
+  <text x="645" y="516" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">One-click copy · Citation badges · Multi-model selector</text>
+  <!-- Bottom status bar -->
+  <rect x="0" y="590" width="1200" height="40" fill="#161b22"/>
+  <text x="50" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">wso2/oxygen-ui</text>
+  <text x="200" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#FF7300">PR #704</text>
+  <text x="300" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#e3b341">⏳ Under Review</text>
+  <text x="950" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#3fb950">+2,847  -142</text>
+  <text x="1080" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">React · TS</text>
+</svg>

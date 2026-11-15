@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ADD8"/>
+      <stop offset="100%" style="stop-color:#326CE5"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid -->
+  <g opacity="0.05" stroke="#00ADD8" stroke-width="0.5">
+    <line x1="0" y1="60" x2="1200" y2="60"/><line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/><line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/><line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+    <line x1="60" y1="0" x2="60" y2="630"/><line x1="120" y1="0" x2="120" y2="630"/>
+    <line x1="180" y1="0" x2="180" y2="630"/><line x1="240" y1="0" x2="240" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/><line x1="360" y1="0" x2="360" y2="630"/>
+    <line x1="420" y1="0" x2="420" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="540" y1="0" x2="540" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="660" y1="0" x2="660" y2="630"/><line x1="720" y1="0" x2="720" y2="630"/>
+    <line x1="780" y1="0" x2="780" y2="630"/><line x1="840" y1="0" x2="840" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+    <line x1="1020" y1="0" x2="1020" y2="630"/><line x1="1080" y1="0" x2="1080" y2="630"/>
+    <line x1="1140" y1="0" x2="1140" y2="630"/>
+  </g>
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+  <!-- CNCF badge area -->
+  <rect x="50" y="40" width="270" height="44" rx="8" fill="#00ADD8" opacity="0.15"/>
+  <text x="75" y="68" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#00ADD8">☁️ CNCF</text>
+  <text x="155" y="68" font-family="system-ui, sans-serif" font-size="16" font-weight="400" fill="#8b949e"> / openchoreo</text>
+  <!-- Badges -->
+  <rect x="345" y="45" width="110" height="32" rx="16" fill="#238636" opacity="0.2"/>
+  <text x="362" y="66" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#3fb950">PR #5430</text>
+  <rect x="470" y="45" width="120" height="32" rx="16" fill="#238636" opacity="0.15"/>
+  <text x="487" y="66" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#3fb950">✓ DCO Passed</text>
+  <rect x="605" y="45" width="175" height="32" rx="16" fill="#58a6ff" opacity="0.15"/>
+  <text x="620" y="66" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#58a6ff">🤖 CodeRabbit ✓</text>
+  <!-- Title -->
+  <text x="50" y="130" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#f0f6fc">Add stdin and dry-run support to occ apply</text>
+  <text x="50" y="165" font-family="system-ui, sans-serif" font-size="15" fill="#8b949e">CLI stdin streaming · Dry-run preview · Multi-document YAML · Go unit tests</text>
+  <!-- Terminal Window -->
+  <rect x="50" y="195" width="530" height="385" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <!-- Terminal header -->
+  <rect x="50" y="195" width="530" height="36" rx="12" fill="#21262d"/>
+  <rect x="50" y="219" width="530" height="12" fill="#21262d"/>
+  <circle cx="72" cy="213" r="6" fill="#ff5f57"/><circle cx="92" cy="213" r="6" fill="#febc2e"/><circle cx="112" cy="213" r="6" fill="#28c840"/>
+  <text x="220" y="218" font-family="monospace" font-size="12" fill="#8b949e">Terminal — zsh</text>
+  <!-- Terminal commands -->
+  <text x="70" y="260" font-family="monospace" font-size="13" fill="#3fb950">$</text>
+  <text x="90" y="260" font-family="monospace" font-size="13" fill="#c9d1d9"> helm template my-app ./chart \</text>
+  <text x="90" y="283" font-family="monospace" font-size="13" fill="#c9d1d9">   | </text><text x="125" y="283" font-family="monospace" font-size="13" fill="#79c0ff">occ apply</text><text x="215" y="283" font-family="monospace" font-size="13" fill="#ffa657"> -f -</text>
+  <text x="70" y="316" font-family="monospace" font-size="13" fill="#8b949e">───────────────────────────────────</text>
+  <text x="70" y="346" font-family="monospace" font-size="13" fill="#3fb950">$</text>
+  <text x="90" y="346" font-family="monospace" font-size="13" fill="#c9d1d9"> cat manifest.yaml | </text><text x="312" y="346" font-family="monospace" font-size="13" fill="#79c0ff">occ apply</text><text x="402" y="346" font-family="monospace" font-size="13" fill="#ffa657"> -f -</text><text x="445" y="346" font-family="monospace" font-size="13" fill="#ffa657"> --dry-run</text>
+  <text x="70" y="376" font-family="monospace" font-size="13" fill="#3fb950">✓</text>
+  <text x="90" y="376" font-family="monospace" font-size="13" fill="#8b949e"> Deployment/nginx validated (dry-run: create)</text>
+  <text x="70" y="399" font-family="monospace" font-size="13" fill="#3fb950">✓</text>
+  <text x="90" y="399" font-family="monospace" font-size="13" fill="#8b949e"> Service/nginx-svc validated (dry-run: update)</text>
+  <text x="70" y="422" font-family="monospace" font-size="13" fill="#3fb950">✓</text>
+  <text x="90" y="422" font-family="monospace" font-size="13" fill="#8b949e"> ConfigMap/app-config validated (dry-run: create)</text>
+  <text x="70" y="452" font-family="monospace" font-size="13" fill="#8b949e">───────────────────────────────────</text>
+  <text x="70" y="482" font-family="monospace" font-size="13" fill="#3fb950">$</text>
+  <text x="90" y="482" font-family="monospace" font-size="13" fill="#c9d1d9"> kustomize build ./overlays/prod \</text>
+  <text x="90" y="505" font-family="monospace" font-size="13" fill="#c9d1d9">   | </text><text x="125" y="505" font-family="monospace" font-size="13" fill="#79c0ff">occ apply</text><text x="215" y="505" font-family="monospace" font-size="13" fill="#ffa657"> -f -</text>
+  <text x="70" y="535" font-family="monospace" font-size="13" fill="#3fb950">✓</text>
+  <text x="90" y="535" font-family="monospace" font-size="13" fill="#8b949e"> 3 resources applied successfully</text>
+  <text x="70" y="558" font-family="monospace" font-size="13" fill="#00ADD8">⎈</text>
+  <text x="90" y="558" font-family="monospace" font-size="13" fill="#c9d1d9"> Connected to control-plane</text>
+  <!-- Right side: Feature cards -->
+  <rect x="620" y="195" width="530" height="120" rx="12" fill="#161b22" stroke="#00ADD8" stroke-width="1"/>
+  <text x="645" y="232" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#00ADD8">📥 Stdin Streaming</text>
+  <text x="645" y="258" font-family="system-ui, sans-serif" font-size="12" fill="#8b949e">Unix piping support with -f - flag for occ apply</text>
+  <text x="645" y="278" font-family="system-ui, sans-serif" font-size="12" fill="#8b949e">Compatible with Helm, Kustomize &amp; multi-doc YAML</text>
+  <text x="645" y="298" font-family="system-ui, sans-serif" font-size="12" fill="#8b949e">Handles empty input validation gracefully</text>
+  <rect x="620" y="330" width="530" height="100" rx="12" fill="#161b22" stroke="#ffa657" stroke-width="1"/>
+  <text x="645" y="365" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffa657">🔍 Dry-Run Preview</text>
+  <text x="645" y="390" font-family="system-ui, sans-serif" font-size="12" fill="#8b949e">Validate manifests without mutating cluster state</text>
+  <text x="645" y="410" font-family="system-ui, sans-serif" font-size="12" fill="#8b949e">Simulates create/update against the Control Plane</text>
+  <rect x="620" y="445" width="255" height="95" rx="12" fill="#161b22" stroke="#3fb950" stroke-width="1"/>
+  <text x="645" y="480" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#3fb950">🧪 Go Unit Tests</text>
+  <text x="645" y="502" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">Multi-document stdin</text>
+  <text x="645" y="520" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">Dry-run create/update</text>
+  <rect x="895" y="445" width="255" height="95" rx="12" fill="#161b22" stroke="#d2a8ff" stroke-width="1"/>
+  <text x="920" y="480" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#d2a8ff">📋 Standards</text>
+  <text x="920" y="502" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">DCO Signed-off</text>
+  <text x="920" y="520" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e">Conventional Commits</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="590" width="1200" height="40" fill="#161b22"/>
+  <text x="50" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">openchoreo/openchoreo</text>
+  <text x="240" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#00ADD8">PR #5430</text>
+  <text x="340" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#e3b341">⏳ Under Review</text>
+  <text x="950" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#3fb950">+684  -23</text>
+  <text x="1080" y="615" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">Go · CLI</text>
+</svg>

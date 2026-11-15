@@ -1,29 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { GitPullRequest, GitFork, Github, ExternalLink, Maximize2, X, CheckCircle2 } from "lucide-react";
+import { GitPullRequest, GitFork, Github, ExternalLink, Maximize2, X, CheckCircle2, Clock } from "lucide-react";
 import wso2Img from "../assets/images/wso2-contrib.png";
 import leetcodeImg from "../assets/images/leetcode-contrib.png";
+import wso2OxygenImg from "../assets/images/wso2-oxygen-contrib.svg";
+import openchoreoImg from "../assets/images/openchoreo-contrib.svg";
+import ballerinaImg from "../assets/images/ballerina-contrib.svg";
 
 const contributions = [
-  {
-    id: "wso2",
-    title: "WSO2 API Manager (wso2/apim-apps)",
-    description:
-      "Contributed to enterprise API Manager web portals codebase. Refactored scope pagination in Publisher Portal, enhanced shared utility safety and authored comprehensive Jest unit test suites.",
-    image: wso2Img,
-    fallbackImage: "/wso2-contrib.png",
-    tags: [
-      { name: "React", color: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300" },
-      { name: "Jest", color: "bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300" },
-      { name: "PR #1437", color: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300" },
-      { name: "CodeRabbit Approved", color: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300" },
-      { name: "SonarCloud Passed", color: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300" },
-    ],
-    prUrl: "https://github.com/wso2/apim-apps/pull/1437",
-    mainRepoUrl: "https://github.com/wso2/apim-apps",
-    forkUrl: "https://github.com/dulanachathurma/apim-apps",
-    highlight: "Enterprise Contribution",
-    highlightColor: "bg-emerald-600/90",
-  },
   {
     id: "leetcode",
     title: "LeetCode Solutions (doocs/leetcode)",
@@ -35,13 +18,97 @@ const contributions = [
       { name: "JavaScript", color: "bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300" },
       { name: "Dynamic Programming", color: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300" },
       { name: "Merged PR #6231", color: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300" },
-      { name: "Rank #22 Contributor", color: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300" },
+      { name: "Rank #22", color: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300" },
     ],
     prUrl: "https://github.com/doocs/leetcode/pull/6231",
     mainRepoUrl: "https://github.com/doocs/leetcode",
     forkUrl: "https://github.com/dulanachathurma/leetcode",
-    highlight: "Merged Pull Request",
-    highlightColor: "bg-indigo-600/90",
+    highlight: "Merged ✓",
+    highlightColor: "bg-purple-600/90",
+    statusIcon: "merged",
+  },
+  {
+    id: "wso2-oxygen",
+    title: "WSO2 Oxygen UI (wso2/oxygen-ui)",
+    description:
+      "Architected the enterprise AIAssistant & Copilot compound component suite with drawer, floating and inline modes. Includes chain-of-thought disclosures, syntax-highlighted code blocks, WCAG 2.1 AA accessibility and comprehensive Vitest unit tests with Storybook stories.",
+    image: wso2OxygenImg,
+    fallbackImage: "/wso2-contrib.png",
+    tags: [
+      { name: "React", color: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300" },
+      { name: "TypeScript", color: "bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300" },
+      { name: "PR #704", color: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300" },
+      { name: "WCAG 2.1 AA", color: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300" },
+      { name: "CLA Signed", color: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300" },
+    ],
+    prUrl: "https://github.com/wso2/oxygen-ui/pull/704",
+    mainRepoUrl: "https://github.com/wso2/oxygen-ui",
+    forkUrl: "https://github.com/dulanachathurma/oxygen-ui",
+    highlight: "Under Review",
+    highlightColor: "bg-amber-600/90",
+    statusIcon: "review",
+  },
+  {
+    id: "wso2-apim",
+    title: "WSO2 API Manager (wso2/apim-apps)",
+    description:
+      "Refactored scopes pagination in Publisher Portal to respect dynamic maxScopeCount, improved utility safety with null-safe normalization and authored comprehensive Jest unit test suites. Passed SonarCloud Quality Gate and received CodeRabbit AI approval.",
+    image: wso2Img,
+    fallbackImage: "/wso2-contrib.png",
+    tags: [
+      { name: "React", color: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300" },
+      { name: "Jest", color: "bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300" },
+      { name: "PR #1437", color: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300" },
+      { name: "CodeRabbit ✓", color: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300" },
+      { name: "SonarCloud ✓", color: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300" },
+    ],
+    prUrl: "https://github.com/wso2/apim-apps/pull/1437",
+    mainRepoUrl: "https://github.com/wso2/apim-apps",
+    forkUrl: "https://github.com/dulanachathurma/apim-apps",
+    highlight: "Under Review",
+    highlightColor: "bg-amber-600/90",
+    statusIcon: "review",
+  },
+  {
+    id: "openchoreo",
+    title: "CNCF OpenChoreo (openchoreo/openchoreo)",
+    description:
+      "Implemented stdin streaming support (-f -) for occ apply enabling Unix piping from Helm/Kustomize. Introduced --dry-run flag for manifest validation without mutating cluster state. Authored extensive Go unit tests and passed all DCO and Conventional Commits checks.",
+    image: openchoreoImg,
+    fallbackImage: "/wso2-contrib.png",
+    tags: [
+      { name: "Go", color: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300" },
+      { name: "Kubernetes", color: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300" },
+      { name: "PR #5430", color: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300" },
+      { name: "CodeRabbit ✓", color: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300" },
+      { name: "DCO Passed", color: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300" },
+    ],
+    prUrl: "https://github.com/openchoreo/openchoreo/pull/5430",
+    mainRepoUrl: "https://github.com/openchoreo/openchoreo",
+    forkUrl: "https://github.com/dulanachathurma/openchoreo",
+    highlight: "Under Review",
+    highlightColor: "bg-amber-600/90",
+    statusIcon: "review",
+  },
+  {
+    id: "ballerina",
+    title: "Ballerina Platform (ballerina-dev-website)",
+    description:
+      "Refined official developer guides, resource references and website documentation for the Ballerina platform. Improved repository templates and contributor guidelines to streamline open-source onboarding aligned with WSO2 governance standards.",
+    image: ballerinaImg,
+    fallbackImage: "/wso2-contrib.png",
+    tags: [
+      { name: "Ballerina", color: "bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300" },
+      { name: "Documentation", color: "bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300" },
+      { name: "PR #10487", color: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300" },
+      { name: "WSO2 Ecosystem", color: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300" },
+    ],
+    prUrl: "https://github.com/ballerina-platform/ballerina-dev-website/pull/10487",
+    mainRepoUrl: "https://github.com/ballerina-platform/ballerina-dev-website",
+    forkUrl: "https://github.com/dulanachathurma/ballerina-dev-website",
+    highlight: "Under Review",
+    highlightColor: "bg-amber-600/90",
+    statusIcon: "review",
   },
 ];
 
@@ -228,8 +295,8 @@ export const OpenSourceSection = () => {
           </p>
         </div>
 
-        {/* --- CHANGED: max-w-5xl -> max-w-3xl, gap-8 -> gap-6 --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {/* Contributions Grid — responsive 1 → 2 → 3 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {contributions.map((contrib) => (
             <div
               key={contrib.id}
@@ -277,7 +344,7 @@ export const OpenSourceSection = () => {
                   <div
                     className={`absolute top-3 left-3 px-2.5 py-1 rounded-full ${contrib.highlightColor} text-white text-[10px] font-bold tracking-wider uppercase backdrop-blur-md flex items-center gap-1 shadow-md`}
                   >
-                    <CheckCircle2 size={11} /> {contrib.highlight}
+                    {contrib.statusIcon === "merged" ? <CheckCircle2 size={11} /> : <Clock size={11} />} {contrib.highlight}
                   </div>
                 </div>
 
@@ -347,7 +414,7 @@ export const OpenSourceSection = () => {
         </div>
 
         {/* Bottom Divider */}
-        <div className="relative w-full max-w-3xl mx-auto mt-16 flex flex-col items-center justify-center">
+        <div className="relative w-full max-w-6xl mx-auto mt-16 flex flex-col items-center justify-center">
           <div className="relative w-full flex items-center justify-center pt-16 pb-4">
             <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 dark:via-cyan-400/60 to-transparent" />
             <div className="absolute w-3/4 h-[4px] bg-gradient-to-r from-transparent via-blue-600/50 dark:via-cyan-400/80 to-transparent blur-[4px]" />
