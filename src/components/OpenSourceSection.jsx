@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { GitPullRequest, GitFork, Github, ExternalLink, Maximize2, X, CheckCircle2, Clock } from "lucide-react";
 import wso2Img from "../assets/images/wso2-contrib.png";
 import leetcodeImg from "../assets/images/leetcode-contrib.png";
-import wso2OxygenImg from "../assets/images/wso2-oxygen-contrib.svg";
-import openchoreoImg from "../assets/images/openchoreo-contrib.svg";
-import ballerinaImg from "../assets/images/ballerina-contrib.svg";
+import wso2OxygenImg from "../assets/images/wso2-oxygen-contrib.png";
+import openchoreoImg from "../assets/images/openchoreo-contrib.png";
+import ballerinaImg from "../assets/images/ballerina-contrib.png";
 
 // Official Organization Logos
 import wso2Logo from "../assets/images/logo-wso2.png";
@@ -43,7 +43,7 @@ const contributions = [
     description:
       "Architected the enterprise AIAssistant & Copilot compound component suite with drawer, floating and inline modes. Includes chain-of-thought disclosures, syntax-highlighted code blocks, WCAG 2.1 AA accessibility and comprehensive Vitest unit tests with Storybook stories.",
     image: wso2OxygenImg,
-    fallbackImage: "/wso2-contrib.png",
+    fallbackImage: "/wso2-oxygen-contrib.png",
     tags: [
       { name: "React", color: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300" },
       { name: "TypeScript", color: "bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300" },
@@ -89,7 +89,7 @@ const contributions = [
     description:
       "Implemented stdin streaming support (-f -) for occ apply enabling Unix piping from Helm/Kustomize. Introduced --dry-run flag for manifest validation without mutating cluster state. Authored extensive Go unit tests and passed all DCO and Conventional Commits checks.",
     image: openchoreoImg,
-    fallbackImage: "/wso2-contrib.png",
+    fallbackImage: "/openchoreo-contrib.png",
     tags: [
       { name: "Go", color: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300" },
       { name: "Kubernetes", color: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300" },
@@ -112,7 +112,7 @@ const contributions = [
     description:
       "Refined official developer guides, resource references and website documentation for the Ballerina platform. Improved repository templates and contributor guidelines to streamline open-source onboarding aligned with WSO2 governance standards.",
     image: ballerinaImg,
-    fallbackImage: "/wso2-contrib.png",
+    fallbackImage: "/ballerina-contrib.png",
     tags: [
       { name: "Ballerina", color: "bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300" },
       { name: "Documentation", color: "bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300" },
