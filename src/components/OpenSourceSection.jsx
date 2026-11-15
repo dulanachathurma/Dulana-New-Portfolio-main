@@ -6,10 +6,18 @@ import wso2OxygenImg from "../assets/images/wso2-oxygen-contrib.svg";
 import openchoreoImg from "../assets/images/openchoreo-contrib.svg";
 import ballerinaImg from "../assets/images/ballerina-contrib.svg";
 
+// Official Organization Logos
+import wso2Logo from "../assets/images/logo-wso2.png";
+import openchoreoLogo from "../assets/images/logo-openchoreo.png";
+import ballerinaLogo from "../assets/images/logo-ballerina.png";
+import leetcodeLogo from "../assets/images/logo-leetcode.svg";
+
 const contributions = [
   {
     id: "leetcode",
-    title: "LeetCode Solutions (doocs/leetcode)",
+    title: "LeetCode Solutions",
+    repoName: "doocs/leetcode",
+    logo: leetcodeLogo,
     description:
       "Contributed an optimized JavaScript solution for Problem 0042 (Trapping Rain Water) using Dynamic Programming. Ranked as the #22 contributor in the official repository (36k+ ⭐).",
     image: leetcodeImg,
@@ -29,7 +37,9 @@ const contributions = [
   },
   {
     id: "wso2-oxygen",
-    title: "WSO2 Oxygen UI (wso2/oxygen-ui)",
+    title: "WSO2 Oxygen UI",
+    repoName: "wso2/oxygen-ui",
+    logo: wso2Logo,
     description:
       "Architected the enterprise AIAssistant & Copilot compound component suite with drawer, floating and inline modes. Includes chain-of-thought disclosures, syntax-highlighted code blocks, WCAG 2.1 AA accessibility and comprehensive Vitest unit tests with Storybook stories.",
     image: wso2OxygenImg,
@@ -50,7 +60,9 @@ const contributions = [
   },
   {
     id: "wso2-apim",
-    title: "WSO2 API Manager (wso2/apim-apps)",
+    title: "WSO2 API Manager",
+    repoName: "wso2/apim-apps",
+    logo: wso2Logo,
     description:
       "Refactored scopes pagination in Publisher Portal to respect dynamic maxScopeCount, improved utility safety with null-safe normalization and authored comprehensive Jest unit test suites. Passed SonarCloud Quality Gate and received CodeRabbit AI approval.",
     image: wso2Img,
@@ -71,7 +83,9 @@ const contributions = [
   },
   {
     id: "openchoreo",
-    title: "CNCF OpenChoreo (openchoreo/openchoreo)",
+    title: "CNCF OpenChoreo",
+    repoName: "openchoreo/openchoreo",
+    logo: openchoreoLogo,
     description:
       "Implemented stdin streaming support (-f -) for occ apply enabling Unix piping from Helm/Kustomize. Introduced --dry-run flag for manifest validation without mutating cluster state. Authored extensive Go unit tests and passed all DCO and Conventional Commits checks.",
     image: openchoreoImg,
@@ -92,7 +106,9 @@ const contributions = [
   },
   {
     id: "ballerina",
-    title: "Ballerina Platform (ballerina-dev-website)",
+    title: "Ballerina Platform",
+    repoName: "ballerina-platform/ballerina-dev-website",
+    logo: ballerinaLogo,
     description:
       "Refined official developer guides, resource references and website documentation for the Ballerina platform. Improved repository templates and contributor guidelines to streamline open-source onboarding aligned with WSO2 governance standards.",
     image: ballerinaImg,
@@ -313,6 +329,8 @@ export const OpenSourceSection = () => {
                   onClick={() =>
                     setSelectedImage({
                       title: contrib.title,
+                      repoName: contrib.repoName,
+                      logo: contrib.logo,
                       image: contrib.image,
                       fallbackImage: contrib.fallbackImage,
                       description: contrib.description,
@@ -346,6 +364,20 @@ export const OpenSourceSection = () => {
                   >
                     {contrib.statusIcon === "merged" ? <CheckCircle2 size={11} /> : <Clock size={11} />} {contrib.highlight}
                   </div>
+
+                  {/* Bottom-Left Floating Org Logo Badge */}
+                  {contrib.logo && (
+                    <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-xl bg-white/95 dark:bg-[#0d1117]/90 backdrop-blur-md border border-black/10 dark:border-white/15 flex items-center gap-2 shadow-lg group-hover/img:scale-105 transition-transform duration-300">
+                      <img
+                        src={contrib.logo}
+                        alt={`${contrib.title} logo`}
+                        className="w-5 h-5 object-contain"
+                      />
+                      <span className="text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 tracking-tight">
+                        {contrib.repoName.split("/")[0]}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content Box */}
@@ -362,10 +394,26 @@ export const OpenSourceSection = () => {
                     ))}
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-base sm:text-lg font-bold mb-1.5 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
-                    {contrib.title}
-                  </h3>
+                  {/* Title & Organization Header with Logo */}
+                  <div className="flex items-center gap-2.5 mb-2">
+                    {contrib.logo && (
+                      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 p-1 shrink-0 flex items-center justify-center border border-slate-200/80 dark:border-slate-700/60 shadow-sm">
+                        <img
+                          src={contrib.logo}
+                          alt=""
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
+                        {contrib.title}
+                      </h3>
+                      <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400 truncate">
+                        {contrib.repoName}
+                      </p>
+                    </div>
+                  </div>
 
                   {/* Description */}
                   <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mb-4 leading-relaxed flex-grow">
@@ -436,11 +484,25 @@ export const OpenSourceSection = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800">
-              <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white line-clamp-1">
-                {selectedImage.title}
-              </h4>
+              <div className="flex items-center gap-2.5 min-w-0 pr-3">
+                {selectedImage.logo && (
+                  <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 p-1 shrink-0 flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <img src={selectedImage.logo} alt="" className="w-full h-full object-contain" />
+                  </div>
+                )}
+                <div className="min-w-0">
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white truncate">
+                    {selectedImage.title}
+                  </h4>
+                  {selectedImage.repoName && (
+                    <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400 truncate">
+                      {selectedImage.repoName}
+                    </p>
+                  )}
+                </div>
+              </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 shrink-0">
                 <a
                   href={selectedImage.prUrl}
                   target="_blank"
