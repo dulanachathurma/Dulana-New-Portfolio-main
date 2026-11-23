@@ -15,6 +15,40 @@ const certificates = [
   // NEW: AI & COMPUTER VISION CERTIFICATIONS (NOV 2026)
   // ==========================================
   {
+    id: 305,
+    category: "ai-ml",
+    title: "Build an AI Agent",
+    organization: "IBM SkillsBuild",
+    location: "Online",
+    date: "Nov 23, 2026",
+    description: "IBM SkillsBuild certification on building autonomous AI agents, covering agent architectures, tool integration, reasoning loops, and practical AI agent deployment.",
+    image: "/IBM.pdf",
+    logoImg: "/IBM_logo.png",
+    logoText: "IBM",
+    logoBg: "bg-blue-700",
+    skills: ["AI Agents", "Artificial Intelligence", "IBM SkillsBuild", "Agent Architecture"],
+    viewCertificateUrl: "/IBM.pdf",
+    verifyUrl: "https://www.credly.com/go/acQrx0AX",
+    tagColor: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+  },
+  {
+    id: 306,
+    category: "ai-ml",
+    title: "Machine Learning for Healthcare Applications",
+    organization: "Cognitive Class (IBM Skills Network)",
+    location: "Online",
+    date: "Nov 23, 2026",
+    description: "Comprehensive learning path on applying machine learning techniques to healthcare domains, covering predictive analytics, clinical data processing, and AI-driven medical applications.",
+    image: "/Cognitive Class.pdf",
+    logoImg: "/IBM_logo.png",
+    logoText: "CC",
+    logoBg: "bg-indigo-600",
+    skills: ["Machine Learning", "Healthcare AI", "Data Science", "IBM Skills Network"],
+    viewCertificateUrl: "/Cognitive Class.pdf",
+    verifyUrl: "https://cognitiveclass.ai/certificates/95b796a4-2cda-48d6-b003-89f877ee18be",
+    tagColor: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
+  },
+  {
     id: 300,
     category: "ai-ml",
     title: "Claude 101",
@@ -378,6 +412,23 @@ const certificates = [
   // ==========================================
   // 6. GOOGLE & GITHUB
   // ==========================================
+  {
+    id: 304,
+    category: "ai-ml",
+    title: "AI-Powered Performance Ads Certification",
+    organization: "Google",
+    location: "Online",
+    date: "Nov 23, 2026",
+    description: "Official Google certification covering AI-powered performance advertising strategies, automated bidding, smart campaigns, and machine learning–driven ad optimization.",
+    image: "/Google.pdf",
+    logoImg: "Google_2015_logo.png",
+    logoText: "G",
+    logoBg: "bg-red-500",
+    skills: ["AI-Powered Ads", "Google Ads", "Machine Learning", "Digital Marketing"],
+    credentialId: "201331159",
+    viewCertificateUrl: "/Google.pdf",
+    tagColor: "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
+  },
   {
     id: 21,
     category: "web-mobile",
