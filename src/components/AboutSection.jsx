@@ -48,6 +48,7 @@ export const AboutSection = () => {
 
   const organizations = [
     { name: "@wso2", url: "https://github.com/wso2", avatar: "https://github.com/wso2.png" },
+    { name: "@openchoreo (Choreo Labs)", url: "https://github.com/openchoreo", avatar: "https://github.com/openchoreo.png" },
     { name: "@ballerina-platform", url: "https://github.com/ballerina-platform", avatar: "https://github.com/ballerina-platform.png" },
     { name: "@doocs (LeetCode)", url: "https://github.com/doocs", avatar: "https://github.com/doocs.png" },
     { name: "@code50", url: "https://github.com/code50", avatar: "https://github.com/code50.png" },

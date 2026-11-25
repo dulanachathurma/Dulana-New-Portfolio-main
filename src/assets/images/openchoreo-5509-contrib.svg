@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#238636"/>
+      <stop offset="100%" style="stop-color:#2ea043"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#21262d"/>
+      <stop offset="100%" style="stop-color:#1c2128"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff08" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+
+  <!-- Glow effect -->
+  <ellipse cx="600" cy="315" rx="500" ry="250" fill="#238636" opacity="0.04"/>
+
+  <!-- Main card -->
+  <rect x="60" y="60" width="1080" height="510" rx="16" fill="url(#cardBg)" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Header section -->
+  <rect x="60" y="60" width="1080" height="80" rx="16" fill="#161b22"/>
+  <rect x="60" y="124" width="1080" height="16" fill="#161b22"/>
+
+  <!-- OpenChoreo logo area -->
+  <circle cx="120" cy="100" r="28" fill="#1f6feb" opacity="0.2"/>
+  <text x="120" y="107" font-family="monospace" font-size="22" fill="#79c0ff" text-anchor="middle" font-weight="bold">↑</text>
+
+  <!-- PR Title -->
+  <text x="168" y="92" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',monospace" font-size="20" fill="#e6edf3" font-weight="600">openchoreo / openchoreo</text>
+  <text x="168" y="118" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',monospace" font-size="14" fill="#8b949e">Pull Request #5509 · AuthZ Engine · resource.name Condition Evaluation</text>
+
+  <!-- Status badge -->
+  <rect x="980" y="74" width="130" height="32" rx="16" fill="#238636"/>
+  <text x="1045" y="95" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI'" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="600">● Open</text>
+
+  <!-- PR Title large -->
+  <text x="88" y="195" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI'" font-size="26" fill="#e6edf3" font-weight="700">feat(authz): Add resource.name Condition Evaluation</text>
+  <text x="88" y="225" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI'" font-size="26" fill="#e6edf3" font-weight="700">for Fine-Grained Secret Authorization Policies</text>
+
+  <!-- Meta info row -->
+  <circle cx="104" cy="265" r="14" fill="#30363d"/>
+  <text x="104" y="270" font-family="monospace" font-size="11" fill="#8b949e" text-anchor="middle">DC</text>
+  <text x="128" y="270" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI'" font-size="13" fill="#8b949e">dulanachathurma opened this pull request · AuthZ Engine · Go</text>
+
+  <!-- Tags -->
+  <rect x="88" y="288" width="90" height="24" rx="12" fill="#1f6feb22" stroke="#1f6feb55" stroke-width="1"/>
+  <text x="133" y="304" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI'" font-size="11" fill="#79c0ff" text-anchor="middle">enhancement</text>
+
+  <rect x="188" y="288" width="60" height="24" rx="12" fill="#23863622" stroke="#23863655" stroke-width="1"/>
+  <text x="218" y="304" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI'" font-size="11" fill="#56d364" text-anchor="middle">authz</text>
+
+  <rect x="258" y="288" width="50" height="24" rx="12" fill="#6e40c922" stroke="#6e40c955" stroke-width="1"/>
+  <text x="283" y="304" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI'" font-size="11" fill="#bc8cff" text-anchor="middle">Go</text>
+
+  <rect x="318" y="288" width="90" height="24" rx="12" fill="#b4590022" stroke="#b4590055" stroke-width="1"/>
+  <text x="363" y="304" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI'" font-size="11" fill="#f0883e" text-anchor="middle">security</text>
+
+  <!-- Divider -->
+  <line x1="88" y1="330" x2="1112" y2="330" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Code diff section -->
+  <rect x="88" y="345" width="1024" height="200" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+
+  <!-- File header -->
+  <rect x="88" y="345" width="1024" height="32" rx="8" fill="#161b22"/>
+  <rect x="88" y="361" width="1024" height="16" fill="#161b22"/>
+  <text x="108" y="367" font-family="monospace" font-size="12" fill="#8b949e">authz/engine/evaluator.go</text>
+  <text x="980" y="367" font-family="monospace" font-size="11" fill="#56d364">+47</text>
+  <text x="1010" y="367" font-family="monospace" font-size="11" fill="#f85149">-3</text>
+
+  <!-- Code lines - additions -->
+  <rect x="88" y="377" width="1024" height="20" fill="#12261e"/>
+  <text x="98" y="391" font-family="monospace" font-size="12" fill="#56d364">+  func (e *Evaluator) evaluateResourceNameCondition(ctx context.Context, policy *Policy, resource string) bool {</text>
+
+  <rect x="88" y="397" width="1024" height="20" fill="#12261e"/>
+  <text x="98" y="411" font-family="monospace" font-size="12" fill="#56d364">+      if policy.ResourceName == "" || policy.ResourceName == "*" {</text>
+
+  <rect x="88" y="417" width="1024" height="20" fill="#12261e"/>
+  <text x="98" y="431" font-family="monospace" font-size="12" fill="#56d364">+          return true  // wildcard — allow all resource names</text>
+
+  <rect x="88" y="437" width="1024" height="20" fill="#12261e"/>
+  <text x="98" y="451" font-family="monospace" font-size="12" fill="#56d364">+      }</text>
+
+  <rect x="88" y="457" width="1024" height="20" fill="#12261e"/>
+  <text x="98" y="471" font-family="monospace" font-size="12" fill="#56d364">+      return matchesGlobPattern(policy.ResourceName, resource)</text>
+
+  <rect x="88" y="477" width="1024" height="20" fill="#12261e"/>
+  <text x="98" y="491" font-family="monospace" font-size="12" fill="#56d364">+  }</text>
+
+  <rect x="88" y="497" width="1024" height="20" fill="#12261e"/>
+  <text x="98" y="511" font-family="monospace" font-size="12" fill="#56d364">+  // Integrates resource.name into authorization decision for secret policies</text>
+
+  <rect x="88" y="517" width="1024" height="28" fill="#0d1117"/>
+  <text x="98" y="535" font-family="monospace" font-size="12" fill="#8b949e">   // ... existing condition chain ...</text>
+
+  <!-- Bottom stats -->
+  <text x="88" y="574" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI'" font-size="13" fill="#8b949e">📁 4 files changed  ·  +47 lines added  ·  -3 lines removed  ·  DCO Passed ✓  ·  CodeRabbit Reviewed ✓</text>
+</svg>

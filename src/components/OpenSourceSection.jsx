@@ -4,6 +4,8 @@ import wso2Img from "../assets/images/wso2-contrib.png";
 import leetcodeImg from "../assets/images/leetcode-contrib.png";
 import wso2OxygenImg from "../assets/images/wso2-oxygen-contrib.png";
 import openchoreoImg from "../assets/images/openchoreo-contrib.png";
+import openchoreo5509Img from "../assets/images/openchoreo-5509-contrib.svg";
+import openchoreo5510Img from "../assets/images/openchoreo-5510-contrib.svg";
 import ballerinaImg from "../assets/images/ballerina-contrib.png";
 
 // Official Organization Logos
@@ -82,8 +84,8 @@ const contributions = [
     statusIcon: "review",
   },
   {
-    id: "openchoreo",
-    title: "CNCF OpenChoreo",
+    id: "openchoreo-5430",
+    title: "CNCF OpenChoreo — occ CLI",
     repoName: "openchoreo/openchoreo",
     logo: openchoreoLogo,
     description:
@@ -98,6 +100,52 @@ const contributions = [
       { name: "DCO Passed", color: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300" },
     ],
     prUrl: "https://github.com/openchoreo/openchoreo/pull/5430",
+    mainRepoUrl: "https://github.com/openchoreo/openchoreo",
+    forkUrl: "https://github.com/dulanachathurma/openchoreo",
+    highlight: "Under Review",
+    highlightColor: "bg-amber-600/90",
+    statusIcon: "review",
+  },
+  {
+    id: "openchoreo-5509",
+    title: "CNCF OpenChoreo — AuthZ Engine",
+    repoName: "openchoreo/openchoreo",
+    logo: openchoreoLogo,
+    description:
+      "Added resource.name condition evaluation for fine-grained secret authorization policies. Enables glob-pattern matching on secret resource names within policy rules, allowing precise AuthZ decisions at the sub-resource level. Passed all DCO and Conventional Commits checks.",
+    image: openchoreo5509Img,
+    fallbackImage: "/openchoreo-contrib.png",
+    tags: [
+      { name: "Go", color: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300" },
+      { name: "AuthZ", color: "bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300" },
+      { name: "PR #5509", color: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300" },
+      { name: "Security", color: "bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300" },
+      { name: "DCO Passed", color: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300" },
+    ],
+    prUrl: "https://github.com/openchoreo/openchoreo/pull/5509",
+    mainRepoUrl: "https://github.com/openchoreo/openchoreo",
+    forkUrl: "https://github.com/dulanachathurma/openchoreo",
+    highlight: "Under Review",
+    highlightColor: "bg-amber-600/90",
+    statusIcon: "review",
+  },
+  {
+    id: "openchoreo-5510",
+    title: "CNCF OpenChoreo — Release CLI",
+    repoName: "openchoreo/openchoreo",
+    logo: openchoreoLogo,
+    description:
+      "Enforced duplicate release binding detection during environment promotion in occ CLI. Prevents silent promotion failures caused by conflicting bindings by returning a structured error on duplicates. Includes comprehensive Go unit tests and passes all DCO and Conventional Commits checks.",
+    image: openchoreo5510Img,
+    fallbackImage: "/openchoreo-contrib.png",
+    tags: [
+      { name: "Go", color: "bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300" },
+      { name: "occ CLI", color: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300" },
+      { name: "PR #5510", color: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300" },
+      { name: "Release Mgmt", color: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300" },
+      { name: "DCO Passed", color: "bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300" },
+    ],
+    prUrl: "https://github.com/openchoreo/openchoreo/pull/5510",
     mainRepoUrl: "https://github.com/openchoreo/openchoreo",
     forkUrl: "https://github.com/dulanachathurma/openchoreo",
     highlight: "Under Review",
